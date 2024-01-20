@@ -1,0 +1,261 @@
+---
+layout: post
+title: "\U0001F427 Linux - Cài phần mềm từ source"
+date: 2022-10-12 09:19:30.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Linux
+- System
+tags:
+- make
+- source
+author: thu4nvd
+permalink: "/linux-source-install/"
+---
+<p><!-- wp:kadence/tableofcontents {"uniqueID":"_c13b5a-00","containerBackground":"#abb8c3","enableTitle":false} /--></p>
+<p><!-- wp:heading --></p>
+<h2>1. Giới thiệu</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Các phần mềm trên <strong>Linux</strong> không tự đóng gói sẵn. Bởi vì chạy trên chạy trên nhìều hệ thống khác nhau trong họ <strong>Unix</strong> như Solaris, AIX, HP-UX… thậm chí các phần mềm đó có thể chạy trên rất nhiều vi xử lý khác nhau như Intel, Motorola, PPC<strong>…</strong> Có được sự đa năng đó là nhờ vào <strong>tính đa nền (portable) </strong>của ngôn ngữ <strong>C/C++</strong> nhưng đòi hỏi chúng ta phải <strong>biên dịch</strong> lại phần mềm từ mã nguồn cho hệ thống mà chúng vận hành. Bạn sẽ tự hỏi là tại sao các nhà phát triển lại không biên dịch sẵn cho chúng ta trên hệ thống thông dụng nào đó như <strong>Linux</strong> chẳng hạn.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Các phần mềm này là phần mềm mã nguồn mở và các nhà phát triển không có cách gì hơn là để lại phần biên dịch cho chúng ta. Tuy nhiên bạn đừng thất vọng vì có một số nhà phát triển rất là tốt bụng có thể biên dịch sẵn cho chúng ta ra các gói có dạng rpm và cùng với sự hỗ trợ của công ty Red Hat chúng ta cũng đã có những chương trình quản lý các phần mềm hiệu quả không kém gì trên Windows như <strong>RPM</strong> (<strong>Redhat Package Manager</strong>).</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>2. Căn bản của việc cài đặt</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Điều đầu tiên khi bạn tiến hành cài đặt là bạn phải có mã nguồn của gói đó trước. Hãy lên mạng search bất kì gói nào bạn thích như thư viện <strong>Gtk+</strong> hoặc <strong>Gnome</strong>… Sau khi tải về, thông thường có dạng là <strong>.gz</strong> hoặc <strong>.bz2</strong>, đây đều là 2 chuẩn nén khác nhau, sau khi giải nén bằng gunzip cho <strong>gz</strong> hoặc <strong>bunzip2</strong> cho <strong>bz2</strong> thì các gói sẽ có dạng mới là <strong>tar</strong>, cũng là một chuẩn nén khác, bạn có thể giải nén bằng lệnh, <strong>tar -xvf</strong>… Thế nhưng đế dễ dàng và tiết kiệm dung lượng ổ đĩa thì chúng ta có thể gộp các câu lệnh đó thành 1 như sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">– Đối với gói .gz:&nbsp; # tar -zxvf tengoi.gz
+– Đối với gói .bz2: # tar -jxvf tengoi.bz2</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Sau khi giải nén xong và tìm tập tin <strong>INSTALL</strong> để đọc cụ thể cho phần hướng dẫn cài đặt. Thế nhưng hầu như các gói đều tuân theo các thao tác tuần tự sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"># ./configure
+# make
+# make install</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>&nbsp;./configure</strong>… Thực chất configure là một shell script sẽ kiểm tra những yêu cầu của hệ thống của bạn có đáp ứng đủ để cài đặt gói lên không, ví dụ như một số gói đòi hỏi bạn phải có sẵn thư viện đồ họa Gtk 2.4 trở lên hoặc là thư viện để giải nén nhạc Mp3…</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Rất nhiều gói có sự phụ thuộc như thế chứ các gói khi tải về không hề có sẵn các gói tương ứng cần thiết cho nó. Khi bạn chạy configure xong kết quả sẽ cho bạn biết các gói nào cần thiết để cài đặt. Nhiệm vụ của bạn không gì hơn là phải tìm các gói phụ thuộc đó cài lên máy rồi mới tiếp tục việc cài đặt. Nếu như hệ thống của bạn thỏa mãn đầy đủ các yêu cầu để cài đặt thì các Makefile sẽ được tạo ra. Makefile là một file đặc biệt của tiện ích make nhằm hướng dẫn biên dịch mã nguồn của gói ra dạng thực thi.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Sau khi bạn thực thi lệnh ‘<strong>make</strong>’ xong thì toàn bộ mã nguồn của gói đã được biên dịch sang dạng thực thi nhưng các file thực thi vẫn còn nằm trên thư mục hiện hành. Do đó bạn cần phải thực hiện thêm lệnh ‘<strong>make install</strong>’ để chép các file thực thi đó sang đúng vị trí của nó trên hệ thống. Nếu như không có thông báo lỗi gì xảy ra thì bạn đã hòan tất việc cài đặt gói lên hệ thống của mình.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>3. Gỡ bỏ một gói</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Nếu bạn mong muốn lọai bỏ một gói đã cài đặt trên hệthống thì <strong>cách duy nhất là bạn phải vào lại thư mục mã nguồn của gói</strong> và gõ lệnh</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">make uninstall</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Thông thường bạn sẽ có các câu lệnh sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">make clean</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">make distclean</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading --></p>
+<h2>4. Quản lý các gói</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Do việc xóa bỏ một gói như trên rất là phiền phức đôi lúc bạn chẳng thể xóa bỏ được nếu như mất đi mã nguồn, cho nên bạn có thể thay vì cài nó vào thư mục mặc định là /usr thì <strong>bạn có thể cài vào các thư mục của riêng bạn,</strong> ví dụ như bạn có thể tạo thư mục ‘/soft’… Sau đó để cài gói gedit thì bạn tạo thêm thư mục /soft/gedit và dùng lệnh ./configure… bạn thêm tùy chọn sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">./configure –prefix=/soft/gedit</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading --></p>
+<h2>5. Gợi ý cho việc quản lý gói phần mềm</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Đối với cách cài trên thì bạn dể dàng quản lý các gói của mình nhưng đối với các dạng thư viện thì bạn nên cài nó vào thư mục <strong>/usr</strong> hơn là thư mục riêng của mình vì một số gói sẽ tìm các thư việc trên thư mục mặc định /usr và <strong>/usr/local</strong> hơn là các thư mục riêng người dùng nên nếu bạn cài lên thư mục riêng thì đôi lúc các thư viện đó sẽ không được tìm ra. Thông thường lệnh .<strong>/configure</strong> đi đôi với rất nhiều tùy chọn cho phép bạn lựa chọn nhiều tính năng khác nhau, bạn gõ&nbsp;để mà biết đầy đủ các tùy chọn của gói:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">./configure –help</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading --></p>
+<h2>6. Cài đặt phần mềm trên Redhat – Centos</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Bản thân các gói RPM không chứa chương trình cài đặt</strong>, nó chỉ chứa các thông tin về các file sẽ được cài đặt, thông tin mô tả về phần mềm chứa trong gói và các file nằm trong gói RPM sẽ được cài đặt vào thư mục nào trong hệ thống. Các gói phần mềm dạng RPM được cài đặt vào hệ thống nhờ vào chương trình RPM có trong hệ thống.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Cách đơn giản nhất để cài một gói RPM, chẳng hạn gói <strong>foobar-1.0-1.i386.rpm</strong> là dùng lệnh:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">rpm -i foobar-1.0-1.i386.rpm</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Để theo dõi quá trình install, bạn có thể thêm tham số:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">rpm –ivh foobar-1.0-1.i386.rpm</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Để <strong>uninstall</strong> package đã được cài:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">rpm -e foobar</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Nếu có một file RPM mà không biết nó là phần mềm nào, bạn có thể lấy thông tin bằng lệnh:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">rpm -qpi koules-1.4-1.i386.rpm</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Nếu đã lỡ xóa một vài file nào đó và không chắc chắn rằng file đó đang còn cần thiết cho chương trình nào đó, bạn có thể xem thử hệ thống đang thiếu file cần thiết nào:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">rpm –Va</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bạn cũng có thể dùng lệnh yum để cài đặt phần mềm, vd bạn muốn cài đặt webserver gõ lệnh sau</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"># yum install httpd</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Sau đó nhấn -y để xác nhận, hoặc có thể tìm một gói cài đặt bằng cách dùng lệnh yum search, sẽ liệt kê các gói cần cài đặt</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"># yum search httpd</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading --></p>
+<h2>7. Cài đặt phần mềm trên Ubuntu – Debian</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong>Cài đặt các file .deb</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>File này rất dễ cài, bạn chỉ cần click đúp vào file và trình cài đặt phần mềm trên hệ thống tự mở, click “<strong>Install Package</strong>” và chờ quá trình cài đặt hoàn tất.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Chú ý</strong>: Một số phần mềm yêu cầu máy phải cài sẵn một số Dependency, nếu không đủ các Dependency lúc cài đặt sẽ báo lỗi. Để giải quyết vấn đề Dependency với file .deb nhanh gọn có thể sử dụng gói Gdebi</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Đây là một ứng dụng có giao diện người dùng, nó cho phép bạn cài đặt các gói .deb đã dowload sẵn và nằm trên HDD, còn các Dependency phải kết nối Internet đề Gdebi tự tìm và download giúp bạn. Gdebi cũng có thể chạy trong chế độ non-GUI bằng cách chuyển tới folder chứa file .deb và gõ sudo gdebi package_name.deb tại nhắc lệnh và vẫn có khả năng giải quyết các dependency.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong>Cài đặt các file .rpm</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bạn nên sử dụng gói <strong>Alien</strong> để chuyển từ <strong>.rpm</strong> sang <strong>.deb</strong> cho dễ cài đặt</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Mở Terminal lên, gõ vào <strong>sudo apt-get install alien</strong> đề download và cài đặt gói <strong>Alien</strong> thông qua tiện ích quản lý gói <strong>APT</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Gõ vào Password ứng với User bạn đang Logon. Gõ ‘y’ để đồng ý cài đặt gói <strong>Alien</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Sau khi cài xong <strong>Alien</strong>, bạn move file <strong>.rpm</strong> tới Desktop rồi mở Terminal, gõ <strong><em>cd Desktop</em></strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Bây giờ, gõ <strong>sudo alien -k filename.rpm</strong> để convert từ file <strong>.rpm -&gt; .deb</strong>. Sau đó bạn cài file <strong>.deb</strong> như trên</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong>Cài đặt file .bin</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Download và save file .bin tới Desktop. Mở Terminal và gõ <strong><em>cd Desktop</em></strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Gõ tiếp sudo <strong>chmod +x filename.bin</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Gõ <strong>./filename.bin</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>sau đó chương trình sẽ cài trong Terminal!</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>8. Cài đặt phần mềm từ TARBALL</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Một tarball (thường là các file <strong>.tar , .tar.gz , .tgz , .tar.bz2 , .tbz2</strong> ) gồm có mã nguồn cho chương trình mà bạn phải tự biên dịch, trình biên dịch (compile) như <strong>GCC</strong>… thì thường có sẵn trong <strong>Linux</strong> . Các bước cài đặt Tarball về cơ bản như sau</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Giải nén tarball</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Tar</strong> làm việc với một chương trình nén như <strong>gzip</strong> để nén các file, đây là lý do tại sao bạn thấy hai đuôi mở rộng (<strong>.tar</strong> và <strong>.gz</strong>). Các đuôi mở rộng này đôi khi còn được viết tắt là <strong>.tgz</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tuy nhiên không cần phải chạy hai chương trình riêng biệt để bung các file mà chúng ta chỉ cần lệnh cho tar chạy các file thông qua <strong>gzip</strong> để giải nén. Bạn có thể sử dụng tiện ích đồ họa để bung các file này bằng cách kích đúp vào tarball từ bộ quản lý file của mình, hoặc có thể thực hiện điều đó bằng dòng lệnh:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"># tar zxvf file.tar.gz
+
+# tar zxf file.tar.gz
+
+# tar zxf file.tgz
+
+# tar jxf file.tar.bz2
+
+# tar jxf file.tbz2</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Các tùy chọn chúng ta cung cấp cho tar được mô tả bên dưới:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>• -z để lệnh cho tar chạy file này thông qua gzip để giải nén (sử dụng –j cho các file bzip)</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>• -x để bung các file</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>• -v cho “verbose”, để chúng ta có thể thấy danh sách các file đang bung</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>• -f để lệnh cho tar rằng chúng ta đang làm việc với một file</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>Configure</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Khi các file được bung ra, mở một command terminal và vào thư mục nơi các file được giải nén trong đó. Trước khi biên dịch, chúng ta cần chạy kịch bản cấu hình. Công việc của kịch bản cấu hình là kiểm tra hệ thống của bạn về tất cả những gì phần mềm cần thiết để biên dịch chương trình từ mã nguồn thành chương trình nhị phân có thể sử dụng được. Nó sẽ tìm kiếm những thứ như phiên bản GCC và các công cụ cần thiết khác để xây dựng phần mềm. Khi bạn nằm trong thư mục với tất cả các file đã được bung từ tarball (sử dụng lệnh cd để change directory), hãy đánh vào <strong>./configure</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Nếu tất cả đều diễn ra tốt đẹp, lệnh trên sẽ kiểm tra một loạt các phần khác nhau của hệ thống bạn, sau đó đưa bạn trở lại dòng lệnh như bên dưới:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Vấn đề gây ra lỗi chung nhất trong bước này là mất dependency. Hãy quan sát bất cứ lỗi nào mà bạn gặp phải để xác định xem gói phần mềm nào bị thiếu.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>Make</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Đây là phần cốt lõi của quá trình – nơi chúng ta biên dịch mã nguồn thành một chương trình có khả năng chạy. Đây là bước đơn giản nhất, chỉ yêu cầu một lệnh đơn giản. Nếu bước cấu hình hoàn tất mà không có lỗi, bạn chỉ cần đánh vào <strong>make</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Đối với các chương trình lớn, bước này có thể mất đến vài phút. Khi quá trình kết thúc, bạn sẽ được đưa quay trở lại shell nhắc lệnh</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Chương trình của bạn lúc này đã hoàn toàn sẵn sàng cho sử dụng. Mặc dù vậy bạn vẫn nên chạy thêm một bước nữa để chương trình có thể được cài đặt hoàn toàn vào đúng location và có thể chạy từ bất cứ đâu.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>Make install</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tất cả những gì cần thiết lúc này là copy chương trình vừa được biên dịch vào các thư mục hệ thống như <strong>/usr/bin</strong> để có thể chạy từ bất cứ thư mục nào mà không cần chỉ định đường dẫn đến các file. Do nó sẽ copy đến một thư mục bên ngoài thư mục chủ nên bạn có thể cần đến các đặc quyền <strong>root</strong>. Nếu bước này được hoàn tất mà không có lỗi, bạn hãy chạy <strong>sudo make install</strong> để copy các file. Đến đây, bạn đã hoàn thành xong phần việc của mình. Chương trình mới của bạn có thể được sử dụng giống như bất cứ chương trình nào đang chạy khác.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Credit: vietcalls.com</p>
+<p><!-- /wp:paragraph --></p>

@@ -1,0 +1,395 @@
+---
+layout: post
+title: "\U0001F310 DNS - Tổng quan về giao thức phân giải tên miền"
+date: 2022-09-30 10:38:32.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Network
+- System
+tags: []
+author: thu4nvd
+permalink: "/dns-overview/"
+---
+<p><!-- wp:ht/block-toc {"headerEntries":"[{\u0022tag\u0022:2,\u0022text\u0022:\u0022DNS là gì?\u0022,\u0022link\u0022:\u0022h-dns-l-g\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0,\u0022children\u0022:[]},{\u0022tag\u0022:2,\u0022text\u0022:\u0022DNS hoạt động thế nào?\u0022,\u0022link\u0022:\u0022h-dns-ho-t-ng-th-n-o\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0,\u0022children\u0022:[]},{\u0022tag\u0022:2,\u0022text\u0022:\u0022Phân loại DNS Server\u0022,\u0022link\u0022:\u0022h-ph-n-lo-i-dns-theo-server\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0,\u0022children\u0022:[]},{\u0022tag\u0022:2,\u0022text\u0022:\u0022Phân loại DNS Server theo xử lý truy vấn\u0022,\u0022link\u0022:\u0022h-hai-lo-i-h-nh-d-ch-v-dns-l-g\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0,\u0022children\u0022:[]},{\u0022tag\u0022:2,\u0022text\u0022:\u0022So sánh giữa Public DNS và Private DNS\u0022,\u0022link\u0022:\u0022h-so-s-nh-gi-a-public-dns-v-private-dns\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0,\u0022children\u0022:[]},{\u0022tag\u0022:2,\u0022text\u0022:\u00227 bước trong quá trình tra cứu DNS là gì?\u0022,\u0022link\u0022:\u0022h-7-b-c-trong-qu-tr-nh-tra-c-u-dns-l-g\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0,\u0022children\u0022:[]},{\u0022tag\u0022:3,\u0022text\u0022:\u0022DNS Caching\u0022,\u0022link\u0022:\u0022dns-caching\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1},{\u0022tag\u0022:2,\u0022text\u0022:\u0022Các loại truy vấn DNS gồm những gì?\u0022,\u0022link\u0022:\u0022h-c-c-lo-i-truy-v-n-dns-g-m-nh-ng-g\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0,\u0022children\u0022:[]},{\u0022tag\u0022:2,\u0022text\u0022:\u0022Các loại DNS record phổ biến nhất\u0022,\u0022link\u0022:\u0022h-c-c-lo-i-dns-record-g-m-nh-ng-g\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0,\u0022children\u0022:[]},{\u0022tag\u0022:3,\u0022text\u0022:\u00221. A record\u0022,\u0022link\u0022:\u0022htoc-1-a-record\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1},{\u0022tag\u0022:3,\u0022text\u0022:\u00222. CNAME record\u0022,\u0022link\u0022:\u0022htoc-2-cname-record\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1},{\u0022tag\u0022:3,\u0022text\u0022:\u00223. MX record\u0022,\u0022link\u0022:\u0022htoc-3-mx-record\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1},{\u0022tag\u0022:3,\u0022text\u0022:\u00224. TXT record\u0022,\u0022link\u0022:\u0022htoc-4-txt-record\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1},{\u0022tag\u0022:3,\u0022text\u0022:\u00225. NS record\u0022,\u0022link\u0022:\u0022htoc-5-ns-record\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1},{\u0022tag\u0022:3,\u0022text\u0022:\u00226. PTR record\u0022,\u0022link\u0022:\u0022htoc-6-ptr-record\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1},{\u0022tag\u0022:2,\u0022text\u0022:\u0022Danh sách DNS Server Vietnam phổ biến nhất hiện nay\u0022,\u0022link\u0022:\u0022dns-server-bi-loi-thi-dieu-gi-se-xay-ra\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0,\u0022children\u0022:[]},{\u0022tag\u0022:2,\u0022text\u0022:\u0022DNS Server bị lỗi thì điều gì sẽ xảy ra?\u0022,\u0022link\u0022:\u0022htoc-dns-server-b-l-i-th-i-u-g-s-x-y-ra\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0,\u0022children\u0022:[]},{\u0022tag\u0022:2,\u0022text\u0022:\u0022Nguyên nhân DNS dễ bị tấn công?\u0022,\u0022link\u0022:\u0022nguyen-nhan-dns-de-bi-tan-cong\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0,\u0022children\u0022:[]},{\u0022tag\u0022:2,\u0022text\u0022:\u0022Điểm yếu của DNS là gì?\u0022,\u0022link\u0022:\u0022h-i-m-y-u-c-a-dns-l-g\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0,\u0022children\u0022:[]},{\u0022tag\u0022:2,\u0022text\u0022:\u0022Cách sử dụng DNS để Redirect Traffic\u0022,\u0022link\u0022:\u0022h-c-ch-s-d-ng-dns-redirect-traffic\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0,\u0022children\u0022:[]},{\u0022tag\u0022:2,\u0022text\u0022:\u0022Sử dụng DNS như là một công cụ chuyển đổi\u0022,\u0022link\u0022:\u0022h-s-d-ng-dns-nh-l-m-t-c-ng-c-chuy-n-i\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0,\u0022children\u0022:[]},{\u0022tag\u0022:2,\u0022text\u0022:\u0022Xem thêm \u0022,\u0022link\u0022:\u0022h-k-t-lu-n\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0,\u0022children\u0022:[]}]","mappingHeaders":[true,true,false,false,false,false],"className":"is-style-gray"} --></p>
+<div class="wp-block-ht-block-toc is-style-gray htoc htoc--position-wide toc-list-style-plain" data-htoc-state="expanded"><span class="htoc__title"><span class="ht_toc_title">Table of Contents</span><span class="htoc__toggle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><g fill="#444">
+<path d="M15 7H1c-.6 0-1 .4-1 1s.4 1 1 1h14c.6 0 1-.4 1-1s-.4-1-1-1z"></path>
+<path d="M15 1H1c-.6 0-1 .4-1 1s.4 1 1 1h14c.6 0 1-.4 1-1s-.4-1-1-1zM15 13H1c-.6 0-1 .4-1 1s.4 1 1 1h14c.6 0 1-.4 1-1s-.4-1-1-1z"></path></g></svg></span></span>
+<div class="htoc__itemswrap">
+<ul class="ht_toc_list">
+<li class=""><a href="#h-dns-l-g">DNS là gì?</a></li>
+<li class=""><a href="#h-dns-ho-t-ng-th-n-o">DNS hoạt động thế nào?</a></li>
+<li class=""><a href="#h-ph-n-lo-i-dns-theo-server">Phân loại DNS Server</a></li>
+<li class=""><a href="#h-hai-lo-i-h-nh-d-ch-v-dns-l-g">Phân loại DNS Server theo xử lý truy vấn</a></li>
+<li class=""><a href="#h-so-s-nh-gi-a-public-dns-v-private-dns">So sánh giữa Public DNS và Private DNS</a></li>
+<li class=""><a href="#h-7-b-c-trong-qu-tr-nh-tra-c-u-dns-l-g">7 bước trong quá trình tra cứu DNS là gì?</a></li>
+<li class=""><a href="#h-c-c-lo-i-truy-v-n-dns-g-m-nh-ng-g">Các loại truy vấn DNS gồm những gì?</a></li>
+<li class=""><a href="#h-c-c-lo-i-dns-record-g-m-nh-ng-g">Các loại DNS record phổ biến nhất</a></li>
+<li class=""><a href="#dns-server-bi-loi-thi-dieu-gi-se-xay-ra">Danh sách DNS Server Vietnam phổ biến nhất hiện nay</a></li>
+<li class=""><a href="#htoc-dns-server-b-l-i-th-i-u-g-s-x-y-ra">DNS Server bị lỗi thì điều gì sẽ xảy ra?</a></li>
+<li class=""><a href="#nguyen-nhan-dns-de-bi-tan-cong">Nguyên nhân DNS dễ bị tấn công?</a></li>
+<li class=""><a href="#h-i-m-y-u-c-a-dns-l-g">Điểm yếu của DNS là gì?</a></li>
+<li class=""><a href="#h-c-ch-s-d-ng-dns-redirect-traffic">Cách sử dụng DNS để Redirect Traffic</a></li>
+<li class=""><a href="#h-s-d-ng-dns-nh-l-m-t-c-ng-c-chuy-n-i">Sử dụng DNS như là một công cụ chuyển đổi</a></li>
+<li class=""><a href="#h-k-t-lu-n">Xem thêm </a></li>
+</ul>
+</div>
+</div>
+<p><!-- /wp:ht/block-toc --></p>
+<p><!-- wp:heading --></p>
+<h2 id="h-dns-l-g"><strong>DNS là gì?</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:quote --></p>
+<blockquote class="wp-block-quote"><p><strong>DNS (Domain Name Server)</strong> là một giao thức tiêu chuẩn cho phép bạn nhập địa chỉ của một trang Web và tự động trả lại địa chỉ giao thức Internet (IP) cho trang Web đó.</p>
+</blockquote>
+<p><!-- /wp:quote --></p>
+<p><!-- wp:paragraph --></p>
+<p><em>Để hai máy tính giao tiếp trên mạng IP, giao thức yêu cầu chúng cần một địa chỉ IP (Internet Protocol).</em></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hãy xem địa chỉ IP giống như địa chỉ nhà của bạn. Để một máy tính định vị một máy tính khác, chúng cần biết “số nhà” của máy tính kia. Hầu hết chúng ta đều nhớ những cái tên thân thiện như <strong><em>thuanvu.me</em></strong> hơn là dãy số <strong><em>103.126.54.111</em></strong>. Thế nhưng máy lại chỉ nhận diện những dãy số IP. Vì thế, chúng ta cần một chương trình để máy tính dịch tên thành địa chỉ IP.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:quote --></p>
+<blockquote class="wp-block-quote"><p>Dịch vụ chuyển đổi tên miền thành địa chỉ IP và ngược lại được gọi là “DNS” hoặc <strong>hệ thống tên miền (Domain Name Server)</strong>.</p>
+</blockquote>
+<p><!-- /wp:quote --></p>
+<p><!-- wp:paragraph --></p>
+<p>Các máy tính chạy DNS được gọi là máy chủ DNS (DNS servers). Nếu không có DNS, chúng ta sẽ phải nhớ địa chỉ IP với dãy số dài khó nhớ của bất kỳ máy chủ nào muốn kết nối.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2 id="h-dns-ho-t-ng-th-n-o"><strong>DNS hoạt động thế nào?</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"id":1734,"sizeSlug":"full","linkDestination":"none"} --></p>
+<figure class="wp-block-image size-full"><img src="{{ site.baseurl }}/assets/2022/09/ICAN-Infographic-DNS-Query_Large.gif" alt="" class="wp-image-1734" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>DNS là một phần không thể thiếu trên Internet. Bạn có thể xem DNS giống như một danh bạ điện thoại, nhưng thay vì thể hiện tên mọi người với địa chỉ nhà, danh bạ điện thoại này là nơi lưu trữ tên máy tính với địa chỉ IP.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong><em>Cụ thể thì cách hoạt động của DNS là gì?</em></strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Internet có rất nhiều máy tính và các tên miền có thể rất lớn, do đó DNS được sắp xếp thành các tên miền nhỏ hơn. Và chúng được sắp xếp lại thành<strong> các vùng (Zone)</strong> nhỏ hơn để dễ quản lý.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Có rất nhiều máy chủ DNS lưu trữ tất cả các bản ghi DNS cho Internet. Bất kỳ máy tính nào muốn biết số hoặc tên đều có thể hỏi máy chủ DNS của họ. Máy chủ DNS của bạn cũng biết cách hỏi, hoặc truy vấn các máy chủ DNS khác khi chúng cần bản ghi. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Máy chủ định danh có thẩm quyền <strong>(Authoritative DNS Server</strong>) là nơi quản trị viên quản lý các bản ghi (tên máy chủ và địa chỉ IP cho miền của họ). Bất cứ khi nào quản trị viên DNS muốn thêm, thay đổi hoặc xóa tên máy chủ hoặc địa chỉ IP, họ sẽ thực hiện thay đổi trên máy chủ DNS có thẩm quyền của mình (đôi khi được gọi là <strong>Master DNS Server</strong>). Ngoài ra, còn có các <strong>Slave DNS Server</strong>. Các máy chủ DNS này giữ bản sao của các bản ghi DNS cho các vùng và tên miền của chúng.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2 id="h-ph-n-lo-i-dns-theo-server"><strong>Phân loại DNS</strong> Server</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:image {"id":114275} --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/09/8230b06c-dns-la-gi-3.jpg" alt="Root Name Server là một trong 4 loại máy chủ DNS." class="wp-image-114275" /><br />
+<figcaption><em>Root Name Server là một trong 4 loại máy chủ DNS.</em></figcaption>
+</figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>DNS Server sẽ được phân loại theo vai trò trong cây DNS, gồm 4 loại như dưới đây:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"id":1743,"sizeSlug":"large","linkDestination":"none"} --></p>
+<figure class="wp-block-image size-large"><img src="{{ site.baseurl }}/assets/2022/09/dns-lookup-diagram-1024x682.webp" alt="" class="wp-image-1743" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li><strong>DNS Recursor:</strong> Đây là máy chủ phản hồi truy vấn DNS và yêu cầu máy chủ DNS khác cung cấp địa chỉ hoặc đã có địa chỉ IP cho trang Web được lưu.</li>
+<li><strong>Root Name Server:</strong> Là máy chủ định danh cho vùng gốc (Root Zone). Nó phản hồi các yêu cầu trực tiếp và có thể trả về danh sách các Authoritative Name Server cho tên miền cấp cao nhất tương ứng.</li>
+<li><strong>TLD Name Server:</strong> Đây là một trong những máy chủ DNS cấp cao trên Internet. Ví dụ, khi bạn tìm kiếm www.google.com, máy chủ TLD cho ‘.com’ sẽ phản hồi đầu tiên, sau đó DNS sẽ tìm kiếm ‘Google’.</li>
+<li><strong>Authoritative Name Server:</strong> Là điểm dừng cuối cùng cho truy vấn DNS và có bản ghi DNS cho các truy vấn, yêu cầu.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading --></p>
+<h2 id="h-hai-lo-i-h-nh-d-ch-v-dns-l-g"><strong>Phân loại DNS Server theo xử lý truy vấn</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Có hai loại DNS Server khác nhau trên Internet. Mỗi dịch vụ xử lý các truy vấn DNS khác nhau tùy thuộc vào chức năng của chúng.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"id":1736,"sizeSlug":"full","linkDestination":"none"} --></p>
+<figure class="wp-block-image size-full"><img src="{{ site.baseurl }}/assets/2022/09/What-is-the-difference-between-Authoritative-and-Recursive-DNS-Nameservers_Cisco-Umbrella-blog_DNS-server-diagram-1024x553-1.jpg" alt="" class="wp-image-1736" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li><strong>Recursive DNS Resolver:</strong> Đây là máy chủ DNS phản hồi truy vấn DNS và tìm kiếm máy chủ định danh có thẩm quyền (<strong>Authoritative DNS Server</strong>) hoặc kết quả truy vấn DNS được lưu trong bộ nhớ Cache của nó.</li>
+<li><strong>Authoritative DNS Server:</strong> Là loại máy chủ DNS lưu trữ yêu cầu DNS. Vì vậy, nếu bạn yêu cầu một Authoritative DNS Server cho một trong các địa chỉ IP của nó, nó không cần phải hỏi bất kỳ ai khác.&nbsp;</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading --></p>
+<h2 id="h-so-s-nh-gi-a-public-dns-v-private-dns"><strong>So sánh giữa Public DNS và Private DNS</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li><strong>Public DNS:</strong> Để một máy chủ có thể truy cập được trên Internet công cộng, nó cần có bản ghi DNS công cộng và địa chỉ IP của nó cần có thể truy cập được trên Internet.</li>
+<li><strong>Private DNS:</strong> Các máy tính có tường lửa hoặc trên mạng nội bộ sử dụng Private DNS Record để các máy tính cục bộ có thể nhận dạng chúng theo tên. Người dùng bên ngoài trên Internet sẽ không có quyền truy cập trực tiếp vào các máy tính đó.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading --></p>
+<h2 id="h-7-b-c-trong-qu-tr-nh-tra-c-u-dns-l-g"><strong>7 bước trong quá trình tra cứu DNS là gì?</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li><strong>Bước 1:</strong> Khi bạn truy cập một máy tính trên Internet, một yêu cầu DNS sẽ được bắt đầu. Ví dụ bạn nhập www.Google.com vào thanh địa chỉ trình duyệt của mình.</li>
+<li><strong>Bước 2:</strong> Điểm dừng đầu tiên cho yêu cầu DNS là bộ nhớ đệm DNS cục bộ (Local DNS Cache). Khi bạn truy cập các máy tính khác nhau, các địa chỉ IP đó được lưu trữ trong kho lưu trữ cục bộ. Nếu bạn đã truy cập www.Google.com trước đây, trong bộ nhớ cache của bạn sẽ có địa chỉ IP này.</li>
+<li><strong>Bước 3:</strong> Nếu bạn không có địa chỉ IP trong Local DNS Cache, DNS sẽ kiểm tra bằng Recursive DNS Server.&nbsp;</li>
+<li><strong>Bước 4:</strong> Recursive DNS Server có bộ nhớ Cache riêng và nếu có địa chỉ IP, nó sẽ trả lại cho bạn. Nếu không, nó sẽ hỏi một máy chủ DNS khác.</li>
+<li><strong>Bước 5:</strong> Điểm dừng tiếp theo là TLD Name Servers. Các máy chủ này có thể không có địa chỉ IP mà bạn cần, nhưng nó có thể gửi yêu cầu DNS theo đúng hướng.</li>
+<li><strong>Bước 6:</strong> TLD Name Servers có vị trí của Authoritative Name Server cho trang Web được yêu cầu.&nbsp;</li>
+<li><strong>Bước 7:</strong> Dịch vụ DNS cục bộ của bạn lấy địa chỉ IP và kết nối với URL bạn tìm kiếm để tải xuống tất cả nội dung hấp dẫn. Sau đó, DNS ghi lại địa chỉ IP trong Local Cache với Time-To-Live (TTL). TTL là khoảng thời gian bản ghi DNS cục bộ hợp lệ, sau thời gian đó, DNS sẽ thực hiện lại quy trình khi bạn yêu cầu URL đã tìm kiếm vào lần tiếp theo.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:image {"id":1681,"sizeSlug":"large","linkDestination":"none"} --></p>
+<figure class="wp-block-image size-large"><img src="{{ site.baseurl }}/assets/2022/09/dns-lookup-diagram-1024x682.webp" alt="" class="wp-image-1681" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="dns-caching"><strong>DNS Caching</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Ngoài quy trình được nêu ở trên, recursive resolver cũng có thể giải quyết các truy vấn DNS. Bằng cách sử dụng dữ liệu được lưu trong bộ nhớ cache. Sau khi truy xuất địa chỉ IP chính xác cho một trang web nhất định. Resolver sẽ lưu trữ thông tin đó trong bộ nhớ cache của nó trong một khoảng thời gian giới hạn. Trong khoảng thời gian này, nếu bất kỳ máy khách nào khác gửi yêu cầu cho tên miền đó, resolver có thể bỏ qua quy trình tra cứu DNS thông thường và chỉ cần trả lời client bằng địa chỉ IP được lưu trong bộ nhớ cache.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Khi thời gian lưu vào bộ nhớ đệm hết hạn, resolver phải truy xuất lại địa chỉ IP, tạo <strong>entry</strong> mới trong bộ nhớ cache của nó. Giới hạn thời gian này, được gọi là thời gian tồn tại (<a href="https://vietnix.vn/time-to-live-la-gi/" target="_blank" rel="noreferrer noopener">TTL</a>) được đặt trong DNS Record cho mỗi trang web. Thông thường, thì TTL nằm trong khoảng 24-48 giờ. TTL là cần thiết vì máy chủ web đôi khi thay đổi địa chỉ IP của chúng. Do đó, các resolver không thể lưu trữ các bản ghi trong bộ nhớ cache vô thời hạn.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2 id="h-c-c-lo-i-truy-v-n-dns-g-m-nh-ng-g"><strong>Các loại truy vấn DNS gồm những gì?</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Truy vấn DNS là mã máy tính cho máy chủ DNS biết nó là loại truy vấn nào và nó muốn lấy thông tin gì. Có ba truy vấn DNS cơ bản trong tra cứu DNS tiêu chuẩn.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li><strong>Truy vấn Recursive:</strong> Máy tính yêu cầu địa chỉ IP hoặc xác nhận rằng máy chủ DNS không biết địa chỉ IP đó.</li>
+<li><strong>Truy vấn Iterative:</strong> Nếu DNS Server không có địa chỉ IP, nó sẽ trả về Authoritative Name Server hoặc TLD Name Server. Người yêu cầu sẽ tiếp tục quá trình lặp đi lặp lại này cho đến khi tìm thấy câu trả lời hoặc hết thời gian.</li>
+<li><strong>Truy vấn Non-Recursive:</strong> DNS Resolver sẽ sử dụng truy vấn này để tìm địa chỉ IP mà nó không có trong bộ nhớ Cache. Chúng được giới hạn trong một yêu cầu duy nhất để giới hạn việc sử dụng băng thông mạng.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading --></p>
+<h2 id="h-c-c-lo-i-dns-record-g-m-nh-ng-g"><strong>Các loại DNS record phổ biến nhất</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="htoc-1-a-record">1. A record</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>A record</strong> (viết tắt của Address record) là DNS record cơ bản và quan trọng nhất dùng để truy cập web. Nó giúp trỏ tên miền (domain) của website tới một&nbsp;<a href="https://bizflycloud.vn/tin-tuc/tim-hieu-chung-ve-dia-chi-ip-20180309115139588.htm"><strong>địa chỉ IP</strong></a>&nbsp;cụ thể. A record có cú pháp như sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>[Tên miền] IN A [địa chỉ IP của máy]</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Ví dụ: google.com IN A 172.217.5.78</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hầu hết các website chỉ có một bản ghi A, nhưng một số trang web sẽ có một vài bản ghi A không giống nhau. Điều này có nghĩa là một tên miền có thể được trỏ đến nhiều địa chỉ IP khác nhau… A record được dùng để chuyển tên miền sang địa chỉ IPv4, còn với IPv6 thì AAAA record sẽ được sử dụng. Cấu trúc của bản ghi AAAA cũng tương tự như bản ghi A.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="htoc-2-cname-record">2. CNAME record</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>CNAME</strong> (Canonical Name) record là một bản ghi DNS record quy định một tên miền là bí danh của một tên miền chính khác. Một tên miền chính có thể có nhiều bí danh CNAME. Cú pháp của DNS record này như sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>[Tên bí danh] IN CNAME [tên miền chính]</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Trong đó, tên miền chính là tên miền được khai báo trong A record đến IP của máy. Tên bí danh là tên miền khác mà bạn cho phép có thể trỏ đến máy tính (địa chỉ IP) này. Ví dụ<a href="http://www.bizflycloud.com/" rel="noreferrer noopener" target="_blank"> www.bizflycloud.com</a> IN CNAME bizflycloud.com, tức là khi người dùng gõ<a href="http://www.bizflycloud.com/" rel="noreferrer noopener" target="_blank"> www.bizflycloud.com</a> thì hệ thống cũng sẽ đưa về địa chỉ IP của tên miền chính bizflycloud.com.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="htoc-3-mx-record"><a href="https://bizflycloud.vn/cloud-server?utm_source=techblog_seo&amp;utm_medium=banner_click&amp;utm_campaign=cloud_server"></a>3. MX record</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:image --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/09/198a-15978111130821026212606.jpg" alt="Giải nghĩa về DNS record, 6 loại DNS record phổ biến nhất - Ảnh 1." /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>MX</strong> (Mail Exchange) record là một DNS record giúp xác định mail server mà email sẽ được gửi tới. Một tên miền có thể có nhiều MX record, điều này giúp tránh việc không nhận được email nếu một mail server ngưng hoạt động.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>MX record có cấu trúc khá đơn giản, ví dụ như:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>bizflycloud.vn IN MX 10 mx20.bizflycloud.vn</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>bizflycloud.vn IN MX 30 mx30.bizflycloud.vn</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Trong đó, các số 10, 30 là các giá trị ưu tiên. Chúng có thể là các số nguyên bất kì từ 1 đến 255, số càng nhỏ thì độ ưu tiên càng cao. Như trong ví dụ trên, các mail có cấu trúc địa chỉ là …@bizflycloud.vn sẽ được gửi đến mail server mx20.bizflycloud.vn trước. Nếu nó có vấn đề thì các mail mới được chuyển đến mail server mx30.bizflycloud.vn.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="htoc-4-txt-record">4. TXT record</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>TXT record</strong> là một loại DNS record giúp tổ chức các thông tin dạng text (văn bản) của tên miền. Một domain (tên miền) có thể có nhiều bản ghi TXT và chúng chủ yếu được dùng cho các <strong>Sender Policy Framework</strong> (SPF) codes, giúp email server xác định các thư được gửi đến có phải từ một nguồn đáng tin hay không. Ngoài ra, loại bản ghi DNS này còn dùng để xác thực máy chủ của một tên miền, xác minh SSL...</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="htoc-5-ns-record">5. NS record</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>NS</strong> (Name Server) record là một loại DNS record giúp xác định thông tin của một tên miền cụ thể được khai báo và quản lý trên máy chủ nào. Cú pháp của bản ghi này như sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>[Tên miền] IN NS [tên máy chủ tên miền]</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Ví dụ:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>bizflycloud.com IN NS ns1.bizflycloud.vn</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>bizflycloud.com IN NS ns2.bizflycloud.vn</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><a href="https://bizflycloud.vn/cloud-server?utm_source=techblog_seo&amp;utm_medium=banner_click&amp;utm_campaign=cloud_server"></a>Cloud Server - Giải pháp đám mây giúp vận hành website ổn định, nhanh chóng</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Trong ví dụ trên, tên miền bizflycloud.com sẽ được quản lý bởi hai máy chủ tên miền là ns1.bizflycloud.vn và ns2.bizflycloud.vn. Điều này cũng có nghĩa là các DNS record (A record, MX record…) của tên miền bizflycloud.com sẽ được khai báo trên hai máy chủ này.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="htoc-6-ptr-record">6. PTR record</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>PTR</strong> (Pointer) record có thể nói là một DNS record ngược lại với A record, cho phép chuyển đổi từ địa chỉ IP sang tên miền. Bản ghi PTR giúp xác thực IP của các hostname gửi tới, giúp hạn chế bị spam mail…</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Ngoài 6 loại trên vẫn còn các loại bản ghi DNS khác ít phổ biến như SOA record, SRV record, APL record, CAA record, NAPTR record…</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2 id="dns-server-bi-loi-thi-dieu-gi-se-xay-ra">Danh sách DNS Server Vietnam phổ biến nhất hiện nay</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hiện nay DNS có rất nhiều loại khác nhau. Dưới đây là tổng hợp 6 dịch vụ DNS phổ biến nhất:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:table --></p>
+<figure class="wp-block-table">
+<table>
+<tbody>
+<tr>
+<td><strong>DNS Server Google:&nbsp;</strong></td>
+</tr>
+</tbody>
+</table>
+<p>DNS Google là một trong những DNS server được sử dụng nhiều nhất hiện nay vì tốc độ nhanh và ổn định.
+<td>8.8.8.8</td>
+<p>8.8.4.4<br />
+<tr>
+<td><strong>DNS Server OpenDNS :</strong></td>
+<td>208.67.222.222</td>
+</tr>
+<p>208.67.220.220​<br />
+<tr>
+<td><strong>DNS Server Cloudflare :</strong></td>
+</tr>
+<p><em>Cloudflare là một dịch vụ DNS trung gian, giúp điều phối lưu lượng truy cập qua lớp bảo vệ CloudFlare.</em>
+<td>1.1.1.1</td>
+<p>1.0.0.1<br />
+<tr>
+<td><strong>DNS Server VNPT :</strong></td>
+<td>203.162.4.191</td>
+</tr>
+<p>203.162.4.190<br />
+<tr>
+<td><strong>DNS Server Viettel :</strong></td>
+<td>203.113.131.1</td>
+</tr>
+<p>203.113.131.2<br />
+<tr>
+<td><strong>DNS Server FPT :</strong></td>
+<td>210.245.24.20</td>
+</tr>
+<p>210.245.24.22</figure>
+<p><!-- /wp:table --></p>
+<p><!-- wp:heading --></p>
+<h2 id="htoc-dns-server-b-l-i-th-i-u-g-s-x-y-ra">DNS Server bị lỗi thì điều gì sẽ xảy ra?</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>DNS Server có thể bị lỗi vì nhiều lý do, chẳng hạn như mất điện, tấn công mạng và trục trặc phần cứng. Những ngày đầu của Internet, sự cố ngừng hoạt động của DNS Server có thể có tác động rất lớn. Tuy nhiên, ngày nay có rất nhiều dự phòng được tích hợp vào DNS.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Ví dụ:</strong> Có nhiều trường hợp root DNS server, TLD nameserver. Và hầu hết các ISP đều có các recursive resolver dự phòng cho người dùng của họ. (Người dùng cá nhân cũng có thể sử dụng public DNS resolvers, như Cloudflare’s 1.1.1.1.) Hầu hết các trang web phổ biến cũng có nhiều phiên bản authoritative nameserver của họ.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Trong trường hợp DNS server chính bị ngừng hoạt động, một số người dùng có thể gặp phải sự chậm trễ do lượng yêu cầu được xử lý bởi các server dự phòng. Nhưng sẽ mất một lượng lớn DNS khiến một phần đáng kể Internet không khả dụng. (Điều này thực sự xảy ra vào năm 2016 khi nhà cung cấp DNS Dyn trải qua một trong những cuộc <a href="https://vietnix.vn/ddos-la-gi/" target="_blank" rel="noreferrer noopener">tấn công DDoS</a> lớn nhất trong lịch sử).</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2 id="nguyen-nhan-dns-de-bi-tan-cong">Nguyên nhân DNS dễ bị tấn công?</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Vì hệ thống tên miền khá phức tạp và người tấn công có thể tận dụng điểm yếu trong DNS để tấn công với nhiều phương thức khác nhau. Đa số các cuộc tấn công đều tập trung vào việc lạm dụng DNS để ngăn người dùng không thể truy cập vào Internet.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bên cạnh đó, DNS cũng có thể bị tấn công bằng phướng pháp tận dụng giao thức DNS để chuyển hướng người dùng truy cập vào các trang web độc hại nhằm đánh cắp dữ liệu nhạy cảm của cá nhân, doanh nghiệp.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Ngoài ra, việc sử dụng server đệ quy sẽ lưu phản hồi vào bộ nhớ tạm để tăng tốc độ của các truy vấn tiếp theo. Nhằm giảm số lượng request thông tin, nhưng khá nguy hiểm và dễ bị tấn công bởi Man-In-The-Middle. Những kẻ tấn công có thể truy cập vào Over IP (<a href="https://vi.wikipedia.org/wiki/VoIP" target="_blank" rel="noreferrer noopener">VoIP</a>) để đánh cắp thông tin, mạo danh, trích xuất dữ liệu, thông tin,…</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2 id="h-i-m-y-u-c-a-dns-l-g"><strong>Điểm yếu của DNS là gì?</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Có ba lỗ hổng bảo mật chính cần đề phòng đối với DNS:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>Máy chủ<strong> DNS nội bộ</strong> (Internal DNS Servers) giữ tất cả tên máy chủ và địa chỉ IP cho tên miền của chúng. Nó sẽ chia sẻ chúng với bất kỳ ai yêu cầu. Điều này làm cho DNS trở thành một nguồn thông tin tuyệt vời cho những kẻ tấn công.</li>
+<li><strong>DNS Caches</strong> có thể bị thao túng. Nếu máy chủ DNS của bạn bị “nhiễm độc” với các bản ghi xấu, máy tính có thể bị lừa để đi đến những nơi không an toàn.</li>
+<li>DNS chuyển tiếp thông tin truy vấn từ các máy trạm bên trong sang các máy chủ bên ngoài. Những kẻ tấn công có thể sử dụng hành vi này để tạo các <strong>kênh bí mật</strong> nhằm lấy dữ liệu.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading --></p>
+<h2 id="h-c-ch-s-d-ng-dns-redirect-traffic"><strong>Cách sử dụng DNS để Redirect Traffic</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:image {"id":114279} --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/09/c1d00a6c-dns-la-gi-7.jpg" alt="Hacker có thể giả mạo phản hồi DNS để chúng như đến từ các DNS Server hợp pháp." class="wp-image-114279" /><br />
+<figcaption><em>Hacker có thể giả mạo phản hồi DNS để chúng như đến từ các DNS Server hợp pháp.</em></figcaption>
+</figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Khi người dùng cố gắng vào một trang Web, máy tính của họ sẽ truy vấn máy chủ DNS của nó để biết địa chỉ IP của trang Web hoặc DNS Record. Nếu DNS Server có bản sao lưu trong bộ nhớ Cache của bản ghi, nó sẽ trả lời. Nếu không, nó sẽ truy vấn ngược dòng một máy chủ DNS và chuyển kết quả trở lại người dùng cuối và lưu chúng vào bộ nhớ Cache cho lần sau.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tin tặc có thể giả mạo phản hồi DNS hoặc làm cho phản hồi giống như chúng đến từ các máy chủ DNS hợp pháp. Những kẻ tấn công tận dụng ba điểm yếu trong DNS để làm điều này:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>DNS thực hiện <strong>xác thực rất yếu</strong> đối với các phản hồi đến từ các máy chủ ngược dòng (Upstream Servers). Các phản hồi chỉ cần chứa đúng ID giao dịch, chỉ là một số 16 bit (0-65536).</li>
+<li>Máy chủ DNS <strong>chấp nhận phản hồi đồng thời</strong> (hoặc gần như đồng thời) đối với yêu cầu của chúng. Điều này cho phép kẻ tấn công đưa ra nhiều phỏng đoán về ID giao dịch.</li>
+<li><strong>Các kết nối IP được sử dụng bởi DNS rất dễ bị giả mạo.</strong> Điều đó có nghĩa là Hacker có thể gửi lưu lượng truy cập đến máy chủ DNS từ một máy tính và làm cho nó giống như đến từ một máy tính khác như một DNS Server hợp lệ. DNS là một trong những loại kết nối IP dễ bị giả mạo.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading --></p>
+<h2 id="h-s-d-ng-dns-nh-l-m-t-c-ng-c-chuy-n-i"><strong>Sử dụng DNS như là một công cụ chuyển đổi</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:image {"id":114281,"width":300,"height":175} --></p>
+<figure class="wp-block-image is-resized"><img src="{{ site.baseurl }}/assets/2022/09/22b48b5e-dns-la-gi-8.jpg" alt="Kẻ xấu sử dụng kỹ thuật DNS Tunneling để xâm nhập Server và đánh cắp dữ liệu." class="wp-image-114281" width="300" height="175" /><br />
+<figcaption><em>Kẻ xấu sử dụng kỹ thuật DNS Tunneling để xâm nhập Server và đánh cắp dữ liệu.</em></figcaption>
+</figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Giả sử kẻ tấn công đã tìm cách xâm nhập vào mạng, xâm nhập một hoặc hai máy chủ và tìm thấy dữ liệu quan trọng mà chúng muốn lấy. Cách mà chúng có thể làm điều đó mà không cần tắt bất kỳ cảnh báo nào để bảo vệ <strong>DNS là gì</strong>? Những kẻ tấn công sử dụng một kỹ thuật gọi là DNS Tunneling để làm điều đó. Họ thiết lập một miền DNS (ví dụ: Evil-Domain.com) trên Internet và tạo một Authoritative Name Server. Trên máy chủ bị xâm nhập, kẻ tấn công có thể sử dụng một chương trình chia nhỏ dữ liệu thành các phần nhỏ và chèn nó vào một loạt các tra cứu.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>DNS Server bị tấn công sẽ nhận các yêu cầu này. Khi nhận ra kết quả không có trong bộ nhớ Cache, nó sẽ chuyển tiếp các yêu cầu đó trở lại Authoritative Name Server của Evil-Domain.com. Kẻ tấn công đang mong đợi lưu lượng truy cập này.&nbsp;</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>DNS đã có từ rất lâu và mọi máy tính kết nối Internet đều dựa vào nó. Những kẻ tấn công hiện có thể sử dụng DNS để chiếm đoạt lưu lượng truy cập và tạo các kênh liên lạc bí mật. May mắn thay, bằng cách giám sát các DNS Server và áp dụng phân tích bảo mật, nhiều cuộc tấn công có thể được phát hiện và ngăn chặn.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2 id="h-k-t-lu-n"><strong>Xem thêm </strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p><a href="https://thuanvu.me/dns-cac-loai-tan-cong-va-chien-thuat-bao-mat/">Một vài điểm yếu của DNS và cách phòng thủ</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><a href="https://thuanvu.me/dns-real" target="_blank" rel="noopener">Một bản ghi DNS trông như thế nào</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Credit: Vietnix, navee-vn</p>
+<p><!-- /wp:paragraph --></p>

@@ -1,0 +1,404 @@
+---
+layout: post
+title: "\U0001F525 Prometheus - Cài đặt + Grafana / CentOS 7"
+date: 2022-10-12 22:52:08.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Linux
+- System
+- Tools
+tags:
+- monitoring
+author: thu4nvd
+permalink: "/prometheus-install/"
+---
+<p><!-- wp:paragraph --></p>
+<p><strong>Trong bài này mình sẽ hướng dẫn các bạn cài đặt Prometheus và Grafana bằng 2 cách.</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Cách 01: Cài đặt Prometheus bằng Docker.</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Cách 02: Cài đặt Prometheus bằng Package.</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:kadence/tableofcontents {"uniqueID":"_ab2341-6a","containerBackground":"#abb8c3","enableTitle":false} /--></p>
+<p><!-- wp:heading --></p>
+<h2><em><strong>I. Cấu hình chung cho hệ thống trước khi bạn cài đặt Prometheus:&nbsp;</strong></em></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong>Update linux,&nbsp; sync NTP linux, disables selinux</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Chạy lệnh :&nbsp;</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">yum update -y
+ntpdate 1.ro.pool.ntp.org
+vim /etc/sysconfig/selinux</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong><em>Change “SELINUX=enforcng” to “SELINUX=disabled”.</em></strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Save và exit file. Sau đó reboot lại server.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong>Cài iptables thay thế cho firewalld trên Centos 7</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>=&gt; Do mình thích sử dụng iptables hơn là firewalld.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bước 1: remove firewalld&nbsp;</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">systemctl stop firewalld
+systemctl disable firewalld
+systemctl mask --now firewalld</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bước 2: Cài đặt Iptables</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">yum install iptables-services -y
+systemctl start iptables
+systemctl enable iptables</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Mở các port sau:&nbsp;</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">-A INPUT -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 3000 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 9090 -j ACCEPT</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading --></p>
+<h2><strong><em>II. <strong>Cài đặt prometheus bằng Docker</strong></em></strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong>Cài đặt Docker</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Link tham khảo: <a href="https://docs.docker.com/install/linux/docker-ce/centos/" target="_blank" rel="noreferrer noopener">https://docs.docker.com/install/linux/docker-ce/centos/&nbsp;</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bước 1: Cài các gói cần thiết</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bước 2: Cấu hình docker-ce repo</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">sudo yum-config-manager \
+&nbsp;&nbsp;&nbsp;&nbsp;--add-repo \
+&nbsp;&nbsp;&nbsp;&nbsp;https://download.docker.com/linux/centos/docker-ce.repo</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bước 3: Cài đặt docker-ce</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">sudo yum install docker-ce docker-ce-cli containerd.io
+systemctl enable docker
+systemctl restart docker</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Check docker version</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">docker vesion</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong>Cài đặt prometheus với docker</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Có 2 cách:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Cách 1: Bạn có thể pull trực tiếp image về và dùng</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Search Images:&nbsp;</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">docker search prometheus</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Thông tin Image trực tiếp từ trang chủ: <strong><a href="https://hub.docker.com/u/prom" target="_blank" rel="noreferrer noopener">https://hub.docker.com/u/prom</a>&nbsp;</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bước 1: Tải image về:&nbsp;</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">docker search prometheus</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bước 2: Run docker với image mình đã pull về</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">docker run --restart=always --mount source=prometheus-data,target=/prometheus --mount source=prometheus-config,target=/etc/prometheus --name prometheus -d -p ip-prometheus:9090:9090 prometheus</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Cách 2 (khuyến nghị): Git clone code về sau đó build image</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>=&gt; Cách này có thể kiểm soát dc code</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Dùng git clone để download code về local</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">git&nbsp; clone https://github.com/prometheus/prometheus
+cd prometheus/</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Sử dụng Go Lang để build&nbsp; file config của prometheus (binary)</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">make build</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Edit Dockerfile -&gt; check xem Dockerfile&nbsp;</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Ở đây mình check thấy đường dẫn không đúng và mình chỉnh lại cho phù hợp</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":6181} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/1-1.jpg" alt="1 1 [Prometheus từ A đến Z] Phần 01. Cài đặt Prometheus và Grafana trên CentOS 7" class="wp-image-6181" title="[Prometheus từ A đến Z] Phần 01. Cài đặt Prometheus và Grafana trên CentOS 7 1" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hình 01. [Monitor System từ A đến Z] Phần 01. Cài đặt Prometheus và Grafana trên CentOS 7</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Build Image:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">docker image build -t prometheus:latest .</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Run Image sau mình đã build&nbsp;</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">docker run --restart=always --mount source=prometheus-data,target=/prometheus --mount source=prometheus-config,target=/etc/prometheus --name prometheus -d -p 9090:9090 prometheus</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Check lại kết quả image đang chạy:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">docker ps</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:image {"align":"center","id":6182} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/2-1.jpg" alt="2 1 [Prometheus từ A đến Z] Phần 01. Cài đặt Prometheus và Grafana trên CentOS 7" class="wp-image-6182" title="[Prometheus từ A đến Z] Phần 01. Cài đặt Prometheus và Grafana trên CentOS 7 2" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hình 02: [Monitor System từ A đến Z] Phần 01. Cài đặt Prometheus và Grafana trên CentOS 7</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Truy cập vào Prometheus: http://IP:9090</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":6183} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/3-1.jpg" alt="3 1 [Prometheus từ A đến Z] Phần 01. Cài đặt Prometheus và Grafana trên CentOS 7" class="wp-image-6183" title="[Prometheus từ A đến Z] Phần 01. Cài đặt Prometheus và Grafana trên CentOS 7 3" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hình 03: [Monitor System từ A đến Z] Phần 01. Cài đặt Prometheus và Grafana trên CentOS 7</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Note :</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>docker run:&nbsp; lệnh dùng để chạy docker</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>–restart=always: khởi động lại image sau khi docker start lại</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>. tượng trưng cho thư mục hiện tại chứa Dockerfile</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>–mount source=prometheus-data,target=/prometheus: kỹ thuật dùng mount data tránh mất datda khi mình xóa container</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Thường mình sẽ inspect image ra để xem nên mount những thư mực nào.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>docker image inspect prometheus</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":6184} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/4-1.jpg" alt="4 1 [Prometheus từ A đến Z] Phần 01. Cài đặt Prometheus và Grafana trên CentOS 7" class="wp-image-6184" title="[Prometheus từ A đến Z] Phần 01. Cài đặt Prometheus và Grafana trên CentOS 7 4" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hình 04: [Monitor System từ A đến Z] Phần 01. Cài đặt Prometheus và Grafana trên CentOS 7</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>=&gt; Nhìn hình mình sẽ cần mount Workingdir và thư mực chức file config chính.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>-d -p 9090:9090: Nat port bên ngoài vào port container</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong>Cài đặt grafana</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bước 1:&nbsp; Pull image grafana về local</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">docker pull grafana/grafana</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bước 2: Run image grafana</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">docker run --restart=always -d -p 3000:3000 grafana/grafana&nbsp;</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>=&gt; Mình không mount thư mực vì mình check image không có gì đễ lưu</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Truy cập vào Grafana: http://IP:3000</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":6185} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/5-1.jpg" alt="5 1 [Prometheus từ A đến Z] Phần 01. Cài đặt Prometheus và Grafana trên CentOS 7" class="wp-image-6185" title="[Prometheus từ A đến Z] Phần 01. Cài đặt Prometheus và Grafana trên CentOS 7 5" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hình 05: [Monitor System từ A đến Z] Phần 01. Cài đặt Prometheus và Grafana trên CentOS 7</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>=&gt; Passwork mặt định là admin/admin, và sau đó sẽ đổi password sau lần đầu tiên đăng nhập</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bước 3: Connect Grafana tới prometheus</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Chọn Configuration, sau đó chọn data source type là Prometheus</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":6186} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/6-1.jpg" alt="6 1 [Prometheus từ A đến Z] Phần 01. Cài đặt Prometheus và Grafana trên CentOS 7" class="wp-image-6186" title="[Prometheus từ A đến Z] Phần 01. Cài đặt Prometheus và Grafana trên CentOS 7 6" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hình 06: [Monitor System từ A đến Z] Phần 01. Cài đặt Prometheus và Grafana trên CentOS 7</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Nhập thông tin của prometheus, sau đó save lại.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":6187} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/7-1.jpg" alt="7 1 [Prometheus từ A đến Z] Phần 01. Cài đặt Prometheus và Grafana trên CentOS 7" class="wp-image-6187" title="[Prometheus từ A đến Z] Phần 01. Cài đặt Prometheus và Grafana trên CentOS 7 7" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hình 07: [Monitor System từ A đến Z] Phần 01. Cài đặt Prometheus và Grafana trên CentOS 7</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>=&gt; Như vậy chúng ta đã hoàn thành việc kết nối giữa Grafana và Prometheus</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2><em><strong>II. Cài đặt Prometheus bằng Package</strong></em></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong>Cài đặt prometheus</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Download here: <a href="https://prometheus.io/download/" target="_blank" rel="noreferrer noopener">https://prometheus.io/download/</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget https://github.com/prometheus/prometheus/releases/download/v2.10.0/prometheus-2.10.0.linux-amd64.tar.gz
+tar -xvzf prometheus-2.10.0.linux-amd64.tar.gz
+mv prometheus-2.10.0.linux-amd64 /usr/local/prometheus/</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tạo service prometheus trong systemd</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">vim /etc/systemd/system/prometheus.service</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Nội dung file là:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">[Unit]
+Description=Prometheus
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=root
+Group=root
+Type=simple
+ExecStart=/usr/local/prometheus/prometheus \
+--config.file /usr/local/prometheus/prometheus.yml \
+--storage.tsdb.path /usr/local/prometheus/ \
+--web.console.templates=/usr/local/prometheus/consoles \
+--web.console.libraries=/usr/local/prometheus/console_libraries
+
+[Install]
+WantedBy=multi-user.target</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Restart và enable services.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">systemctl daemon-reload
+systemctl start prometheus
+systemctl status prometheus</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong>Cài đặt Grafana</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p><a href="https://grafana.com/grafana/download">https://grafana.com/grafana/download</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget https://dl.grafana.com/oss/release/grafana-6.2.1-1.x86_64.rpm
+sudo yum localinstall grafana-6.2.1-1.x86_64.rpm
+sudo service grafana-server start
+sudo /sbin/chkconfig --add grafana-server
+systemctl daemon-reload
+systemctl start grafana-server
+systemctl status grafana-server
+sudo systemctl enable grafana-server.service</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Truy cập vào Grafana: http://IP:3000</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":6185} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/5-1.jpg" alt="5 1 [Prometheus từ A đến Z] Phần 01. Cài đặt Prometheus và Grafana trên CentOS 7" class="wp-image-6185" title="[Prometheus từ A đến Z] Phần 01. Cài đặt Prometheus và Grafana trên CentOS 7 5" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hình 08: [Monitor System từ A đến Z] Phần 01. Cài đặt Prometheus và Grafana trên CentOS 7</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Sau bài này mình sẽ tiếp tục hướng dẫn mọi người đưa các thiết bị vào để monitor. Ví dụ như Server Windows, Server Linux và monitor những thiết bị mạng qua snmp.</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Tất cả bài viết về prometheus tại đây.</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><a href="https://thuanvu.me/prometheus-overview" target="_blank" rel="noopener">Giới thiệu về giải pháp giám sát hệ thống Prometheus và Grafana</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><a href="https://thuanvu.me/prometheus-install" target="_blank" rel="noopener">Phần 01 – Cài đặt Prometheus và Grafana trên Centos 07</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><a href="https://thuanvu.me/prometheus-windows" target="_blank" rel="noopener">Phần 02 – Giám sát Windows Server với Prometheus</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><a href="https://thuanvu.me/prometheus-fortigate" target="_blank" rel="noopener">Phần 03 – Giám sát firewall Fortigate với Prometheus</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><a href="https://thuanvu.me/prometheus-cisco" target="_blank" rel="noopener">Phần 04 – Giám sát thiết bị mạng Cisco với Prometheus</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><a href="https://thuanvu.me/prometheus-pfsense" target="_blank" rel="noopener">Phần 05 – Giám sát firewall Pfsense và Linux Server với Prometheus</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><a href="https://thuanvu.me/prometheus-vmware" target="_blank" rel="noopener">Phần 06 – Giám sát VMWARE với Prometheus</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><a href="https://thuanvu.me/prometheus-telegram" target="_blank" rel="noopener">Phần 07 –&nbsp; Cấu hình alert trong Prometheus và gửi tin nhắn qua telegram</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Credit: Itforvn.com</p>
+<p><!-- /wp:paragraph --></p>

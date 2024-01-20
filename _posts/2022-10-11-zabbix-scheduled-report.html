@@ -1,0 +1,91 @@
+---
+layout: post
+title: "\U0001F4EF Zabbix - Configure Scheduled Report"
+date: 2022-10-11 16:52:32.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- System
+- Tools
+tags: []
+author: thu4nvd
+permalink: "/zabbix-scheduled-report/"
+---
+<p><!-- wp:paragraph --></p>
+<p>I have configured this. Below you can find steps to follow for installation. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>OS System: Centos 8 </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2><strong>1. Install google-chrome</strong> <strong>for generating PDF.</strong> </h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+dnf localinstall google-chrome-stable_current_x86_64.rpm</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading --></p>
+<h2><strong>2. Install Zabbix-Web Service</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">dnf install zabbix-web-service</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Enable service:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">systemctl enable zabbix-web-service
+systemctl start zabbix-web-service</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading --></p>
+<h2><strong>3. Modify "zabbix_server.conf" file</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>add lines:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">StartReportWriters=1
+WebServiceURL=http://localhost:10053/report</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>match WebServiceURL with "zabbix_web_service.conf" settings<br />Restart zabbix-server</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">systemctl restart zabbix-server</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading --></p>
+<h2><strong>4. Setup Frontend URl Parameter in Zabbix GUI</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Administration/General/Others</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"id":2022,"sizeSlug":"full","linkDestination":"none"} --></p>
+<figure class="wp-block-image size-full"><img src="{{ site.baseurl }}/assets/2022/10/image.png" alt="" class="wp-image-2022" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>working format "http://zabbix.your.domain"</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2><strong>5. Setup Example Report</strong><br /></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Documentation on Zabbix official site:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Zabbix Document: <a href="https://www.zabbix.com/documentation/current/en/manual/appendix/install/web_service" target="_blank" rel="noopener">13 Setting up scheduled reports</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Zabbix Document: <a href="https://www.zabbix.com/documentation/current/en/manual/config/reports#configuration" target="_blank" rel="noopener">14 Scheduled reports</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Zabbix Document: <a href="https://www.zabbix.com/documentation/current/en/manual/appendix/config/zabbix_web_service" target="_blank" rel="noopener">Configure parameters for Web Service</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Credit: <a href="https://www.zabbix.com/forum/zabbix-help/424739-scheduled-reports-5-4/page2" target="_blank" rel="noopener">https://www.zabbix.com/forum/zabbix-help/424739-scheduled-reports-5-4/page2</a> </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Here is official tutorial available: <a href="https://www.youtube.com/watch?v=fcqMqBphuu4" target="_blank" rel="noreferrer noopener">https://www.youtube.com/watch?v=fcqMqBphuu4</a></p>
+<p><!-- /wp:paragraph --></p>

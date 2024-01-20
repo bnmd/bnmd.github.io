@@ -1,0 +1,4514 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# " class="no-js">
+<head>
+  <meta charset="utf-8" />
+<link rel="canonical" href="https://uwaterloo.ca/centre-for-teaching-excellence/" />
+<link rel="shortlink" href="https://uwaterloo.ca/centre-for-teaching-excellence/" />
+<link rel="image_src" href="https://uwaterloo.ca/university-of-waterloo-logo-152.png" />
+<meta property="og:image" content="https://uwaterloo.ca/university-of-waterloo-logo-152.png" />
+<meta name="Generator" content="Drupal 9 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="google-site-verification" content="4691085712" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5349KMYJ80"></script>
+<script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-5349KMYJ80');</script>
+<link rel="icon" href="/centre-for-teaching-excellence/profiles/uw_base_profile/themes/uw_fdsu_theme_resp/favicon.ico" />
+<link rel="alternate" hreflang="en" href="https://uwaterloo.ca/centre-for-teaching-excellence/" />
+<link rel="icon" href="/centre-for-teaching-excellence/profiles/uw_base_profile/themes/uw_fdsu_theme_resp/icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/centre-for-teaching-excellence/profiles/uw_base_profile/themes/uw_fdsu_theme_resp/apple-touch-icon.png" />
+<link rel="manifest" href="data:application/manifest+json,%7B%22icons%22%3A%5B%7B%22src%22%3A%22https%3A%5C%2F%5C%2Fuwaterloo.ca%5C%2Fcentre-for-teaching-excellence%5C%2Fprofiles%5C%2Fuw_base_profile%5C%2Fthemes%5C%2Fuw_fdsu_theme_resp%5C%2Ficon-192.png%22%2C%22type%22%3A%22image%5C%2Fpng%22%2C%22sizes%22%3A%22192x192%22%7D%2C%7B%22src%22%3A%22https%3A%5C%2F%5C%2Fuwaterloo.ca%5C%2Fcentre-for-teaching-excellence%5C%2Fprofiles%5C%2Fuw_base_profile%5C%2Fthemes%5C%2Fuw_fdsu_theme_resp%5C%2Ficon-512.png%22%2C%22type%22%3A%22image%5C%2Fpng%22%2C%22sizes%22%3A%22512x512%22%7D%5D%7D" />
+
+    <title>Welcome to CTE | Centre for Teaching Excellence</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=Barlow:wght@400;500;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=Barlow:wght@400;500;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=Barlow:wght@400;500;700&display=swap" />
+    </noscript>
+          <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-M9XLVF');</script>
+      <!-- End Google Tag Manager -->
+        <link rel="stylesheet" media="all" href="/centre-for-teaching-excellence/sites/default/files/css/css_jtbK8-qO_G6KgBI8nfWFMQzwYnInoVzcYAw--F9qfFo.css" />
+<link rel="stylesheet" media="all" href="/centre-for-teaching-excellence/sites/default/files/css/css_h9lWyr6vD3DuZwluYFa7heBbKAMDU8zKYREdaRj8cvI.css" />
+<link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+<link rel="stylesheet" media="all" href="/centre-for-teaching-excellence/sites/default/files/css/css_lkJEk2wSKCPo1dEX4obz0k7W1sBclFbulpVq2KRqf_k.css" />
+
+      
+        </head>
+<body class="org-default not-layout-page path-frontpage front node-page node-page--node-type-uw-ct-web-page">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M9XLVF" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+<div class="skiplinks">
+  <a href="#main" class="skiplinks__link visually-hidden focusable">Skip to main content</a>
+</div>
+
+  <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    <div class="uw-site-container">
+      
+
+  
+<header class="uw-header org-default" role="banner">
+    <div class="uw-header__masthead">
+    <div class="uw-site-logo">
+      <a class="uw-site-logo__link" href="https://uwaterloo.ca" title="University of Waterloo Home" aria-label="University of Waterloo Home" rel="home"></a>
+  </div>
+
+          
+
+
+<div class="uw-header-menu">
+  <nav class="uw-horizontal-nav  uw-horizontal-nav--header">
+    <div class="uw-horizontal-nav--wrapper">
+              <div class="uw-horizontal-nav--menu">
+            
+        
+      
+      <ul class="menu menu--horizontal" >
+    
+    
+      
+      
+      
+                            
+      
+      
+      
+      
+            
+                
+                
+                    
+                      
+            
+            
+      <li class="menu__item  is-active-trail has-submenu" >
+
+        <a class="menu__link is-active-trail menu__link-sub"
+                      tabindex="0"
+            aria-haspopup="true"
+            role="button"
+                   >
+          <span class="link-text">
+                      Jump to
+                    </span>
+        </a>
+                                            <ul class="menu menu__subnav">
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+        
+        <li class="menu__item menu__item-parent">
+
+          <a href="#" class="menu__link-parent">
+
+            <span class="link-text">
+                              Jump to
+                          </span>
+
+          </a>
+
+        </li>
+      
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="https://uwaterloo.ca/admissions/"
+                   >
+          <span class="link-text">
+                      Admissions
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="https://uwaterloo.ca/about/"
+                   >
+          <span class="link-text">
+                      About Waterloo
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="https://uwaterloo.ca/faculties-academics/"
+                   >
+          <span class="link-text">
+                      Faculties &amp; Academics
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="https://uwaterloo.ca/offices-services/"
+                   >
+          <span class="link-text">
+                      Offices &amp; Services
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="https://uwaterloo.ca/support/"
+                   >
+          <span class="link-text">
+                      Support Waterloo
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="https://uwaterloo.ca/coronavirus/"
+                   >
+          <span class="link-text">
+                      COVID-19
+                    </span>
+        </a>
+              </li>
+
+        </ul>
+  
+                        </li>
+
+        </ul>
+  
+
+        </div>
+    </div>
+</nav>
+</div>
+
+    
+    
+
+
+  <div class="uw-header-search">
+    <form class="uw-search--form" role="search" data-drupal-selector="uw-search-form" action="/centre-for-teaching-excellence/" method="post" id="uw-search-form" accept-charset="UTF-8">
+  <input class="uw-input uw-input--checkboxform form-checkbox" aria-hidden="true" tabindex="-1" data-drupal-selector="edit-opentray" type="checkbox" id="edit-opentray" name="opentray" value="1" />
+<label class="uw-search--checkboxlabel option" data-drupal-selector="edit-opentray" for="edit-opentray"><span class="uw-search--checkboxlabel__labeltext">Open Search Location </span></label><div class="js-form-item form-item js-form-type-textfield form-item-search-input js-form-item-search-input form-no-label">
+      <label for="uw-search" class="visually-hidden"><span class="uw-search--labeltext">Search for </span></label>
+              <input class="uw-input uw-input--search form-text" data-drupal-selector="uw-search" data-msg-maxlength="Search for  field has a maximum length of 128." type="text" id="uw-search" name="search-input" value="" size="60" maxlength="128" placeholder="Search" />
+
+      
+      </div>
+<div class="js-form-item form-item js-form-type-select form-item-search-type js-form-item-search-type form-no-label">
+      <label for="uw-select-site" class="visually-hidden">Search Location</label>
+              
+<select class="form-item__select uw-select--search form-select" data-drupal-selector="uw-select-site" id="uw-select-site" name="search-type"><option value="" selected="selected">On all sites</option><option value="inurl:https://uwaterloo.ca/centre-for-teaching-excellence/">On this site</option></select>
+      
+      </div>
+<input autocomplete="off" data-drupal-selector="form-ucbb19hb6fa-yogzwhnbqyj0abeits5r2eebcpdrjc0" type="hidden" name="form_build_id" value="form-ucbb19hB6FA_yoGzwHNBQYJ0AbeITS5r2eebCPDrJC0" />
+<input data-drupal-selector="edit-uw-search-form" type="hidden" name="form_id" value="uw_search_form" />
+
+
+<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions--4"><div class="uw-search-button__wrapper"><input value="Search" class="button button--submit button--submit__form js-form-submit form-submit" data-drupal-selector="edit-submit" type="submit" id="edit-submit" name="op" />
+</div></div>
+
+
+</form>
+
+  </div>
+  </div>
+  <!-- Branding colour bar. -->
+      <div class="uw-colour-bar">
+  <div class="uw-colour-bar__wrapper">
+    <div class="uw-colour-bar__cbars">
+                <div class="uw-colour-bar__cbar org-default-1"></div>
+                <div class="uw-colour-bar__cbar org-default-2"></div>
+                <div class="uw-colour-bar__cbar org-default-3"></div>
+                <div class="uw-colour-bar__cbar org-default-4"></div>
+          </div>
+  </div>
+</div>
+  
+      <!-- Main header horizontal navigation -->
+    <nav class="uw-header__nav">
+      <div class="uw-header__center">
+        <div class="uw-header__site-name">
+          <div class="uw-site-name">
+  <div class="uw-site-name__wrapper">
+    <a class="uw-site-name__link" href="https://uwaterloo.ca/centre-for-teaching-excellence/" title="Centre for Teaching Excellence Home" rel="home">
+      <div class="uw-site-name__text">Centre for Teaching Excellence</div>
+          </a>
+  </div>
+</div>
+
+         </div>
+                  <button class="uw-navigation-button" aria-controls="uw-header__navigation" aria-expanded="false">
+            <span class="uw-navigation-button__text">Menu</span>
+            <span class="uw-navigation-button__lines"></span>
+          </button>
+              </div>
+              <div id="uw-header__navigation" class="uw-header__navigation">
+          <nav class="uw-horizontal-nav  uw-horizontal-nav--main">
+    <div class="uw-horizontal-nav--wrapper">
+              <div class="uw-horizontal-nav--home">
+            <a href="https://uwaterloo.ca/centre-for-teaching-excellence/" class="uw-site-home__link" title="Centre for Teaching Excellence Home" rel="home">
+              <div class="uw-icon uw-svg uw-svg__home">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24" height="24"  viewBox="0 0 24 24">
+  <circle class="bg-circle" cx="12" cy="11.9" r="11.6"/>
+  <path class="house" d="M15.9,6.6c0-0.2-0.2-0.4-0.4-0.4c0,0,0,0,0,0h-1.1c-0.2,0-0.4,0.2-0.4,0.4c0,0,0,0,0,0v1.1l-1.7-1.6
+		c-0.2-0.2-0.5-0.2-0.6,0l-5.8,5.2l0.6,0.8l0.9-0.8V18c0,0.2,0.2,0.4,0.4,0.4c0,0,0,0,0,0h2.9c0.2,0,0.4-0.2,0.4-0.4c0,0,0,0,0,0
+		v-3.4h2V18c0,0.2,0.2,0.4,0.4,0.4c0,0,0,0,0,0h2.9c0.2,0,0.4-0.2,0.4-0.4c0,0,0,0,0,0v-6.5l0.9,0.8l0.6-0.8l-2.2-2L15.9,6.6z"/>
+</svg>
+              </div>
+              <span class="off-screen">Centre for Teaching Excellence Home</span>
+            </a>
+        </div>
+              <div class="uw-horizontal-nav--menu">
+            
+        
+      
+      <ul class="menu menu--horizontal" >
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+                
+                
+                    
+                      
+            
+            
+      <li class="menu__item  has-submenu" >
+
+        <a class="menu__link menu__link-sub"
+                      tabindex="0"
+            aria-haspopup="true"
+            role="button"
+                   >
+          <span class="link-text">
+                     ABOUT CTE
+                    </span>
+        </a>
+                                            <ul class="menu menu__subnav">
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+        
+        <li class="menu__item menu__item-parent">
+
+          <a href="/centre-for-teaching-excellence/about-cte" class="menu__link-parent">
+
+            <span class="link-text">
+                              ABOUT CTE
+                          </span>
+
+          </a>
+
+        </li>
+      
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/about-cte/staff-profiles"
+                   >
+          <span class="link-text">
+                     Staff profiles
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/about-cte/organizational-structure-and-job-roles"
+                   >
+          <span class="link-text">
+                     Org Structure &amp; job roles
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/about-cte/our-strategic-plan"
+                   >
+          <span class="link-text">
+                     Strategic plan
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/about-cte/staff-research-and-service"
+                   >
+          <span class="link-text">
+                     Staff research and service
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/about-cte/fast-facts-about-cte"
+                   >
+          <span class="link-text">
+                     Fast Facts about CTE
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/about-cte/annual-reports-newsletters-more"
+                   >
+          <span class="link-text">
+                     Annual Reports, Newsletters, &amp; More
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/about-cte/newsletter-archive/location"
+                   >
+          <span class="link-text">
+                     Location
+                    </span>
+        </a>
+              </li>
+
+        </ul>
+  
+                        </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+                
+                
+                    
+                      
+            
+            
+      <li class="menu__item  has-submenu" >
+
+        <a class="menu__link menu__link-sub"
+                      tabindex="0"
+            aria-haspopup="true"
+            role="button"
+                   >
+          <span class="link-text">
+                     WORKSHOPS &amp; EVENTS
+                    </span>
+        </a>
+                                            <ul class="menu menu__subnav">
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+        
+        <li class="menu__item menu__item-parent">
+
+          <a href="/centre-for-teaching-excellence/workshops-and-events" class="menu__link-parent">
+
+            <span class="link-text">
+                              WORKSHOPS &amp; EVENTS
+                          </span>
+
+          </a>
+
+        </li>
+      
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/workshops-and-events/workshops-events-all-faculty-staff"
+                   >
+          <span class="link-text">
+                     For All Faculty &amp; Staff
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/workshops-and-events/new-faculty"
+                   >
+          <span class="link-text">
+                     For New Faculty
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/workshops-and-events/workshops-and-events-graduate-students"
+                   >
+          <span class="link-text">
+                     For Graduate Students
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/workshops-and-events/signature-events"
+                   >
+          <span class="link-text">
+                     Signature Events
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/workshops-and-events/ongoing-self-directed-workshops"
+                   >
+          <span class="link-text">
+                     Self-Directed Workshops
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/workshops-and-events/recorded-workshops"
+                   >
+          <span class="link-text">
+                     Recorded Workshops
+                    </span>
+        </a>
+              </li>
+
+        </ul>
+  
+                        </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+                
+                
+                    
+                      
+            
+            
+      <li class="menu__item  has-submenu" >
+
+        <a class="menu__link menu__link-sub"
+                      tabindex="0"
+            aria-haspopup="true"
+            role="button"
+                   >
+          <span class="link-text">
+                     AREAS OF SUPPORT
+                    </span>
+        </a>
+                                            <ul class="menu menu__subnav">
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+                
+                                                
+            
+            
+        
+        <li class="menu__item menu__item-parent">
+
+          <a href="/centre-for-teaching-excellence/areas-support" class="menu__link-parent">
+
+            <span class="link-text">
+                              AREAS OF SUPPORT
+                          </span>
+
+          </a>
+
+        </li>
+      
+      <li class="menu__item  has-submenu sub-1" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support-faculty-and-staff/curriculum-renewal"
+                   >
+          <span class="link-text">
+                     Curriculum design and renewal
+                    </span>
+        </a>
+                                            <ul class="menu menu__subnav">
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support-faculty-and-staff/curriculum-renewal/design-and-development"
+                   >
+          <span class="link-text">
+                     Design and development
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support-faculty-and-staff/curriculum-renewal/implementation"
+                   >
+          <span class="link-text">
+                     Implementation
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support-faculty-and-staff/curriculum-renewal/formative-assessment"
+                   >
+          <span class="link-text">
+                     Formative assessment
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/teaching-resources/curriculum-development-and-renewal/program-review-accreditation"
+                   >
+          <span class="link-text">
+                     Program review and accreditation
+                    </span>
+        </a>
+              </li>
+
+        </ul>
+  
+                        </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support/blended-learning"
+                   >
+          <span class="link-text">
+                     Blended learning
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+                
+                                                
+            
+            
+      <li class="menu__item  has-submenu sub-1" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/areas-support/integrative-learning"
+                   >
+          <span class="link-text">
+                     Integrative learning
+                    </span>
+        </a>
+                                            <ul class="menu menu__subnav">
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/resources/integrative-learning/pebblepad"
+                   >
+          <span class="link-text">
+                     PebblePad
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support/integrative-learning/experiential-learning"
+                   >
+          <span class="link-text">
+                     Experiential Learning
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support/integrative-learning/high-impact-practices-hips-or-engaged-learning-practices"
+                   >
+          <span class="link-text">
+                     High impact practices
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support/integrative-learning/watcv"
+                   >
+          <span class="link-text">
+                     WatCV
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/areas-support/integrative-learning/student-led-individually-created-courses-sliccs"
+                   >
+          <span class="link-text">
+                     Student Led Individually Created Courses (SLICCs)
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support/integrative-learning/problem-based-learning"
+                   >
+          <span class="link-text">
+                     Problem-Based Learning
+                    </span>
+        </a>
+              </li>
+
+        </ul>
+  
+                        </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+                
+                                                
+            
+            
+      <li class="menu__item  has-submenu sub-1" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support/teaching-and-learning-research-and-grants"
+                   >
+          <span class="link-text">
+                     Research and grants
+                    </span>
+        </a>
+                                            <ul class="menu menu__subnav">
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support/teaching-and-learning-research-and-grants/teaching-and-learning-research"
+                   >
+          <span class="link-text">
+                     Teaching and learning research
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support/teaching-and-learning-research-and-grants/learning-innovation-and-teaching-enhancement-lite-grants"
+                   >
+          <span class="link-text">
+                     LITE Grants
+                    </span>
+        </a>
+              </li>
+
+        </ul>
+  
+                        </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+                
+                                                
+            
+            
+      <li class="menu__item  has-submenu sub-1" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/awards"
+                   >
+          <span class="link-text">
+                     Teaching awards
+                    </span>
+        </a>
+                                            <ul class="menu menu__subnav">
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/cutaward"
+                   >
+          <span class="link-text">
+                     Certificate in University Teaching Award
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/dta"
+                   >
+          <span class="link-text">
+                     Distinguished Teacher Award
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/chakma"
+                   >
+          <span class="link-text">
+                     Amit &amp; Meena Chakma Award for Exceptional Teaching by a Student
+                    </span>
+        </a>
+              </li>
+
+        </ul>
+  
+                        </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+                
+                                                
+            
+            
+      <li class="menu__item  has-submenu sub-1" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support/teaching-technology"
+                   >
+          <span class="link-text">
+                     Teaching with technology
+                    </span>
+        </a>
+                                            <ul class="menu menu__subnav">
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support/teaching-technology/technology-solutions"
+                   >
+          <span class="link-text">
+                     Technology solutions
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support/teaching-technology/educational-technologies-hub"
+                   >
+          <span class="link-text">
+                     Educational Technologies Hub
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support/teaching-technology/extended-reality-community-practice"
+                   >
+          <span class="link-text">
+                     Extended Reality Community of Practice
+                    </span>
+        </a>
+              </li>
+
+        </ul>
+  
+                        </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/wac"
+                   >
+          <span class="link-text">
+                     Writing across the curriculum
+                    </span>
+        </a>
+              </li>
+
+        </ul>
+  
+                        </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+                
+                
+                    
+                      
+            
+            
+      <li class="menu__item  has-submenu" >
+
+        <a class="menu__link menu__link-sub"
+                      tabindex="0"
+            aria-haspopup="true"
+            role="button"
+                   >
+          <span class="link-text">
+                     ONLINE RESOURCES
+                    </span>
+        </a>
+                                            <ul class="menu menu__subnav">
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+        
+        <li class="menu__item menu__item-parent">
+
+          <a href="/centre-for-teaching-excellence/online-resources" class="menu__link-parent">
+
+            <span class="link-text">
+                              ONLINE RESOURCES
+                          </span>
+
+          </a>
+
+        </li>
+      
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/resources/teaching-tips"
+                   >
+          <span class="link-text">
+                     Teaching tip sheets
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/resources/recommended-journals"
+                   >
+          <span class="link-text">
+                     Research guide
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/resources/cte-youtube-channel"
+                   >
+          <span class="link-text">
+                     YouTube channel
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/resources/accessibility-teaching-0"
+                   >
+          <span class="link-text">
+                     Accessibility in Teaching
+                    </span>
+        </a>
+              </li>
+
+        </ul>
+  
+                        </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/news-0"
+                   >
+          <span class="link-text">
+                     NEWS
+                    </span>
+        </a>
+              </li>
+
+        </ul>
+  
+
+        </div>
+    </div>
+</nav>
+
+          <nav class="uw-horizontal-nav  uw-horizontal-nav--secondary">
+    <div class="uw-horizontal-nav--wrapper">
+              <div class="uw-horizontal-nav--menu">
+            
+        
+      
+      <ul class="menu menu--horizontal" >
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support-faculty-and-staff"
+                   >
+          <span class="link-text">
+                     For Faculty and Staff
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support-faculty-and-staff/support-new-faculty"
+                   >
+          <span class="link-text">
+                     For New Faculty
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+                
+                
+                    
+                      
+            
+            
+      <li class="menu__item  has-submenu" >
+
+        <a class="menu__link menu__link-sub"
+                      tabindex="0"
+            aria-haspopup="true"
+            role="button"
+                   >
+          <span class="link-text">
+                     For Graduate students
+                    </span>
+        </a>
+                                            <ul class="menu menu__subnav">
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+                
+                                                
+            
+            
+        
+        <li class="menu__item menu__item-parent">
+
+          <a href="/centre-for-teaching-excellence/support-graduate-students" class="menu__link-parent">
+
+            <span class="link-text">
+                              For Graduate students
+                          </span>
+
+          </a>
+
+        </li>
+      
+      <li class="menu__item  has-submenu sub-1" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support-graduate-students/fundamentals-university-teaching-program"
+                   >
+          <span class="link-text">
+                     Fundamentals of University Teaching
+                    </span>
+        </a>
+                                            <ul class="menu menu__subnav">
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support-graduate-students/fundamentals-university-teaching-program/fundamentals-workshops"
+                   >
+          <span class="link-text">
+                     Fundamentals Workshops
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support-graduate-students/fundamentals-university-teaching-program/fundamentals-microteaching-sessions"
+                   >
+          <span class="link-text">
+                     Fundamentals Microteaching Sessions
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support-graduate-students/fundamentals-university-teaching-program/fundamentals-block-session"
+                   >
+          <span class="link-text">
+                     Fundamentals Block session
+                    </span>
+        </a>
+              </li>
+
+        </ul>
+  
+                        </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support-graduate-students/certificate-university-teaching"
+                   >
+          <span class="link-text">
+                     Certificate in University Teaching
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support-graduate-students/certificate-university-language-teaching"
+                   >
+          <span class="link-text">
+                     Certificates in University Language Teaching
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+                
+                                                
+            
+            
+      <li class="menu__item  has-submenu sub-1" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support-graduate-students/our-graduate-student-staff"
+                   >
+          <span class="link-text">
+                     Our graduate student staff
+                    </span>
+        </a>
+                                            <ul class="menu menu__subnav">
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support-graduate-students/our-graduate-student-staff/join-our-team"
+                   >
+          <span class="link-text">
+                     Join our team!
+                    </span>
+        </a>
+              </li>
+
+        </ul>
+  
+                        </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support-graduate-students/ta-handbook"
+                   >
+          <span class="link-text">
+                     TA Handbook
+                    </span>
+        </a>
+              </li>
+
+        </ul>
+  
+                        </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/programming-postdoctoral-fellows"
+                   >
+          <span class="link-text">
+                     For Postdoctoral Fellows
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="/centre-for-teaching-excellence/support-department-chairs-and-program-directors"
+                   >
+          <span class="link-text">
+                     For Chairs and Directors
+                    </span>
+        </a>
+              </li>
+
+        </ul>
+  
+
+        </div>
+    </div>
+</nav>
+
+        </div>
+          </nav>
+  </header>
+
+    
+    
+  
+      <div class="uw-highlighted">
+      <div data-drupal-messages-fallback class="hidden"></div>
+
+  </div>
+
+    
+  
+      
+    <!-- Button for show and hide of admin -->
+<button class="uw-show-hide"  id="revision-show-hide" title="Show/hide revision elements">±</button>
+<!-- end -->
+
+<main id="main" class="uw-main" role="main" tabindex="-1">
+      
+
+
+
+
+
+  
+  
+<div  role="article" about="/centre-for-teaching-excellence/home" class="node node--type-uw-ct-web-page node--view-mode-full uw-node">
+  <div class="uw-node__grid">
+    <article class="uw-node__node">
+          <div class="node__content">
+        
+
+<div class="uw-node__with-media">
+  <article class="card card__node  card__node--web-page" >
+
+      <div class="card__media layout uw-contained-width">
+
+      
+        <article class="card card__banner  card__node--uw_ct_web_page"  id="banner1-64b1ec4e8b838">
+
+  
+  
+  
+      <div class="card__body">
+              <div class="card__banner--image">
+    <a href="https://uwaterloo.ca/centre-for-teaching-excellence/sites/default/files/uploads/files/fp2062_cte_annualreport_alisasivek_updatedfinal_jw_lr_final-ua_0.pdf">
+        <div class="card__banner--media">
+                <picture class="uw-picture">
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_x_large/public/uploads/images/annual-report-banner-for-home-page.png?itok=_KfUtyUO 1x" media="all and (min-width: 63.19em)" type="image/png" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_large/public/uploads/images/annual-report-banner-for-home-page.png?itok=RUp2Z_Ai 1x" media="all and (min-width: 49.81em)" type="image/png" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_medium/public/uploads/images/annual-report-banner-for-home-page.png?itok=DuxGXX9A 1x" media="all and (min-width: 30em)" type="image/png" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_x_small/public/uploads/images/annual-report-banner-for-home-page.png?itok=WOckCELs 1x" media="all and (min-width: 25em)" type="image/png" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_small/public/uploads/images/annual-report-banner-for-home-page.png?itok=axfihFw5 1x" media="all and (min-width: 15em)" type="image/png" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_portrait/public/uploads/images/annual-report-banner-for-home-page.png?itok=ksXf0yV7 1x" media="all and (min-width: 1em)" type="image/png" />
+            <!--[if IE 9]></video><![endif]-->
+            <img class="uw-picture__fallback" src="/centre-for-teaching-excellence/sites/default/files/styles/large/public/uploads/images/annual-report-banner-for-home-page.png?itok=-8RvZ_KQ" alt="annual report">
+  </picture>
+          </div>
+          <div class="card__banner--caption">
+                <strong>
+        <span class="card__banner--title">
+          See what we&#039;ve done! 
+        </span>
+                  </strong>
+                  <span class="card__banner--sub-title">
+          Check out our latest annual report! 
+        </span>
+              </div>
+          </a>
+  </div>
+      
+          </div>
+  
+  
+  
+</article>
+  
+
+  
+  
+  </div>
+  
+  
+      <div class="card__header uw-node__with-media">
+  
+  
+  
+    
+    <h1 class="card__title">
+  
+
+      
+        Welcome to CTE
+
+        
+      </h1>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  
+      <div class="card__body">
+      
+              <div class="card__content">
+
+
+  
+<section
+       class="uw-contained-width uw-section-spacing--default uw-section-separator--none uw-column-separator--none layout layout--uw-1-col"
+  >
+
+  
+    
+    
+    <div
+              
+          >
+
+              
+          </div>
+
+    
+  
+</section>
+
+
+
+
+
+  
+<section
+       class="uw-contained-width uw-section-spacing--default uw-section-separator--none uw-column-separator--none layout layout--uw-2-col larger-left"
+  >
+
+  
+    
+    
+    <div
+               class="layout__region layout__region--first"
+          >
+
+              
+
+  <div class="block block-layout-builder block-inline-blockuw-cbl-copy-text">
+        
+        
+          <div class="uw-copy-text">
+  <div class="uw-copy-text__wrapper ">
+    <h2>The Centre for Teaching Excellence collaborates with individuals, academic departments, and academic support units to foster capacity and community around teaching and to promote an institutional culture that values effective teaching and meaningful learning.</h2>
+  </div>
+</div>
+
+      </div>
+
+
+  <div id="tipsheets" class="block block-uw-custom-blocks block-uw-cbl-expand-collapse">
+        
+        
+            <div id="64b1ec4e79dab" class="uw-exp-col">
+    
+          <details class="uw-details">
+        <summary class="details__summary">
+          <h2>Search our 150+ Teaching Tips</h2>
+        </summary>
+        <div class="details__content">
+          
+
+
+
+
+  
+  
+<div  role="article" about="/centre-for-teaching-excellence/search-our-150-teaching-tips" class="node node--type-uw-ct-expand-collapse-group node--promoted node--view-mode-full uw-node">
+  <div class="uw-node__grid">
+    <article class="uw-node__node">
+          <div class="node__content">
+        
+
+<div class="uw-node__without-media">
+  <article class="card card__node  card__node--expand-collapse-group" >
+
+  
+  
+      <div class="card__header uw-node__without-media">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  
+      <div class="card__body">
+      
+              <div class="card__content">
+
+
+  
+<section
+       class="uw-contained-width uw-section-spacing--default uw-section-separator--none uw-column-separator--none layout layout--uw-1-col"
+  >
+
+  
+    
+    
+    <div
+               class="layout__region layout__region--first"
+          >
+
+              
+
+  <div class="block block-layout-builder block-inline-blockuw-cbl-copy-text">
+        
+        
+          <div class="uw-copy-text">
+  <div class="uw-copy-text__wrapper ">
+    <p>CTE has developed over 150 brief Teaching Tip Sheets that provide practical and evidence-based strategies to support effective teaching and learning. Have a look at the categories below or use the search tool to find one on a specific topic. </p>
+  </div>
+</div>
+
+      </div>
+
+
+  <div class="block block-layout-builder block-inline-blockuw-cbl-copy-text">
+        
+        
+          <div class="uw-copy-text">
+  <div class="uw-copy-text__wrapper ">
+    <ul><li><a href="https://uwaterloo.ca/centre-for-teaching-excellence/catalogs/tip-sheets/category/assessment-and-feedback">Assessment and Feedback</a></li>
+	<li><a href="https://uwaterloo.ca/centre-for-teaching-excellence/catalogs/tip-sheets/category/blended-learning-and-educational-technologies">Blended Learning and Educational Technologies</a></li>
+	<li><a href="https://uwaterloo.ca/centre-for-teaching-excellence/catalogs/tip-sheets/category/career-development">Career Development</a></li>
+	<li><a href="https://uwaterloo.ca/centre-for-teaching-excellence/catalogs/tip-sheets/category/course-design">Course Design</a></li>
+	<li><a href="https://uwaterloo.ca/centre-for-teaching-excellence/catalogs/tip-sheets/category/course-implementation">Course Implementation</a></li>
+	<li><a href="https://uwaterloo.ca/centre-for-teaching-excellence/catalogs/tip-sheets/category/inclusive-teaching-and-learning">Inclusive Teaching and Learning</a></li>
+	<li><a href="https://uwaterloo.ca/centre-for-teaching-excellence/catalogs/tip-sheets/category/learning-activities">Learning Activities</a></li>
+	<li><a href="https://uwaterloo.ca/centre-for-teaching-excellence/catalogs/tip-sheets/category/support-for-student-learning">Support for Student Learning</a></li>
+	<li><a href="https://uwaterloo.ca/centre-for-teaching-excellence/catalogs/tip-sheets/category/support-for-tas">Support for TAs</a></li>
+</ul><p>The <a href="https://uwaterloo.ca/centre-for-teaching-excellence/catalogs/tip-sheets">complete list of Teaching Tips Sheets</a> in alphabetical order</p>
+  </div>
+</div>
+
+      </div>
+
+
+  <div class="block block-uw-custom-blocks block-uw-cbl-catalog-search">
+        
+        
+          
+      <div class="uw-form-search">
+      <div class="uw-search-form">
+      <form class="catalog-search-form" data-drupal-selector="catalog-search-form" action="/centre-for-teaching-excellence/" method="post" id="catalog-search-form" accept-charset="UTF-8">
+  <div class="js-form-item form-item js-form-type-textfield form-item-search-input js-form-item-search-input form-no-label">
+              <input data-drupal-selector="edit-search-input" aria-describedby="edit-search-input--description" data-msg-maxlength="This field field has a maximum length of 128." data-msg-required="This field field is required." type="text" id="edit-search-input" name="search_input" value="" size="60" maxlength="128" class="form-text required" required="required" aria-required="true" />
+
+      
+          <div id="edit-search-input--description" class="description">
+      Use the window above to search for a specific topic. 
+    </div>
+  </div>
+<input aria-label="search" data-drupal-selector="edit-submit" type="submit" id="edit-submit" name="op" value="" class="button js-form-submit form-submit" />
+<input autocomplete="off" data-drupal-selector="form-ah-8zsvftrfxsyronaqd6umdiw4hp1f-tckva6jhpe" type="hidden" name="form_build_id" value="form-_ah-8ZSvftRfXSYRonAqd6UmdiW4HP1f-TCKVa6JHPE" />
+<input data-drupal-selector="edit-catalog-search-form" type="hidden" name="form_id" value="catalog_search_form" />
+
+</form>
+
+    </div>
+  </div>
+  
+      </div>
+
+          </div>
+
+    
+  
+</section>
+
+
+</div>
+          </div>
+  
+  
+  
+</article>
+</div>
+    </div>
+      </article>
+      </div>
+</div>
+
+        </div>
+      </details>
+      </div>
+
+
+      </div>
+
+
+  <div class="block block-uw-custom-blocks block-uw-cbl-multi-type-list">
+        
+        
+              
+
+<div class="uw-tabs">
+
+  <div class="uw-tab" role="tablist" aria-label="Multi-tab-list">
+                          <button role="tab" class="uw-tablinks button  button--large  "  aria-selected="true"   aria-controls="Events" id="tab-1" tabindex="0" data-uuid="">Events</button>
+                                <button role="tab" class="uw-tablinks button  button--large  "  aria-selected="false"  aria-controls="News" id="tab-2" tabindex="0" data-uuid="">News</button>
+            </div>
+
+            <h2 class="hide-js"> Events</h2>
+      <div id="Events" class="uw-tabcontent" role="tabpanel" tabindex="0" aria-labelledby="tab-1"  >
+
+                                
+
+<article class="card card__teaser  card__teaser--event card--show-hover card__node--" >
+
+  
+  
+      <div class="card__header ">
+  
+  
+  
+              
+    <h2 class="card__title">
+  
+
+            <a href="/centre-for-teaching-excellence/events/trauma-informed-teaching-cte2271-1">
+        
+        Trauma-Informed Teaching (CTE2271)
+
+              </a>
+      
+      </h2>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  
+      <div class="card__body">
+      
+              <div class="card__content"><p><strong>Location:</strong> Online (Zoom)</p></div>
+          </div>
+  
+  
+        
+      <div class="card__tags">
+  <ul class="tag-list teaser--event">
+      <li class="tag-list__item ">
+          
+  <a href="/centre-for-teaching-excellence/events/types/graduate-students-fut" class="tag  tag--normal" rel="tag">Graduate Students: FUT</a>
+  
+
+    </li>  </ul>
+</div>
+        
+</article>
+    
+
+<article class="card card__teaser  card__teaser--event card--show-hover card__node--" >
+
+  
+  
+      <div class="card__header ">
+  
+  
+              
+    <div class="card__date">
+
+      
+          <span class="uw-date">
+    
+          
+
+  Tuesday, July 18, 2023 10:00 am
+
+
+
+      -
+              
+
+
+  11:30 am
+
+
+      
+      
+
+
+
+  EDT
+
+
+    
+    
+    
+          </span>
+    
+  </div>
+  
+  
+              
+    <h2 class="card__title">
+  
+
+            <a href="/centre-for-teaching-excellence/events/interactive-lectures-cte1260-7">
+        
+        Interactive Lectures (CTE1260)
+
+              </a>
+      
+      </h2>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  
+  
+  
+        
+      <div class="card__tags">
+  <ul class="tag-list teaser--event">
+      <li class="tag-list__item ">
+          
+  <a href="/centre-for-teaching-excellence/events/types/graduate-students-fut" class="tag  tag--normal" rel="tag">Graduate Students: FUT</a>
+  
+
+    </li>  </ul>
+</div>
+        
+</article>
+    
+
+<article class="card card__teaser  card__teaser--event card--show-hover card__node--" >
+
+  
+  
+      <div class="card__header ">
+  
+  
+              
+    <div class="card__date">
+
+      
+          <span class="uw-date">
+    
+          
+
+  Tuesday, July 18, 2023 10:00 am
+
+
+
+      -
+              
+
+
+  12:30 pm
+
+
+      
+      
+
+
+
+  EDT
+
+
+    
+    
+    
+          </span>
+    
+  </div>
+  
+  
+              
+    <h2 class="card__title">
+  
+
+            <a href="/centre-for-teaching-excellence/events/microteaching-session-online-zoom-85">
+        
+        Microteaching session (online in Zoom)
+
+              </a>
+      
+      </h2>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  
+  
+  
+        
+      <div class="card__tags">
+  <ul class="tag-list teaser--event">
+      <li class="tag-list__item ">
+          
+  <a href="/centre-for-teaching-excellence/events/types/graduate-students-microteaching" class="tag  tag--normal" rel="tag">Graduate Students: Microteaching</a>
+  
+
+    </li>  </ul>
+</div>
+        
+</article>
+    
+
+<article class="card card__teaser  card__teaser--event card--show-hover card__node--" >
+
+  
+  
+      <div class="card__header ">
+  
+  
+              
+    <div class="card__date">
+
+      
+          <span class="uw-date">
+    
+          
+
+  Tuesday, July 18, 2023 1:30 pm
+
+
+
+      -
+              
+
+
+  4:00 pm
+
+
+      
+      
+
+
+
+  EDT
+
+
+    
+    
+    
+          </span>
+    
+  </div>
+  
+  
+              
+    <h2 class="card__title">
+  
+
+            <a href="/centre-for-teaching-excellence/events/microteaching-session-online-zoom-86">
+        
+        Microteaching session (online in Zoom)
+
+              </a>
+      
+      </h2>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  
+  
+  
+        
+      <div class="card__tags">
+  <ul class="tag-list teaser--event">
+      <li class="tag-list__item ">
+          
+  <a href="/centre-for-teaching-excellence/events/types/graduate-students-microteaching" class="tag  tag--normal" rel="tag">Graduate Students: Microteaching</a>
+  
+
+    </li>  </ul>
+</div>
+        
+</article>
+    
+
+<article class="card card__teaser  card__teaser--event card--show-hover card__node--" >
+
+  
+  
+      <div class="card__header ">
+  
+  
+              
+    <div class="card__date">
+
+      
+          <span class="uw-date">
+    
+          
+
+  Wednesday, July 19, 2023 10:00 am
+
+
+
+      -
+              
+
+
+  11:30 am
+
+
+      
+      
+
+
+
+  EDT
+
+
+    
+    
+    
+          </span>
+    
+  </div>
+  
+  
+              
+    <h2 class="card__title">
+  
+
+            <a href="/centre-for-teaching-excellence/events/building-rapport-students-cte1203-9">
+        
+        Building Rapport with Students (CTE1203)
+
+              </a>
+      
+      </h2>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  
+      <div class="card__body">
+      
+              <div class="card__content"><p><strong>Location:</strong> Online (Zoom)</p></div>
+          </div>
+  
+  
+        
+      <div class="card__tags">
+  <ul class="tag-list teaser--event">
+      <li class="tag-list__item ">
+          
+  <a href="/centre-for-teaching-excellence/events/types/graduate-students-fut" class="tag  tag--normal" rel="tag">Graduate Students: FUT</a>
+  
+
+    </li>  </ul>
+</div>
+        
+</article>
+                      <div class="uw-multi-type-list__button">
+                <a    class="button " href="/centre-for-teaching-excellence/events"  >
+    All upcoming events
+  </a>
+
+
+            </div>
+                          
+      </div>
+          <h2 class="hide-js"> News</h2>
+      <div id="News" class="uw-tabcontent" role="tabpanel" tabindex="0" aria-labelledby="tab-2"  hidden  >
+
+                                
+
+<article class="card card__teaser  card__teaser--news-item card--show-hover card__node--" >
+
+  
+  
+      <div class="card__header ">
+  
+  
+              
+    <div class="card__date">
+
+      
+          <span class="uw-date">
+    
+            Thursday, June 29, 2023
+
+
+
+
+
+    
+    
+    
+          </span>
+    
+  </div>
+  
+  
+              
+    <h2 class="card__title">
+  
+
+            <a href="/centre-for-teaching-excellence/news/new-program-graduate-students">
+        
+        New Program for Graduate Students
+
+              </a>
+      
+      </h2>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  
+      <div class="card__body">
+      
+              <div class="card__content"><table class="MsoTableGrid" width="942"><tbody><tr><td>
+			<p><span><span>Do you know a graduate student or postdoc who is teaching their own course in the Fall 2023 or Winter 2024 term? Check out our new <a href="https://uwaterloo.ca/centre-for-teaching-excellence/new-instructor-foundations-program">New Instructor Foundations Program</a> webpage to find out more about the three half-day program, taking place from August 1 to 3, 2023.</span></span></p>
+			</td>
+		</tr></tbody></table></div>
+          </div>
+  
+  
+  
+</article>
+    
+
+<article class="card card__teaser  card__teaser--news-item card--show-hover card__node--" >
+
+  
+  
+      <div class="card__header ">
+  
+  
+              
+    <div class="card__date">
+
+      
+          <span class="uw-date">
+    
+            Thursday, June 29, 2023
+
+
+
+
+
+    
+    
+    
+          </span>
+    
+  </div>
+  
+  
+              
+    <h2 class="card__title">
+  
+
+            <a href="/centre-for-teaching-excellence/news/teaching-times-crisis">
+        
+        Teaching in Times of Crisis
+
+              </a>
+      
+      </h2>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  
+      <div class="card__body">
+      
+              <div class="card__content"><p>In light of the recent and disturbing violent attack that took place in the University of Waterloo's Hagey Hall, instructors, staff, and students may want to consult the <strong><a href="https://cft.vanderbilt.edu/guides-sub-pages/crisis/">Teaching in Times of Crisis</a></strong> resource developed by Vanderbilt University. </p></div>
+          </div>
+  
+  
+  
+</article>
+    
+
+<article class="card card__teaser  card__teaser--news-item card--show-hover card__node--" >
+
+  
+      <div class="card__image">
+        <a href="/centre-for-teaching-excellence/news/ctes-2023-pd-day">
+
+    <picture class="uw-picture">
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_x_large/public/uploads/images/pd-day-2023-panorama-cropped-and-smaller.jpg?itok=zR6621bD 1x" media="all and (min-width: 63.19em)" type="image/jpeg" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_large/public/uploads/images/pd-day-2023-panorama-cropped-and-smaller.jpg?itok=9k-4VmIT 1x" media="all and (min-width: 49.81em)" type="image/jpeg" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_medium/public/uploads/images/pd-day-2023-panorama-cropped-and-smaller.jpg?itok=ahmTQ0O9 1x" media="all and (min-width: 30em)" type="image/jpeg" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_x_small/public/uploads/images/pd-day-2023-panorama-cropped-and-smaller.jpg?itok=6n7FVCFc 1x" media="all and (min-width: 25em)" type="image/jpeg" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_small/public/uploads/images/pd-day-2023-panorama-cropped-and-smaller.jpg?itok=ZqEtAgsg 1x" media="all and (min-width: 15em)" type="image/jpeg" />
+            <!--[if IE 9]></video><![endif]-->
+            <img class="uw-picture__fallback" src="/centre-for-teaching-excellence/sites/default/files/styles/large/public/uploads/images/pd-day-2023-panorama-cropped-and-smaller.jpg?itok=6RcL3G4L" alt="group photo">
+  </picture>
+
+  </a>
+  
+  </div>
+  
+      <div class="card__header ">
+  
+  
+              
+    <div class="card__date">
+
+      
+          <span class="uw-date">
+    
+            Tuesday, June 6, 2023
+
+
+
+
+
+    
+    
+    
+          </span>
+    
+  </div>
+  
+  
+              
+    <h2 class="card__title">
+  
+
+            <a href="/centre-for-teaching-excellence/news/ctes-2023-pd-day">
+        
+        CTE&#039;s 2023 PD Day! 
+
+              </a>
+      
+      </h2>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  
+      <div class="card__body">
+      
+              <div class="card__content"><p>On June 5, 2023, CTE held its annual Professional Development Day. Staff members gathered under one of the gazebos in Waterloo Park for a day of learning and .... <em>click the title to read more</em>.</p></div>
+          </div>
+  
+  
+  
+</article>
+    
+
+<article class="card card__teaser  card__teaser--news-item card--show-hover card__node--" >
+
+  
+      <div class="card__image">
+        <a href="/centre-for-teaching-excellence/news/2023-uwtl-conference-look-back">
+
+    <picture class="uw-picture">
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_x_large/public/uploads/images/leslie-barbara-and-x.jpg?itok=aD2S_pB2 1x" media="all and (min-width: 63.19em)" type="image/jpeg" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_large/public/uploads/images/leslie-barbara-and-x.jpg?itok=CXYeNYhY 1x" media="all and (min-width: 49.81em)" type="image/jpeg" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_medium/public/uploads/images/leslie-barbara-and-x.jpg?itok=CP4AcxZQ 1x" media="all and (min-width: 30em)" type="image/jpeg" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_x_small/public/uploads/images/leslie-barbara-and-x.jpg?itok=RbWi5in1 1x" media="all and (min-width: 25em)" type="image/jpeg" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_small/public/uploads/images/leslie-barbara-and-x.jpg?itok=WJaYD0YF 1x" media="all and (min-width: 15em)" type="image/jpeg" />
+            <!--[if IE 9]></video><![endif]-->
+            <img class="uw-picture__fallback" src="/centre-for-teaching-excellence/sites/default/files/styles/large/public/uploads/images/leslie-barbara-and-x.jpg?itok=IhUck7l6" alt="UWTL speakers">
+  </picture>
+
+  </a>
+  
+  </div>
+  
+      <div class="card__header ">
+  
+  
+              
+    <div class="card__date">
+
+      
+          <span class="uw-date">
+    
+            Thursday, May 25, 2023
+
+
+
+
+
+    
+    
+    
+          </span>
+    
+  </div>
+  
+  
+              
+    <h2 class="card__title">
+  
+
+            <a href="/centre-for-teaching-excellence/news/2023-uwtl-conference-look-back">
+        
+        2023 UWTL Conference: A Look Back
+
+              </a>
+      
+      </h2>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  
+      <div class="card__body">
+      
+              <div class="card__content"><p><span><span><span>The 14<sup>th</sup> Annual University of Waterloo Teaching and Learning conference was held this past May 3 and 4, with a day of online pre-conference workshops preceding the in-person conference, the first since our last in-person conference in 2019. After two years of online conferences to sustain conversations around teaching and learning in the midst of the pandemic, the energy and community-building emerging from our return to in-person was inspiring.</span></span></span></p></div>
+          </div>
+  
+  
+  
+</article>
+    
+
+<article class="card card__teaser  card__teaser--news-item card--show-hover card__node--" >
+
+  
+  
+      <div class="card__header ">
+  
+  
+              
+    <div class="card__date">
+
+      
+          <span class="uw-date">
+    
+            Wednesday, May 17, 2023
+
+
+
+
+
+    
+    
+    
+          </span>
+    
+  </div>
+  
+  
+              
+    <h2 class="card__title">
+  
+
+            <a href="/centre-for-teaching-excellence/news/waterloo-assessment-institute-pebblepad-showcase-event">
+        
+        Waterloo Assessment Institute &amp; PebblePad Showcase Event
+
+              </a>
+      
+      </h2>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  
+      <div class="card__body">
+      
+              <div class="card__content"><p><span><span>April was an exciting and busy month for CTE.  We were able to offer some of our Signature Annual Events -- including the Waterloo Assessment Institute and the PebblePad Showcase -- in person after so long!</span></span></p></div>
+          </div>
+  
+  
+  
+</article>
+    
+
+<article class="card card__teaser  card__teaser--news-item card--show-hover card__node--" >
+
+  
+  
+      <div class="card__header ">
+  
+  
+              
+    <div class="card__date">
+
+      
+          <span class="uw-date">
+    
+            Wednesday, May 3, 2023
+
+
+
+
+
+    
+    
+    
+          </span>
+    
+  </div>
+  
+  
+              
+    <h2 class="card__title">
+  
+
+            <a href="/centre-for-teaching-excellence/news/cte-seeking-indigenous-educational-developer">
+        
+        CTE is seeking an Indigenous Educational Developer 
+
+              </a>
+      
+      </h2>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  
+      <div class="card__body">
+      
+              <div class="card__content"><p>Come join our team of Indigenous Educational Developers at the University of Waterloo. Housed in the Centre for Teaching Excellence, we are a team of 4 about to be a team of 3 looking for another Indigenous member to fill an 18-month parental leave. </p></div>
+          </div>
+  
+  
+  
+</article>
+    
+
+<article class="card card__teaser  card__teaser--news-item card--show-hover card__node--" >
+
+  
+  
+      <div class="card__header ">
+  
+  
+              
+    <div class="card__date">
+
+      
+          <span class="uw-date">
+    
+            Tuesday, May 2, 2023
+
+
+
+
+
+    
+    
+    
+          </span>
+    
+  </div>
+  
+  
+              
+    <h2 class="card__title">
+  
+
+            <a href="/centre-for-teaching-excellence/news/teaching-kindness-and-care-uwtl-keynote">
+        
+        Teaching with Kindness and Care: UWTL Keynote
+
+              </a>
+      
+      </h2>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  
+      <div class="card__body">
+      
+              <div class="card__content">
+
+  
+          
+<div class="uw-media  media media--type-uw-mt-image  media--view-mode-uw-vm-standard-image align-right" data-height="" data-width="">
+          <img src="/centre-for-teaching-excellence/sites/default/files/uploads/images/barbara.jpg" width="162" height="162" alt="Barbara Moktthewenkwe Wall" loading="lazy" typeof="foaf:Image" /><div class="uw-field uw-field--name-field-uw-image-caption uw-field--type-string-long uw-field--label-hidden uw-field__items">
+              <div class="uw-field__item">
+        Barbara Moktthewenkwe Wall
+          </div>
+        </div>
+
+  </div>
+<p>The keynote speaker, Barbara Moktthewenkwe Wall (Chanie Wenjack School for Indigenous Studies, Trent University) will present the keynote address entitled <em>Zhawenjigewin Miinwaa Ganawenindiwag: Cultivating Embodied Learning Through Pedagogies of Kindness and Care</em>.</p></div>
+          </div>
+  
+  
+        
+      <div class="card__tags">
+  <ul class="tag-list teaser--news-item">
+      <li class="tag-list__item ">
+          
+  <a href="/centre-for-teaching-excellence/news/tags/uwtl" class="tag  tag--normal" rel="tag">UWTL</a>
+  
+
+    </li>,       <li class="tag-list__item ">
+          
+  <a href="/centre-for-teaching-excellence/news/tags/conference" class="tag  tag--normal" rel="tag">conference</a>
+  
+
+    </li>,       <li class="tag-list__item ">
+          
+  <a href="/centre-for-teaching-excellence/news/tags/keynote" class="tag  tag--normal" rel="tag">Keynote</a>
+  
+
+    </li>  </ul>
+</div>
+        
+</article>
+    
+
+<article class="card card__teaser  card__teaser--news-item card--show-hover card__node--" >
+
+  
+      <div class="card__image">
+        <a href="/centre-for-teaching-excellence/news/interview-shayla-redlin-hume-recipient-2023-cut-award">
+
+    <picture class="uw-picture">
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_x_large/public/uploads/images/shayla_headshot-small.jpg?itok=PCmlMv1E 1x" media="all and (min-width: 63.19em)" type="image/jpeg" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_large/public/uploads/images/shayla_headshot-small.jpg?itok=Sh6w04I8 1x" media="all and (min-width: 49.81em)" type="image/jpeg" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_medium/public/uploads/images/shayla_headshot-small.jpg?itok=4a8urI7m 1x" media="all and (min-width: 30em)" type="image/jpeg" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_x_small/public/uploads/images/shayla_headshot-small.jpg?itok=VEyNGyte 1x" media="all and (min-width: 25em)" type="image/jpeg" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_small/public/uploads/images/shayla_headshot-small.jpg?itok=yXj549UW 1x" media="all and (min-width: 15em)" type="image/jpeg" />
+            <!--[if IE 9]></video><![endif]-->
+            <img class="uw-picture__fallback" src="/centre-for-teaching-excellence/sites/default/files/styles/large/public/uploads/images/shayla_headshot-small.jpg?itok=jL4nC4yW" alt="Shayla Redlin Hume">
+  </picture>
+
+  </a>
+  
+  </div>
+  
+      <div class="card__header ">
+  
+  
+              
+    <div class="card__date">
+
+      
+          <span class="uw-date">
+    
+            Monday, April 24, 2023
+
+
+
+
+
+    
+    
+    
+          </span>
+    
+  </div>
+  
+  
+              
+    <h2 class="card__title">
+  
+
+            <a href="/centre-for-teaching-excellence/news/interview-shayla-redlin-hume-recipient-2023-cut-award">
+        
+        Interview with Shayla Redlin Hume, Recipient of the 2023 CUT Award
+
+              </a>
+      
+      </h2>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  
+      <div class="card__body">
+      
+              <div class="card__content"><p>Interview with Shayla Redlin Hume, Recipient of the 2023 Certificate of University Teaching Award</p></div>
+          </div>
+  
+  
+  
+</article>
+    
+
+<article class="card card__teaser  card__teaser--news-item card--show-hover card__node--" >
+
+  
+  
+      <div class="card__header ">
+  
+  
+              
+    <div class="card__date">
+
+      
+          <span class="uw-date">
+    
+            Friday, April 21, 2023
+
+
+
+
+
+    
+    
+    
+          </span>
+    
+  </div>
+  
+  
+              
+    <h2 class="card__title">
+  
+
+            <a href="/centre-for-teaching-excellence/news/2023-cut-award-recipient-shayla-redlin">
+        
+        2023 CUT Award Recipient: Shayla Redlin
+
+              </a>
+      
+      </h2>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  
+      <div class="card__body">
+      
+              <div class="card__content"><p>The recipient of the 2023 Certificate in University Teaching Award is Shayla Redlin. </p></div>
+          </div>
+  
+  
+  
+</article>
+    
+
+<article class="card card__teaser  card__teaser--news-item card--show-hover card__node--" >
+
+  
+  
+      <div class="card__header ">
+  
+  
+              
+    <div class="card__date">
+
+      
+          <span class="uw-date">
+    
+            Tuesday, April 18, 2023
+
+
+
+
+
+    
+    
+    
+          </span>
+    
+  </div>
+  
+  
+              
+    <h2 class="card__title">
+  
+
+            <a href="/centre-for-teaching-excellence/news/2023-distinguished-teacher-awards">
+        
+        2023 Distinguished Teacher Awards
+
+              </a>
+      
+      </h2>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  
+      <div class="card__body">
+      
+              <div class="card__content"><p>The 2023 recipients of the Distinguished Teacher Awards have been announced: Keith Delaney, Nardine Nakhla, Zara Rafferty, and Diana Skrzydlo. </p></div>
+          </div>
+  
+  
+  
+</article>
+                      <div class="uw-multi-type-list__button">
+                <a    class="button " href="/centre-for-teaching-excellence/news"  >
+    Read all news
+  </a>
+
+
+            </div>
+                          
+      </div>
+      </div>
+
+      </div>
+
+          </div>
+
+    
+  
+    
+    
+    <div
+               class="layout__region layout__region--second"
+          >
+
+              
+
+  <div class="block block-uw-custom-blocks block-uw-cbl-news-teaser">
+        
+          <h2>LATEST NEWS</h2>
+        
+              
+
+<article class="card card__teaser  card__teaser--news-item card--show-hover card__node--" >
+
+  
+  
+      <div class="card__header ">
+  
+  
+              
+    <div class="card__date">
+
+      
+          <span class="uw-date">
+    
+            Thursday, June 29, 2023
+
+
+
+
+
+    
+    
+    
+          </span>
+    
+  </div>
+  
+  
+              
+    <h2 class="card__title">
+  
+
+            <a href="/centre-for-teaching-excellence/news/teaching-times-crisis">
+        
+        Teaching in Times of Crisis
+
+              </a>
+      
+      </h2>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  
+      <div class="card__body">
+      
+              <div class="card__content"><p>In light of the recent and disturbing violent attack that took place in the University of Waterloo's Hagey Hall, instructors, staff, and students may want to consult the <strong><a href="https://cft.vanderbilt.edu/guides-sub-pages/crisis/">Teaching in Times of Crisis</a></strong> resource developed by Vanderbilt University. </p></div>
+          </div>
+  
+  
+  
+</article>
+
+      </div>
+
+
+  <div class="block block-layout-builder block-inline-blockuw-cbl-call-to-action">
+        
+          <h2>MORE CTE NEWS</h2>
+        
+          <div class="uw-cta ">
+  <div class="uw-cta__center-wrapper">
+
+    
+      <aside class="uw-cta__aside org-default">
+
+                <a href="https://uwaterloo.ca/centre-for-teaching-excellence/news" class="uw-cta__link">
+          
+          <div class="uw-cta__wrapper">
+            <div class="call-to-action-theme-org-default">
+              
+                <div class="uw-cta__text uw-cta__text--big">WHAT&#039;S HAPPENING</div>
+
+                          </div>
+          </div>
+
+                  </a>
+        
+      </aside>
+
+    
+  </div>
+</div>
+
+      </div>
+
+
+  <div class="block block-uw-custom-blocks block-uw-cbl-image">
+        
+        
+                <div class="uw-image">
+  <figure  class="uw-image__figure uw-image__sized-image uw-image__sized-image--center uw-image__sized-image--original">
+          <img src="/centre-for-teaching-excellence/sites/default/files/uploads/images/go-platinum-logo_0.png" width="" height="" alt="green office" />
+          </figure>
+</div>
+
+
+      </div>
+
+
+  <div class="views-element-container block block-views block-views-blockuw-view-news-items-news-items-listing-block">
+        
+          <h2>News item list</h2>
+        
+          
+
+<div>
+
+  
+
+  
+  
+        
+  
+
+
+<div class="view view-uw-view-news-items view-id-uw_view_news_items view-display-id-news_items_listing_block js-view-dom-id-c1441fe5a9adb65b50f7a33e4a0159bd3edef1cf98469a938c950a44dfdf5733">
+  
+    
+
+            <div class="view-content" >
+        <div class="views-row">  
+
+<article class="card card__teaser  card__teaser--news-item card--show-hover card__node--uw_ct_news_item" >
+
+  
+  
+      <div class="card__header ">
+  
+  
+              
+    <div class="card__date">
+
+      
+          <span class="uw-date">
+    
+            Thursday, June 29, 2023
+
+
+
+
+
+    
+    
+    
+          </span>
+    
+  </div>
+  
+  
+              
+    <h2 class="card__title">
+  
+
+            <a href="/centre-for-teaching-excellence/news/new-program-graduate-students">
+        
+        New Program for Graduate Students
+
+              </a>
+      
+      </h2>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  
+      <div class="card__body">
+      
+              <div class="card__content"><table class="MsoTableGrid" width="942"><tbody><tr><td>
+			<p><span><span>Do you know a graduate student or postdoc who is teaching their own course in the Fall 2023 or Winter 2024 term? Check out our new <a href="https://uwaterloo.ca/centre-for-teaching-excellence/new-instructor-foundations-program">New Instructor Foundations Program</a> webpage to find out more about the three half-day program, taking place from August 1 to 3, 2023.</span></span></p>
+			</td>
+		</tr></tbody></table></div>
+          </div>
+  
+  
+  
+</article>
+</div>
+    <div class="views-row">  
+
+<article class="card card__teaser  card__teaser--news-item card--show-hover card__node--uw_ct_news_item" >
+
+  
+  
+      <div class="card__header ">
+  
+  
+              
+    <div class="card__date">
+
+      
+          <span class="uw-date">
+    
+            Thursday, June 29, 2023
+
+
+
+
+
+    
+    
+    
+          </span>
+    
+  </div>
+  
+  
+              
+    <h2 class="card__title">
+  
+
+            <a href="/centre-for-teaching-excellence/news/teaching-times-crisis">
+        
+        Teaching in Times of Crisis
+
+              </a>
+      
+      </h2>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  
+      <div class="card__body">
+      
+              <div class="card__content"><p>In light of the recent and disturbing violent attack that took place in the University of Waterloo's Hagey Hall, instructors, staff, and students may want to consult the <strong><a href="https://cft.vanderbilt.edu/guides-sub-pages/crisis/">Teaching in Times of Crisis</a></strong> resource developed by Vanderbilt University. </p></div>
+          </div>
+  
+  
+  
+</article>
+</div>
+    <div class="views-row">  
+
+<article class="card card__teaser  card__teaser--news-item card--show-hover card__node--uw_ct_news_item" >
+
+  
+      <div class="card__image">
+        <a href="/centre-for-teaching-excellence/news/ctes-2023-pd-day">
+
+    <picture class="uw-picture">
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_x_large/public/uploads/images/pd-day-2023-panorama-cropped-and-smaller.jpg?itok=zR6621bD 1x" media="all and (min-width: 63.19em)" type="image/jpeg" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_large/public/uploads/images/pd-day-2023-panorama-cropped-and-smaller.jpg?itok=9k-4VmIT 1x" media="all and (min-width: 49.81em)" type="image/jpeg" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_medium/public/uploads/images/pd-day-2023-panorama-cropped-and-smaller.jpg?itok=ahmTQ0O9 1x" media="all and (min-width: 30em)" type="image/jpeg" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_x_small/public/uploads/images/pd-day-2023-panorama-cropped-and-smaller.jpg?itok=6n7FVCFc 1x" media="all and (min-width: 25em)" type="image/jpeg" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_small/public/uploads/images/pd-day-2023-panorama-cropped-and-smaller.jpg?itok=ZqEtAgsg 1x" media="all and (min-width: 15em)" type="image/jpeg" />
+            <!--[if IE 9]></video><![endif]-->
+            <img class="uw-picture__fallback" src="/centre-for-teaching-excellence/sites/default/files/styles/large/public/uploads/images/pd-day-2023-panorama-cropped-and-smaller.jpg?itok=6RcL3G4L" alt="group photo">
+  </picture>
+
+  </a>
+  
+  </div>
+  
+      <div class="card__header ">
+  
+  
+              
+    <div class="card__date">
+
+      
+          <span class="uw-date">
+    
+            Tuesday, June 6, 2023
+
+
+
+
+
+    
+    
+    
+          </span>
+    
+  </div>
+  
+  
+              
+    <h2 class="card__title">
+  
+
+            <a href="/centre-for-teaching-excellence/news/ctes-2023-pd-day">
+        
+        CTE&#039;s 2023 PD Day! 
+
+              </a>
+      
+      </h2>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  
+      <div class="card__body">
+      
+              <div class="card__content"><p>On June 5, 2023, CTE held its annual Professional Development Day. Staff members gathered under one of the gazebos in Waterloo Park for a day of learning and .... <em>click the title to read more</em>.</p></div>
+          </div>
+  
+  
+  
+</article>
+</div>
+    <div class="views-row">  
+
+<article class="card card__teaser  card__teaser--news-item card--show-hover card__node--uw_ct_news_item" >
+
+  
+      <div class="card__image">
+        <a href="/centre-for-teaching-excellence/news/2023-uwtl-conference-look-back">
+
+    <picture class="uw-picture">
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_x_large/public/uploads/images/leslie-barbara-and-x.jpg?itok=aD2S_pB2 1x" media="all and (min-width: 63.19em)" type="image/jpeg" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_large/public/uploads/images/leslie-barbara-and-x.jpg?itok=CXYeNYhY 1x" media="all and (min-width: 49.81em)" type="image/jpeg" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_medium/public/uploads/images/leslie-barbara-and-x.jpg?itok=CP4AcxZQ 1x" media="all and (min-width: 30em)" type="image/jpeg" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_x_small/public/uploads/images/leslie-barbara-and-x.jpg?itok=RbWi5in1 1x" media="all and (min-width: 25em)" type="image/jpeg" />
+              <source srcset="/centre-for-teaching-excellence/sites/default/files/styles/uw_is_media_small/public/uploads/images/leslie-barbara-and-x.jpg?itok=WJaYD0YF 1x" media="all and (min-width: 15em)" type="image/jpeg" />
+            <!--[if IE 9]></video><![endif]-->
+            <img class="uw-picture__fallback" src="/centre-for-teaching-excellence/sites/default/files/styles/large/public/uploads/images/leslie-barbara-and-x.jpg?itok=IhUck7l6" alt="UWTL speakers">
+  </picture>
+
+  </a>
+  
+  </div>
+  
+      <div class="card__header ">
+  
+  
+              
+    <div class="card__date">
+
+      
+          <span class="uw-date">
+    
+            Thursday, May 25, 2023
+
+
+
+
+
+    
+    
+    
+          </span>
+    
+  </div>
+  
+  
+              
+    <h2 class="card__title">
+  
+
+            <a href="/centre-for-teaching-excellence/news/2023-uwtl-conference-look-back">
+        
+        2023 UWTL Conference: A Look Back
+
+              </a>
+      
+      </h2>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  
+      <div class="card__body">
+      
+              <div class="card__content"><p><span><span><span>The 14<sup>th</sup> Annual University of Waterloo Teaching and Learning conference was held this past May 3 and 4, with a day of online pre-conference workshops preceding the in-person conference, the first since our last in-person conference in 2019. After two years of online conferences to sustain conversations around teaching and learning in the midst of the pandemic, the energy and community-building emerging from our return to in-person was inspiring.</span></span></span></p></div>
+          </div>
+  
+  
+  
+</article>
+</div>
+    <div class="views-row">  
+
+<article class="card card__teaser  card__teaser--news-item card--show-hover card__node--uw_ct_news_item" >
+
+  
+  
+      <div class="card__header ">
+  
+  
+              
+    <div class="card__date">
+
+      
+          <span class="uw-date">
+    
+            Wednesday, May 17, 2023
+
+
+
+
+
+    
+    
+    
+          </span>
+    
+  </div>
+  
+  
+              
+    <h2 class="card__title">
+  
+
+            <a href="/centre-for-teaching-excellence/news/waterloo-assessment-institute-pebblepad-showcase-event">
+        
+        Waterloo Assessment Institute &amp; PebblePad Showcase Event
+
+              </a>
+      
+      </h2>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  
+      <div class="card__body">
+      
+              <div class="card__content"><p><span><span>April was an exciting and busy month for CTE.  We were able to offer some of our Signature Annual Events -- including the Waterloo Assessment Institute and the PebblePad Showcase -- in person after so long!</span></span></p></div>
+          </div>
+  
+  
+  
+</article>
+</div>
+
+  
+
+  </div>
+  
+        
+</div>
+
+  </div>
+
+
+      </div>
+
+          </div>
+
+    
+  
+</section>
+
+
+
+
+  
+<section
+       class="uw-contained-width uw-section-spacing--default uw-section-separator--none uw-column-separator--none layout layout--uw-2-col larger-left"
+  >
+
+  
+    
+    
+    <div
+              
+          >
+
+              
+          </div>
+
+    
+  
+    
+    
+    <div
+              
+          >
+
+              
+          </div>
+
+    
+  
+</section>
+
+</div>
+          </div>
+  
+  
+  
+</article>
+</div>
+    </div>
+      </article>
+      </div>
+</div>
+
+  </main>
+
+    
+  
+      
+    
+<footer class="uw-footer" role="contentinfo">
+    <div class="uw-site-footer__block">
+            
+
+  <div id="block-uw-fdsu-theme-resp-uw-block-site-footer" class="block block-uw-ct-site-footer block-uw-block-site-footer">
+        
+        
+            <div class="uw-site-footer">
+  <div class="uw-site-footer__wrapper">
+
+        <div class="uw-site-footer__title">
+      <a href="https://uwaterloo.ca/centre-for-teaching-excellence/">
+        Centre for Teaching Excellence
+      </a>
+    </div>
+        <div class="uw-site-footer__social-media">
+      <div class="uw-social-media">
+  <ul class="social-media-list ">
+          <li class="social-media-list-item">
+        
+
+      <a    href="https://www.twitter.com/uwcte" class="uw-icon-link icon--button icon--social" >
+    
+
+<div class="uw-icon">
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 40 30" style="enable-background:new 0 0 40 30;" xml:space="preserve">
+  <title>Twitter</title>
+  <g>
+    <path d="M33.7,8c0,0.3,0,0.6,0,0.9c0,9.3-7.1,20.1-20.1,20.1l0,0C9.8,29,6,27.9,2.8,25.8c0.6,0.1,1.1,0.1,1.7,0.1
+		c3.2,0,6.3-1.1,8.8-3c-3-0.1-5.7-2-6.6-4.9c1.1,0.2,2.1,0.2,3.2-0.1c-3.3-0.7-5.7-3.6-5.7-6.9v-0.1c1,0.5,2.1,0.9,3.2,0.9
+		C4.3,9.7,3.3,5.6,5.2,2.4c3.6,4.4,8.9,7.1,14.6,7.4c-0.6-2.5,0.2-5,2-6.8c2.9-2.7,7.3-2.5,10,0.3c1.6-0.3,3.1-0.9,4.5-1.7
+		c-0.5,1.6-1.6,3-3.1,3.9C34.6,5.3,36,5,37.3,4.4C36.3,5.7,35.1,7,33.7,8z"/>
+  </g>
+</svg>
+
+</div>
+      <span   class="off-screen" >
+        Twitter
+    </span>
+  
+      </a>
+  
+      </li>
+          <li class="social-media-list-item">
+        
+
+      <a    href="https://www.facebook.com/Centre.for.Teaching.Excellence" class="uw-icon-link icon--button icon--social" >
+    
+
+<div class="uw-icon">
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 40 30" style="enable-background:new 0 0 40 30;" xml:space="preserve">
+  <title>Facebook</title>
+  <path d="M26.4,16l0.6-4.9h-4.9v-3c0-1.4,0.4-2.3,2.5-2.3h2.6V1.5c-0.5-0.1-2-0.2-3.8-0.2c-3.8,0-6.4,2.2-6.4,6.3v3.6h-4.3v4.9H17
+	v12.4h5.1V16H26.4L26.4,16z"/>
+</svg>
+
+</div>
+      <span   class="off-screen" >
+        Facebook
+    </span>
+  
+      </a>
+  
+      </li>
+          <li class="social-media-list-item">
+        
+
+      <a    href="https://youtube.com/channel/centreforteachingexcellence" class="uw-icon-link icon--button icon--social" >
+    
+
+<div class="uw-icon">
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 40 30" style="enable-background:new 0 0 40 30;" xml:space="preserve">
+  <title>YouTube</title>
+  <path d="M39.1,5.4c-0.4-1.7-1.8-3.1-3.5-3.5C32.5,1,20,1,20,1S7.5,1,4.4,1.8c-1.7,0.5-3,1.9-3.5,3.6C0.1,8.5,0.1,15,0.1,15
+	s0,6.5,0.8,9.6c0.4,1.7,1.8,3.1,3.5,3.5C7.5,29,20,29,20,29s12.5,0,15.6-0.8c1.7-0.4,3.1-1.8,3.5-3.5c0.8-3.1,0.8-9.6,0.8-9.6
+	S39.9,8.5,39.1,5.4z M15.9,20.9V9.1L26.4,15L15.9,20.9z"/>
+</svg>
+
+</div>
+      <span   class="off-screen" >
+        Youtube
+    </span>
+  
+      </a>
+  
+      </li>
+      </ul>
+</div>
+    </div>
+    <div class="uw-site-footer__content">
+      
+
+
+  
+<section
+       class="uw-full-width uw-section-spacing--default uw-section-separator--none uw-column-separator--none layout layout--uw-1-col"
+  >
+
+  
+    
+    
+    <div
+               class="layout__region layout__region--first"
+          >
+
+              
+
+  <div class="block block-layout-builder block-inline-blockuw-cbl-copy-text">
+        
+        
+          <div class="uw-copy-text">
+  <div class="uw-copy-text__wrapper ">
+    <p><strong>Accessibility and Accommodations Statement</strong></p>
+
+<p><span>The University of Waterloo is committed to achieving barrier-free accessibility for persons with disabilities who are visiting, studying, or working at Waterloo. CTE’s online workshops are delivered through either WebEx, Microsoft Teams, or Bongo with the audio component available either as captioning or a transcript. CTE’s face-to-face workshops typically involve a mix of presentation and discussion-based activities, and we encourage a scent-free environment. We welcome accompanying assistants, interpreters, and note-takers. If you have questions concerning access, such as parking, building layouts, or obtaining workshop content in alternative formats, or wish to request accommodations for our programming, please let us know by emailing <a href="mailto:cte@uwaterloo.ca">cte@uwaterloo.ca</a>. Please note that some accommodations may require time to arrange.   </span></p>
+  </div>
+</div>
+
+      </div>
+
+          </div>
+
+    
+  
+</section>
+
+
+
+
+
+  
+<section
+       class="uw-full-width uw-section-spacing--default uw-section-separator--none uw-column-separator--none layout layout--uw-2-col even-split"
+  >
+
+  
+    
+    
+    <div
+               class="layout__region layout__region--first"
+          >
+
+              
+
+  <div class="block block-layout-builder block-inline-blockuw-cbl-copy-text">
+        
+        
+          <div class="uw-copy-text">
+  <div class="uw-copy-text__wrapper ">
+    <p><a href="https://uwaterloo.ca/centre-for-teaching-excellence/about-cte/newsletter-archive/location">The Centre for Teaching Excellence<br />
+East Campus 3, Second Floor</a></p>
+  </div>
+</div>
+
+      </div>
+
+          </div>
+
+    
+  
+    
+    
+    <div
+               class="layout__region layout__region--second"
+          >
+
+              
+
+  <div class="block block-layout-builder block-inline-blockuw-cbl-copy-text">
+        
+        
+          <div class="uw-copy-text">
+  <div class="uw-copy-text__wrapper ">
+    <p>Phone: 519 888 4567 x 43353<br />
+Fax: 519 888 9806<br />
+Email: <a href="mailto:cte@uwaterloo.ca">cte@uwaterloo.ca</a></p>
+  </div>
+</div>
+
+      </div>
+
+          </div>
+
+    
+  
+</section>
+
+
+    </div>
+  </div>
+</div>
+
+      </div>
+
+      </div>
+      <div class="uw-footer__wrapper">
+            <div class="uw-footer__address">
+        <div class="uw-footer-address" about="//uwaterloo.ca/" typeof="v:VCard">
+  <div class="hidden">
+    <div property="v:fn">University of Waterloo</div>
+    <div rel="v:org">
+      <div property="v:organisation-name">University of Waterloo</div>
+    </div>
+    <div rel="v:geo">
+      <div property="v:latitude">43.471468</div>
+      <div property="v:longitude">-80.544205</div>
+    </div>
+  </div>
+  <div rel="v:adr">
+    <div property="v:street-address">200 University Avenue West</div>
+    <div>
+      <span property="v:locality">Waterloo</span>,
+      <span property="v:region">ON</span>,
+      <span property="v:country-name">Canada</span>&nbsp;
+      <span property="v:postal-code">N2L 3G1</span>
+    </div>
+  </div>
+  <div class="uw-footer-phone" rel="v:tel">
+    <a href="tel:+1-519-888-4567" property="rdf:value">+1 519 888 4567</a>
+  </div>
+</div>        </div>
+        <div class="uw-footer__menu">
+          
+        
+      
+      <ul class="menu menu--uw-footer" >
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="https://uwaterloo.ca/about/contact-us"
+                   >
+          <span class="link-text">
+                     Contact Waterloo
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="https://uwaterloo.ca/accessibility/"
+                   >
+          <span class="link-text">
+                     Accessibility
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="https://uwaterloo.ca/news/"
+                   >
+          <span class="link-text">
+                     News
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="https://uwaterloo.ca/map/"
+                   >
+          <span class="link-text">
+                     Maps &amp; directions
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="https://uwaterloo.ca/privacy/"
+                   >
+          <span class="link-text">
+                     Privacy
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="https://uwaterloo.ca/careers/"
+                   >
+          <span class="link-text">
+                     Careers
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="https://uwaterloo.ca/watsafe/"
+                   >
+          <span class="link-text">
+                     Watsafe
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="https://uwaterloo.ca/copyright"
+                   >
+          <span class="link-text">
+                     Copyright
+                    </span>
+        </a>
+              </li>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+      <li class="menu__item" >
+
+        <a class="menu__link"
+                      href="https://uwaterloo.ca/about/contact-us/contact-form"
+                   >
+          <span class="link-text">
+                     Feedback
+                    </span>
+        </a>
+              </li>
+
+        </ul>
+  
+
+        </div>
+        <div class="uw-footer__social">
+          <div class="uw-social-media">
+  <ul class="social-media-list ">
+          <li class="social-media-list-item">
+        
+
+      <a    href="https://www.instagram.com/uofwaterloo/" class="uw-icon-link icon--button icon--social" >
+    
+
+<div class="uw-icon">
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 40 30" style="enable-background:new 0 0 40 30;" xml:space="preserve">
+<title>Instagram</title>
+  <path id="SVGID_1_" d="M14.3,1.2c-1.5,0.1-2.5,0.3-3.4,0.7C10,2.2,9.2,2.7,8.5,3.5C7.7,4.3,7.3,5.1,6.9,6C6.6,6.9,6.3,7.9,6.3,9.4
+			c-0.1,1.5-0.1,2-0.1,5.7c0,3.8,0,4.2,0.1,5.7s0.3,2.5,0.6,3.4c0.4,0.9,0.8,1.7,1.6,2.4c0.8,0.8,1.5,1.2,2.5,1.6
+			c0.9,0.3,1.9,0.6,3.4,0.6c1.5,0.1,2,0.1,5.7,0.1c3.8,0,4.2,0,5.7-0.1s2.5-0.3,3.4-0.6c0.9-0.4,1.7-0.8,2.4-1.6
+			c0.8-0.8,1.2-1.5,1.6-2.5c0.3-0.9,0.6-1.9,0.6-3.4c0.1-1.5,0.1-2,0.1-5.7c0-3.8,0-4.2-0.1-5.7s-0.3-2.5-0.6-3.4
+			c-0.4-0.9-0.9-1.7-1.7-2.4C30.7,2.7,30,2.3,29,1.9c-0.9-0.3-1.9-0.6-3.4-0.6c-1.5-0.1-2-0.1-5.7-0.1C16.2,1.2,15.8,1.2,14.3,1.2
+			 M14.5,26.3c-1.4-0.1-2.1-0.3-2.6-0.5c-0.6-0.3-1.1-0.5-1.6-1s-0.8-0.9-1-1.6c-0.2-0.5-0.4-1.2-0.5-2.6c-0.1-1.5-0.1-1.9-0.1-5.6
+			s0-4.1,0.1-5.6c0-1.3,0.3-2.1,0.5-2.6c0.3-0.6,0.5-1.1,1-1.6s0.9-0.8,1.6-1c0.5-0.2,1.2-0.4,2.6-0.5c1.5-0.1,1.9-0.1,5.6-0.1
+			s4.1,0,5.6,0.1c1.4,0.1,2.1,0.3,2.6,0.5c0.6,0.3,1.1,0.5,1.6,1s0.8,0.9,1,1.6c0.2,0.5,0.4,1.2,0.5,2.6c0.1,1.5,0.1,1.9,0.1,5.6
+			s0,4.1-0.1,5.6c-0.1,1.4-0.3,2.1-0.5,2.6c-0.3,0.6-0.5,1.1-1,1.6s-0.9,0.8-1.6,1c-0.5,0.2-1.2,0.4-2.6,0.5
+			c-1.5,0.1-1.9,0.1-5.6,0.1S15.9,26.4,14.5,26.3 M25.8,7.6c0,0.9,0.8,1.7,1.7,1.7s1.7-0.8,1.7-1.7s-0.8-1.7-1.7-1.7
+			C26.5,5.9,25.8,6.7,25.8,7.6 M12.9,15c0,3.9,3.2,7.1,7.1,7.1s7.1-3.2,7.1-7.1S23.9,7.9,20,7.9S12.9,11.1,12.9,15 M15.4,15
+			c0-2.5,2.1-4.6,4.6-4.6s4.6,2.1,4.6,4.6s-2.1,4.6-4.6,4.6S15.4,17.6,15.4,15"/>
+</svg>
+
+</div>
+      <span   class="off-screen" >
+        Instagram
+    </span>
+  
+      </a>
+  
+      </li>
+          <li class="social-media-list-item">
+        
+
+      <a    href="https://twitter.com/uWaterloo" class="uw-icon-link icon--button icon--social" >
+    
+
+<div class="uw-icon">
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 40 30" style="enable-background:new 0 0 40 30;" xml:space="preserve">
+  <title>Twitter</title>
+  <g>
+    <path d="M33.7,8c0,0.3,0,0.6,0,0.9c0,9.3-7.1,20.1-20.1,20.1l0,0C9.8,29,6,27.9,2.8,25.8c0.6,0.1,1.1,0.1,1.7,0.1
+		c3.2,0,6.3-1.1,8.8-3c-3-0.1-5.7-2-6.6-4.9c1.1,0.2,2.1,0.2,3.2-0.1c-3.3-0.7-5.7-3.6-5.7-6.9v-0.1c1,0.5,2.1,0.9,3.2,0.9
+		C4.3,9.7,3.3,5.6,5.2,2.4c3.6,4.4,8.9,7.1,14.6,7.4c-0.6-2.5,0.2-5,2-6.8c2.9-2.7,7.3-2.5,10,0.3c1.6-0.3,3.1-0.9,4.5-1.7
+		c-0.5,1.6-1.6,3-3.1,3.9C34.6,5.3,36,5,37.3,4.4C36.3,5.7,35.1,7,33.7,8z"/>
+  </g>
+</svg>
+
+</div>
+      <span   class="off-screen" >
+        Twitter
+    </span>
+  
+      </a>
+  
+      </li>
+          <li class="social-media-list-item">
+        
+
+      <a    href="https://www.linkedin.com/school/uwaterloo/" class="uw-icon-link icon--button icon--social" >
+    
+
+<div class="uw-icon">
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 40 30" style="enable-background:new 0 0 40 30;" xml:space="preserve">
+<title>linkedin</title>
+  <path d="M12,29V10.1H5.7v18.8H12V29z M8.9,7.5c2.2,0,3.5-1.4,3.5-3.3S11.1,1,8.9,1C6.8,1,5.4,2.4,5.4,4.3S6.7,7.5,8.9,7.5L8.9,7.5
+	L8.9,7.5z M15.5,29h6.3V18.4c0-0.5,0-1.1,0.2-1.5c0.4-1.1,1.4-2.3,3.2-2.3c2.3,0,3.2,1.8,3.2,4.3V29h6.3V18.2c0-5.8-3.1-8.5-7.2-8.5
+	c-3.4,0-4.8,1.9-5.7,3.2l0,0V10h-6.3C15.5,11.8,15.5,29,15.5,29L15.5,29L15.5,29z"/>
+</svg>
+
+</div>
+      <span   class="off-screen" >
+        LinkedIn
+    </span>
+  
+      </a>
+  
+      </li>
+          <li class="social-media-list-item">
+        
+
+      <a    href="https://www.facebook.com/university.waterloo" class="uw-icon-link icon--button icon--social" >
+    
+
+<div class="uw-icon">
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 40 30" style="enable-background:new 0 0 40 30;" xml:space="preserve">
+  <title>Facebook</title>
+  <path d="M26.4,16l0.6-4.9h-4.9v-3c0-1.4,0.4-2.3,2.5-2.3h2.6V1.5c-0.5-0.1-2-0.2-3.8-0.2c-3.8,0-6.4,2.2-6.4,6.3v3.6h-4.3v4.9H17
+	v12.4h5.1V16H26.4L26.4,16z"/>
+</svg>
+
+</div>
+      <span   class="off-screen" >
+        Facebook
+    </span>
+  
+      </a>
+  
+      </li>
+          <li class="social-media-list-item">
+        
+
+      <a    href="https://www.youtube.com/user/uwaterloo" class="uw-icon-link icon--button icon--social" >
+    
+
+<div class="uw-icon">
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 40 30" style="enable-background:new 0 0 40 30;" xml:space="preserve">
+  <title>YouTube</title>
+  <path d="M39.1,5.4c-0.4-1.7-1.8-3.1-3.5-3.5C32.5,1,20,1,20,1S7.5,1,4.4,1.8c-1.7,0.5-3,1.9-3.5,3.6C0.1,8.5,0.1,15,0.1,15
+	s0,6.5,0.8,9.6c0.4,1.7,1.8,3.1,3.5,3.5C7.5,29,20,29,20,29s12.5,0,15.6-0.8c1.7-0.4,3.1-1.8,3.5-3.5c0.8-3.1,0.8-9.6,0.8-9.6
+	S39.9,8.5,39.1,5.4z M15.9,20.9V9.1L26.4,15L15.9,20.9z"/>
+</svg>
+
+</div>
+      <span   class="off-screen" >
+        YouTube
+    </span>
+  
+      </a>
+  
+      </li>
+      </ul>
+</div>
+            <div class="uw-footer__social-directory">
+                <a href="https://uwaterloo.ca/social-media/">@uwaterloo social directory</a>
+            </div>
+        </div>
+        <div class="uw-footer__territorial">
+          <div class="uw-bg--">
+    <div class="uw-territorial">
+        <p>The University of Waterloo acknowledges that much of our work takes place on the traditional territory of the Neutral, Anishinaabeg and Haudenosaunee peoples. Our main campus is situated on the Haldimand Tract, the land granted to the Six Nations that includes six miles on each side of the Grand River. Our active work toward reconciliation takes place across our campuses through research, learning, teaching, and community building, and is co-ordinated within our <a href="https://uwaterloo.ca/indigenous" >Office of Indigenous Relations</a>.</p>
+    </div>
+</div>
+        </div>
+          </div>
+</footer>
+
+  </div>
+
+  </div>
+
+
+<script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/centre-for-teaching-excellence\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/1","currentPathIsAdmin":false,"isFront":true,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ajaxPageState":{"libraries":"clientside_validation_jquery\/cv.jquery.ckeditor,clientside_validation_jquery\/cv.jquery.ife,clientside_validation_jquery\/cv.jquery.validate,core\/normalize,eu_cookie_compliance\/eu_cookie_compliance_bare,media\/filter.caption,seven\/classy.messages,seven\/classy.node,seven\/global-styling,uw_cfg_common\/uw_mathjax,uw_fdsu_theme_resp\/drupal-core-overrides,uw_fdsu_theme_resp\/global,uw_fdsu_theme_resp\/global-message,uw_fdsu_theme_resp\/uw_ckeditor,views\/views.ajax,views\/views.module","theme":"uw_fdsu_theme_resp","theme_token":null},"ajaxTrustedUrl":{"form_action_p_pvdeGsVG5zNF_XLGPTvYSKCf43t8qZYSwcfZl2uzM":true},"clientside_validation_jquery":{"validate_all_ajax_forms":2,"force_validate_on_blur":false,"messages":{"required":"This field is required.","remote":"Please fix this field.","email":"Please enter a valid email address.","url":"Please enter a valid URL.","date":"Please enter a valid date.","dateISO":"Please enter a valid date (ISO).","number":"Please enter a valid number.","digits":"Please enter only digits.","equalTo":"Please enter the same value again.","maxlength":"Please enter no more than {0} characters.","minlength":"Please enter at least {0} characters.","rangelength":"Please enter a value between {0} and {1} characters long.","range":"Please enter a value between {0} and {1}.","max":"Please enter a value less than or equal to {0}.","min":"Please enter a value greater than or equal to {0}.","step":"Please enter a multiple of {0}."}},"eu_cookie_compliance":{"cookie_policy_version":"1.0.0","popup_enabled":true,"popup_agreed_enabled":false,"popup_hide_agreed":false,"popup_clicking_confirmation":true,"popup_scrolling_confirmation":false,"popup_html_info":"\u003Cdiv aria-labelledby=\u0022popup-text\u0022  class=\u0022eu-cookie-compliance-banner eu-cookie-compliance-banner-info eu-cookie-compliance-banner--default\u0022\u003E\n  \u003Cdiv class=\u0022popup-content info eu-cookie-compliance-content\u0022\u003E\n        \u003Cdiv id=\u0022popup-text\u0022 class=\u0022eu-cookie-compliance-message\u0022 role=\u0022document\u0022\u003E\n      \u003Ch2\u003EWe use cookies on this site to enhance your user experience\u003C\/h2\u003E\u003Cp\u003ESelect \u0027Accept all\u0027 to agree and continue. You consent to our cookies if you continue to use this website.\u003C\/p\u003E\n          \u003C\/div\u003E\n\n    \n    \u003Cdiv id=\u0022popup-buttons\u0022 class=\u0022eu-cookie-compliance-buttons\u0022\u003E\n            \u003Cbutton type=\u0022button\u0022 class=\u0022agree-button eu-cookie-compliance-default-button\u0022\u003EAccept all\u003C\/button\u003E\n          \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E","use_mobile_message":false,"mobile_popup_html_info":"\u003Cdiv aria-labelledby=\u0022popup-text\u0022  class=\u0022eu-cookie-compliance-banner eu-cookie-compliance-banner-info eu-cookie-compliance-banner--default\u0022\u003E\n  \u003Cdiv class=\u0022popup-content info eu-cookie-compliance-content\u0022\u003E\n        \u003Cdiv id=\u0022popup-text\u0022 class=\u0022eu-cookie-compliance-message\u0022 role=\u0022document\u0022\u003E\n      \n          \u003C\/div\u003E\n\n    \n    \u003Cdiv id=\u0022popup-buttons\u0022 class=\u0022eu-cookie-compliance-buttons\u0022\u003E\n            \u003Cbutton type=\u0022button\u0022 class=\u0022agree-button eu-cookie-compliance-default-button\u0022\u003EAccept all\u003C\/button\u003E\n          \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E","mobile_breakpoint":768,"popup_html_agreed":false,"popup_use_bare_css":true,"popup_height":"auto","popup_width":"100%","popup_delay":1000,"popup_link":"\/centre-for-teaching-excellence\/","popup_link_new_window":true,"popup_position":false,"fixed_top_position":true,"popup_language":"en","store_consent":false,"better_support_for_screen_readers":false,"cookie_name":"","reload_page":false,"domain":"","domain_all_sites":true,"popup_eu_only":false,"popup_eu_only_js":false,"cookie_lifetime":100,"cookie_session":0,"set_cookie_session_zero_on_disagree":0,"disagree_do_not_show_popup":false,"method":"default","automatic_cookies_removal":true,"allowed_cookies":"","withdraw_markup":"\u003Cbutton type=\u0022button\u0022 class=\u0022eu-cookie-withdraw-tab\u0022\u003EPrivacy settings\u003C\/button\u003E\n\u003Cdiv aria-labelledby=\u0022popup-text\u0022 class=\u0022eu-cookie-withdraw-banner\u0022\u003E\n  \u003Cdiv class=\u0022popup-content info eu-cookie-compliance-content\u0022\u003E\n    \u003Cdiv id=\u0022popup-text\u0022 class=\u0022eu-cookie-compliance-message\u0022 role=\u0022document\u0022\u003E\n      \u003Ch2\u003EWe use cookies on this site to enhance your user experience\u003C\/h2\u003E\u003Cp\u003EYou have given your consent for us to set cookies.\u003C\/p\u003E\n    \u003C\/div\u003E\n    \u003Cdiv id=\u0022popup-buttons\u0022 class=\u0022eu-cookie-compliance-buttons\u0022\u003E\n      \u003Cbutton type=\u0022button\u0022 class=\u0022eu-cookie-withdraw-button \u0022\u003EWithdraw consent\u003C\/button\u003E\n    \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E","withdraw_enabled":false,"reload_options":0,"reload_routes_list":"","withdraw_button_on_info_popup":false,"cookie_categories":[],"cookie_categories_details":[],"enable_save_preferences_button":true,"cookie_value_disagreed":"0","cookie_value_agreed_show_thank_you":"1","cookie_value_agreed":"2","containing_element":"body","settings_tab_enabled":false,"olivero_primary_button_classes":"","olivero_secondary_button_classes":"","close_button_action":"close_banner","open_by_default":true,"modules_allow_popup":true,"hide_the_banner":false,"geoip_match":true},"views":{"ajax_path":"\/centre-for-teaching-excellence\/views\/ajax","ajaxViews":{"views_dom_id:c1441fe5a9adb65b50f7a33e4a0159bd3edef1cf98469a938c950a44dfdf5733":{"view_name":"uw_view_news_items","view_display_id":"news_items_listing_block","view_args":"","view_path":"\/node\/1","view_base_path":"news","view_dom_id":"c1441fe5a9adb65b50f7a33e4a0159bd3edef1cf98469a938c950a44dfdf5733","pager_element":0}}},"user":{"uid":0,"permissionsHash":"b6d059a1428f2947c042249d93bb17a34087512812fb10683b7254ebeb5aff63"}}</script>
+<script src="/centre-for-teaching-excellence/sites/default/files/js/js_JndnHi8qcEQ6KdVVeFuo-UMsNQ84LUVFW4vE6DiWBnY.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML"></script>
+<script src="/centre-for-teaching-excellence/sites/default/files/js/js_2YaXSay7C8woVi1VfveleEVrYbngmHpQ6SaSya0OH_w.js"></script>
+<script src="/centre-for-teaching-excellence/profiles/uw_base_profile/modules/contrib/eu_cookie_compliance/js/eu_cookie_compliance.min.js?v=9.5.8" defer></script>
+<script src="/centre-for-teaching-excellence/sites/default/files/js/js_GLrh5RbDv2IFZaJ5_qmWtF-WHVu_Wx3xaBqGHcE4ld8.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+<script src="/centre-for-teaching-excellence/profiles/uw_base_profile/modules/contrib/clientside_validation/clientside_validation_jquery/js/cv.jquery.validate.js?rwd66f"></script>
+<script src="/centre-for-teaching-excellence/sites/default/files/js/js_SxeR_BXddh9yebA22PV6hQmFhvRPuuPbO6XsA_W47to.js"></script>
+
+</body>
+</html>

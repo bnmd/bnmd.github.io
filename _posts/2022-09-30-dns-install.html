@@ -1,0 +1,672 @@
+---
+layout: post
+title: "\U0001F310 DNS Server - Cài đặt và Cấu Hình Trên CentOS 7"
+date: 2022-09-30 13:50:55.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Linux
+- System
+tags: []
+author: thu4nvd
+permalink: "/dns-install/"
+---
+<p><!-- wp:paragraph --></p>
+<p>Bài hướng dẫn chi tiết này sẽ giúp bạn <strong>cách cài đặt và cấu hình dịch vụ DNS trên nền tảng CentOS 7</strong>. Hướng dẫn này cũng có thể được áp dụng với hệ điều hành Red Hat Linux và Scientific Linux 7.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:kadence/tableofcontents {"uniqueID":"_fde127-9b","allowedHeaders":[{"h1":true,"h2":true,"h3":true,"h4":false,"h5":false,"h6":false}],"containerBackground":"#abb8c3","containerBorderColor":"#abb8c3","enableTitle":false} /--></p>
+<p><!-- wp:paragraph --></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"id":1817,"sizeSlug":"full","linkDestination":"none"} --></p>
+<figure class="wp-block-image size-full"><img src="{{ site.baseurl }}/assets/2022/09/master-slave.png" alt="" class="wp-image-1817" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:heading --></p>
+<h2>Chuẩn bị cài đặt DNS Server :</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Để chuẩn bị cho bài Lab này, người viết sử dụng 3 máy. Trong đó 1 máy dùng làm DNS Server chính, hay còn gọi là DNS Server Master, 1 máy dùng làm DNS Server phụ, còn gọi là DNS Server Slave, và máy còn lại dùng làm Client.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>–&nbsp; Máy 1 : DNS Server Master :</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>Hệ điều hành : CentOS 7</li>
+<li>Hostname : masterdns.example.edu.vn</li>
+<li>IP : 192.168.1.1/255.255.255.0</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>–&nbsp; Máy 2 : DNS Server Slave :</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>Hệ điều hành : CentOS 7</li>
+<li>Hostname : secondarydns.example.edu.vn</li>
+<li>IP : 192.168.1.2/255.255.255.0</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>–&nbsp; Máy 3 : DNS Server Client :</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>Hệ điều hành : CentOS 7</li>
+<li>Hostname : client.example.edu.vn</li>
+<li>IP : 192.168.1.3/255.255.255.0</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading --></p>
+<h2><strong>Cài đặt DNS Server Master :</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Trước hết cần cài đặt gói bind vào máy :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>yum install bind bind-utils –y</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3>Chỉnh sửa file c<strong>ấu hình DNS Server :</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Tìm và Edit file ‘/etc/named.conf’</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bạn có thể tham khảo phần <a href="https://www.thegeekdiary.com/dns-configuration-file-etcnamed-conf-explained/" target="_blank" rel="noopener">giải thích cụ thể về các thông số trong file cấu hình.</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>vi /etc/named.conf</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Thêm vào những dòng bôi đậm :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">//
+// named.conf
+//
+
+options {
+listen-on port 53 { 127.0.0.1; <strong>192.168.1.1;</strong>}; <strong>### Master DNS IP ###</strong>
+#&nbsp;&nbsp; &nbsp;listen-on-v6 port 53 { ::1; };
+directory &nbsp;&nbsp; &nbsp;"/var/named";
+dump-file &nbsp;&nbsp; &nbsp;"/var/named/data/cache_dump.db";
+statistics-file "/var/named/data/named_stats.txt";
+memstatistics-file "/var/named/data/named_mem_stats.txt";
+allow-query&nbsp;&nbsp;&nbsp;&nbsp; { localhost; <strong>192.168.1.0/24;</strong>}; <strong>### IP Range ###</strong>
+allow-transfer{ localhost; <strong>192.168.1.2;</strong>};&nbsp;&nbsp; <strong>### Slave DNS IP ###</strong>
+
+/*
+- If you are building an AUTHORITATIVE DNS server, do NOT enable recursion.
+- If you are building a RECURSIVE (caching) DNS server, you need to enable
+recursion.
+- If your recursive DNS server has a public IP address, you MUST enable access
+control to limit queries to your legitimate users. Failing to do so will
+cause your server to become part of large scale DNS amplification
+attacks. Implementing BCP38 within your network would greatly
+reduce such attack surface
+*/
+
+recursion yes;
+dnssec-enable yes;
+dnssec-validation yes;
+dnssec-lookaside auto;
+
+/* Path to ISC DLV key */
+bindkeys-file "/etc/named.iscdlv.key";
+managed-keys-directory "/var/named/dynamic";
+pid-file "/run/named/named.pid";
+session-keyfile "/run/named/session.key";
+};
+
+logging {
+channel default_debug {
+file "data/named.run";
+severity dynamic;
+};
+};
+
+zone "." IN {
+type hint;
+file "named.ca";
+};
+
+<strong>zone "example.edu.vn" IN {</strong>
+<strong>type master;</strong>
+<strong>file "forward.example";</strong>
+<strong>allow-update { none; };</strong>
+<strong>};</strong>
+
+<strong>zone "1.168.192.in-addr.arpa" IN {</strong>
+<strong>type master;</strong>
+<strong>file "reverse.example";</strong>
+<strong>allow-update { none; };</strong>
+<strong>};</strong>
+
+include "/etc/named.rfc1912.zones";
+include "/etc/named.root.key";</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3>Tiến hành tạo Zone File :</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Như bạn đã thấy ở trên file <strong>‘/etc/named.conf’</strong>, chúng ta có thêm vào vài dòng trong đó có đề cập đến 2 file Forward và Reserve :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3>Tạo vùng Forward Zone :</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tạo file <strong>forward.example</strong> trong thư mục <strong>‘/var/named’</strong> :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>vi /var/named/forward.example</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Thêm vào những dòng này :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">$TTL 86400
+@ &nbsp; IN &nbsp;SOA &nbsp; &nbsp; masterdns.example.edu.vn. root.example.edu.vn. (
+2011071001 &nbsp;;Serial
+3600 &nbsp; &nbsp; &nbsp; &nbsp;;Refresh
+1800 &nbsp; &nbsp; &nbsp; &nbsp;;Retry
+604800 &nbsp; &nbsp; &nbsp;;Expire
+86400 &nbsp; &nbsp; &nbsp; ;Minimum TTL
+)
+@ &nbsp; &nbsp; &nbsp; IN &nbsp;NS &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;masterdns.example.edu.vn.
+@ &nbsp; &nbsp; &nbsp; IN &nbsp;NS &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;secondarydns.example.edu.vn.
+@ &nbsp; &nbsp; &nbsp; IN &nbsp;A &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 192.168.1.1
+@ &nbsp; &nbsp; &nbsp; IN &nbsp;A &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 192.168.1.2
+@ &nbsp; &nbsp; &nbsp; IN &nbsp;A &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 192.168.1.3
+masterdns &nbsp; &nbsp; &nbsp; IN &nbsp;A &nbsp; 192.168.1.1
+secondarydns &nbsp; &nbsp;IN &nbsp;A &nbsp; 192.168.1.2
+client &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;IN &nbsp;A &nbsp; 192.168.1.3</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3>Tạo vùng Reserve Zone :</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tạo file <strong>reserve.example</strong> ở trong thư mục <strong>‘/var/named’ </strong>:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>vi /var/named/reverse.example</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Thêm vào những dòng sau :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">$TTL 86400
+@ &nbsp; IN &nbsp;SOA &nbsp; &nbsp; masterdns.example.edu.vn. root.example.edu.vn. (
+2011071001 &nbsp;;Serial
+3600 &nbsp; &nbsp; &nbsp; &nbsp;;Refresh
+1800 &nbsp; &nbsp; &nbsp; &nbsp;;Retry
+604800 &nbsp; &nbsp; &nbsp;;Expire
+86400 &nbsp; &nbsp; &nbsp; ;Minimum TTL
+)
+
+@ &nbsp; &nbsp; &nbsp; IN &nbsp;NS &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;masterdns.example.edu.vn.
+@ &nbsp; &nbsp; &nbsp; IN &nbsp;NS &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;secondarydns.example.edu.vn.
+@ &nbsp; &nbsp; &nbsp; IN &nbsp;PTR &nbsp; &nbsp; &nbsp; &nbsp; example.edu.vn.
+
+masterdns &nbsp; &nbsp; &nbsp; IN &nbsp;A &nbsp; 192.168.1.1
+secondarydns &nbsp; &nbsp;IN &nbsp;A &nbsp; 192.168.1.2
+client &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;IN &nbsp;A &nbsp; 192.168.1.3
+
+1 &nbsp; &nbsp; IN &nbsp;PTR &nbsp; &nbsp; &nbsp; &nbsp; masterdns.example.edu.vn.
+2 &nbsp; &nbsp; IN &nbsp;PTR &nbsp; &nbsp; &nbsp; &nbsp; secondarydns.example.edu.vn.
+3 &nbsp; &nbsp; IN &nbsp;PTR &nbsp; &nbsp; &nbsp; &nbsp; client.example.edu.vn.</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p><em>Câu hỏi là: Nếu không khai báo các Record PTR này thì sao?</em> <a href="https://thuanvu.me/dns-no-ptr" target="_blank" rel="noopener">Đây là câu trả lời.</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Khởi chạy dịch vụ DNS Server :</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">systemctl enable named
+systemctl start named</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong>Cấu hình Firewall :</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Mở Port 53 trên Firewall để dịch vụ DNS có thể được thông qua :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>firewall-cmd --permanent --add-port=53/tcp</strong>
+<strong>firewall-cmd --permanent --add-port=53/udp</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Restart lại Firewall để thay đổi có hiệu lực :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>firewall-cmd –reload</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3>Cấu hình SELinux, Permissions, Ownership :</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Chạy từng dòng lệnh theo thứ tự :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>chgrp named -R /var/named</strong>
+<strong>chown -v root:named /etc/named.conf</strong>
+<strong>restorecon -rv /var/named</strong>
+<strong>restorecon /etc/named.conf</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3>Test thử DNS Server để đảm bảo không có lỗi </h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Chạy dòng lệnh để check DNS Server :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>named-checkconf /etc/named.conf</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Nếu dòng lệnh không có gì trả về, tức là bạn đã cấu hình đúng.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Check Forward Zone bằng dòng lệnh :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>named-checkzone example.edu.vn /var/named/forward.example</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Kết quả trả về :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>zone example.edu.vn/IN: loaded serial 2011071001</strong>
+<strong>OK</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Check Reserve Zone bằng dòng lệnh :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>named-checkzone example.edu.vn /var/named/reverse.example</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Kết quả trả về :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>zone example.edu.vn/IN: loaded serial 2011071001</strong>
+<strong>OK</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Tiến hành thêm thông tin DNS Server vào file cấu hình card mạng :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>vi /etc/sysconfig/network-scripts/ifcfg-enp0s3</strong>
+
+TYPE="Ethernet"
+BOOTPROTO="none"
+DEFROUTE="yes"
+IPV4_FAILURE_FATAL="no"
+IPV6INIT="yes"
+IPV6_AUTOCONF="yes"
+IPV6_DEFROUTE="yes"
+IPV6_FAILURE_FATAL="no"
+NAME="enp0s3"
+UUID="6e1232c5-7ba1-5c7d-7hr6-6548er765fcd"
+ONBOOT="yes"
+HWADDR="17:88:34:29:15:62"
+IPADDR0="192.168.1.1"
+PREFIX0="24"
+GATEWAY0="192.168.1.1"
+<strong>DNS="192.168.1.1"</strong>
+IPV6_PEERDNS="yes"
+IPV6_PEERROUTES="yes"</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Edit file <strong>/etc/resolv.conf</strong>,</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>vi /etc/resolv.conf</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Thêm vào địa chỉ IP của Name Server :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>nameserver&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 192.168.1.1</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Save và đóng file.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Restart lại dịch vụ :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">systemctl restart network</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3>Test DNS Server Master:</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Chạy dòng lệnh :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>dig masterdns.example.edu.vn</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Kết quả trả về :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">; &lt;&lt;&gt;&gt; DiG 9.9.4-RedHat-9.9.4-14.el7 &lt;&lt;&gt;&gt; masterdns.example.edu.vn
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 25179
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 2
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+
+;; QUESTION SECTION:
+;masterdns.example.edu.vn.&nbsp;&nbsp; &nbsp;IN&nbsp;&nbsp; &nbsp;A
+
+;; ANSWER SECTION:
+masterdns.example.edu.vn. 86400&nbsp;&nbsp; &nbsp;IN&nbsp;&nbsp; &nbsp;A&nbsp;&nbsp; &nbsp;192.168.1.1
+
+;; AUTHORITY SECTION:
+
+example.edu.vn.&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;86400&nbsp;&nbsp; &nbsp;IN&nbsp;&nbsp; &nbsp;NS&nbsp;&nbsp; &nbsp;secondarydns.example.edu.vn.
+example.edu.vn.&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;86400&nbsp;&nbsp; &nbsp;IN&nbsp;&nbsp; &nbsp;NS&nbsp;&nbsp; &nbsp;masterdns.example.edu.vn.
+
+;; ADDITIONAL SECTION:
+secondarydns.example.edu.vn. 86400 IN&nbsp;&nbsp; &nbsp;A&nbsp;&nbsp; &nbsp;192.168.1.2
+
+;; Query time: 0 msec
+;; SERVER: 192.168.1.1#53(192.168.1.101)
+;; WHEN: SUN Dec 13 15:35:28 IST 2018
+;; MSG SIZE&nbsp; rcvd: 125</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Chạy tiếp dòng lệnh :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>nslookup example.edu.vn</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Được kết quả trả về :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>Server:&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;192.168.1.1</strong>
+<strong>Address:&nbsp;&nbsp; &nbsp;192.168.1.1#53</strong>
+<strong>Name:&nbsp;&nbsp; &nbsp;example.edu.vn</strong>
+<strong>Address: 192.168.1.3</strong>
+<strong>Name:&nbsp;&nbsp; &nbsp;example.edu.vn</strong>
+<strong>Address: 192.168.1.1</strong>
+<strong>Name:&nbsp;&nbsp; &nbsp;example.edu.vn</strong>
+<strong>Address: 192.168.1.2</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Vậy là DNS Server đã sẳn sàng để sử dụng. Chúng ta chuyển qua bước cấu hình DNS Server Slave.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>Cấu hình DNS Server Slave</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Tại máy Secondary DNS, tiến hành chạy dòng lệnh để cài đặt gói bind :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>yum install bind bind-utils –y</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3>Chỉnh sửa cấu hình Slave DNS Server:</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">//
+// named.conf
+//
+
+
+options {
+listen-on port 53 { 127.0.0.1; <strong>192.168.1.2;</strong> };
+listen-on-v6 port 53 { ::1; };
+directory "/var/named";
+dump-file "/var/named/data/cache_dump.db";
+statistics-file "/var/named/data/named_stats.txt";
+memstatistics-file "/var/named/data/named_mem_stats.txt";
+allow-query &nbsp; &nbsp; { localhost;<strong> 192.168.1.0/24;</strong> };
+.
+.
+.
+zone "." IN {
+type hint;
+file "named.ca";
+};
+
+zone "example.edu.vn" IN {
+type slave;
+file "slaves/example.fwd";
+masters { 192.168.1.1; };
+};
+
+zone "1.168.192.in-addr.arpa" IN {
+type slave;
+file "slaves/example.rev";
+masters { 192.168.1.1; };
+};
+
+include "/etc/named.rfc1912.zones";
+include "/etc/named.root.key";</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Khởi động dịch vụ DNS:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">systemctl enable named
+systemctl start named</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bây giờ thì các vùng Forward và Reserve sẽ tự động đồng bộ từ DNS Master sang DNS Slave ở thư mục <strong>‘/var/named/slaves/’</strong>:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">ls /var/named/slaves/</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Kết quả trả về sẽ được như sau :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>example.fwd &nbsp;example.rev</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Cấu hình Card mạng để thêm vào máy chủ DNS :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">vi /etc/sysconfig/network-scripts/ifcfg-enp0s3</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Thêm vào các dòng bôi đậm</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">TYPE="Ethernet"
+BOOTPROTO="none"
+DEFROUTE="yes"
+IPV4_FAILURE_FATAL="no"
+IPV6INIT="yes"
+IPV6_AUTOCONF="yes"
+IPV6_DEFROUTE="yes"
+IPV6_FAILURE_FATAL="no"
+NAME="enp0s3"
+UUID="6a9312c4-7eg3-3h7j-9873da986dfc"
+ONBOOT="yes"
+HWADDR="24:54:34:76:32:79”
+IPADDR0="192.168.1.2"
+PREFIX0="24"
+GATEWAY0="192.168.1.1"
+<strong>DNS1="192.168.1.1"</strong>
+<strong>DNS2="192.168.1.2"</strong>
+IPV6_PEERDNS="yes"
+IPV6_PEERROUTES="yes"</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Mở và chỉnh sửa file <strong>/etc/resolv.conf</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>vi /etc/resolv.conf</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Thêm vào địa chỉ IP của Name Server :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>nameserver&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 192.168.1.1</strong>
+<strong>nameserver&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 192.168.1</strong>.2</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Save và đóng file lại.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong>Cấu hình Firewall :</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Cũng giống như máy DNS Master, bạn cần mở port 53 trên Firewall để DNS Service có thể đi qua :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>firewall-cmd --permanent --add-port=53/tcp</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Restart Firewall bằng dòng lệnh :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>firewall-cmd --reload</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3>Cấu hình SELinux, Permission, Ownership :</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>chgrp named -R /var/named</strong>
+<strong>chown -v root:named /etc/named.conf</strong>
+<strong>restorecon -rv /var/named</strong>
+<strong>restorecon /etc/named.conf</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3>Tiến hành test DNS Server Master:</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>dig masterdns.example.edu.vn</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Kết quả trả về :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">; &lt;&lt;&gt;&gt; DiG 9.9.4-RedHat-9.9.4-14.el7 &lt;&lt;&gt;&gt; masterdns.example.edu.vn
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 25179
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 2
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+
+;; QUESTION SECTION:
+;masterdns.example.edu.vn.&nbsp;&nbsp; &nbsp;IN&nbsp;&nbsp; &nbsp;A
+
+;; ANSWER SECTION:
+masterdns.example.edu.vn. 86400&nbsp;&nbsp; &nbsp;IN&nbsp;&nbsp; &nbsp;A&nbsp;&nbsp; &nbsp;192.168.1.1
+
+;; AUTHORITY SECTION:
+example.edu.vn.&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;86400&nbsp;&nbsp; &nbsp;IN&nbsp;&nbsp; &nbsp;NS&nbsp;&nbsp; &nbsp;secondarydns.example.edu.vn.
+example.edu.vn.&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;86400&nbsp;&nbsp; &nbsp;IN&nbsp;&nbsp; &nbsp;NS&nbsp;&nbsp; &nbsp;masterdns.example.edu.vn.
+
+;; ADDITIONAL SECTION:
+secondarydns.example.edu.vn. 86400 IN&nbsp;&nbsp; &nbsp;A&nbsp;&nbsp; &nbsp;192.168.1.2
+
+;; Query time: 0 msec
+;; SERVER: 192.168.1.1#53(192.168.1.101)
+;; WHEN: Wed Aug 28 12:35:43 IST 2018
+;; MSG SIZE&nbsp; rcvd: 125</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3>Kiểm tra tiếp DNS Server Slave</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">dig secondarydns.example.edu.vn</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Kết quả trả về :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">; &lt;&lt;&gt;&gt; DiG 9.9.4-RedHat-9.9.4-14.el7 &lt;&lt;&gt;&gt; secondarydns.anninhmang.edu.vn
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 60819
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 2
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;secondary.example.edu.vn.&nbsp;&nbsp; &nbsp;IN&nbsp;&nbsp; &nbsp;A
+
+;; ANSWER SECTION:
+secondarydns.example.edu.vn. 86400 IN&nbsp;&nbsp; &nbsp;A&nbsp;&nbsp; &nbsp;192.168.1.2
+
+;; AUTHORITY SECTION:
+example.edu.vn.&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;86400&nbsp;&nbsp; &nbsp;IN&nbsp;&nbsp; &nbsp;NS&nbsp;&nbsp; &nbsp;masterdns.example.edu.vn.
+example.edu.vn.&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;86400&nbsp;&nbsp; &nbsp;IN&nbsp;&nbsp; &nbsp;NS&nbsp;&nbsp; &nbsp;secondarydns.example.edu.vn.
+
+;; ADDITIONAL SECTION:
+masterdns.example.edu.vn. 86400&nbsp;&nbsp; &nbsp;IN&nbsp;&nbsp; &nbsp;A&nbsp;&nbsp; &nbsp;192.168.1.1
+
+;; Query time: 0 msec
+;; SERVER: 192.168.1.102#53(192.168.1.102)
+;; WHEN: Wed Aug 20 17:05:50 IST 2014
+;; MSG SIZE&nbsp; rcvd: 125</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Phân giải thử tên miền :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>nslookup example.edu.vn</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>–&nbsp; Kết quả trả về :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>Server:&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;192.168.1.2</strong>
+<strong>Address:&nbsp;&nbsp; &nbsp;192.168.1.2#53</strong>
+<strong>Name:&nbsp;&nbsp; &nbsp;example.edu.vn</strong>
+<strong>Address: 192.168.1.1</strong>
+<strong>Name:&nbsp;&nbsp; &nbsp;</strong>example<strong>.edu.vn</strong>
+<strong>Address: 192.168.1.3</strong>
+<strong>Name:&nbsp;&nbsp; &nbsp;</strong>example<strong>.edu.vn</strong>
+<strong>Address: 192.168.1.2</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading --></p>
+<h2>Cấu hình máy con Client :</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Đối với tất cả các máy con, add thông tin địa chỉ IP của các máy DNS Server vào file ‘<strong>/etc/resolv.conf</strong>’</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>vi /etc/resolv.conf</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Thêm vào :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>nameserver 192.168.1.1</strong>
+<strong>nameserver 192.168.1.2</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tiến hành restart lại dịch vụ mạng hoặc reboot máy để thay đổi được áp dụng.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3>Test DNS Server bằng máy Client :</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bạn có thể tiến hành test DNS Server từ các máy con bằng cách sử dụng các dòng lệnh :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong>dig masterdns.</strong>example<strong>.edu.vn</strong>
+<strong>dig secondarydns.</strong>example<strong>.edu.vn</strong>
+<strong>dig client.</strong>example<strong>.edu.vn</strong>
+<strong>nslookup </strong>example<strong>.edu.vn</strong></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Vậy là cả 2 máy DNS Server Master và Slave đều đã có thể hoạt động. Chúc các bạn thành công.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Credit: anninhmang-edu-vn</p>
+<p><!-- /wp:paragraph --></p>

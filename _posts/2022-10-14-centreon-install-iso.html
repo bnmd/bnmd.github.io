@@ -1,0 +1,215 @@
+---
+layout: post
+title: "© Centreon - Cài đặt Centreon 19 ISO\U0001F4BF"
+date: 2022-10-14 15:12:29.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Linux
+- System
+- Tools
+tags:
+- centreon
+- monitoring
+author: thu4nvd
+permalink: "/centreon-install-iso/"
+---
+<p><!-- wp:kadence/tableofcontents {"uniqueID":"_427007-18","containerBackground":"#abb8c3","enableTitle":false} /--></p>
+<p><!-- wp:paragraph --></p>
+<p>Bài viết hướng dẫn cài đặt Centreon 19 từ bản đóng gói ISO. Cách đơn giản để tìm hiểu một phần mềm mã nguồn mở là cài đặt và sử dụng nó. Để sử dụng được thì các bạn nên cài đặt từ các file ISO, nếu không có thì có thể cài đặt từ các script có sẵn để có thể cài đặt nhanh nhất và chính xác nhất. Sau đó sử dụng và tìm hiểu kỹ về phần mềm, nếu đầy đủ các tính năng cần thiết thì có thể tìm hiểu về cài đặt từ source hoặc packages để dễ dàng quản lý và nắm kỹ hơn về hệ thống.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Các bước chuẩn bị và cài đặt từ file ISO như sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2 id="htoc-1-chu-n-b"><strong>1. Chuẩn bị:</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bạn cần chuẩn bị một phần mềm chạy máy ảo, hoặc server để cài đặt. Phần mềm thường sử dụng là VirtualBox, VMware.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tải file cài đặt: truy cập vào trang web của Centreon: <a href="https://download.centreon.com/">tại đây</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":8870} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/centreon-iso-1.png" alt="" class="wp-image-8870" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Chọn Appliances &gt;&gt; Version 19.10 &gt;&gt; Download.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2 id="htoc-2-c-c-b-c-c-i-t-centreon-19-10-t-file-iso"><strong>2. Các bước cài đặt Centreon 19.10 từ file ISO</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong>Bước 1:</strong> Bật máy ảo chạy file ISO vừa tải về</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Chọn Install</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":8869} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/centreon-iso-2.png" alt="" class="wp-image-8869" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong>Bước 2:</strong> Chọn ngôn ngữ cài đặt</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:image {"align":"center","id":8868} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/centreon-iso-3.png" alt="" class="wp-image-8868" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong>Bước 3:</strong> Chọn gói cài đặt</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:image {"align":"center","id":8867} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/centreon-iso-4.png" alt="" class="wp-image-8867" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Centreon cho phép các cài đặt:&nbsp;</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>Central with database: Cài đặt Centreon (giao diện web và cơ sở dữ liệu), công cụ giám sát và Broker.</li>
+<li>Central without database: Cài đặt Centreon (giao diện web), công cụ giám sát và Broker.</li>
+<li>Poller: Cài đặt poller (công cụ giám sát và broker)</li>
+<li>Database: Cài đặt cơ sử dữ liệu</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:image {"align":"center","id":8866} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/centreon-iso-5.png" alt="" class="wp-image-8866" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong>Bước 4:</strong> Chọn phần vùng ổ đĩa</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Chọn Automatic</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":8865} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/centreon-iso-6.png" alt="" class="wp-image-8865" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong>Bước 5:</strong> Cấu hình thời gian&nbsp;</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Chọn timezone là Asia/Ho_Chi_Minh</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":8863} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/centreon-iso-8.png" alt="" class="wp-image-8863" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong>Bước 6:</strong> Cấu hình Network</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:image {"align":"center","id":8862} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/centreon-iso-9.png" alt="" class="wp-image-8862" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Chọn Done</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Sau khi cấu hình xong chọn <strong>Begin Installation</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong>Bước 7:</strong> Cấu hình mật khẩu root</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:image {"align":"center","id":8860} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/centreon-iso-11.png" alt="" class="wp-image-8860" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Sau khi cài đặt xong chọn Reboot để khởi động lại server</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong>Bước 8: Cập nhật&nbsp; các systems packages cho server</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Sau khi khởi động lại server đăng nhập vào terminal và gõ lệnh sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">yum update -y</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Kiểm tra IP của server:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">ip a</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Đăng nhập vào web bằng địa chỉ có dạng sau, thay 192.168.1.2 bằng địa chỉ IP của bạn.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><a href="http://192.168.1.2/centreon">http://192.168.1.2/centreon</a>&nbsp;</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong>Bước 9: Mở web cấu hình</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Sau khi mở địa chỉ web ta có giao diện cài đặt như sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":8859} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/centreon-iso-12.png" alt="" class="wp-image-8859" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:image {"align":"center","id":8858} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/centreon-iso-13.png" alt="" class="wp-image-8858" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:image {"align":"center","id":8857} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/centreon-iso-14.png" alt="" class="wp-image-8857" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:image {"align":"center","id":8856} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/centreon-iso-15.png" alt="" class="wp-image-8856" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Mục số 5: thiết lập user và password để đăng nhập web</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":8855} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/centreon-iso-16.png" alt="" class="wp-image-8855" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Mục số 6 là thiết lập cấu hình database, để tạo mới nên 3 dòng đầu tiên không cần nhập.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":8854} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/centreon-iso-17.png" alt="" class="wp-image-8854" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:image {"align":"center","id":8854} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/centreon-iso-17.png" alt="" class="wp-image-8854" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:image {"align":"center","id":8853} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/centreon-iso-18.png" alt="" class="wp-image-8853" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:image {"align":"center","id":8852} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/centreon-iso-19.png" alt="" class="wp-image-8852" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Chọn Install để cài đặt các module và widget</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":8851} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/centreon-iso-20.png" alt="" class="wp-image-8851" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:image {"align":"center","id":8849} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/centreon-iso-21.png" alt="" class="wp-image-8849" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:image {"align":"center","id":8850} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/centreon-iso-22.png" alt="" class="wp-image-8850" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Đăng nhập vào bằng user đã tạo ở mục số 5.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Như vậy bài viết này đã hướng dẫn bạn cài đặt phần mềm giám sát Centreon từ file ISO.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Documentation của Centreon: <a href="https://documentation.centreon.com/">tại đây</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Chúc các bạn thành công!!!<br />Video hướng dẫn</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:embed {"url":"https://www.youtube.com/embed/185rEArdak0","type":"rich","providerNameSlug":"embed-handler","responsive":true,"className":"wp-embed-aspect-16-9 wp-has-aspect-ratio"} --></p>
+<figure class="wp-block-embed is-type-rich is-provider-embed-handler wp-block-embed-embed-handler wp-embed-aspect-16-9 wp-has-aspect-ratio">
+<div class="wp-block-embed__wrapper">
+https://www.youtube.com/embed/185rEArdak0
+</div>
+</figure>
+<p><!-- /wp:embed --></p>
+<p><!-- wp:separator --></p>
+<hr class="wp-block-separator has-alpha-channel-opacity" />
+<!-- /wp:separator --></p>
+<p><!-- wp:paragraph --></p>
+<p>Credit: tel4vn.edu.vn</p>
+<p><!-- /wp:paragraph --></p>

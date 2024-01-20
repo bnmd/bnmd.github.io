@@ -1,0 +1,53 @@
+---
+layout: post
+title: "Zabbix - Khai báo thiết bị tự động để quản lý"
+date: 2022-09-27 11:41:42.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- System
+tags:
+- monitoring
+- tool
+author: thu4nvd
+permalink: "/zabbix-khai-bao-thiet-bi-tu-dong-de-quan-ly/"
+excerpt: Một hệ thống mạng máy tính nhỏ việc khai báo thiết bị thủ công lên Zabbix
+---
+<div>
+<p>Một hệ thống mạng máy tính nhỏ việc khai báo thiết bị thủ công lên Zabbix server giám sát thì không phải là vấn đề lớn cho người quản trị viên. Nhưng với một hệ thống cần theo dõi lên tới hàng chục, hàng trăm thiết bị thì phải làm như thế nào?</p>
+<p>Thật may mắn khi Zabbix server có sẵn tính năng “<em>Auto registration</em>” để đăng ký tự động các host.</p>
+<h3><strong>Các bước khai báo thiết bị tự động lên Zabbix server</strong></h3>
+<h4>Bước 1: Thêm giá trị HostMetadata</h4>
+<p>Mở file “zabbix_agentd.conf” trên các máy Windows tại đường dẫn</p>
+<p>“C:Program Files\Zabbix Agent\zabbix_agentd.conf”</p>
+<p>thêm dòng:<br />
+HostMetadata=Windows</p>
+<h4>Bước 2: Cấu hình trên Zabbix server</h4>
+<p>Vào Configuration -&gt; Actions -&gt; Autoregistration actions -&gt; Create action.</p>
+<div><img src="{{ site.baseurl }}/assets/2022/09/How_to_configure_auto_registration_of_agents_Windows_servers_in_Zabbix_Step_1.png" alt="Các bước khai báo thiết bị tự động lên Zabbix server" /></div>
+<p>Tại tab Action:</p>
+<p>Name: Đặt tên bất kỳ cho Action này.</p>
+<p>New conditions: <em>Host metadata</em>; <em>contains</em>; <em>Windows</em> (Khai báo giá trị metadata giống trên Zabbix agent) -&gt; Add.</p>
+<div><img src="{{ site.baseurl }}/assets/2022/09/how_to_configure_auto_registration_of_windows_os_servers_in_Zabbix_.png" alt="Khai báo giá trị metadata giống trên Zabbix agent" /></div>
+<p>Qua tab Operations -&gt; chọn New Operations như hình dưới.</p>
+<div><img src="{{ site.baseurl }}/assets/2022/09/How_to_configure_auto_registration_of_agents_windows_servers_in_Zabbix_Step_3.png" alt="Khai báo giá trị metadata giống trên Zabbix agent" /></div>
+<p>Chọn Operation type: <em>Add to host group</em>, Để tạo nhóm cho các host được tự động khai báo.</p>
+<p>Host groups: <em>Devices/OS/Windows</em> -&gt; Add.</p>
+<p>Thực hiện thêm thao tác -&gt; chọn New Operations.</p>
+<div><img src="{{ site.baseurl }}/assets/2022/09/How_to_configure_auto_registration_of_agents_windows_servers_in_Zabbix_Step_4.png" alt="Add to host group" /></div>
+<p>Chọn Operation type: <em>Link to the template</em>, Bước này tạo teamplate cho các host được tự động khai báo.</p>
+<p>Templates: <em>Template OS Windows by Zabbix agent</em> -&gt; Add -&gt; Add.</p>
+<div><img src="{{ site.baseurl }}/assets/2022/09/Khai-bao-thiet-bi-tu-dong-len-Zabbix-server.png" alt="Khai báo thiết bị tự động lên Zabbix server" /></div>
+<p>Như vậy quá trình khai báo thiết bị tự động lên Zabbix server đã hoàn thành, bạn chỉ cần chờ ít phút để Zabbix server cập nhật các thiết bị mới lên hệ thống, bây giờ mỗi khi bạn cài Zabbix agent lên các máy Windows mới (có giá trị HostMetadata=Windows) thì Zabbix server sẽ tự động giám sát mà không cần phải khai báo thủ công.<br />
+Lưu ý: Tham số HostMetadata cũng có thể đặt dưới dạng HostMetadata=Windows:MSSQL:Test để người quản trị Zabbix server có thể dễ dàng gộp các máy được giám sát theo từng template riêng.</p>
+<h4>Bước 3: Nếu sử dụng mã hóa PSK trên Zabbix agent</h4>
+<p>Nếu bạn có sử dụng mã hóa PSK trên Zabbix agent, chúng ta cần thực hiện thêm một bước nữa:</p>
+<p>Vào Administration -&gt; General -&gt; Autoregistration.</p>
+<p>Encryption level: Chọn No encryption và PSK.</p>
+<p>Mục PSK identity và PSK: Nhập thông tin đã cài đặt trên Zabbix agent -&gt; Update.</p>
+<div><img src="{{ site.baseurl }}/assets/2022/09/How_to_configure_PSK_encryption_for_auto_registration_in_the_Zabbix_frontend.png" alt="mã hóa PSK trên Zabbix agent" /></div>
+<p>Chúc các bạn khai báo thiết bị tự động lên Zabbix server thành công.</p>
+</div>

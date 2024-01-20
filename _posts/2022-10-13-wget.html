@@ -1,0 +1,361 @@
+---
+layout: post
+title: "\U0001F427 wget - commands with examples"
+date: 2022-10-13 12:01:46.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Linux
+- System
+tags: []
+author: thu4nvd
+permalink: "/wget/"
+---
+<p><!-- wp:kadence/tableofcontents {"uniqueID":"_10dff0-37","containerBackground":"#abb8c3","enableTitle":false} /--></p>
+<p><!-- wp:heading --></p>
+<h2 id="ftoc-heading-1">What is wget?</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Wget</strong>&nbsp;is a free GNU command-line utility tool used to download files from the internet. It retrieves files using <strong>HTTP, HTTPS, and FTP protocols.</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>It serves as a tool to sustain unstable and slow network connections. If a network problem occurs during a download, this helpful software can resume retrieving the files without starting from scratch.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Another important aspect is its capability of&nbsp;<strong>recursive downloads</strong>, with which it&nbsp;<strong>mirrors websites</strong>. It transfers parts of a website by following links and directory structure, thus creating local versions of webpages.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>The&nbsp;<strong><code>wget</code></strong>&nbsp;command is also highly flexible and can be used in terminals, scripts, and cron jobs. During the download, the user does not have to be active nor logged in. As wget is non-interactive, it can independently run in the background.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Read this article to&nbsp;<strong>learn how to use some of the most common&nbsp;<code>wget</code>&nbsp;commands.</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2 id="ftoc-heading-2">How to Check if wget is Installed?</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Most likely, the wget package is already on your system as it now comes pre-installed on most Linux distributions.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>To check, open the terminal window and type in:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>If you have the wget software, the output tells you that the&nbsp;<strong><code>wget</code></strong>&nbsp;command is missing a URL, as shown in the image below:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"id":80540} --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/2019-07-09_12-20-08.png" alt="wget-command-missing-url" class="wp-image-80540" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="ftoc-heading-3">wget Command Not Found</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>If the output displays&nbsp;<strong><code>wget command not found</code></strong>&nbsp;you need to download and install the tool manually. Below you will find the installation instructions for Ubuntu/Debian, CentOS, and Windows.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="ftoc-heading-4">How to Install wget on Ubuntu/Debian?</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>To install wget on Ubuntu or Debian releases, use the command:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">sudo apt-get install wget</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="ftoc-heading-5">How to Install wget on CentOS/Fedora?</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>To install wget on CentOS or Fedora, type the following command:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">sudo yum install wget</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="ftoc-heading-6">How to Install wget on Windows?</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>To install and configure wget for Windows:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list {"ordered":true} --></p>
+<ol>
+<li><a href="http://gnuwin32.sourceforge.net/packages/wget.htm" target="_blank" rel="noreferrer noopener">Download wget for Windows</a>&nbsp;and install the package.</li>
+<li>Add the wget bin path to environment variables (optional). Configuring this removes the need for full paths, and makes it a lot easier to run wget from the command prompt:
+<ul>
+<li>Open the&nbsp;<strong>Start</strong>&nbsp;menu and search for “environment.”</li>
+<li>Select&nbsp;<strong>Edit the system environment variables</strong>.</li>
+<li>Select the&nbsp;<strong>Advanced</strong>&nbsp;tab and click the&nbsp;<strong>Environment Variables&nbsp;</strong>button.</li>
+<li>Select the&nbsp;<strong>Path</strong>&nbsp;variable under&nbsp;<strong>System Variables</strong>.</li>
+<li>Click&nbsp;<strong>Edit</strong>.</li>
+<li>In the&nbsp;<strong>Variable value</strong>&nbsp;field add the&nbsp;<strong>path to the wget bin</strong>&nbsp;directory preceded by a&nbsp;<strong>semicolon (;)</strong>. If installed in the default path, add&nbsp;<strong><code>C:Program Files (x86)GnuWin32bin</code></strong><em>.</em></li>
+</ul>
+</li>
+<li>Open the&nbsp;<strong>command prompt</strong>&nbsp;(cmd.exe) and start running&nbsp;<strong><code>wget</code></strong>&nbsp;commands.</li>
+</ol>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading --></p>
+<h2 id="ftoc-heading-7">Introduction to wget Syntax</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>The wget syntax has the following pattern:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget [option][URL]</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Each&nbsp;<strong>[option]</strong>&nbsp;has its long and short form which are conveniently interchangeable. This attribute specifies what to do with the URL that follows.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>[URL]</strong>&nbsp;is the address of the file or directory you wish to download.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2 id="ftoc-heading-8">wget Command Examples</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="ftoc-heading-9">Download File from Web</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>To download a file from the web use:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget [URL]</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>For example, to&nbsp;<a href="https://phoenixnap.com/kb/install-tomcat-9-on-centos-7" target="_blank" rel="noreferrer noopener">install Tomcat 9</a>, first you need to download the package with&nbsp;<strong><code>wget</code></strong>&nbsp;using the command:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget http://apache.cs.utah.edu/tomcat/tomcat-9/v9.0.20/bin/apache-tomcat-9.0.20.tar.gz</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="ftoc-heading-10">Download File and Save Under Specific Name</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>To download a file and save it under a specified name run:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget -O [file_name] [URL]</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>The wget command allows you to rename files prior to downloading them on your computer.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>For instance, you may want to&nbsp;<a href="https://phoenixnap.com/kb/how-to-install-terraform-centos-ubuntu" target="_blank" rel="noreferrer noopener">install Terraform</a>. To download the package and rename it&nbsp;<strong>terraform.zip</strong>&nbsp;use the following command:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget -O terraform.zip https://releases.hashicorp.com/terraform/0.12.2/terraform_0.12.2_linux_amd64.zip</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="ftoc-heading-11">Download File to Specific Directory</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>By default wget downloads a file in the directory the user is in. To save the file in a different location, add the&nbsp;<strong><code>-P</code></strong>&nbsp;option:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget -P [wanted_directory] [URL]</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>For example, while&nbsp;<a href="https://phoenixnap.com/kb/how-to-install-git-on-ubuntu" target="_blank" rel="noreferrer noopener">installing Git on Ubuntu</a>, you can download the package in the&nbsp;<strong>/temp</strong>&nbsp;directory with the command:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget -P /temp https://github.com/git/git/archive/master.zip</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="ftoc-heading-12">Set Download Speed</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>You can set the download speed when downloading a big file, so it does not use the full available bandwidth. The download speed is defined in kilobytes (<strong>k</strong>) and megabytes (<strong>m</strong>). Use the command:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget --limit-rate [wanted_speed] [URL]</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>For example, if you are installing NVIDIA TESLA drivers on Linux and want to limit the download speed to 1 megabyte, would use the command:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget --limit-rate 1m http://us.download.nvidia.com/tesla/396.37/nvidia-diag-driver-local-repo-ubuntu1710-396.37_1.0-1_amd64.deb </pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="ftoc-heading-13">Continue Download After Interruption</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Instead of having to start from scratch,&nbsp;<strong><code>wget</code></strong>&nbsp;can resume downloading where it stopped before the interruption. This is a useful feature if there is a lost of connection while downloading a file.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget -c [URL]</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>For instance, you may want to install a Mumble Server on Linux and suddenly lose internet connection while downloading the installation file. To continue downloading, type in the command:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget -c https://github.com/mumble-voip/mumble/releases/download/1.2.19/murmur-static_x86-1.2.19.tar.bz2</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="ftoc-heading-14">Download Multiple Files</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong><code>wget</code></strong>&nbsp;allows downloading multiple files at the same time using the command:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget -i [file_name]</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>To do so, follow the steps outlined below:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>1. First, create and open a file under the name&nbsp;<strong>MultipleDownloads.txt&nbsp;</strong>(or a name of your choice), using a text editor. In this case, we used Nano:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">nano MultipleDownloads.txt</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>2. Once in the editor, add the URLs of the packages you want to download, one per line.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"id":80558} --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/2019-07-10_9-34-23.png" alt="download-multiple-files-using-wget" class="wp-image-80558" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>3.&nbsp;<strong>Save</strong>&nbsp;and&nbsp;<strong>exit</strong>&nbsp;the file.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>4. Run the following&nbsp;<strong><code>wget</code></strong>&nbsp;command in the terminal window:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget -i MultipleDownloads.txt</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>This prompts wget to download from each URL in the text file.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="ftoc-heading-15">Download Web page (Mirror Web page)</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>With wget you can download an entire website from the internet, using the&nbsp;<strong><code>-m</code></strong>&nbsp;option. It prompts wget to create a mirror of the specified webpage. The basic command for doing so is:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget -m [URL]</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>For example:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget -m &lt;a href="https://phoenixnap.com/" target="_blank" rel="noreferrer noopener"&gt;https://phoenixnap.com&lt;/a&gt;</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="ftoc-heading-16">Download via FTP</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>To download via FTP, type in the&nbsp;<strong>username</strong>&nbsp;and&nbsp;<strong>password</strong>&nbsp;of the FTP server, followed by the&nbsp;<strong>ftp address</strong>:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget --ftp-user=[ftp_username] --ftp-password=[ftp_password] ftp://...</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>For instance:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget --ftp-user=sofiftp --ftp-password=TopSecretPassword ftp://123.456.7890</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="ftoc-heading-17">Download in Background</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>You can download in the background, a practical feature when dealing with a large file:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget -b [URL]</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>You can&nbsp;<strong>check the status of the download</strong>&nbsp;with the command:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tail -f wget -log</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>To&nbsp;<a href="https://phoenixnap.com/kb/how-to-install-rpm-file-centos-linux#htoc-step-1-download-rpm-installation-file" target="_blank" rel="noreferrer noopener">download the RPM package manager</a>&nbsp;in the background, type:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget -b http://some_website/sample_file.rpm</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="ftoc-heading-18">Increase Retry Attempts</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>You can set how many times wget attempts to download a file after being interrupted by a bad network with:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget --tries=[number_of_tries] [URL]</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>By default, the number of retry attempts is set to&nbsp;<strong>20</strong>.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>You can also set the number to infinity with the values&nbsp;<strong>0</strong>&nbsp;or&nbsp;<strong>inf</strong>, as in the following example:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget --tries=inf http://download.virtualbox.org/virtualbox/rpm/rhel/virtualbox.repo</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="ftoc-heading-19">Skip Certificate Check</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>By default, wget checks whether the server has a valid SSL/TLS certificate. If it does not identify an authentic certificate, it refuses to download.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>The&nbsp;<strong><code>--no-check-certificate</code></strong>&nbsp;option is used to avoid certificate authorities checking for a server certificate. However, utilize it only if you are sure of the website’s credibility or are not worried about security issues it may cause.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget --no-check-certificate [URL]</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>If&nbsp;<strong>http://enteratonerisk.com</strong>&nbsp;has an untrusted certificate, but will not harm the system, you can download it with:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget --no-check-certificate http://enteratonerisk.com</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="ftoc-heading-20">Change User Agent</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>When downloading a webpage, wget essentially emulates a browser. In some cases, the output might say&nbsp;<strong>you don’t have permission to access&nbsp;</strong>the server, or that the connection is&nbsp;<strong>forbidden</strong>. This may be due to a website blocking client browsers that have a specific “User-Agent.”</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>“User-Agent” is a header field that the browser sends to the server it wants to access. Therefore, to download from a server that is refusing to connect, try to modify the user agent.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Find a&nbsp;<a href="https://developers.whatismybrowser.com/useragents/explore/" target="_blank" rel="noreferrer noopener">database of all user agents</a>&nbsp;online, search for the one you need and run the command:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget --user-agent="User Agent Here" "[URL]"</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>or</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget -U "User Agent Here" "[URL]"</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>For example, to emulate Chrome (version 74), you would change the user agent with the command:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">wget --user-agent=" Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36" "https://phoenixnap.com"</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Note:</strong>&nbsp;Make sure you always download from a trusted source because&nbsp;<strong><code>wget</code></strong>&nbsp;can instruct a download of a script from a malicious source. We outline this and many other dangerous commands in our article&nbsp;<a href="https://phoenixnap.com/kb/dangerous-linux-terminal-commands" target="_blank" rel="noreferrer noopener">14 Dangerous Linux Terminal Commands</a>.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>Conclusion</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>This article sums up why&nbsp;<strong><code>wget</code></strong>&nbsp;is such a powerful tool for downloading files over the internet. It also serves as a good reference for beginners with its list of 12 essential&nbsp;<strong><code>wget</code></strong>&nbsp;commands and examples.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Credit: phoenixnap.com/kb/wget-command-with-examples</p>
+<p><!-- /wp:paragraph --></p>

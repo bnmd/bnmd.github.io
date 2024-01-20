@@ -1,0 +1,128 @@
+---
+layout: post
+title: "\U0001F427 DNF command - trình quản lý gói mặc định CentOS 8"
+date: 2022-10-11 16:24:44.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Linux
+- System
+tags: []
+author: thu4nvd
+permalink: "/dnf-command/"
+---
+<p><!-- wp:kadence/tableofcontents {"uniqueID":"_c6a09e-61","containerBackground":"#abb8c3","enableTitle":false} /--></p>
+<p><!-- wp:paragraph --></p>
+<p>Một trong các điểm mới của CentOS 8 là về trình quản lý gói quen thuộc YUM đã được thay thế bằng DNF. Trình quản lý DNF được team Fedora sử dụng từ bản Fedora 22 nhưng phải tới bây giờ thì team CentOS mới quyết định đưa vào sử dụng. Vậy có lý do nào mà cộng đồng chuyển từ YUM sang DNF hay không? Khi dùng DNF thì người dùng có phải nhớ thêm các cú pháp lệnh quen thuộc hay không? Tất cả sẽ được tóm tắt trong bài viết này.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>Lý do mà DNF được thay thế cho YUM.</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Một số lý do chính mà DNF được ca ngợi là thông minh, có tương lai hơn YUM là như sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>YUM được phát triển bởi cộng đồng và trải qua thời gian lâu đời, do đó, trong các thời kỳ trước thì việc chuẩn hóa các tài liệu về API của YUM có chút khó khăn hoặc thậm chí là tệ. Do vậy nếu muốn phát triển tiếp thì rất vất vả cho DEV.</li>
+<li>DNF thì hỗ trợ cả <code>python2</code> và <code>python3</code>, trong khi đó YUM không giải quyết được việc này. Trong tương lai tới 2020 thì <code>python2</code> cũng đã có kế hoạch ngững hỗ trợ. Do vậy việc chuyển sang DNF là một bước tính cho tương lai.</li>
+<li>Đơn giản là YUM đã outdate (lỗi thời) nên việc DNF hoặc một dạng khác thay thế là điều đương nhiên :D.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading --></p>
+<h2>Dùng DNF có khó khăn gì không?</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Câu trả lời là KHÔNG, bởi vì cú pháp của DNF kế thừa lại hoặc nói cách khác là y hệt như khi dùng YUM. Do vậy người dùng không cần phải nhớ quá nhiều, chỉ cần thay đổi <code>yum</code> bằng <code>dnf</code> là được.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Lưu ý: trên CentOS 8 bạn vẫn có thể dùng <code>yum</code> để cài các gói như hiện tại. Lý do sẽ được trao đổi ở phần dưới.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3>Cú pháp cài đặt gói bằng DNF</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">dnf install ten_goi
+dnf install -y ten_goi</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3>Ví dụ</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Cài đặt các gói bằng DNF</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">dnf install -y vim
+dnf install -y httpd</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading --></p>
+<h2>Bản chất của trình quản lý gói DNF</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Về bản chất, trình quản lý gói <code>DNF</code> là được link tới <code>YUM</code> trong CentOS 8. Có nghĩa là bạn vẫn dùng được lệnh <code>yum install ten_goi</code> để cài đặt các gói cần thiết. Ta sẽ kiểm tra việc này.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Kiểm tra đường dẫn của chương trình <code>yum</code> bằng lệnh <code>which</code></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">[root@centos8srv01 ~]# which yum
+/usr/bin/yum</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Kiểm tra các liên kết của <code>/usr/bin/yum</code></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">[root@centos8srv01 ~]# ll /usr/bin/yum
+lrwxrwxrwx. 1 root root 5 May 14 02:34 /usr/bin/yum -&gt; dnf-3</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Trên kết quả trên, ta thấy bản chất <code>/usr/bin/yum</code> là được link từ file <code>dnf3</code></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tiếp tục kiểm tra xem đường dẫn của gói <code>dnf</code> bằng lệnh <code>which</code></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"> [root@centos8srv01 ~]# which dnf
+/usr/bin/dnf</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Và kiểm tra các liên kết của <code>/usr/bin/dnf</code>, ta có kết quả dưới.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">[root@centos8srv01 ~]# ll /usr/bin/dnf
+lrwxrwxrwx. 1 root root 5 May 14 02:34 /usr/bin/dnf -&gt; dnf-3</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Kiểm tra tiếp đường dẫn của <code>/usr/bin/dnf-3</code></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">[root@centos8srv01 ~]# ll /usr/bin/dnf-3
+-rwxr-xr-x. 1 root root 1954 May 14 02:34 /usr/bin/dnf-3</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Kết quả trên cho thấy <code>dnf-3</code> không liên kết tới file nào cả. Đây là file gốc cho lệnh <code>dnf</code> và <code>yum</code>.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Ta có thể kiểm tra các đường dẫn khác của các file liên quan tới gói <code>yum</code></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">[root@centos8srv01 ~]# ll /etc/yum.conf
+lrwxrwxrwx. 1 root root 12 May 14 02:34 /etc/yum.conf -&gt; dnf/dnf.conf</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading --></p>
+<h2>Kết luận</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Như vậy, trong tương lai bạn nên chuyển dần sang dùng <code>dnf</code> thay cho <code>yum</code> đi nhé, vì hiện nay <code>yum</code> đang được link tới <code>dnf</code> rồi.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hết rồi, tới đây tôi đã cập nhật thêm cho các bạn các thông tin về một thứ mới mẻ trong CentOS 8 để anh em nắm được và biết cách dùng về sau. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>Tham khảo</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>(1) <a href="https://www.linux.com/tutorials/what-you-need-know-about-fedoras-switch-yum-dnf/">https://www.linux.com/tutorials/what-you-need-know-about-fedoras-switch-yum-dnf/</a></p>
+<p><!-- /wp:paragraph --></p>

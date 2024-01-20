@@ -1,0 +1,142 @@
+---
+layout: post
+title: "\U0001F4AC OLTP và OLAP so sánh"
+date: 2022-11-12 20:14:52.000000000 -08:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- System
+tags: []
+author: thu4nvd
+permalink: "/olap-olap/"
+---
+<p><!-- wp:paragraph --></p>
+<p><em><strong>Trong việc phát triển cơ sở dữ liệu quan hệ thường có hai chiến lược chính là OLTP (On-line transactional processing) và OLAP (On-line analytical processing). Vậy chúng là gì, giống nhau và khác nhau như thế nào? Chúng ta hãy cùng tìm hiểu thông qua một hệ thống thực.</strong></em></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:kadence/tableofcontents {"uniqueID":"_a71122-16","containerBackground":"#abb8c3","enableTitle":false} /--></p>
+<p><!-- wp:heading {"level":1} --></p>
+<h1 id="_tldr-comparison---danh-cho-nguoi-khong-muon-doc-nhieu-0">TLDR Comparison - Dành cho người không muốn đọc nhiều</h1>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:image --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/11/5aa022c4-1d6e-4abf-9179-ec5118184811.png" alt="" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:heading {"level":1} --></p>
+<h1 id="_oltp-la-gi-1">OLTP là gì?</h1>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>OLTP là viết tắt của On-line transactional processing, khái niệm này không khó để nắm bắt. Các hệ thống OLTP là các hệ thống “cổ điển” xử lý các giao dịch dữ liệu. Chúng đang ở xung quanh bạn. Trong ngân hàng, máy ATM hoặc hệ thống máy tính được nhân viên ngân hàng sử dụng để ghi lại một giao dịch là một hệ thống OLTP, thường là một cơ sở dữ liệu. Nếu bạn nhắn tin cho ai đó từ điện thoại thông minh, bạn đang làm việc với một hệ thống OLTP khác. Sổ tiền mặt tại siêu thị lại chạy trên một hệ thống OLTP khác nữa.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tóm lại, hầu hết các ứng dụng kinh doanh đều là các hệ thống OLTP. Thật khó để tưởng tượng một lĩnh vực computer engineering mà không có một số hình thức của OLTP. Trên thực tế, toàn bộ ngành khoa học máy tính đã lớn lên xung quanh nhu cầu xử lý giao dịch một cách có trật tự.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Do đó chúng ta đi đến phần quan trọng của từ viết tắt trong OLTP: T, viết tắt của transactional. Các giao dịch rất quan trọng và việc giữ chúng một cách có tổ chức cũng rất quan trọng.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Phải làm gì để giữ cho các giao dịch có tổ chức? Đó là các cơ sở dữ liệu giao dịch phải ổn định (không dễ thay đổi), độc lập, nhất quán và nguyên tử (không dễ phân chia).</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Nói một cách đơn giản, loại giao dịch này đảm bảo rằng các hoạt động được thực hiện bởi những người dùng khác nhau không can thiệp vào nhau. Chẳng hạn, nếu vợ chồng mỗi người rút tiền từ tài khoản ngân hàng chung, các giao dịch phải đảm bảo rằng họ không rút tiền nhiều hơn tài khoản của mình.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Một hệ thống OLTP cần các thuộc tính này để đảm bảo rằng mọi thứ đang hoạt động một cách có trật tự. Khi bạn sử dụng ngân hàng, bạn tin tưởng rằng số tiền bạn gửi vào tài khoản của bạn, không bị lẫn lộn với các giao dịch khác của bạn hay bị mất.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Rõ ràng, quá trình xử lý giao dịch là rất quan trọng đối với toàn xã hội của chúng ta.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":1} --></p>
+<h1 id="_con-olap-la-gi-2">Còn OLAP là gì?</h1>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>OLAP là viết tắt của On-line analytical processing. Chữ cái chìa khóa ở đây là analytical cũng cho chúng ta biết hệ thống OLAP làm gì. Một hệ thống OLAP được dùng để phân tích dữ liệu một cách hiệu quả.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Không giống như OLTP, các hệ thống OLAP làm việc với một lượng dữ liệu rất lớn. Bảo đảm tính chính xác và tính toàn vẹn của các giao dịch không phải là mục đích của chúng; điều này trái ngược với OLTP. OLAP là ở đây để cho phép chúng ta tìm ra xu hướng, điểm mấu chốt trong một big picture. Các hệ thống OLAP có một nhóm người dùng nhỏ hơn so với các hệ thống OLTP, thường là những nhà phân tích hoặc quản lý. Ví dụ: bạn sẽ không tương tác với hệ thống OLAP của ngân hàng vì nó ghi lại các giao dịch tài khoản của bạn.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hoạt động chủ yếu trong các các hệ thống OLAP là các truy vấn dữ liệu, Chúng thường là các truy vấn lớn và mất nhiều thời gian để thực hiện. Ngược lại, các hệ thống OLTP sử dụng các lệnh phổ biến như INSERT và DELETE. Và chúng không nên quá lâu.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Kích thước của hệ thống cũng là một điểm khác nhau cơ bản giữa các hệ thống OLTP và OLAP. OLTP phải ổn định và nhanh chóng (để thực hiện các công việc thời gian thực), trong khi OLAP phải đủ lớn và đủ mạnh để lưu trữ tất cả các dữ liệu kinh doanh.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":1} --></p>
+<h1 id="_mot-vi-du-oltp-thuc-te-3">Một ví dụ OLTP thực tế</h1>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Chúng ta hãy xem xét sự khác biệt giữa OLAP và OLTP bằng cách sử dụng các ví dụ thực tế.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hãy nhớ rằng các truy vấn OLTP đơn giản và nhỏ hơn nhiều so với những gì được sử dụng trong các hệ thống OLAP. Chúng ta cần phải thực hiện các truy vấn OLTP một cách nhanh chóng với số row nhỏ. Ví dụ này sẽ xem xét mô hình thanh toán tài chính OLTP đơn giản.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Chúng ta có các bảng dữ liệu customer, contract và payment. Cùng với đó là các bảng quan hệ và các bảng detail như trong hình dưới.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><img alt="" src="{{ site.baseurl }}/assets/2022/11/36311ec6-7037-4432-b8b0-720483047837.jpg" width="768" height="512" /> Giả sử chúng ta cần phải chèn một khoản thanh toán là $5.000 vào số tài khoản 1112 cho một khách hàng có ID là 11. Điều gì sẽ xảy ra?</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Khi giao dịch này đang được xử lý, có nhiều giao dịch khác đang được thực hiện cùng một lúc. Trong một hệ thống OLTP được thiết kế đúng cách, điều này không có vấn đề. Không có xung đột nào xảy ra, tất cả mọi thứ đang tiến hành một cách tuần tự.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bây giờ chúng ta hãy xem một truy vấn OLTP điển hình, hiển thị dữ liệu có liên quan đến người dùng. Giả sử ai đó có ID khách hàng là “11” muốn xem 10 giao dịch cuối cùng của họ: <img width="418" height="394" src="{{ site.baseurl }}/assets/2022/11/40c5919d-cd69-4fd6-a858-6c81011d0012.jpg" alt="" /> </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hoặc có thể cùng khách hàng đó muốn xem thông tin về hợp đồng có trong hồ sơ của tổ chức tài chính:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><img width="463" height="193" src="{{ site.baseurl }}/assets/2022/11/da8ad98d-7a53-4bee-84ac-eedd4b12bea8.jpg" alt="" /> </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Điều quan trọng chúng ta nhận thấy ở đây là các truy vấn nhỏ, nhanh và nguyên tử.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":1} --></p>
+<h1 id="_va-mot-vi-du-olap-thuc-te-4">Và một ví dụ OLAP thực tế</h1>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Chúng ta hãy nhìn ví dụ trên ở một view khác, OLAP. Nó được thiết kế ở dạng Star đơn giản và được dùng để hỗ trợ báo cáo và phân tích.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><img width="768" height="294" src="{{ site.baseurl }}/assets/2022/11/7cdf415a-91e8-49ab-950d-c0528524c10b.jpg" alt="" /> </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Trong model này chúng ta sử dụng một bảng fact trung tâm <strong>fact_balance</strong> chứa thông về balance của khách hàng theo ngày, theo hợp đồng và ba bảng dimension <strong>dim_customer</strong>, <strong>dim_contract</strong>, <strong>dim_date</strong>.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Dữ liệu được đưa vào mô hình OLAP không giống như các mô hình OLTP. Thay vì thu thập thông tin từng chút một trong từng lần cập nhật giao dịch, OLAP được lấp đầy bởi các truy vấn theo lô, quét toàn bộ model nguồn (thường là một hệ thống OLTP) và nhập dữ liệu vào mô hình OLAP. Rõ ràng, các câu lệnh INSERT cho OLAP lớn hơn và chậm hơn bởi vì chúng bao gồm nhiều bảng nguồn. Quá trình đưa dữ liệu vào hệ thống OLAP từ các hệ thống nguồn được gọi là ETL (extract-transform-load).</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Chúng ta hãy tạo một truy vấn ETL đơn giản để đưa dữ liệu vào các bảng của mô hình OLAP. Chẳng hạn với bảng <strong>dim_customer</strong>:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><img width="456" height="653" src="{{ site.baseurl }}/assets/2022/11/d2c3e7fa-23ee-48c0-8dfd-4fd680831832.jpg" alt="" /> </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Như các bạn thấy, chúng ta đang sử dụng nhiều bảng để đưa dữ liệu vào một bảng dimension. Các truy vấn phức tạp thường xuyên xảy ra đối với các hệ thống OLAP.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Chúng ta có thể đưa dữ liệu vào bảng <strong>dim_contract</strong> theo cách tương tự. Tuy nhiên, chúng ta sẽ không đưa dữ liệu vào bảng <strong>dim_date</strong>, vì nó được xác định trước trong cơ sở dữ liệu và ngày tháng của nó không thay đổi. Đối với bảng <strong>fact_balance</strong>, quá trình điền thông tin phức tạp hơn rất nhiều. Tất cả những gì chúng ta cần biết là <strong>fact_balance</strong> chứa số dư tài khoản vào các khoảng thời gian cụ thể.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Nếu như OLTP là một tuyến đường chạy trơn tru với nhiều loại xe tương tự nhau, thì tuyến đường OLAP là một nơi hỗn độn với những chiếc xe lạ lùng đang di chuyển ở các tốc độ khác nhau. Nó không thống nhất trong bất kỳ khía cạnh nào: có những chiếc xe ô tô to lớn mà không ai nhìn thấy trước đó (truy vấn ad-hoc), xe ô tô chậm và lớn mà chúng ta thấy thường xuyên (báo cáo hàng tháng) và thậm chí có những con thú khác.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Một ví dụ điển hình của truy vấn OLAP là đưa ra số dư trung bình mỗi quý cho tất cả người dùng: <img width="453" height="215" src="{{ site.baseurl }}/assets/2022/11/08aa0bbb-2655-48b2-8c97-ef154ec4a36c.jpg" alt="" /> </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Một truy vấn OLAP khác có thể hiển thị thông tin tổng hợp của tất cả khách hàng sinh ra sau năm 1990:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><img width="455" height="300" src="{{ site.baseurl }}/assets/2022/11/d00b3e1d-93da-43fa-8094-d8be98bd6895.jpg" alt="" /> </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Các truy vấn OLAP thường ở dạng tổng hợp thông tin của tất cả dữ liệu của một tập hợp con cụ thể. Chẳng hạn, chúng ta đang tìm kiếm các xu hướng, giá trị trung bình, tổng hợp … Các truy vấn này có thể mất rất nhiều thời gian, tùy thuộc vào kích thước của tập hợp con mà chúng ta đang khám phá và do đó không thống nhất (không giống như các OLTP queries).</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tôi hy vọng rằng bài viết này đã giúp bạn hiểu được sự khác nhau của các hệ thống OLTP và OLAP và cả cách chúng làm việc cùng nhau. Chúng không phủ định nhau mà là một cặp tồn tại song song, hỗ trợ, bù trừ cho nhau.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Credit: viblo.asia</p>
+<p><!-- /wp:paragraph --></p>

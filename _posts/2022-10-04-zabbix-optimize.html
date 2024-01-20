@@ -1,0 +1,231 @@
+---
+layout: post
+title: "\U0001F4EF Zabbix - Tối ưu hóa Zabbix + MySQL"
+date: 2022-10-04 15:36:00.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Linux
+- System
+- Tools
+tags:
+- monitoring
+- optimize
+- zabbix
+author: thu4nvd
+permalink: "/zabbix-optimize/"
+---
+<p><!-- wp:paragraph --></p>
+<p>Sau khi các bạn cài đặt Zabbix trên CentOS hoàn thành để cho hệ thống Zabbix server hoạt động với hiệu năng cao nhất thì các bạn cần thực hiện các bước tối ưu hóa Zabbix server và MySQL database.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Nếu chưa xem bài viết “Cài đặt Zabbix trên CentOS” thì các bạn tham khảo tại đây: <a href="https://thuanvu.me/zabbix-install" target="_blank" rel="noopener" title="Hướng dẫn cài đặt Zabbix.">Hướng dẫn cài đặt Zabbix.</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:kadence/tableofcontents {"uniqueID":"_450b2a-a8","allowedHeaders":[{"h1":false,"h2":false,"h3":false,"h4":true,"h5":false,"h6":false}],"containerBackground":"#abb8c3"} /--></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3>Hướng dẫn các bước tối ưu hóa Zabbix server và MySQL database</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:image --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/Toi-uu-hoa-Zabbix-server-va-MySQL-database.png" alt="Tối ưu hóa Zabbix server và MySQL database" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4><strong>Bước 1: Tạo phân vùng MySQL trên Lịch sử và bảng Sự kiện</strong></h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Quy trình housekeeping của Zabbix chịu trách nhiệm xóa dữ liệu lịch sử. Xóa dữ liệu cũ khỏi database bằng cách sử dụng truy vấn xóa SQL, hành động này tác động tiêu cực đến hiệu suất database, có thể sẽ nhận được thông báo “<strong><em>Zabbix housekeeper processes more than 75% busy</em></strong>” vì điều đó.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Vấn đề này có thể được giải quyết với việc phân vùng cơ sở dữ liệu. Phân vùng tạo ra các bảng cho mỗi giờ hoặc mỗi ngày và loại bỏ chúng khi không cần thiết. <strong>SQL DROP hiệu quả hơn câu lệnh DELETE.</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bạn có thể phân vùng các bảng MySQL bằng cách sử dụng&nbsp;hướng dẫn đơn giản này:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><a href="https://thuanvu.me/zabbix-mariadb-repartition" target="_blank" rel="noopener">Tạo phân vùng database Zabbix trên MySQL MariaDB</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4><strong>Bước 2: Tối ưu hóa Zabbix Server</strong></h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Nếu bạn đang vận hành với số lượng ít thiết bị thì bạn có thể bỏ qua bước này, còn nếu hệ thống của bạn lớn bao gồm nhiều thiết bị thì tiếp tục thực hiện tiếp nào.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Mở&nbsp;file “zabbix_server.conf” bằng lệnh “ nano /etc/zabbix/zabbix_server.conf” và thêm cấu hình dưới vào bất kỳ đâu trong file:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">StartPollers=100
+StartPollersUnreachable=50
+StartPingers=50
+StartTrappers=10
+StartDiscoverers=15
+StartPreprocessors=15
+StartHTTPPollers=5
+StartAlerters=5
+StartTimers=2
+StartEscalators=2
+CacheSize=128M
+HistoryCacheSize=64M
+HistoryIndexCacheSize=32M
+TrendCacheSize=32M
+ValueCacheSize=256M</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Lưu và thoát file (&nbsp;<strong>ctrl</strong>&nbsp;+&nbsp;<strong>x</strong>&nbsp;, tiếp theo là&nbsp;&nbsp;<strong>y</strong>&nbsp;&nbsp;và&nbsp;&nbsp;<strong>enter</strong>&nbsp;).</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4><strong>Bước 3: Tối ưu hóa MySQL/MariaDB database</strong></h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>a. Tạo file cấu hình MySQL</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tạo file “10_my_tweaks.cnf”&nbsp;bằng lệnh “nano /etc/my.cnf.d/10_my_tweaks.cnf” và thêm cấu hình dưới vào:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">[mysqld]
+max_connections = 404
+<strong>innodb_buffer_pool_size = 800M</strong>
+
+innodb-log-file-size = 128M
+innodb-log-buffer-size = 128M
+innodb-file-per-table = 1
+innodb_buffer_pool_instances = 8
+innodb_old_blocks_time = 1000
+innodb_stats_on_metadata = off
+innodb-flush-method = O_DIRECT
+innodb-log-files-in-group = 2
+innodb-flush-log-at-trx-commit = 2
+
+tmp-table-size = 96M
+max-heap-table-size = 96M
+open_files_limit = 65535
+<strong>max_connect_errors</strong> = 1000000
+connect_timeout = 60
+wait_timeout = 28800</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Lưu và thoát khỏi file ( <strong>ctrl</strong> + <strong>x</strong> , theo sau là  <strong>y</strong>  và  <strong>enter</strong> ) và phân lại quyền đối với file bằng lệnh</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">chown mysql:mysql /etc/my.cnf.d/10_my_tweaks.cnf
+chmod 644 /etc/my.cnf.d/10_my_tweaks.cnf</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Hai điều cần lưu ý:</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tham số cấu hình&nbsp;&nbsp;<a href="https://dev.mysql.com/doc/refman/5.5/en/server-system-variables.html#sysvar_max_connections" target="_blank" rel="noreferrer noopener"><strong>max_connections</strong></a>&nbsp;&nbsp;phải lớn hơn tổng số của tất cả các quy trình Zabbix proxy +150. Bạn có thể sử dụng lệnh bên dưới để tự động kiểm tra số lượng quy trình Zabbix và + thêm 150 vào số đó:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">egrep "^Start.+=[0-9]" /etc/zabbix/zabbix_server.conf | awk -F "=" '{s+=$2} END {print s+150}'
+295</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tham số quan trọng thứ hai là&nbsp;&nbsp;<strong><a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size" target="_blank" rel="noreferrer noopener">innodb_buffer_pool_size</a></strong>&nbsp;, xác định dung lượng bộ nhớ mà MySQL có thể lấy để lưu vào bộ nhớ đệm các bảng InnoDB và dữ liệu chỉ mục.&nbsp;Bạn nên đặt tham số đó thành 70% bộ nhớ hệ thống nếu chỉ có database được cài đặt trên máy server.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tuy nhiên, trong trường hợp này, mình có đồng thời Zabbix và Apache, vì vậy mình đặt  <strong>innodb_buffer_pool_size </strong> thành 40% tổng bộ nhớ hệ thống. Đó sẽ là 800 MB vì ​​máy CentOS của mình có RAM 2 GB.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Mình không gặp bất kỳ sự cố nào với bộ nhớ, nhưng nếu Zabbix proxy của bạn bị treo vì thiếu bộ nhớ, hãy giảm “innodb_buffer_pool_size” và khởi động lại máy chủ MySQL.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Lưu ý rằng nếu bạn làm theo cấu hình này, bạn sẽ nhận được cảnh báo “<strong><em>Too many processes on the Zabbix server”</em></strong> trong giao diện người dùng của Zabbix do cấu hình Zabbix mới, nhưng không sao nó tuyệt đối không có lỗi gì. Để tăng ngưỡng kích hoạt hoặc tắt báo thức đó (chọn “ <em>Problems</em> ” → chuột trái vào alarm → chọn “<em>Configuration</em> ” → bỏ chọn “ <em>Enabled</em> ” → nhấn nút “ <em>Update</em>”)</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>b.&nbsp;Khởi động lại Zabbix và MySQL</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">systemctl stop zabbix-server
+systemctl stop mysql
+systemctl start mysql
+systemctl start zabbix-server</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4><strong>Bước 4: Kích hoạt cấu hình SELinux trên Zabbix</strong></h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Cấu hình SElinux để cho phép Zabbix hoạt động, SElinux vẫn sẽ ghi lại tất cả các lỗi bảo mật nhưng sẽ không chặn bất cứ thứ gì liên quan đến Zabbix.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>a. Cho phép http daemon kết nối tới Zabbix</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">setsebool -P httpd_can_connect_zabbix 1</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>b. Cho phép Zabbix kết nối với tất cả các cổng TCP</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">setsebool -P zabbix_can_network 1</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>c. Đặt SELinux hoạt động ở chế độ thực thi</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">setenforce 1 &amp;&amp; sed -i 's/^SELINUX=.*/SELINUX=enforcing/g' /etc/selinux/config</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Kiểm tra trạng thái SELinux</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><strong># sestatus</strong>
+SELinux status: enabled
+SELinuxfs mount: /sys/fs/selinux
+SELinux root directory: /etc/selinux
+Loaded policy name: targeted
+Current mode: <strong>enforcing</strong>
+Mode from config file: enforcing
+Policy MLS status: enabled
+Policy deny_unknown status: allowed
+Memory protection checking: actual (secure)
+Max kernel policy version: 31</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>d. Tạo chính sách SELINUX bổ sung cho Zabbix</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Để đề phòng, ta sẽ tạo chính sách SELinux bổ sung cho từng lỗi trong log kiểm tra (“ /var/log/audit/audit.log“)</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Chúng ta sẽ cần công cụ Policycoreutils-python, vì vậy hãy cài đặt nó:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">dnf -y install policycoreutils-python-utils</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tạo gói chính sách tùy chỉnh:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">grep "denied.*zabbix" /var/log/audit/audit.log | audit2allow -M zabbix_policy</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Cài đặt gói chính sách SELinux tùy chỉnh:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">semodule -i zabbix_policy.pp</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bạn đã cấu hình xong SELinux cho Zabbix!</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4><strong>Bước 5: Nâng cấp các phiên bản Zabbix mới</strong></h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Mục đích chính của các bản nâng cấp nhỏ là sửa lỗi và đôi khi mang lại chức năng mới.&nbsp;Do đó, hãy cố gắng nâng cấp Zabbix ít nhất mỗi tháng một lần.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">dnf upgrade 'zabbix-*'</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Và khởi động lại Zabbix server sau đó:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">systemctl restart zabbix-server</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Như vậy bạn đã thực hiện xong các bước tối ưu hóa Zabbix server và MySQL database. Felicitation !</p>
+<p><!-- /wp:paragraph --></p>

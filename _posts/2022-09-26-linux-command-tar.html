@@ -1,0 +1,330 @@
+---
+layout: post
+title: "\U0001F427 Lệnh Tar - Command Linux"
+date: 2022-09-26 11:04:30.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- System
+tags:
+- command
+- linux
+author: thu4nvd
+permalink: "/linux-command-tar/"
+---
+<p><!-- wp:ht/block-toc {"headerEntries":"[{\u0022tag\u0022:2,\u0022text\u0022:\u0022Cách sử dụng Tar Linux\u0022,\u0022link\u0022:\u0022htoc-c-ch-s-d-ng-tar-linux\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0,\u0022children\u0022:[{\u0022tag\u0022:3,\u0022text\u0022:\u0022Tạo file archive .tar Linux\u0022,\u0022link\u0022:\u0022htoc-t-o-file-archive-tar-linux\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1,\u0022children\u0022:[]},{\u0022tag\u0022:3,\u0022text\u0022:\u0022Tạo file nén .tar.gz trong Linux\u0022,\u0022link\u0022:\u0022htoc-t-o-file-n-n-tar-gz-trong-linux\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1,\u0022children\u0022:[]},{\u0022tag\u0022:3,\u0022text\u0022:\u0022Tại file nén .tar.bz2 trong Linux bằng lệnh tar:\u0022,\u0022link\u0022:\u0022htoc-t-i-file-n-n-tar-bz2-trong-linux-b-ng-l-nh-tar\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1,\u0022children\u0022:[]},{\u0022tag\u0022:3,\u0022text\u0022:\u0022Làm thế nào để giải nén file .tar trong Linux\u0022,\u0022link\u0022:\u0022htoc-l-m-th-n-o-gi-i-n-n-file-tar-trong-linux\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1,\u0022children\u0022:[]},{\u0022tag\u0022:3,\u0022text\u0022:\u0022Làm thế nào để liệt kê nội dung của file nén Linux\u0022,\u0022link\u0022:\u0022htoc-l-m-th-n-o-li-t-k-n-i-dung-c-a-file-n-n-linux\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1,\u0022children\u0022:[]},{\u0022tag\u0022:3,\u0022text\u0022:\u0022Làm thế nào để giải nén 1 file trong file .tar\u0022,\u0022link\u0022:\u0022htoc-l-m-th-n-o-gi-i-n-n-1-file-trong-file-tar\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1,\u0022children\u0022:[]},{\u0022tag\u0022:3,\u0022text\u0022:\u0022Làm thế nào để giải nén nhiều file trong file .tar\u0022,\u0022link\u0022:\u0022htoc-l-m-th-n-o-gi-i-n-n-nhi-u-file-trong-file-tar\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1,\u0022children\u0022:[]},{\u0022tag\u0022:3,\u0022text\u0022:\u0022Giải nén nhiều file theo mẫu\u0022,\u0022link\u0022:\u0022htoc-gi-i-n-n-nhi-u-file-theo-m-u\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1,\u0022children\u0022:[]},{\u0022tag\u0022:3,\u0022text\u0022:\u0022Làm thế nào để thêm file vào file nén .tar\u0022,\u0022link\u0022:\u0022htoc-l-m-th-n-o-th-m-file-v-o-file-n-n-tar\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1,\u0022children\u0022:[]},{\u0022tag\u0022:3,\u0022text\u0022:\u0022Làm thế nào để kiểm tra file .tar Archive Linux\u0022,\u0022link\u0022:\u0022htoc-l-m-th-n-o-ki-m-tra-file-tar-archive-linux\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1,\u0022children\u0022:[]},{\u0022tag\u0022:3,\u0022text\u0022:\u0022Làm thế nào kiểm tra kích thước file archive trong Linux\u0022,\u0022link\u0022:\u0022htoc-l-m-th-n-o-ki-m-tra-k-ch-th-c-file-archive-trong-linux\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1,\u0022children\u0022:[]}]},{\u0022tag\u0022:3,\u0022text\u0022:\u0022Tạo file archive .tar Linux\u0022,\u0022link\u0022:\u0022htoc-t-o-file-archive-tar-linux\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1,\u0022children\u0022:[]},{\u0022tag\u0022:3,\u0022text\u0022:\u0022Tạo file nén .tar.gz trong Linux\u0022,\u0022link\u0022:\u0022htoc-t-o-file-n-n-tar-gz-trong-linux\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1,\u0022children\u0022:[]},{\u0022tag\u0022:3,\u0022text\u0022:\u0022Tại file nén .tar.bz2 trong Linux bằng lệnh tar:\u0022,\u0022link\u0022:\u0022htoc-t-i-file-n-n-tar-bz2-trong-linux-b-ng-l-nh-tar\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1,\u0022children\u0022:[]},{\u0022tag\u0022:3,\u0022text\u0022:\u0022Làm thế nào để giải nén file .tar trong Linux\u0022,\u0022link\u0022:\u0022htoc-l-m-th-n-o-gi-i-n-n-file-tar-trong-linux\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1,\u0022children\u0022:[]},{\u0022tag\u0022:3,\u0022text\u0022:\u0022Làm thế nào để liệt kê nội dung của file nén Linux\u0022,\u0022link\u0022:\u0022htoc-l-m-th-n-o-li-t-k-n-i-dung-c-a-file-n-n-linux\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1,\u0022children\u0022:[]},{\u0022tag\u0022:3,\u0022text\u0022:\u0022Làm thế nào để giải nén 1 file trong file .tar\u0022,\u0022link\u0022:\u0022htoc-l-m-th-n-o-gi-i-n-n-1-file-trong-file-tar\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1,\u0022children\u0022:[]},{\u0022tag\u0022:3,\u0022text\u0022:\u0022Làm thế nào để giải nén nhiều file trong file .tar\u0022,\u0022link\u0022:\u0022htoc-l-m-th-n-o-gi-i-n-n-nhi-u-file-trong-file-tar\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1,\u0022children\u0022:[]},{\u0022tag\u0022:3,\u0022text\u0022:\u0022Giải nén nhiều file theo mẫu\u0022,\u0022link\u0022:\u0022htoc-gi-i-n-n-nhi-u-file-theo-m-u\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1,\u0022children\u0022:[]},{\u0022tag\u0022:3,\u0022text\u0022:\u0022Làm thế nào để thêm file vào file nén .tar\u0022,\u0022link\u0022:\u0022htoc-l-m-th-n-o-th-m-file-v-o-file-n-n-tar\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1,\u0022children\u0022:[]},{\u0022tag\u0022:3,\u0022text\u0022:\u0022Làm thế nào để kiểm tra file .tar Archive Linux\u0022,\u0022link\u0022:\u0022htoc-l-m-th-n-o-ki-m-tra-file-tar-archive-linux\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1,\u0022children\u0022:[]},{\u0022tag\u0022:3,\u0022text\u0022:\u0022Làm thế nào kiểm tra kích thước file archive trong Linux\u0022,\u0022link\u0022:\u0022htoc-l-m-th-n-o-ki-m-tra-k-ch-th-c-file-archive-trong-linux\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:1,\u0022children\u0022:[]},{\u0022tag\u0022:2,\u0022text\u0022:\u0022Lời kết\u0022,\u0022link\u0022:\u0022htoc-l-i-k-t\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0,\u0022children\u0022:[]}]"} --></p>
+<div class="wp-block-ht-block-toc  is-style-outline htoc htoc--position-wide toc-list-style-plain" data-htoc-state="expanded"><span class="htoc__title"><span class="ht_toc_title">Table of Contents</span><span class="htoc__toggle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><g fill="#444">
+<path d="M15 7H1c-.6 0-1 .4-1 1s.4 1 1 1h14c.6 0 1-.4 1-1s-.4-1-1-1z"></path>
+<path d="M15 1H1c-.6 0-1 .4-1 1s.4 1 1 1h14c.6 0 1-.4 1-1s-.4-1-1-1zM15 13H1c-.6 0-1 .4-1 1s.4 1 1 1h14c.6 0 1-.4 1-1s-.4-1-1-1z"></path></g></svg></span></span>
+<div class="htoc__itemswrap">
+<ul class="ht_toc_list">
+<li class=""><a href="#htoc-c-ch-s-d-ng-tar-linux">Cách sử dụng Tar Linux</a>
+<ul class="ht_toc_child_list">
+<li class=""><a href="#htoc-t-o-file-archive-tar-linux">Tạo file archive .tar Linux</a></li>
+<li class=""><a href="#htoc-t-o-file-n-n-tar-gz-trong-linux">Tạo file nén .tar.gz trong Linux</a></li>
+<li class=""><a href="#htoc-t-i-file-n-n-tar-bz2-trong-linux-b-ng-l-nh-tar">Tại file nén .tar.bz2 trong Linux bằng lệnh tar:</a></li>
+<li class=""><a href="#htoc-l-m-th-n-o-gi-i-n-n-file-tar-trong-linux">Làm thế nào để giải nén file .tar trong Linux</a></li>
+<li class=""><a href="#htoc-l-m-th-n-o-li-t-k-n-i-dung-c-a-file-n-n-linux">Làm thế nào để liệt kê nội dung của file nén Linux</a></li>
+<li class=""><a href="#htoc-l-m-th-n-o-gi-i-n-n-1-file-trong-file-tar">Làm thế nào để giải nén 1 file trong file .tar</a></li>
+<li class=""><a href="#htoc-l-m-th-n-o-gi-i-n-n-nhi-u-file-trong-file-tar">Làm thế nào để giải nén nhiều file trong file .tar</a></li>
+<li class=""><a href="#htoc-gi-i-n-n-nhi-u-file-theo-m-u">Giải nén nhiều file theo mẫu</a></li>
+<li class=""><a href="#htoc-l-m-th-n-o-th-m-file-v-o-file-n-n-tar">Làm thế nào để thêm file vào file nén .tar</a></li>
+<li class=""><a href="#htoc-l-m-th-n-o-ki-m-tra-file-tar-archive-linux">Làm thế nào để kiểm tra file .tar Archive Linux</a></li>
+<li class=""><a href="#htoc-l-m-th-n-o-ki-m-tra-k-ch-th-c-file-archive-trong-linux">Làm thế nào kiểm tra kích thước file archive trong Linux</a></li>
+</ul>
+</li>
+<li class=""><a href="#htoc-l-i-k-t">Lời kết</a></li>
+</ul>
+</div>
+</div>
+<p><!-- /wp:ht/block-toc --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tar là chữ viết tắt của Tape archive, là một lệnh phổ biến nhất để nén và giải nén file và thư mục trong Linux. Có rất nhiều lợi ích khi dùng lệnh tar, người dùng chuyên nghiệp rất thích lệnh này.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Trong hầu hết các trường hợp, nén file bằng tar sẽ cho kết quả là file <strong>.tar.</strong> Còn nén mạnh hơn thì dùng gzip với file sau cùng là <strong>.tar.gz</strong>.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Với tar command, bạn có thể nén và giải nén file. Tar có nhiều lựa chọn cách thực hiện hành động nên có thể bạn cần nhớ những tùy chọn này.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Ưu điểm của Tar Linux:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>Tar, nói về việc nén thì nó có khả năng nén 50%, tức là khá hiệu quả</li>
+<li>Giảm thiểu kích cỡ của file và folder</li>
+<li>Tar không thay đổi tính năng của file và thư mục. Quyền và những tính năng khác không bị ảnh hưởng sau khi nén</li>
+<li>Tar được dùng rộng khắp mọi phiên bản Linux. Nó cũng dùng được trên firmware Android và được hỗ trợ bởi những hệ điều hành Linux cũ hơn nữa.</li>
+<li>Nén và giải nén nhanh</li>
+<li>Dễ sử dụng</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:paragraph --></p>
+<p>Khi nào bạn cần sử dụng tar command?</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>Nếu làm việc với hệ điều hành Linux và cần nén file và giải nén file</li>
+<li>Cần chuyển file và thư mục lớn từ server này sang server khác</li>
+<li>Tạo backup cho website, data, vâng vâng</li>
+<li>Giảm dung lượng sử dụng của hệ điều hành xuống, vì sau khi nén nó sẽ tiết kiệm được không gian</li>
+<li>Upload và download thư mục.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading --></p>
+<h2 id="htoc-c-ch-s-d-ng-tar-linux">Cách sử dụng Tar Linux</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Cùng chúng tôi tìm hiểu cách sử dụng Tar Linux nhé. Trước khi bắt đầu, bạn chỉ cần truy cập SSH vào <a href="https://www.hostinger.vn/vps">VPS server</a> thôi. Nếu chưa biết cách làm, hãy <a href="https://www.hostinger.vn/huong-dan/lam-the-nao-de-ket-noi-tai-khoan-bang-putty-ssh-terminal/">đọc bài hướng dẫn</a> này!</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="htoc-t-o-file-archive-tar-linux">Tạo file archive .tar Linux</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bạn có thể tạo file nén .tar cho file và thư mục. Cấu trúc để lệnh tar để nén file như sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -cvf sampleArchive.tar /home/sampleArchive</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Thư mục <strong>/home/</strong>sampleArchive sẽ được nén thành file có tên<strong> sampleArchive.tar</strong>.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Các tùy chọn <strong>–</strong>cvf có nghĩa là:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li><strong>c</strong> – Tạo file .tar mới</li>
+<li><strong>v</strong> – Hiển thị quá trình nén lên màn hình</li>
+<li><strong>f</strong> – Tên file</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="htoc-t-o-file-n-n-tar-gz-trong-linux">Tạo file nén .tar.gz trong Linux</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Nếu bạn muốn nén mạnh hơn, bạn cũng có thể dùng file<strong> .tar.gz</strong>. Cấu trúc cơ bản để nén file bằng lệnh tar là:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -cvzf sampleArchive.tar.gz /home/sampleArchive</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tùy chọn <strong>z</strong> có nghĩa là sử dụng gzip để nén, cách nén này cho file ra còn nhỏ hơn. Ngoài ra, tên file cũng có thể đặt <strong>.tgz</strong> cũng tương đồng với file <strong>tar.gz</strong>. Ví dụ như sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -cvzf sampleArchive.tgz /home/sampleArchive</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="htoc-t-i-file-n-n-tar-bz2-trong-linux-b-ng-l-nh-tar">Tại file nén .tar.bz2 trong Linux bằng lệnh tar:</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>File <strong>.bz2</strong> sẽ nén nhiều hơn so với gzip. Tuy nhiên, nó cần nhiều thời gian hơn để nén và giải nén. Để nén file <strong>.tar.bz2, </strong>bạn sẽ cần thêm tùy chọn <strong>-j</strong>. Ví dụ như sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -cvjf sampleArchive.tar.bz2 /home/sampleArchive</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Cũng giống vậy với <strong>.tar.tbz</strong> hay <strong>.tar.tb2</strong>. Bạn thao tác như sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -cvjf sampleArchive.tar.tbz /home/sampleArchive</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -cvjf sampleArchive.tar.tb2 /home/sampleArchive</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="htoc-l-m-th-n-o-gi-i-n-n-file-tar-trong-linux">Làm thế nào để giải nén file .tar trong Linux</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Lệnh tar cũng có thể dùng để giải nén file. Cấu trúc lệnh giải nén như sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -xvf sampleArchive.tar</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Nếu bạn muốn giải nén sang thư mục khác hãy dùng tùy chọn <strong>-C, </strong>ví dụ như sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -xvf sampleArchive.tar -C /home/ExtractedFiles/</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Lệnh giải nén file <strong>.tar.gz</strong> cũng tương tự:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -xvf sampleArchive.tar.gz</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -xvf sampleArchive.tar.gz -C /home/ExtractedFiles/</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>và để giải nén <strong>.tar.bz2</strong> <strong>.tar.tbz</strong> hoặc <strong>.tar.tb2</strong> thì dùng cấu trúc sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -xvf sampleArchive.tar.bz2</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="htoc-l-m-th-n-o-li-t-k-n-i-dung-c-a-file-n-n-linux">Làm thế nào để liệt kê nội dung của file nén Linux</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Sau khi file archive được tạo, bạn có thể liệt kê nội dung của nó ra bằng lệnh tar theo cấu trúc:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -tvf sampleArchive.tar</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Nó sẽ hiển thị toàn bộ danh sách file và mốc thời gian, cùng quyền hạn của file. Tương tự, đối với file <strong>.tar.gz, </strong>bạn dùng lệnh sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -tvf sampleArchive.tar.gz</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Lệnh này cũng làm được với file <strong>.tar.bz2</strong> như sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -tvf sampleArchive.tar.bz2</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="htoc-l-m-th-n-o-gi-i-n-n-1-file-trong-file-tar">Làm thế nào để giải nén 1 file trong file .tar</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bạn có thể giải nén riêng lẻ từng file trong file .tar như sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -xvf sampleArchive.tar example.sh</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Ở đây <strong>example.sh</strong> là file lẻ được giải nén từ bên trong file sampleArchive.tar. Ngoài ra, bạn cũng có thể dùng lệnh này cũng cho kết quả tương tự:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar --extract --file= sampleArchive.tar example.sh</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Để giải nén file lẻ trong file .tar.gz bạn có thể dùng lệnh tương tự như trên:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -zxvf sampleArchive.tar.gz example.sh</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hoặc là:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar --extract --file= sampleArchive.tar.gz example.sh</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Để giải nén file lẻ từ file .tar.bz2, bạn dùng lệnh sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -jxvf sampleArchive.tar.bz2 example.sh</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hoặc bạn dùng lệnh sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar --extract --file= sampleArchive.tar.bz2 example.sh</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Như bạn thấy, tar command rất dễ nhớ và khá linh hoạt trong cấu trúc.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="htoc-l-m-th-n-o-gi-i-n-n-nhi-u-file-trong-file-tar">Làm thế nào để giải nén nhiều file trong file .tar</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Trường hợp bạn muốn giải nén nhiều file trong file .tar, sử dụng lệnh sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -xvf sampleArchive.tar "file1" "file2"</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Đối với file <strong>.tar.gz</strong> bạn có thể dùng:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -zxvf sampleArchive.tar.gz "file1" "file2"</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Đối với file <strong>.tar.bz2</strong> bạn có thể dùng:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -jxvf sampleArchive.tar.bz2 "file1" "file2"</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="htoc-gi-i-n-n-nhi-u-file-theo-m-u">Giải nén nhiều file theo mẫu</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Nếu bạn muốn giải nén nhiều file chỉ có định dạng <strong>.jpg</strong> từ fil earchive, vậy hãy dùng <strong>wildcards</strong>. Ví dụ lệnh sẽ chạy như sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -xvf sampleArchive.tar --wildcards '*.jpg'</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Đối với <strong>.tar.gz</strong> là:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -zxvf sampleArchive.tar.gz --wildcards '*.jpg'</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Và đối với <strong>.tar.bz2</strong> bạn có thể dùng:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -jxvf sampleArchive.tar.bz2 --wildcards '*.jpg'</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="htoc-l-m-th-n-o-th-m-file-v-o-file-n-n-tar">Làm thế nào để thêm file vào file nén .tar</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Sẽ có lúc bạn cần thêm file vào một file nén archive phải không. Để làm vậy, bạn sẽ cần dùng tùy chọn <strong>-r </strong>(viết theo từ append – thêm vào). Tar có thể thêm cả file và thư mục vào.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bên dưới là ví dụ thêm file example.jpg vào trong file tar đã tồn tại là <strong>sampleArchive.tar</strong>.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -rvf sampleArchive.tar example.jpg</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bạn cũng có thể thêm thư mục bằng cách sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -rvf sampleArchive.tar image_dir</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bạn không thể thêm file hoặc thư mục vào file <strong>.tar.gz</strong> hoặc <strong>.tar.bz2.</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="htoc-l-m-th-n-o-ki-m-tra-file-tar-archive-linux">Làm thế nào để kiểm tra file .tar Archive Linux</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Lệnh tar cũng có thể dùng để kiểm tra một file archive:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -tvf sampleArchive.tar</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tuy nhiên bạn không kiểm được file <strong>.tar.gz</strong> hoặc <strong>.tar.bz2</strong>.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="htoc-l-m-th-n-o-ki-m-tra-k-ch-th-c-file-archive-trong-linux">Làm thế nào kiểm tra kích thước file archive trong Linux</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Sau khi tạo một file archive, bạn cũng có thể xem kích thước của nó. Kích thước sẽ được hiển thị dưới dạng KB (Kilobytes).</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bên dưới là ví dụ kiểm tra kích thước của nhiều file archive khác nhau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -czf - sampleArchive.tar | wc -c</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -czf - sampleArchive.tar.gz | wc -c</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">tar -czf - sampleArchive.tar.bz2 | wc -c</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading --></p>
+<h2 id="htoc-l-i-k-t">Lời kết</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Như bạn thấy, tar không chỉ dùng để nén và giải nén file mà còn là công cụ mạnh mẽ để làm nhiều việc khác với file nén. Bạn có thể xem thêm tài liệu chính thức của tar command để biết thêm cách sử dụng công cụ mạnh mẽ này. Hy vọng bài viết này giúp bạn làm việc tốt hơn với hệ thống Linux! Hẹn gặp bạn ở bài sau nhé!</p>
+<p><!-- /wp:paragraph --></p>

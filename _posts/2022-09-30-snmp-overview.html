@@ -1,0 +1,208 @@
+---
+layout: post
+title: "\U0001F439 SNMP - tìm hiểu giao thức quản lý thiết bị"
+date: 2022-09-30 17:19:40.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- System
+tags:
+- monitoring
+- snmp
+author: thu4nvd
+permalink: "/snmp-overview/"
+---
+<p><!-- wp:kadence/tableofcontents {"uniqueID":"_e3a2d4-88","enableToggle":true} /--></p>
+<p><!-- wp:heading --></p>
+<h2 id="snmp-la-gi">SNMP là gì?</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>SNMP (Simple Network Management Protocol) là một giao thức tầng ứng dụng được Hội đồng Kiến trúc Internet (<a href="https://iabeurope.eu/">IAB</a>) xác định trong RFC1157 để trao đổi thông tin quản lý giữa các thiết bị mạng. Nó là một phần của Transmission Control Protocol/Internet Protocol (TCP/IP).</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"id":20936} --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/09/snmp-la-gi.webp" alt="SNMP là gì?" class="wp-image-20936" /><br />
+<figcaption>SNMP là gì?</figcaption>
+</figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Giao thức SNMP là một trong những giao thức mạng được chấp nhận rộng rãi để quản lý và giám sát các phần tử mạng. Hầu hết các thiết bị mạng được cung cấp đi kèm với SNMP agent. Các agent này phải được kích hoạt và cấu hình để giao tiếp với các công cụ giám sát mạng hoặc hệ thống quản lý mạng (NMS).</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2 id="cac-thanh-phan-cua-snmp"><strong>Các thành phần của SNMP</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:image {"id":20938} --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/09/tim-hieu-giao-thuc-snmp.webp" alt="Các thành phần của SNMP" class="wp-image-20938" /><br />
+<figcaption>Các thành phần của SNMP</figcaption>
+</figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="1-snmp-manager">1. <strong>SNMP Manager</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Trình quản lý hoặc hệ thống quản lý là một thực thể riêng biệt có trách nhiệm giao tiếp với các thiết bị mạng được triển khai SNMP agent. Đây thường là một máy tính được sử dụng để chạy một hoặc nhiều hệ thống quản lý mạng.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Các chức năng chính của SNMP manager:</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>Agent truy vấn</li>
+<li>Nhận response từ các agent</li>
+<li>Đặt các biến trong agent</li>
+<li>Xác nhận các sự kiện không đồng bộ từ các agent</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="2-cac-thiet-bi-duoc-snmp-quan-ly">2. <strong>Các thiết bị được SNMP quản lý</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Thiết bị được quản lý hoặc phần tử mạng là một phần của mạng yêu cầu một số hình thức giám sát và quản lý, ví dụ: router, <a href="https://vietnix.vn/switch-la-gi/">switches</a>, server, máy trạm, máy in, UPS, v.v.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="3-snmp-agent"><strong>3. SNMP Agent</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Agent là một chương trình được đóng gói trong các thiết bị mạng. Việc kích hoạt agent cho phép nó thu thập cơ sở dữ liệu thông tin quản lý từ thiết bị cục bộ và cung cấp nó cho SNMP manager khi được truy vấn. Các agent này có thể là tiêu chuẩn (ví dụ: <a href="http://www.net-snmp.org/">Net-SNMP</a>) hoặc cụ thể cho một nhà cung cấp (ví dụ: HP insight agent).</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Các chức năng chính của SNMP agent:</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>Thu thập thông tin quản lý về các chỉ số hoạt động cuả thiết bị</li>
+<li>Lưu trữ và truy xuất thông tin quản lý như được định nghĩa trong MIB.</li>
+<li>Báo hiệu sự kiện cho trình quản lý.</li>
+<li>Hoạt động như một proxy cho một số nút mạng không quản lý được – SNMP.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading --></p>
+<h2 id="giao-thuc-snmp-hoat-dong-nhu-the-nao"><strong>Giao thức SNMP hoạt động như thế nào?</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>SNMP sử dụng một số command cơ bản để giao tiếp giữa manager và agent.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"id":20939} --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/09/giao-thuc-snmp.webp" alt="SNMP hoạt động như thế nào?" class="wp-image-20939" /><br />
+<figcaption>SNMP hoạt động như thế nào?</figcaption>
+</figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="1-get-yeu-cau-thong-tin-bat-cu-luc-nao">1. <strong>GET: Yêu cầu thông tin bất cứ lúc nào</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Để nhận thông tin trạng thái từ agent, manager có thể đưa ra message Get và GetNext để yêu cầu thông tin cho một biến cụ thể. Sau khi nhận được message Get hoặc GetNext, agent sẽ gửi message GetResponse cho manager. Nó sẽ chứa thông tin được yêu cầu hoặc lỗi giải thích tại sao không thể xử lý request.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="2-set-dieu-khien-thiet-bi-tu-xa">2. <strong>SET: Điều khiển thiết bị từ xa&nbsp;</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Message SET cho phép manager yêu cầu thực hiện thay đổi đối với đối tượng được quản lý (tức là rơle điều khiển). Sau đó, agent sẽ trả lời bằng message Set-response nếu thay đổi đã được thực hiện hoặc lỗi giải thích tại sao không thể thực hiện thay đổi.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="3-trap-snmp-message-pho-bien-nhat">3. <strong>TRAP: SNMP message phổ biến nhất</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Message TRAP được khởi xướng bởi agent và gửi đến manager khi một sự kiện quan trọng xảy ra. Trap dùng để cảnh báo cho manager – thay vì đợi request trạng thái từ manager khi cần thăm dò ý kiến ​​của agent.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="4-inform-mot-loai-message-co-gia-tri-khac">4. <strong>INFORM: Một loại message có giá trị khác</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Message INFORM rất giống với TRAP, nhưng chúng đáng tin cậy hơn. Các message INFORM được khởi tạo bởi agent và khi manager nhận được nó, nó sẽ gửi response đến agent cho biết message đã được nhận. Nếu agent không nhận được response từ manager thì agent sẽ gửi lại message INFORM.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="5-snmpwalk-nhan-tat-ca-du-lieu">5. <strong>SNMPWALK: Nhận tất cả dữ liệu</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>SNMPWALK sử dụng nhiều request Get-Next để truy xuất toàn bộ cây dữ liệu mạng từ một đối tượng được quản lý. Công cụ iReasoning MIB Browser sẽ rất hữu ích để xem tất cả các OID mà một agent cung cấp.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2 id="tai-sao-snmp-la-don-gian"><strong>Tại sao SNMP là “Đơn giản?”</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bên cạnh việc sử dụng số lượng nhỏ command, SNMP được coi là đơn giản vì nó phụ thuộc vào một liên kết giao tiếp không được giám sát hoặc ít kết nối. Nhờ đó mà nó được sử dụng rộng rãi, đặc biệt là trong các ứng dụng internet. SNMP được coi là “mạnh” vì sự độc lập của các manager và agent. Bởi vì chúng thường là các thiết bị riêng biệt, nếu một agent bị lỗi, manager sẽ tiếp tục hoạt động và ngược lại.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2 id="cau-truc-cua-snmp"><strong>Cấu trúc của SNMP</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:image {"id":20940} --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/09/snmp-port.webp" alt="Cấu trúc của SNMP" class="wp-image-20940" /><br />
+<figcaption>Cấu trúc của SNMP</figcaption>
+</figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Để gửi thông tin, SNMP sử dụng mô hình truyền thông phân lớp.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>Layer 1 – Lớp ứng dụng (SNMP)</li>
+<li>Layer 2 – Lớp vận chuyển (UDP)</li>
+<li>Layer 3 – Lớp Internet (IP)</li>
+<li>Layer 4 – Lớp Network interface</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:paragraph --></p>
+<p>Mặc dù mô hình nhiều lớp này có vẻ hơi khó hiểu, nhưng nó rất hiệu quả trong việc tách biệt các nhiệm vụ giao tiếp và hỗ trợ thiết kế, triển khai mạng.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Ví dụ về vận chuyển SNMP</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Để minh họa chức năng của mô hình phân lớp này, chúng ta hãy xem xét một request SNMP GET từ agent.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Bước 1:</strong> SNMP manager muốn biết Tên hệ thống của Agent và chuẩn bị message GET cho OID thích hợp.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Bước 2: </strong>Sau đó, nó chuyển message đến lớp User Datagram Protocol (UDP). Lớp UDP thêm một khối dữ liệu xác định cổng manager mà response packet sẽ được gửi đến.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Bước 3:</strong> Sau đó packet được chuyển đến lớp IP, nơi khối dữ liệu chứa địa chỉ IP và các địa chỉ Media Access của manager và agent được thêm vào.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Bước 4: </strong>Toàn bộ packet được chuyển đến lớp Network interface. Lớp Network interface xác minh khả năng truy cập và tính khả dụng của phương tiện. Sau đó, nó đặt packet trên phương tiện truyền thông để vận chuyển.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Bước 5:</strong> Sau khi qua các cầu nối và thông qua các router dựa trên thông tin IP, packet cuối cùng cũng đến được agent.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Bước 6:</strong> Ở đây nó đi qua bốn lớp giống nhau theo thứ tự hoàn toàn ngược lại với manager.&nbsp;</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2 id="loi-ich-cua-snmp"><strong>Lợi ích của SNMP</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Sử dụng SNMP cho phép bạn quản lý các asset mạng không có hệ điều hành, nhưng là các thành phần quan trọng của cơ sở hạ tầng.&nbsp;</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Nó đơn giản hóa nhiệm vụ và giúp bạn có thể tập trung mạng. Nó còn cho phép kiểm soát hiệu quả hơn, ngay cả đối với thiết bị không có hệ điều hành như máy in.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Một ưu điểm khác của SNMP là nó có một ngôn ngữ duy nhất cho phép người dùng tương tác với tất cả các thiết bị từ các nhà sản xuất khác nhau.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Vì vậy, nó tương thích với hầu hết mọi asset và dịch vụ mạng, chẳng hạn như Windows, Linux, Mac và máy ảo Java.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>SNMP không chỉ hữu ích để cung cấp hỗ trợ chủ động mà còn để cải thiện trải nghiệm khách hàng, cho phép bạn dự đoán nhu cầu.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Các lợi ích chính khác của SNMP:</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>Ưu điểm chính của việc sử dụng SNMP là thiết kế đơn giản. Dễ dàng triển khai nó trên mạng, vì nó không yêu cầu cấu hình lâu.</li>
+<li>Hơn nữa, SNMP rất phổ biến ngày nay. Hầu hết tất cả các nhà sản xuất thiết bị phần cứng liên mạng lớn, như switch hoặc router, đều triển khai hỗ trợ SNMP trong các sản phẩm của họ.</li>
+<li>Mở rộng là một ưu thế khác của SNMP. Do thiết kế đơn giản, dễ dàng cập nhật giao thức để đáp ứng nhu cầu của user trong tương lai.</li>
+<li>SNMP dựa trên giao thức truyền tải UDP, yêu cầu ít tài nguyên hơn và kết nối đồng thời hơn với TCP.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading --></p>
+<h2 id="loi-ket">Lời kết</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hy vọng bài viết trên sẽ giúp bạn hiểu được giao thức SNMP là gì? Cách hoạt động của giao thức này như thế nào? Nếu bạn có thắc mắc hay đóng góp ý kiến gì thêm, mời bạn để lại bình luận phía dưới bài viết này. </p>
+<p><!-- /wp:paragraph --></p>

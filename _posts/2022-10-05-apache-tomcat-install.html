@@ -1,0 +1,273 @@
+---
+layout: post
+title: "\U0001F405 Apache Tomcat 9 cài đặt trên CentOS 7"
+date: 2022-10-05 14:34:06.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Linux
+- System
+tags:
+- tomcat
+- webserver
+author: thu4nvd
+permalink: "/apache-tomcat-install/"
+---
+<p><!-- wp:paragraph --></p>
+<p><strong>Apache Tomcat</strong> là một web server mã nguồn mở được phát triển bởi tập đoàn <strong>Apache</strong>. Tomcat không phải là một web server đa dụng như Apache hoặc Nginx, mục đích chính của nó là cung cấp một môi trường dùng để <strong><em>thực thi các ứng dụng thuần Java, Java Servlet và JavaServer Pages</em></strong>.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bài viết này sẽ hướng dẫn bạn những bước cài đặt và cấu hình cơ bản Tomcat 9 trên nền tảng hệ điều hành CentOS 7.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:kadence/tableofcontents {"uniqueID":"_abfa00-4b","containerBackground":"#abb8c3"} /--></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="htoc-c-i-t-v-c-u-h-nh-tomcat-service">Cài đặt và cấu hình Tomcat service</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="htoc-b-c-1-c-i-t-java">Bước 1 – Cài đặt Java</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tomcat 9 yêu cầu Java SE 8 (hoặc cao hơn) phải được cài đặt trên CentOS. Bạn có thể cài đặt Java từ kho lưu trữ gói mặc định bằng lệnh <strong>yum</strong>&nbsp; như sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"># yum install java-1.8.0-openjdk-devel&nbsp;</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>&nbsp;Sau khi quá trình cài đặt hoàn tất, bạn có thể kiểm tra lại phiên bản Java bằng lệnh bên dưới:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">#&nbsp;java -version</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:image {"align":"center","id":3256} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/java-version.jpg" alt="" class="wp-image-3256" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="htoc-b-c-2-t-o-tomcat-system-user">Bước 2 – Tạo non-root User và Group riêng để chạy Tomcat</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Vì lý do bảo mật, Tomcat nên được thực thi bởi một user được cấp quyền riêng (không phải user root). Chúng ta sẽ tạo một user&nbsp; và group để thực thi Tomcat.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Đầu tiên, bạn tạo group bằng lệnh</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"># groupadd tomcat&nbsp;</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Sau đó, tạo một user tomcat (là thành viên của group tomcat) với thư mục home /opt/tomcat (thư mục cài đặt Tomcat ở bước sau) và tắt quyền truy cập vào server:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"># useradd -M -s /bin/nologin -g tomcat -d /opt/tomcat tomcat&nbsp;</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="htoc-b-c-3-download-tomcat">Bước 3 – Download và Giải nén Tomcat</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bạn có thể sử dụng lệnh <strong>wget</strong> như sau để tải về phiên bản tomcat 9 mới nhất</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"># wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.31/bin/apache-tomcat-9.0.31.tar.gz&nbsp;</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tiếp theo, bạn tiến hành giải nén file .tar.gz vào thư mục cài đăt Tomcat (/opt/tomcat) bằng lệnh sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"># tar -xzvf apache-tomcat-9.0.31.tar.gz -C /opt/tomcat --strip-components=1</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="htoc-b-c-4-c-p-nh-t-quy-n-th-c-thi">Bước 4 – Cập nhật quyền thực thi cho thư mục Tomcat</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Để user tomcat có thể truy cập vào thư mục cài đặt Tomcat, bạn lần lượt thiết lập quyền như sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Gán quyền sỡ hữu thư mục cài đặt Tomcat cho group tomcat</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"># cd /opt/tomcat&nbsp;
+# chgrp -R tomcat /opt/tomcat</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Kế tiếp, thiết lập quyền đọc và thực thi thư mục <em>conf</em> (và tất cả nội dung con bên trong) cho group <strong>tomcat.</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"># chmod -R g+r conf
+# chmod g+x conf</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Sau cùng, bạn gán user tomcat sở hữu các thư mục webapps, work, temp và logs như sau</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"># chown -R tomcat webapps/ work/ temp/ logs/</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="htoc-b-c-5-t-o-file-systemd-unit-cho-tomcat">Bước 5 – Tạo service Tomcat trong Systemd</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Để Tomcat hoạt động như một dịch vụ trên CentOS 7, bạn cần tạo mới một file Tomcat Systemd unit.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tạo và mở file unit bằng lệnh sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">vi /etc/systemd/system/tomcat.service</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Thêm nội dung bên dưới vào file.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"># Systemd unit file for tomcat
+[Unit]
+Description=Apache Tomcat Web Application Container
+After=syslog.target network.target
+
+[Service]
+Type=forking
+
+Environment=JAVA_HOME=/usr/lib/jvm/jre
+Environment=CATALINA_PID=/opt/tomcat/temp/tomcat.pid
+Environment=CATALINA_HOME=/opt/tomcat
+Environment=CATALINA_BASE=/opt/tomcat
+Environment='CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC'
+Environment='JAVA_OPTS=-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom'
+
+ExecStart=/opt/tomcat/bin/startup.sh
+ExecStop=/bin/kill -15 $MAINPID
+
+User=tomcat
+Group=tomcat
+UMask=0007
+RestartSec=10
+Restart=always
+
+[Install]
+WantedBy=multi-user.target</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tiếp theo, bạn thực thi lệnh sau để khởi động lại Systemd để nhận file Tomat unit</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"><code># systemctl daemon-reload</code></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Sau cùng, bạn lần lượt thực thi những lệnh sau để khởi động, bật chế độ chạy nền và kiểm tra trạng thái của Tomcat.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"># systemctl start tomcat
+# systemctl enable tomcat
+# systemctl status tomcat</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:image {"align":"center","id":3260} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/tomat_status.jpg" alt="" class="wp-image-3260" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="htoc-b-c-6-c-u-h-nh-firewall">Bước 6 – Cấu hình Firewall</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Nếu server của bạn có sử dụng tường lửa (firewalld hoặc iptables), bạn cần thiết lập mở port 8080 để có thể truy cập giao diện Tomcat từ bên ngoài.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"># firewall-cmd --add-port=8080/tcp --permanent
+# firewall-cmd --reload </pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Ngay sau khi mở port 8080, bạn có thể mở trình duyệt web, truy cập đường dẫn: <em>http://ip-server:8080</em> để kiểm tra giao diện mặc định Tomat.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":3272} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/tomcat_manager-1.jpg" alt="" class="wp-image-3272" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="htoc-c-u-h-nh-giao-di-n-web-qu-n-tr-tomcat">Cấu hình giao diện web quản trị Tomcat&nbsp;</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="htoc-1-c-u-h-nh">1. Cấu hình</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Sau khi hoàn tât các bước cài đặt và cấu hình cơ bản, bạn đã có thể truy cập trang Tomcat mặc định như trên. Tuy nhiên, vì lý do bảo mật nên bạn cần tạo thêm user để có thể truy cập trang quản trị Tomcat manager.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>User Tomcat và các quyền sẽ được định nghĩa trong file <em>tomcat-users.xml.&nbsp;</em>Bạn mở file <strong>/opt/tomcat/latest/conf/tomcat-users.xml</strong>, tìm và thêm nội dung bên dưới vào bên trong thẻ &lt;tomcat-users&gt;…&lt;/tomcat-users&gt;</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">&lt;role rolename="admin-gui"/&gt;
+&lt;role rolename="manager-gui"/&gt;
+&lt;user username="admin" password="admin_password" roles="admin-gui,manager-gui"/&gt;<br /></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p><em><strong>Lưu ý:</strong></em></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>rolename=”admin-gui” và “manager-gui” lần lượt các quyền truy cập vào trang quản trị Tomcat và trang quản lý webapps.</li>
+<li>Thay đổi các giá trị username và password tương ứng với hệ thống của bạn.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:paragraph --></p>
+<p>Theo mặc định, giao diện quản trị Tomcat chỉ cho phép truy cập từ localhost, để có thể truy cập từ một remote IP hoặc bất kỳ đâu, bạn thực hiện những điều chỉnh như sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Lần lượt mở các file <strong>/opt/tomcat/webapps/manager/META-INF/context.xml</strong> và <strong>/opt/tomcat/webapps/host-manager/META-INF/context.xml,&nbsp;</strong>khóa hoặc xóa bỏ nội dung bên dưới trong thẻ &lt;Context&gt;…&lt;/Context&gt;</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":3267} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/manager.jpg" alt="" class="wp-image-3267" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:image {"align":"center","id":3268} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/host-manager.jpg" alt="" class="wp-image-3268" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Khởi động lại Tomcat để những điều chỉnh có tác dụng bằng lệnh sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted"># systemctl restart tomcat&nbsp;</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="htoc-2-ki-m-tra-c-u-h-nh">2. Kiểm tra cấu hình</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Sau khi hoàn tất các thiết lập, bạn truy cập lại giao diện quản trị Tomcat theo đường dẫn: http://&lt;your_domain_or_IP_address&gt;:8080</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":3272} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/tomcat_manager-1.jpg" alt="" class="wp-image-3272" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bạn lần lượt truy cập vào <strong>Server Status</strong>, <strong>Manage App</strong> và <strong>Host Manager</strong>, sau khi hoàn tất bước xác thực Tomcat User sẽ được kết quả tương tự như sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li><strong>Server Status</strong></li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:image {"align":"center","id":3273} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/server-status.jpg" alt="" class="wp-image-3273" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li><strong>Manage App</strong></li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:image {"align":"center","id":3274} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/manager-app.jpg" alt="" class="wp-image-3274" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li><strong>Host-Manager</strong></li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:image {"align":"center","id":3275} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/virtual-host.jpg" alt="" class="wp-image-3275" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="htoc-k-t-lu-n">Kết luận</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Như vậy là mình đã hoàn thành bài viết hướng dẫn những bước cài đặt và cấu hình Tomcat 9 cơ bản nhất trên nền tảng CentOS 7<strong>. </strong>Bạn có thể truy cập trang <a href="https://tomcat.apache.org/tomcat-9.0-doc/index.html" target="_blank" rel="noreferrer noopener">Tài liệu Tomcat 9</a> của Apache để tìm hiểu thêm những thiết lập nâng cao khác.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Trong bài viết sau, mình sẽ tiếp tục chia sẻ hướng dẫn quản trị và  deploy ứng dụng Java lêm Tomcat server. Các bạn nhớ theo dõi nhé!</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Credit: hiepsharing.com</p>
+<p><!-- /wp:paragraph --></p>

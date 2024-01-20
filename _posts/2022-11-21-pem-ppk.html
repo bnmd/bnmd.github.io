@@ -1,0 +1,103 @@
+---
+layout: post
+title: "\U0001F4D1PPK and PEM on AWS"
+date: 2022-11-21 08:24:07.000000000 -08:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Security
+- System
+tags: []
+author: thu4nvd
+permalink: "/pem-ppk/"
+---
+<p><!-- wp:kadence/tableofcontents {"uniqueID":"_0ddc26-6d","containerBackground":"#abb8c3","enableTitle":false,"titleColor":"#abb8c3"} /--></p>
+<p><!-- wp:paragraph --></p>
+<p><code>.pem</code> file is what you have download from AWS when you created your key-pair. <br />This is only a <strong>one time download</strong> and you cannot download it again.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Your software is asking for <code>.pem</code> file. Now you are the one who needs to locate that file. You might have downloaded it on you laptop/desktop...etc.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>As I said above, <code>.pem</code> is not saved anywhere on EC2. It is a one time download and you have to keep it safe.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>For <code>Putty</code> (windows ssh client), it does not support <code>.pem</code> format. Hence you have to <a href="http://glassonionblog.wordpress.com/2012/01/29/connect-to-an-ec2-instance-with-putty-winscp/">convert</a> it to <code>.ppk</code> format using <a href="http://the.earth.li/~sgtatham/putty/latest/x86/puttygen.exe">PuTTyGen</a>. Its essentially <code>.pem</code> but in a different format so that <code>Putty</code> can work with it.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":1} --></p>
+<h1>Question #1: Whats the difference between .ppk and .pem</h1>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>The <em>.pem</em> and <em>.ppk</em> files are similar because they are both <strong>private key</strong> file formats. The <em>.pub</em> file counterpart is the public key file format -- but that is a different story.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>The differences between <em>.pem</em> and <em>.ppk</em> are the following:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3>System/platform compatibility .pem is kind of the de facto standard</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>Linux BASH users — .pem file format</li>
+<li>Mac BASH users — .pem file format</li>
+<li>Windows/Linux/Mac PowerShell users — .pem file format</li>
+<li>Windows PuTTY/Cygwin users — .ppk file format</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3>Example format of files:</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4>.pem</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:code --></p>
+<pre class="wp-block-code"><code>-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEAxZls7NgRS5rtDH+mCgEeqSO12BiPAY2dhZZbTkPEoDUVqG46
+PHGIBBERISHFKS3xE4eMMY+uWPriviY0W12EFqYBUJDq6GmGSQPMSI8Kep7OgVGK
+d2t3/Lq+I8ZqlFwAgPwS7n18mlgTV/YyA0HCCIa+kZGKqbsuylfsODUAJGQqOtUM
+FKX4+O45RrJwcQGI2M+pbD4+Ow28iEsNP3flQKvamNuezm2VallhGiO/E39UITrB
+27FWM1pLQo5etyE378h5q8BKMGKt1ZPxPhjiNjBefGZ1Dscw7CA5
+-----END RSA PRIVATE KEY-----</code></pre>
+<p><!-- /wp:code --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4>.ppk</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:code --></p>
+<pre class="wp-block-code"><code>PuTTY-User-Key-File-2: ssh-rsa
+Encryption: none
+Comment: imported-openssh-key
+Public-Lines: 3
+AAAAB3NzaC1yc2EAAAADAQABAAABAQDFmWzs2BFLmu0Mf6YKAR6pI7XYGI8BjZ2F
+llGIBBERISHobjo8c6DjH6iBW0UpLfETh4wxj65Y+uK+JjRbXYQWpgFQkOroaYZJ
+1DxehJUvZpuZqLSUGvZrUzbYmx25oVE5+x6UBSA0NUiTpq6jWFPH
+Private-Lines: 3
+AAABAFLQsak2CVGhldYWLbWlsH78+3qdGFpzSuCxGoVbu63VccVMpVWutHBcVVgZ
+s4GIBBERISHcVhru01cUVf8w22pOmuB0TC+qAmDZmaWTZbXslun2Dc1tGjWu4n/F
+S0KOXrchN+/IeavASjBirdWT8T4Y4jYwXnxmdQ7HMOwgOQ==
+Private-MAC: 5fGIBBERISHda60d2e8b049e655e4a8a78bb18dc</code></pre>
+<p><!-- /wp:code --></p>
+<p><!-- wp:heading {"level":1} --></p>
+<h1>Question #2 : Where .pem is stored in amazons ec2 cluster?</h1>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>In AWS, the <em>.pem</em> files are not directly stored to a single machine.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>You can get the <em>.pem</em> file either by:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list {"ordered":true} --></p>
+<ol>
+<li>Starting a new instance When you create an EC2 instance, you will be given a default <em>.pem</em> file where you can use to access the new instance.</li>
+<li>Creating a new <em>.pem</em> file through IAM</li>
+</ol>
+<p><!-- /wp:list --></p>
+<p><!-- wp:paragraph --></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Credit: <a href="https://stackoverflow.com/questions/20367694/whats-the-difference-between-ppk-and-pem-where-pem-is-stored-in-amazons-ec2" target="_blank" rel="noopener">https://stackoverflow.com</a></p>
+<p><!-- /wp:paragraph --></p>

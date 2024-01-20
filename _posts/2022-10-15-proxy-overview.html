@@ -1,0 +1,202 @@
+---
+layout: post
+title: "\U0001F991 Proxy Server - Tổng quan về proxy"
+date: 2022-10-15 11:44:51.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Linux
+- System
+tags: []
+author: thu4nvd
+permalink: "/proxy-overview/"
+---
+<p><!-- wp:paragraph --></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:kadence/tableofcontents {"uniqueID":"_5b8cc1-ac","containerBackground":"#abb8c3","enableTitle":false} /--></p>
+<p><!-- wp:heading --></p>
+<h2><strong>Máy chủ Proxy là gì?</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Proxy có nhiệm vụ tựa như một cách cửa giữa kết nối người dùng và mạng Internet. Nó hoạt động như <strong>tường lửa</strong> và <strong>bộ lọc website</strong>. Proxy Server cung cấp kết nối mạng chia sẻ, dữ liệu bộ nhớ cache nhằm tăng tốc các yêu cầu thông thường. Vậy các tính năng quan trọng của nó là gì?</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Các máy chủ Proxy cung cấp cho các chức năng và bảo mật cũng như riêng tư khác nhau phụ thuộc vào nhu cầu của bạn hay chính sách của công ty. Nó chỉ là một hệ thống Computer hay một Router tách biệt kết nối, giữa người gửi (được gọi là Sender) và người nhận (được gọi là Receiver) proxy có địa chỉ IP và một cổng truy cập cố định (Tất nhiên phải khác nhau theo từng địa phương, từng nước).</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2><strong>Tính năng của Proxy Server là gì?</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Proxy server mang đến người dùng rất nhiều tính năng quan trọng trên các mạng diện rộng, điển hình là:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>Tường lửa và Filtering</li>
+<li>Chia sẻ kết nối với Proxy server</li>
+<li>Proxy server và Caching</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong><em>Tường lửa và Filtering</em></strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Proxy Server làm việc ở lớp Application, lớp 7 trong mô hình tham chiếu OSI, hỗ trợ cho việc lọc ứng dụng độc lập. Nếu nó được cấu hình đúng cách sẽ cải thiện các vấn đề bảo mật, hiệu suất cho mạng. Các proxy đều có khả năng mà tường lửa thông thường không thể nào cung cấp được.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong><em>Chia sẻ kết nối với Proxy Server</em></strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Proxy Server chính là giải pháp cung cấp sự mở rộng và truy cập Internet hiệu quả. Thay việc gán cho mỗi máy khách một kết nối mạng Internet trực tiếp thì trong trường hợp này, tất cả kết nối bên trong đều có thể được cho qua 1 hay nhiều proxy, lần lượt kết nối ra ngoài.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong><em>Proxy Server và Caching</em></strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Có 3 hình thức với mục đích caching của các trang web cải thiện chất lượng dịch vụ của 1 mạng. <br />- Thứ nhất, cải tiến băng thông mạng, tăng khả năng mở rộng. <br />- Thứ hai, cải thiện khả năng đáp trả các máy khách. <br />- Cuối cùng chính là các Proxy Server cache có thể tăng khả năng phục vụ cùng khả năng truy cập và thậm chí là nguồn nguyên bản hay liên kết mạng trung gian khi đang offline.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2><strong>Lợi ích của việc sử dụng máy chủ Proxy</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Sau quá trình sử dụng, nó mang lại rất nhiều lợi ích như sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong><em>Riêng tư:</em> </strong>Máy chủ Proxy có thể truy cập mạng Internet một cách riêng tư. Một vài máy chủ còn có thể thay đổi IP và thông tin nhận dạng mà yêu cầu gửi đến. Do đó, máy chủ đích không thể biết ai đã đưa đến yêu cầu. Điều này sẽ giúp thông tin cá nhân, thói quen duyệt website được giữ kín.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong><em>Điều khiển:</em> </strong>Trên mạng Internet sẽ tiềm ẩn rất nhiều nguy cơ. Khi sử dụng, những nội dung được chọn lọc và trở nên an toàn hơn hẳn.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong><em>Tăng tốc độ, tiết kiệm băng thông:</em> </strong>Việc sử dụng máy chủ Proxy là một cách hiệu quả giúp cho mạng tổng có hiệu suất tốt hơn. Ngoài ra, nó lưu trữ các website phổ biến giúp tiết kiệm băng thông một cách tốt nhất.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong><em>Truy cập vào nội dung bị chặn:</em> </strong>Máy chủ Proxy cho phép công ty hạn chế người dùng truy cập một vài nội dung. Tuy nhiên, người dùng đã sử dụng một Proxy có thể thay đổi được địa chỉ IP nhằm thay đổi vị trí địa lý. Do đó, họ hoàn toàn có thể truy cập vào các nội dung bị chặn một cách dễ dàng.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong><em>Mức độ bảo mật của máy chủ Proxy:</em> </strong>Để tránh bên thứ ba biết rõ hoạt động của mình, người dùng có thể cấu hình máy chủ server nhằm mã hóa các yêu cầu website. Ngoài ra, người dùng còn có thể chặn các phần mềm hay trang web độc hại không cho truy cập. Không những vậy mà doanh nghiệp có thể làm việc và kết nối máy chủ Proxy với VPN. Người dùng có thể dễ dàng truy cập mạng Internet từ xa thông qua Proxy của công ty. VPN là một kết nối trực tiếp tới mạng của doanh nghiệp mà chính doanh nghiệp cung cấp người dùng từ xa. Doanh nghiệp có thể kiểm soát và xác minh người dùng từ xa bằng việc dùng VPN. Từ đó, người dùng có thể truy cập tài nguyên cũng như sử dụng kết nối an toàn để bảo vệ các dữ liệu của công ty.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2><strong>Cách hoạt động của máy chủ Proxy?</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Về cơ bản thì máy chủ Proxy chính là một máy tính trên mạng Internet với địa chỉ IP riêng mà máy tính của bạn nhận biết. Khi gửi một yêu cầu website từ máy tính của bạn, nó sẽ đi đến máy chủ Proxy đầu tiên. Tại đây, dữ liệu sẽ được xử lý cũng như thực hiện yêu cầu của bạn. Đồng thời, thu thập phản hồi từ máy chủ web, trả về dữ liệu trang web, giúp bạn có thể thấy trang web trong trình duyệt.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Ngoài ra, nó cũng có thể mã hóa dữ liệu để không bất kỳ ai có thể đọc được trong quá trình vận chuyển. Cuối cùng là nó có thể chặn truy cập vào trang web cụ thể dựa trên địa chỉ IP.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2><strong>Các loại Proxy Server</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:image {"align":"center","id":24338} --></p>
+<figure class="wp-block-image aligncenter"><img src="{{ site.baseurl }}/assets/2022/10/may-chu-proxy-la-gi-tim-hieu-tong-quan-ve-proxy-4.jpg" alt="Máy chủ proxy là gì? Tìm hiểu tổng quan về proxy" class="wp-image-24338" title="Máy chủ proxy là gì? Tìm hiểu tổng quan về proxy" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Nó được chia thành 4 loại như sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>Transparent Proxy</li>
+<li>Antonymity Proxy</li>
+<li>Distorting Proxy</li>
+<li>High Anonymity Proxy</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong><em>Transparent Proxy là gì?</em></strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Trong quá trình sử dụng, Transparent Proxy sẽ sử dụng địa chỉ IP của bạn trong các request website. Các doanh nghiệp, trường học và thư viện công cộng thường sử dụng nó nhằm lọc được nội dung bởi vì chúng thiết lập trên hệ thống client – server.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong><em>Antonymity Proxy là gì?</em></strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Antonymity Proxy hay còn gọi là Proxy ẩn danh, sẽ không thể chuyển địa chỉ IP của bạn đến trang web. Điều này có thể giúp tăng độ bảo mật và ngăn chặn hành vi trộm cắp danh tính. Đồng thời, giữ cho thói quen duyệt website của bạn ở chế độ riêng tư. Chúng cũng có thể ngăn trang web phân phát nội dung tiếp thị được nhắm mục tiêu dựa vào vị trí của bạn.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong><em>Distorting Proxy là gì?</em></strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tương tự như Proxy Ẩn danh, một máy chủ proxy mạo danh thực hiện chức năng bảo mật IP người dùng nhưng lại bằng cách gửi sai địa chỉ IP cho Web server. Bạn có thể xuất hiện từ một vị trí khác nhằm có thể truy cập nội dụng bị chặn.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong><em>High Anonymity Proxy là gì?</em></strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Trong các loại hình, Proxy ẩn danh cao sẽ chính là cách truy cập trang web một cách an toàn nhất. Máy chủ proxy ẩn danh cao định kỳ thay đổi địa chỉ IP, chúng xuất hiện trên máy chủ web, khiến việc theo dõi lưu lượng truy cập thuộc về ai cực kỳ khó khăn.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2><strong>Ưu điểm của Proxy Server?</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Có rất nhiều lý do tổ chức, cá nhân nên sử dụng máy chủ proxy. Dưới đây chính là những ưu điểm của nó:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong><em>Kiểm soát việc sử dụng Internet:</em> </strong>Thiết lập máy chủ proxy trong mạng nội bộ doanh nghiệp hay gia đình có thể giúp giám sát việc truy cập mạng Internet của nhân viên và trẻ em,… Với cơ chế bảo mật, nó có thể từ chối truy cập vào website để người khác không xem các website này trong giờ hành chính,…</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong><em>Tiết kiệm băng thông và nâng cao tốc độ:</em> </strong>Với việc sao lưu bộ nhớ cache, máy chủ proxy có thể tiếp nhận, xử lý hàng trăm và hàng nghìn lượt truy cập cùng một lúc. Điều này sẽ giúp tăng tốc độ truy cập, tiết kiệm băng thông hơn nhiều.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong><em>Bảo mật riêng tư:</em> </strong>Bạn có thể sử dụng máy chủ proxy nhằm duyệt mạng Internet riêng tư hơn. Cấu hình máy chủ cho phép mã hóa yêu cầu web với mục đích không bất kỳ ai có thể đọc được giao dịch của bạn. Ngoài ra, người dùng còn có thể tránh các website độc hại.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong><em>Truy cập vào các tài nguyên bị chặn:</em> </strong>Máy chủ proxy cho phép người dùng có thể truy cập trang web bị chặn. Bạn cũng có thể đăng nhập đến máy chủ này ở nơi khác cùng khai thác tài nguyên từ đó.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2><strong>Nhược điểm khi sử dụng máy chủ Proxy</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Và tất nhiên là mọi vấn đề đều phải có 2 mặt. Tương tự, khi sử dụng Proxy, ngoài những lợi ích thì nó vẫn có những rủi ro nhất định như sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong><em>Tốc độ chậm:</em> </strong>Đối với các trang web đã được lưu trữ trước đó thì Caching Proxy sẽ giúp cải thiện thời gian tải. Tuy nhiên, với các trang website mới truy cập thì sẽ bị chậm kết nối đó.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong><em>Không ổn định:</em></strong> Đối với các Proxy miễn phí, hầu như nó không có hiệu suất cao. Một vài trường hợp nó còn bị gián đoạn dịch vụ hay thậm chí là bị ngắt kết nối đột ngột.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong><em>Hạn chế vấn đề về bảo mật:</em> </strong>Mặc dù Proxy có thể ẩn địa chỉ IP và tường lửa nhưng một vài trường hợp nó không thể mã hóa lưu lượng truy cập. Ví dụ, trong trường hợp đang kết nối với Proxy thông qua mạng không dây thì một người dùng khác có thể thông qua VPN nhằm theo dõi các hoạt động của người dùng.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong><em>Chức năng hạn chế:</em> </strong>Người dùng chỉ có thể đặt một Proxy nhằm áp dụng cho toàn bộ thiết bị bởi vì nó không hoạt động trên từng cơ sở ứng dụng. Điều này sẽ gây không ít bất tiện và khó khăn cho người dùng trong nhiều trường hợp.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Nếu chúng ta có thể “chịu khó” bỏ qua những khuyết điểm này và quan tâm đến những hiệu quả của máy chủ Proxy mang lại thì nó chính là một lá chắn tốt cho hệ thống.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2><strong>Hướng dẫn cài đặt Free Proxy</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong><em>Cài đặt Free Proxy cho Firefox</em></strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>Đầu tiên bạn hãy mở ô <strong>Menu</strong> trên thanh công cụ. Sau đó hãy chọn <strong>Option</strong> và kéo xuống cuối cùng.</li>
+<li>Tại tab <strong>Connection Setting</strong> -&gt; <strong>Manual proxy configuration</strong>.</li>
+<li><strong>HTTP Proxy</strong>: Điền thông tin <strong>IP</strong>,<strong> Port</strong> của <strong>HTTP Proxy Server</strong>.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3><strong><em>Cách cài đặt Free Proxy cho Chrome</em></strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>Mở Chrome, click vào <strong>Cài đặt</strong>.</li>
+<li>Khi cửa sổ xuất hiện, hãy click vào <strong>Hiển thị cài đặt nâng cao</strong> và tiếp tục kéo thanh trượt xuống dưới.</li>
+<li>Click vào <strong>Thay đổi thiết lập proxy</strong>.</li>
+<li>Click chọn <strong>Connections</strong> và click chọn<strong> LAN settings</strong> nhằm hoàn tất cài đặt.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:paragraph --></p>
+<p>Nhìn chung thì <strong>máy chủ Proxy</strong> chính là khái niệm quen thuộc đối với người làm quản trị mạng. Nhưng những người dùng mạng đơn thuần cũng có hiểu được khái niệm cùng đặc điểm của nó. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bài sau mình sẽ giới thiệu cách <a href="https://thuanvu.me/squid-install" target="_blank" rel="noopener">cài đặt Proxy Server sử dụng phần mềm Squid</a>. Hẹn gặp lại các bạn.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Credit: maychuviet.vn</p>
+<p><!-- /wp:paragraph --></p>

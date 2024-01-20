@@ -1,0 +1,98 @@
+---
+layout: post
+title: CentOS/RHEL - Default gateway, how to set up
+date: 2022-10-11 15:37:15.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Linux
+- System
+tags:
+- command
+- linux
+author: thu4nvd
+permalink: "/centos-rhel-default-gateway-how-to-set-up/"
+---
+<p><!-- wp:kadence/tableofcontents {"uniqueID":"_676da0-c6","containerBackground":"#abb8c3","enableTitle":false} /--></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>CentOS</strong> <strong>default</strong> <strong>gateway</strong>, what is it and what is its purpose? A computer needs to know the address of at least one gateway in order to connect to <strong>another network,</strong> this is called the <strong>Default Gateway</strong>. Whenever a computer tries to connect to a machine on a different <strong>network</strong> it will connect to the <strong>default network gateway</strong> and then the <strong>network gateway</strong> will <strong>route</strong> the traffic to the right network. In this tutorial, we’ll learn how to <strong>configure</strong> a <strong>CentOS</strong> <strong>default gateway</strong>. This tutorial can also be applied to other distributions which are still in the Red Hat family, such as RHEL or Fedora.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>Print routing table</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>To print routing table, we can use</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">route -n</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>This will show current route(s) in IP format not as DNS name :</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">[root@lintut ~]# route -n
+Kernel IP routing table
+Destination &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Gateway &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Genmask &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Flags &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Metric &nbsp; &nbsp; &nbsp; Ref &nbsp; &nbsp; &nbsp; &nbsp;Use &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Iface
+192.168.1.0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.0.0.0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 255.255.255.0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;U &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bond0
+169.254.0.0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.0.0.0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;255.255.0.0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; U &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bond0
+0.0.0.0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 192.168.1.45 &nbsp; &nbsp; 0.0.0.0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; UG &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bond0</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading --></p>
+<h2>Delete default gateway</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>As you can see above the default route is on the last line with Flags UG. if we want to change default route we have to delete current default gateway first. The command pattern for deleting default gateway is route del default gw.<br /><strong>For example</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">route del default gw 192.168.1.45</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>When we see the routing table, there are no default gateway right now.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">[root@alintut ~]# route -n
+Kernel IP routing table
+Destination  Gateway   Genmask         Flags   Metric   Ref  Use  Iface 
+192.168.1.0  0.0.0.0   255.255.255.0   U       0  0  0           bond0 
+169.254.0.0  0.0.0.0   255.255.0.0     U       0  0  0           bond0</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading --></p>
+<h2>Add default gateway</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Now, it’s time to&nbsp;<strong>add new</strong>&nbsp;gateway. The command pattern to add new&nbsp;<strong>default gateway</strong>&nbsp;is route add default gw.<br /><strong>For example :</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">route add default gw 192.168.1.4 </pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Check again the updated result: </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">[root@alintut ~]# route -n
+Kernel IP routing table
+Destination  Gateway   Genmask         Flags   Metric   Ref  Use  Iface 
+192.168.1.0  0.0.0.0   255.255.255.0   U       0  0  0           bond0 
+169.254.0.0  0.0.0.0   255.255.0.0     U       0  0  0           bond0
+0.0.0.0      192.168.1.4  0.0.0.0      UG      0  0  0           bond0</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading --></p>
+<h2>Making the changes permanent</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>When we use route add command above, the change that we made is not permanent, The changes will back to old value when the machine reboot. To make the change permanent, you have to edit file /etc/sysconfig/network, find line</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">GATEWAY=192.168.1.45</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>This changes the gateway IP to the new gateway.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Credit: Lintut</p>
+<p><!-- /wp:paragraph --></p>

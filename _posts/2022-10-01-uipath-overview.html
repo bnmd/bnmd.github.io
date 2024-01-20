@@ -1,0 +1,303 @@
+---
+layout: post
+title: "\U0001F916 UIPath công cụ tự động hóa và RPA"
+date: 2022-10-01 21:49:43.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Tools
+tags:
+- rpa
+- uipath
+author: thu4nvd
+permalink: "/uipath-overview/"
+---
+<p><!-- wp:kadence/tableofcontents {"uniqueID":"_73331d-8f","allowedHeaders":[{"h1":true,"h2":true,"h3":true,"h4":false,"h5":false,"h6":false}],"containerBackground":"#abb8c3","enableToggle":true} /--></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="giithiurpa">🔰 Giới thiệu RPA</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Theo như trang này: <a href="https://www.uipath.com/rpa/robotic-process-automation">https://www.uipath.com/rpa/robotic-process-automation</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:quote --></p>
+<blockquote class="wp-block-quote"><p>Robotic Process Automation is the technology that allows anyone today to configure computer software, or a “robot” to emulate and integrate the actions of a human interacting within digital systems to execute a business process. RPA robots utilize the user interface to capture data and manipulate applications just like humans do. They interpret, trigger responses and communicate with other systems in order to perform on a vast variety of repetitive tasks. Only substantially better: an RPA software robot never sleeps and makes zero mistakes.</p>
+</blockquote>
+<p><!-- /wp:quote --></p>
+<p><!-- wp:paragraph --></p>
+<p>RPA (Robotic Process Automation) là khái niệm chỉ Robot phần mềm trong máy tính thay thế lao động trí óc thực hiện tự động các công việc bàn giấy (chủ yếu là công việc có logic cố định).<br />Khái niệm RPA bắt đầu được sử dụng ở Nhật Bản năm 2016, đến năm 2017 tạo ra một tiếng vang lớn nhờ sự dễ hiểu và khả năng đem lại hiệu quả nhanh. Đến nay, cùng với AI và IoT, RPA trở thành một trong những từ IT thông dụng mà ai cũng ít nhất một lần nghe qua. Tuy vậy, hiện nay, vẫn còn rất nhiều người chưa hiểu sâu về RPA hay chưa biết về sự khác biệt và mối quan hệ giữa AI và RPA...</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Để hiểu hơn về RPA, các bạn có thể đọc thêm tại đây: <a href="https://winactor.vn/whatisrpa">https://winactor.vn/whatisrpa</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="sxuthincarparobotphnmmvskhcbitsovicngnghthngthng">Sự xuất hiện của RPA (robot phần mềm) và sự khác biệt so với công nghệ thông thường</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p><img src="{{ site.baseurl }}/assets/2022/10/uc?id=1euj67TS6jT8asoITq9rvr4NMJpd2hCG1&amp;export=download" alt="uc?id=1euj67TS6jT8asoITq9rvr4NMJpd2hCG1&amp;export=download" /><br />Tham khảo: <a href="https://winactor.vn/whatisrpa#rpacolumn_about_rpa_03">https://winactor.vn/whatisrpa#rpacolumn_about_rpa_03</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="cctcvsauyccholtngthchvirpa">Các tác vụ sau đây được cho là tương thích với RPA.</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>RPA có thể được sử dụng để tự động hóa các quá trình mang một hoặc một vài hoặc các đặc tính sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>Thao tác lặp lại theo quy tắc nhất định</li>
+<li>Dữ liệu được cấu trúc</li>
+<li>Sử dụng các ứng dụng Windows và cloud</li>
+<li>Nghiệp vụ được chuẩn hóa</li>
+<li>Quy trình đòi hỏi nhiều hơn 3 nhân sự</li>
+<li>Dễ bị lỗi của con người</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="lichcarpaemlitrongcucsng">Lợi ích của RPA đem lại trong cuộc sống</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p><img src="{{ site.baseurl }}/assets/2022/10/uc?id=1IZg3jP5OJb4EhqbTDf-NN2iuvM-H_ihR&amp;export=download" alt="uc?id=1IZg3jP5OJb4EhqbTDf-NN2iuvM-H_ihR&amp;export=download" /><br />Tham khảo: <a href="https://webdoctor.vn/rpa-la-gi-giai-phap-tuyet-voi-cho-cac-doanh-nghiep/">https://webdoctor.vn/rpa-la-gi-giai-phap-tuyet-voi-cho-cac-doanh-nghiep/</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>Tiết kiệm thời gian và cải thiện thông lượng tốt hơn</li>
+<li>linh hoạt và có khả năng mở rộng dữ liệu cần thiết</li>
+<li>Độ chính xác rất cao</li>
+<li>Nhân viên của bạn sẽ không phải tập trung vào nhiều quá trình dư thừa, chỉ cần lo những công việc có khả năng phát triển công việc cao hơn</li>
+<li>Phần mềm tự động hóa có thể kiểm soát được cả quả trình thực hiện</li>
+<li>Bạn có nhiều thời gian hơn, có thể tập trung đem đến sự đổi mới và làm hài lòng khách hàng của mình</li>
+<li>Thu thập dữ liệu và phân tích chuẩn xác.</li>
+<li>Tương lai RPA sẽ phủ sóng rất nhiều trong mọi hoạt động kinh doanh của các doanh nghiệp lớn nhỏ.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="bagiaioncarpa">Ba giai đoạn của RPA</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>RPA mô tả rộng rãi thì có ba giai đoạn, sự khác biệt giữa đó là trong phán đoán và tự học.<br />Giai đoạn 1 là xử lý dữ liệu theo các quy tắc được xác định. Trong giai đoạn thứ hai và thứ ba, liên kết và phân tích nhiều dữ liệu phức tạp, và xác lập các quy tắc phán đoán bởi chính hệ thống. Mình sẽ giới thiệu từng giai đoạn chi tiết hơn.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="class1rpa">Class1：RPA</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Giai đoạn này được gọi là "Robotic Process Automation". Đó là RPA theo nghĩa hẹp mà chúng ta đã nói nãy giờ.<br />Đặc trưng là dựa theo những quy tắc được xác định và xử lý một cách tự động. Lợi ích đó là phòng tránh lỗi của con người, tuy nhiên ngoài những quy tắc được quy định ra thì nó không thể làm các công việc khác. Dường như nó chỉ là cơ chế để thực hiện lặp đi lặp lại các nghiệp vụ đơn giản.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="class2epa">Class2：EPA</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Giai đoạn 2 được gọi là Enhanced Process Automation. Phạm vi chính là phân tích lượng dữ liệu lớn và xuất ra kết quả. Có những chức năng như là: phân loại hình ảnh mới dựa trên hình ảnh hiện có, chức năng phân tích hành vi khác hàng từ dữ liệu lớn. Vậy giai đoạn 2 này khác biệt so với giai đoạn 1 đó là điểm phân tích, xử lý dữ liệu lớn</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="class3ca">Class3：CA</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Giai đoạn thứ 3 gọi là Cognitive Automation. Khác biệt so với gian đoạn 2 là việc xuất kết quả một cách độc lập hơn. Những quyết định về ý tưởng kinh doanh sau khi phân tích nhiều mặt về dữ liệu bán hàng, tình hình thị trường, trào lưu v.v.. là hoàn toàn có khả năng.<br />Ví dụ như việc dựa trên dữ liệu đối ứng khách hàng để có thể đối ứng tự động (kiểu như Bot Q&amp;A) hay là thay thể call center, hoặc là phán đoán, thực hiện gửi tài liệu tự động.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="skhcbitgiarpavai">Sự khác biệt giữa RPA và AI</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>RPA và AI thường bị nhầm lẫn nhưng có định nghĩa hoàn toàn khác nhau. RPA theo nghĩa hẹp đề cập đến Class1 trong ba giai đoạn. Tính năng đặc trưng chỉ đơn giản làm việc theo các quy tắc. Tương đối rẻ tiền và không khó triển khai như AI.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Mặt khác, AI đề cập đến Class2 và Class3. Nó được đặc trưng bằng cách phân tích và xuất kết quả dựa trên một lượng lớn dữ liệu. Kết quả đầu ra khác nhau giữa Class2 và Class3, nhưng cả hai đầu ra đều dựa trên dữ liệu lớn.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>RPA thực hiện các nhiệm vụ đơn giản nhiều lần, trong khi AI phân tích dữ liệu lớn và đưa ra kết quả. Dựa trên điểm này, chúng ta có thể phân biệt RPA với AI.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="nhngdoanhnghipnoangsdngrpa">Những doanh nghiệp nào đang sử dụng RPA</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>RPA đang được triển tại những doanh nghiệp nào? Không chỉ các công ty kinh tế cũ như ANZ, công ty tài chính lớn nhất của Úc và GM, một phần của Big 3, mà cả các công ty công nghệ cao như Google và Uber.<br /><img src="{{ site.baseurl }}/assets/2022/10/uc?id=1MGSg7DRiTWGGk_T_Yxte9Zowg7rvIHUd&amp;export=download" alt="uc?id=1MGSg7DRiTWGGk_T_Yxte9Zowg7rvIHUd&amp;export=download" /><br />Tham khảo: <a href="https://boxil.jp/mag/a2378/">https://boxil.jp/mag/a2378/</a><br />Tóm lại, ở châu Âu, bản thân công nghệ RPA đã vượt qua giới hạn, hiện đang thâm nhập và dự kiến sẽ mở rộng hơn nữa trong tương lai. Điều này có nghĩa là nó được dự kiến sẽ mở rộng không chỉ cho những người quen thuộc với RPA, mà còn cho công chúng nói chung, những người đơn giản muốn làm việc hiệu quả hơn.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="all52rpasoftwaretoolsvendorsof2019sortablelist">All 52 RPA Software Tools &amp; Vendors of 2019: Sortable List</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p><img src="{{ site.baseurl }}/assets/2022/10/uc?id=1rKOaukXwHklWMKB7xgh8xRiD5rB4O7_4&amp;export=download" alt="uc?id=1rKOaukXwHklWMKB7xgh8xRiD5rB4O7_4&amp;export=download" /><br />Tham khảo: <a href="https://blog.aimultiple.com/rpa-tools/">https://blog.aimultiple.com/rpa-tools/</a><br />Có rất nhiều công cụ thực hiện RPA hiện nay, và chắc hẳn các bạn cũng tự hỏi công cụ nào là phù hợp nhất cho mình.<br />Các bạn có thể đọc qua tài liệu sau đây để có sự so sánh cũng như các tiêu chí khi lựa chọn 1 công cụ cho mình:<br /><a href="https://www.edureka.co/blog/rpa-tools-list-and-comparison/">https://www.edureka.co/blog/rpa-tools-list-and-comparison/</a><br /><a href="https://www.softwaretestinghelp.com/robotic-process-automation-tools/">https://www.softwaretestinghelp.com/robotic-process-automation-tools/</a><br /><a href="https://geekflare.com/rpa-tools/">https://geekflare.com/rpa-tools/</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Sau khi đọc một số bài blog để tìm ra công cụ nào tốt nhất để học, thì mình quyết định chọn UiPath.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="giithiuuipathhttpswwwuipathcom">Giới thiệu UiPath <a href="https://www.uipath.com/">https://www.uipath.com/</a></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Uipath được thành lập năm 2005 và đây là công cụ tự động hóa RPA phổ biến nhất trên thị trường hiện tại.<br />Điều tuyệt vời về Uipath là nó cung cấp một phiên bản community cho những người muốn học, thực hành và implement RPA.<br />Nó chắc chắn có tỷ lệ chất lượng so với giá tốt nhất trong số các đại gia RPA, vì nó thường rẻ hơn so với những công cụ khác. Công ty lớn tiếng tuyên bố rằng họ muốn làm cho mọi người có thể truy cập phần mềm tự động hóa CNTT và họ dường như thành công trong việc này: cung cấp phiên bản cộng đồng UiPath miễn phí, giao diện rõ ràng và đào tạo miễn phí về RPA thông qua UiPath Academy (đào tạo khác nhau cho dân kỹ thuật và dân không kỹ thuật) đã biến họ thành những người dẫn đầu thị trường RPA.<br /><img src="{{ site.baseurl }}/assets/2022/10/uc?id=173CnMrAMBmUmf9nws65rCqT3hhKTiCUT&amp;export=download" alt="uc?id=173CnMrAMBmUmf9nws65rCqT3hhKTiCUT&amp;export=download" /></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="lchsuipath">Lịch sử UiPath</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>2005 UiPath ra đời ở Romania. Bắt đầu với đồ họa máy tính, và bắt đầu xây dựng một thư viện tự động hóa đầu tiên.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>2013 Bắt đầu cung cấp tự động hóa UiPath Desktop, giờ đây là UiPath Studio.</li>
+<li>2015 Hoàn thành UiPath Orchestrator</li>
+<li>2016 Sau khi cung cấp UiPath Studio Community Edition, số lượng người dùng đã đạt 10.000 trong 6 tháng.</li>
+<li>2017 Được đánh giá cao với vài trò là công ty cung cấp phần mềm RPA từ Forrester và Everest. Thành lập tư cách pháp nhân tại Nhật và bắt đầu cung cấp dịch vụ.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="cctrsuipath">Các trụ sở UiPath</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>New York (Trụ sở chính)</li>
+<li>Vương quốc Anh</li>
+<li>Rumani</li>
+<li>Ấn Độ</li>
+<li>Nhật Bản</li>
+<li>Pháp</li>
+<li>Singapore</li>
+<li>Úc</li>
+<li>Hồng Kông</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="snphmuipath">Sản phẩm UiPath:</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Họ cung cấp một số sản phẩm, trong đó, cung cấp một giải pháp đầu cuối: UiPath Platform, Studio, Robots, và Orchestrator.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="cctnhnngchnh">Các tính năng chính:</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>Nhiều tùy chọn lưu trữ - có thể được lưu trữ trên cloud, máy ảo và dịch vụ đầu cuối.</li>
+<li>Khả năng tương thích ứng dụng - cung cấp nhiều ứng dụng để hoạt động, bao gồm máy tính để bàn, SAP, Mainframe và ứng dụng web.</li>
+<li>Hỗ trợ an ninh và quản trị</li>
+<li>Xử lý ngoại lệ dựa trên quy tắc</li>
+<li>Hỗ trợ phát triển ứng dụng nhanh (RAD).</li>
+<li>Dễ dàng mở rộng quy mô và bảo trì</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="immnh">Điểm mạnh:</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>Cung cấp phần mềm tự động hóa miễn phí - UiPath Community Edition</li>
+<li>Tài liệu đào tạo RPA, UiPath tutorial rõ ràng</li>
+<li>Giao diện đơn giản không đòi hỏi kỹ năng lập trình cao</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="imyu">Điểm yếu:</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>Xử lý capture không trực quan</li>
+<li>Orchestrator đắt tiền, không tuân thủ quy mô của một dự án tự động hóa quy trình robot</li>
+<li>Chỉ dành cho Windows</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="cchhctpuipath">Cách học tập UiPath</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Khi bạn hiểu cách sử dụng cơ bản, hãy nghiên cứu những gì bạn muốn thực hiện với UiPath và cách triển khai nó. Đây là tài liệu giảng dạy mình giới thiệu.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":5} --></p>
+<h5 id="uipathacademy">UiPath Academy</h5>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:image --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/uc?id=1y1SfHKjqYd_30ETwo_dmHuIc_Paeoehs&amp;export=download" alt="uc?id=1y1SfHKjqYd_30ETwo_dmHuIc_Paeoehs&amp;export=download" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Technical course</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>RPA Developer Foundation</li>
+<li>UiPath Orchestrator</li>
+<li>RPA Developer Advanced</li>
+<li>Solution Architect</li>
+<li>infrastructure</li>
+<li>UniPath &amp; UniPath &amp; SAP</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Khóa học dành cho người mới bắt đầu</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>RPA Awareness (basic)</li>
+<li>RPA implementation methodology</li>
+<li>Business analyst</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="citvsdnguipath">Cài đặt và sử dụng UiPath</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="cit">Cài đặt</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Các bạn có thể xem tài liệu hướng dẫn cài đặt và sử dụng cơ bản ở đây: <a href="https://helpex.vn/article/huong-dan-uipath-cho-nguoi-moi-bat-dau-5c664539ae03f6012876585f">https://helpex.vn/article/huong-dan-uipath-cho-nguoi-moi-bat-dau-5c664539ae03f6012876585f</a><br />Sau khi đọc hướng dẫn và làm sample xong thì mình có màn hình sau:<br /><img src="{{ site.baseurl }}/assets/2022/10/uc?id=1cs1AVpH2svM-wIHmw-rwVHATkn-6PDYu&amp;export=download" alt="uc?id=1cs1AVpH2svM-wIHmw-rwVHATkn-6PDYu&amp;export=download" /></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="giithiucchsdnguipath">Giới thiệu cách sử dụng UiPath</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:heading {"level":5} --></p>
+<h5 id="projectstronguipath">Projects trong UiPath</h5>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Chủ yếu có 5 loại project trong UiPath</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list {"ordered":true} --></p>
+<ol>
+<li>Process: Một Process là một blank project đơn giản, được sử dụng để thiết kế quy trình tự động hóa mới.</li>
+<li>Library: Loại project này được sử dụng để tạo các thành phần có thể tái sử dụng và sau đó xuất bản chúng dưới dạng library.</li>
+<li>Transactional Process: Loại project này được sử dụng để tạo ra một quy trình như một flowchart.</li>
+<li>Agent Process Improvement: Loại project này kích hoạt tự động hóa để đáp ứng với sự kiện chuột hoặc bàn phím.</li>
+<li>Robotic Enterprise Framework: Loại project này tạo ra một transactional business process theo các best practices để triển khai quy mô lớn.</li>
+</ol>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading {"level":5} --></p>
+<h5 id="uipathdashboard">UiPath Dashboard</h5>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:image --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/uc?id=1LTr-aVLXClPyhetqPZhQHx0p-zTYllr-&amp;export=download" alt="uc?id=1LTr-aVLXClPyhetqPZhQHx0p-zTYllr-&amp;export=download" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>Activity Pane: Cửa sổ này bao gồm các hoạt động được sử dụng để phục vụ các chức năng khác nhau như in output, vòng lặp, if-else, v.v.</li>
+<li>Ribbon: Ribbon bao gồm các tùy chọn như Save, Run, Data Scraping, Recording v.v.</li>
+<li>Properties Pane: Properties Pane bao gồm các thuộc tính của các hoạt động mà bạn đã kéo và thả vào tự động hóa.</li>
+<li>Output Pane: Output Pane hiển thị đầu ra tự quy trình tự động hóa của bạn.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="linktvigit">Liên kết với GIT</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:embed {"url":"https://docs.uipath.com/studio/docs/managing-projects-git"} --></p>
+<figure class="wp-block-embed">
+<div class="wp-block-embed__wrapper">
+https://docs.uipath.com/studio/docs/managing-projects-git
+</div>
+</figure>
+<p><!-- /wp:embed --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="demo1">Demo 1</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Trong demo này, mình sẽ thực hiện việc lấy tỷ giá ngoại tệ tại website <a href="https://portal.vietcombank.com.vn/Personal/TG/Pages/ty-gia.aspx?devicechannel=default">vietcombank</a>, sau đó ghi nội dung vào file Excel, mỗi lần chạy chương trình sẽ tạo 1 sheet mới có định dạng tên: yyyy-MM-dd HHmms.<br /><strong>Source code</strong><br /><a href="https://github.com/phongnx1/UiPath_Demo">https://github.com/phongnx1/UiPath_Demo</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="tiliuthamkho">Tài liệu tham khảo</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p><a href="https://www.edureka.co/blog/uipath-tutorial/#UiPathComponents">https://www.edureka.co/blog/uipath-tutorial/#UiPathComponents</a><br /><a href="https://docs.uipath.com/studio">https://docs.uipath.com/studio</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Credit: Vietnamlab</p>
+<p><!-- /wp:paragraph --></p>

@@ -1,0 +1,131 @@
+---
+layout: post
+title: "MariaDB or Mysql : Hướng dẫn export và import dữ liệu"
+date: 2022-09-26 14:45:59.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- System
+tags:
+- mariadb
+- mysql
+author: thu4nvd
+permalink: "/mariadb-or-mysql-huong-dan-export-va-import-du-lieu/"
+---
+<p><!-- wp:paragraph --></p>
+<p><strong><em>Nhập và xuất cơ sở dữ liệu</em></strong> là một nhiệm vụ phổ biến trong phát triển phần mềm. Bạn có thể sử dụng kết xuất dữ liệu để sao lưu và khôi phục thông tin của mình. Bạn cũng có thể sử dụng chúng để di chuyển dữ liệu sang máy chủ hoặc môi trường phát triển mới.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Trong hướng dẫn này, bạn sẽ làm việc với các kết xuất cơ sở dữ liệu&nbsp;trong MySQL&nbsp;hoặc&nbsp;MariaDB&nbsp;(các lệnh có thể hoán đổi cho nhau). Cụ thể, bạn sẽ xuất cơ sở dữ liệu và sau đó nhập cơ sở dữ liệu đó từ tệp kết xuất.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="prerequisites"><strong>Điều kiện tiên quyết</strong></h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Để nhập hoặc xuất cơ sở dữ liệu MySQL hoặc MariaDB, bạn sẽ cần:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>- Một máy ảo với người dùng sudo không root (nếu chưa có bạn có thể tham khảo dịch vụ tại <a href="https://inet.vn/vps">đây</a>)</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>- Máy chủ đã được cài đặt MySQL hoặc MariaDB.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>- Cơ sở dữ liệu được tạo trong máy chủ cơ sở dữ liệu của bạn.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":5} --></p>
+<h5 id="step-1-mdash-exporting-a-mysql-or-mariadb-database"><strong>Bước 1 — Xuất cơ sở dữ liệu MySQL hoặc MariaDB</strong></h5>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>- Tiện ích bảng điều khiển xuất cơ sở dữ liệu sang tệp văn bản SQL. Điều này giúp dễ dàng chuyển và di chuyển cơ sở dữ liệu hơn. Bạn sẽ cần tên và thông tin đăng nhập của cơ sở dữ liệu cho một tài khoản có đặc quyền cho phép truy cập ít nhất là chỉ đọc đầy đủ vào cơ sở dữ liệu.<code>mysqldump</code></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>- Dùng để xuất cơ sở dữ liệu của bạn:<code>mysqldump</code></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">mysqldump -u username -p database_name &gt; data-dump.sql</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p><code>&nbsp;username</code> là tên người dùng bạn có thể đăng nhập vào cơ sở dữ liệu</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><code>&nbsp;database_name</code>&nbsp;là tên của cơ sở dữ liệu để xuất khẩu</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><code>&nbsp;data-dump.sql</code>&nbsp;là tệp trong thư mục hiện tại lưu trữ đầu ra.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>- Lệnh sẽ không tạo ra đầu ra trực quan, nhưng bạn có thể kiểm tra nội dung của để kiểm tra xem đó có phải là tệp kết xuất SQL hợp pháp hay không.<code>data-dump.sql</code></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>- Chạy lệnh sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">head -n 5 data-dump.sql</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>- Đầu tệp sẽ trông tương tự như thế này, hiển thị kết xuất MySQL cho cơ sở dữ liệu có tên .<code>database_name</code></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:code --></p>
+<pre class="wp-block-code"><code>SQL dump fragment
+-- MySQL dump 10.13  Distrib 5.7.16, for Linux (x86_64)
+--
+-- Host: localhost    Database: database_name
+-- ------------------------------------------------------
+-- Server version       5.7.16-0ubuntu0.16.04.1</code></pre>
+<p><!-- /wp:code --></p>
+<p><!-- wp:paragraph --></p>
+<p>- Nếu có bất kỳ lỗi nào xảy ra trong quá trình xuất, sẽ in chúng lên màn hình.<code>mysqldump</code></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":5} --></p>
+<h5 id="step-2-mdash-importing-a-mysql-or-mariadb-database"><strong>Bước 2 — Nhập cơ sở dữ liệu MySQL hoặc MariaDB</strong></h5>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>- Để nhập tệp kết xuất hiện có vào MySQL hoặc MariaDB, bạn sẽ phải tạo một cơ sở dữ liệu mới. Cơ sở dữ liệu này sẽ chứa dữ liệu đã nhập.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>- Đầu tiên, đăng nhập vào MySQL dưới dạng&nbsp;<strong>root hoặc người</strong>&nbsp;dùng khác có đủ đặc quyền để tạo cơ sở dữ liệu mới:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">$ mysql -u root -p</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>- Lệnh này sẽ đưa bạn vào dấu nhắc shell MySQL. Tiếp theo, tạo một cơ sở dữ liệu mới với lệnh sau. Trong ví dụ này, cơ sở dữ liệu mới được gọi là :<code>new_database</code></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">CREATE DATABASE new_database;</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>- Bạn sẽ thấy đầu ra này xác nhận việc tạo cơ sở dữ liệu.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:code --></p>
+<pre class="wp-block-code"><code>Output
+Query OK, 1 row affected (0.00 sec)</code></pre>
+<p><!-- /wp:code --></p>
+<p><!-- wp:paragraph --></p>
+<p>- Sau đó thoát khỏi shell MySQL bằng cách nhấn . Từ dòng lệnh bình thường, bạn có thể nhập tệp kết xuất với lệnh sau:<code>CTRL+D</code></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">$ mysql -u username -p new_database &lt; data-dump.sql</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p><code>&nbsp;username</code> là tên người dùng bạn có thể đăng nhập vào cơ sở dữ liệuư</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><code>&nbsp;newdatabase</code>&nbsp;là tên của cơ sở dữ liệu mới được tạo</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><code>&nbsp;data-dump.sql</code>&nbsp;là tệp kết xuất dữ liệu được nhập, nằm trong thư mục hiện tại</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>- Nếu lệnh chạy thành công, nó sẽ không tạo ra bất kỳ đầu ra nào. Nếu có bất kỳ lỗi nào xảy ra trong quá trình này, thay vào đó sẽ in chúng vào thiết bị đầu cuối. Để kiểm tra xem quá trình nhập có thành công không, hãy đăng nhập vào trình bao MySQL và kiểm tra dữ liệu. Chọn cơ sở dữ liệu mới với và sau đó sử dụng hoặc một lệnh tương tự để xem xét một số dữ liệu.<code>mysql</code><code>USE new_database</code><code>SHOW TABLES;</code></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="conclusion"><strong>Kết thúc</strong></h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Trong hướng dẫn này, bạn đã tạo một kết xuất cơ sở dữ liệu từ cơ sở dữ liệu MySQL hoặc MariaDB. Sau đó, bạn đã nhập kết xuất dữ liệu đó vào cơ sở dữ liệu mới. có các thiết đặt bổ sung mà bạn có thể sử dụng để thay đổi cách hệ thống tạo kết xuất dữ liệu. Bạn có thể tìm hiểu thêm từ trang&nbsp;<a href="http://dev.mysql.com/doc/refman/5.7/en/mysqldump.html">tài liệu mysqldump chính thức</a>.<code>mysqldump</code></p>
+<p><!-- /wp:paragraph --></p>

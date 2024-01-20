@@ -1,0 +1,174 @@
+---
+layout: post
+title: "✨ VMWARE – Design hạ tầng ẢO HÓA (P1)"
+date: 2022-10-11 17:53:52.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- System
+tags:
+- virtualization
+- vmware
+author: thu4nvd
+permalink: "/vmware-design-1/"
+---
+<p><!-- wp:paragraph --></p>
+<p>– Để tránh bài viết quá dài dòng và không focus sâu vào&nbsp; vấn đề phần thiết kế nầy mình sẽ tách ra làm 2 phần:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>+ Phần 1 nói về nguyên tắc chung cho việc thiết kế 1 hệ thống ảo hóa</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>+ <a href="https://thuanvu.me/vmware-design/" target="_blank" rel="noopener" title="Phần 2">Phần 2</a> mình sẽ nói về việc design Storage , Network, phân chia resource và chọn mua hardware.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:kadence/tableofcontents {"uniqueID":"_38e087-93","containerBackground":"#abb8c3","enableTitle":false} /--></p>
+<p><!-- wp:paragraph --></p>
+<p>– Đây là những nguyên tắc chung trong thiết kế IT nói chung và VMWARE nói riêng mà bạn có thể gặp rất nhiều đó là:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Availability, Latency Capacity, Performance, scalability, Security, Backup and recovery. Tuy nhiên không phải ai cũng có thể cân đo tính toán 1 cách nhuần nhuyễn. Bạn buộc phải nắm nó nếu bạn muốn đầu tư 1 hệ thống&nbsp; bài bản không quá thừa mứa mà cũng không có thiếu thốn.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Việc tính toán dựa trên các tôn chỉ nầy sẽ cung cấp cho bạn 1 tiền đề hợp lý để tiến đến việc lên giải pháp chọn hardware phù hợp.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>1. Availability (Tính sẵn sàng):</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Nó như là 1 thước đo về khả năng truy cập tài nguyên và dịch vụ từ phía người dùng đầu cuối, hay còn được gọi là khả năng uptime của hệ thống.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Trong trường hợp hệ thống bảo trì hay nâng cấp có hoạch định thì lúc nầy khả năng downtime có thể không được tính toán là downtime.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Người ta hay dùng những con số 9 để đo đạc độ Availability của 1 hệ thống. 1 năm ta có tổng cộng 24*365 = 8760 Giờ Thì cách tính downtime như sau:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:table --></p>
+<figure class="wp-block-table">
+<table>
+<tbody>
+<tr>
+<td><strong>Nines</strong></td>
+<td><strong>Percentage Available</strong></td>
+<td><strong>Downtime</strong></td>
+</tr>
+<tr>
+<td>Two</td>
+<td>99%</td>
+<td>88 hours</td>
+</tr>
+<tr>
+<td>Three</td>
+<td>99.9%</td>
+<td>9 hours</td>
+</tr>
+<tr>
+<td>Four</td>
+<td>99.99%</td>
+<td>45 minutes</td>
+</tr>
+<tr>
+<td>Five</td>
+<td>99.999%</td>
+<td>5 minutes</td>
+</tr>
+</tbody>
+</table>
+</figure>
+<p><!-- /wp:table --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Nếu công ty bạn yêu cầu càng nhiều con số 9 thì đồng nghĩa với việc bạn phải đầu tư hardware hỗ trợ cho việc HA nhiều hơn, thay vì là 2 thì bạn buộc phải đầu tư là 3 hoặc 4 HOST hoặc nhiều hơn chạy HA với nhau, …</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Nếu công ty quy định độ downtime vừa phải ví dụ như 99% thì bạn cân nhắc việc đầu tư server cho phù hợp hơn, ví dụ như thay vì đầu tư 4 server vật lý thì giờ 3 thôi là được rồi,…</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>=&gt; Availability cao thì chi phí sẽ cao và lượng cluster server cũng như thiết bị mạng phải nhiều hơn so với bình thường.</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>2. Latency Capacity (năng lực tiềm ẩn):</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Capacity là năng lực sẵn có của hệ thống ví dụ như server bạn có 64 GB RAM thì capacity của RAM là 64GB,.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Capacity cao thì kéo theo performance sẽ cao và khả năng mở rộng dễ dàng hơn.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Capacity thấp thì kéo theo performance sẽ đi xuống và tính mở rộng cũng tỉ lệ thuận theo.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Latency Capacity là khả năng hệ thống bạn có thể chịu tải maximum, thông thường khi design 1 hệ thống bạn cần phải biết mức minimum hệ thống chạy là bao nhiêu và maximum là bao nhiêu từ đó quy ra hardwdare cần mua tương ứng. Thông thường bạn nên tránh trường hợp ví dụ như tải maximum là 64GB RAM và bạn mua đúng 64 GB RAM là điều tối kỵ, tốt hơn bạn nên mua hơn mức đó khoảng 10 – 30% hoặc hơn tùy thuộc vào khả năng HA của doanh nghiệp bạn.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Giả dụ bạn tính tải của mỗi host maximum là 64GB RAM và bạn có 3 host, đặt trường hợp không được may mắn là 2 host chạy tải lên 100% và 1 host die thì điều gì sẽ xẫy ra, chắc chắn là lúc nầy khả năng HA là không thể, vì tải của 2 server còn lại đã đầy kết quả là&nbsp; không HA được, dẫn đến tất cả VM trên host die sẽ die theo luôn.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>3. Performance ( Hiệu năng) :</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Là khả năng hệ thống của bạn có thể đáp ứng yêu cầu từ Business đưa ra, ví dụ như công ty bạn yêu cầu truy cập web-application nội bộ trong vòng 4 giây phải load xong hết. hay người dung chỉ cần mất 5 giấy để load 1 file excel nặng 5MB từ file server,….</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Performance cao thì đồng nghĩa với việc Capacity phải cao.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Việc tính toán hiệu năng của hệ thống nên tuân theo yêu cầu từ phía business để tránh đầu tư lãng phí, không hiêu quả. Và bạn phải quy đổi 2 chiều, có nghĩa là tư nhu cầu ra hardware tương ứng và từ hardware tương ứng tôi có thể đáp ứng được nhu cầu là ….</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Việc bạn xin chi phí đầu tư cũng như việc bạn làm việc với 1 nhà đầu tư, nếu bạn làm hiệu quả bạn sẽ có những làn đầu tư tiếp theo, ngược lại bạn khó có thể có những lần sau. Nên việc đầu tư hardware cũng như phần mềm phải thực sự đủ đáp ứng cho doanh nghiệp, tránh quá dư thừa và cũng tránh thiếu thốn quá nhiều.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>4. Scalability (Khả năng mở rộng)</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Khi tải của hệ thống cao hơn so với con số thiết kế việc mở rộng hệ thống là điều cần làm, nếu một hệ thống được thiết kế ngay từ đầu được tính toán đến việc nầy thì việc mở rộng hệ thống sẽ dễ dàng và đở tốn kém chi phí hơn.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Với 1 hệ thống lượng tải cao và cần mở rộng ngay mà không có kế hoạch cũng như design từ trước, thì giá thành mở rộng cũng như khả năng mở rộng là rất khó, nếu không muốn nói là bạn phải đập hệ thống hiện tại, đầu tư lại 1 hệ thống mới lớn hơn.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Nên khi đầu tư bạn phải tính đến việc 3 hoặc 5 năm nữa liệu hệ thống của bạn có đáp ứng nỗi hay không hay cần phải mở rộng, và khả năng mở rộng là bao nhiêu %.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Ví dụ như công ty bạn có 100 user và với đà tăng trưởng như hiện tại có thể 3 – 5 năm nữa có thể là 150 – 200 users. Thì lúc mua server bạn phải tính đến việc server mình trong tương lai gần có thể gánh được từng ấy users.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>5. Security Requirements</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Việc xác định độ bảo mật của hệ thống là việc rất quan trọng, nó tác động rất nhiều đến việc bạn sẽ thiết kế nó như thế nào và dĩ nhiên là giá thành đầu tư cũng chạy theo cấp độ security.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Ví dụ doanh nghiệp bạn theo <strong>ISO 27001 </strong>Việc bảo mật hệ thống đặt ưu tiên rất cao thì bạn cần tính đến việc hạ tầng bạn đâu tư phải đáp ứng đầy đủ tôn chỉ trong ISO mà bạn chọn. Hệ thống phải có lớp lan, xác thực nhiều bước, single sign on,… và dĩ nhiên bạn phải sắm luôn các thiết bị phần cứng cũng như phần mềm tăng tính security cho hệ thống VMWARE của bạn luôn. Việc đặt security cao đồng nghĩa với việc performance bị giảm xuống chút xíu, nó ví như việc bạn vào phòng có bảo vệ và không có bảo vệ, bạn vào phòng có bảo vệ bạn phải mất thêm khâu chào hỏi ông bảo vệ và ngược lại bạn by pass bước nầy.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Hoặc đơn vị bạn xét yếu tố security đặt sau yếu tố Performance, nghĩa là phải nhanh trước cái đã rồi security tính sau, thì lúc nầy bạn cân nhắc việc set các rule/ policy firewall ít lại để tang performance hệ thống lên.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Nếu đặt Security và Performance là như nhau, có nghĩa là hệ thống phải vừa nhanh mà lại vừa bảo mật cao thì đồng nghĩa bạn phải đầu tư hardware của bạn cao hơn so với mức thông thường.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>6. Backup and recovery</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Bạn quá mãi mê vào việc tính toán những vấn đề tôi đề cập trên và bạn xem thường việc backup và recovery cho hệ thống thì chẳng khác nào bạn đặc cược công việc của bạn với số phận, nếu hệ thống ngon bạn ngon, nếu hệ thống của bạn bị xẫy ra sự cố như hỏa hoạn, thiên tai,…. Thì công ty bạn mất hết dữ liệu, mà trong cuộc sống ngày nay dữ liệu là tài sản sống còn của công ty, mất dữ liệu đồng nghĩa với việc công ty khốn đốn.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Việc backup và recovery dữ liệu rất rất cần thiết, nên&nbsp; buộc&nbsp; bạn phải đặt nó trong bài toán đầu tư hạ tầng ảo hóa.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Trong trường hợp công ty bạn có nhiều tiền bạn có thể đặt hẳn 1 DR site ở 1 site khác để phòng site chính vì thiên tai hỏa hoạn hay 1 lý do gì đó down hết thì bạn vẫn còn site phụ hỗ trợ và mọi thứ trở nên đơn giản hơn.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Nếu công ty bạn không có nhiều tiền thì bạn vẫn phải tính luôn việc backup, lúc nầy không DR site thì ít nhất bạn phải backup data cho hệ thống như cấu hình hệ thống, VM và OS(Operating System) liên quan cho nó, tốt nhất bạn nên backup ra TAPE và gửi ở ngân hàng,&nbsp; hiện tại cách nầy được khá nhiều công ty áp dụng, hiện tại công ty tôi cũng áp dụng hình thức nầy. Nếu có thiên tai hỏa hoạn xẫy ra bạn sẽ tốn công built lại hệ thống, nhưng ít ra công ty bạn không bị mất dữ liệu.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>– Việc backup thì phải đi kèm với recovery, đừng bao giờ để đến khi có sự cố rồi mới recovery, theo tôi tốt nhất bạn nên chắc chắn 100% rằng mọi dữ liệu của bạn recovery được, và thời gian recovery là bao lâu, hơn ai hết bạn phải nắm rõ, thậm chí có doanh nghiệp họ còn diễn tập phục hồi hệ thống khi có sự cố,… Nói chung là bạn phải đảm bảo dữ liệu được phục hồi 1 cách nhanh nhất có thể để giảm downtime cho doanh nghiệp.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Credit: itforvn</p>
+<p><!-- /wp:paragraph --></p>

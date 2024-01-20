@@ -1,0 +1,262 @@
+---
+layout: post
+title: "\U0001F4EF Zabbix - Các bước cài đặt lên CentOS 8"
+date: 2022-10-03 02:38:00.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- System
+- Tools
+tags:
+- monitoring
+- zabbix
+author: thu4nvd
+permalink: "/zabbix-install/"
+---
+<p><!-- wp:paragraph --></p>
+<p>Zabbix server có thể cài đặt trên bất kỳ bản Linux nào. Trong hướng dẫn này Thuận sẽ hướng dẫn bạn cài đặt&nbsp;bản Zabbix 5.0 LTS&nbsp;hoặc&nbsp;Zabbix 5.4 Standard&nbsp;trên CentOS 8/ RHEL 8/ Oracle Linux 8.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:ht/block-toc {"headerEntries":"[{\u0022tag\u0022:5,\u0022text\u0022:\u0022Các bước thực hiện cài đặt Zabbix trên CentOS\u0022,\u0022link\u0022:\u0022htoc-c-c-b-c-th-c-hi-n-c-i-t-zabbix-tr-n-centos\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0},{\u0022tag\u0022:4,\u0022text\u0022:\u0022Bước 1: Đặt SELinux sang chế độ cho phép\u0022,\u0022link\u0022:\u0022htoc-b-c-1-t-selinux-sang-ch-cho-ph-p\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0,\u0022children\u0022:[]},{\u0022tag\u0022:4,\u0022text\u0022:\u0022Bước 2: Cài đặt Zabbix server\u0022,\u0022link\u0022:\u0022htoc-b-c-2-c-i-t-zabbix-server\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0,\u0022children\u0022:[]},{\u0022tag\u0022:4,\u0022text\u0022:\u0022Bước 3: Cài đặt và cấu hình CSDL\u0022,\u0022link\u0022:\u0022htoc-b-c-3-c-i-t-v-c-u-h-nh-csdl\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0,\u0022children\u0022:[]},{\u0022tag\u0022:4,\u0022text\u0022:\u0022Bước 4: Khởi động Zabbix server và các quy trình\u0022,\u0022link\u0022:\u0022htoc-b-c-4-kh-i-ng-zabbix-server-v-c-c-quy-tr-nh\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0,\u0022children\u0022:[]},{\u0022tag\u0022:4,\u0022text\u0022:\u0022Bước 5: Cấu hình firewall\u0022,\u0022link\u0022:\u0022htoc-b-c-5-c-u-h-nh-firewall\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0,\u0022children\u0022:[]},{\u0022tag\u0022:4,\u0022text\u0022:\u0022Bước 6: Cấu hình giao diện Zabbix\u0022,\u0022link\u0022:\u0022htoc-b-c-6-c-u-h-nh-giao-di-n-zabbix\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0,\u0022children\u0022:[]},{\u0022tag\u0022:4,\u0022text\u0022:\u0022Bước 7: Đăng nhập vào giao diện người dùng\u0022,\u0022link\u0022:\u0022htoc-b-c-7-ng-nh-p-v-o-giao-di-n-ng-i-d-ng\u0022,\u0022labelTOC\u0022:\u0022\u0022,\u0022visibleTOC\u0022:1,\u0022level\u0022:0,\u0022children\u0022:[]}]","mappingHeaders":[false,false,false,true,false,false],"className":"is-style-gray"} --></p>
+<div class="wp-block-ht-block-toc is-style-gray htoc htoc--position-wide toc-list-style-plain" data-htoc-state="expanded"><span class="htoc__title"><span class="ht_toc_title">Table of Contents</span><span class="htoc__toggle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><g fill="#444">
+<path d="M15 7H1c-.6 0-1 .4-1 1s.4 1 1 1h14c.6 0 1-.4 1-1s-.4-1-1-1z"></path>
+<path d="M15 1H1c-.6 0-1 .4-1 1s.4 1 1 1h14c.6 0 1-.4 1-1s-.4-1-1-1zM15 13H1c-.6 0-1 .4-1 1s.4 1 1 1h14c.6 0 1-.4 1-1s-.4-1-1-1z"></path></g></svg></span></span>
+<div class="htoc__itemswrap">
+<ul class="ht_toc_list">
+<li class=""><a href="#htoc-b-c-1-t-selinux-sang-ch-cho-ph-p">Bước 1: Đặt SELinux sang chế độ cho phép</a></li>
+<li class=""><a href="#htoc-b-c-2-c-i-t-zabbix-server">Bước 2: Cài đặt Zabbix server</a></li>
+<li class=""><a href="#htoc-b-c-3-c-i-t-v-c-u-h-nh-csdl">Bước 3: Cài đặt và cấu hình CSDL</a></li>
+<li class=""><a href="#htoc-b-c-4-kh-i-ng-zabbix-server-v-c-c-quy-tr-nh">Bước 4: Khởi động Zabbix server và các quy trình</a></li>
+<li class=""><a href="#htoc-b-c-5-c-u-h-nh-firewall">Bước 5: Cấu hình firewall</a></li>
+<li class=""><a href="#htoc-b-c-6-c-u-h-nh-giao-di-n-zabbix">Bước 6: Cấu hình giao diện Zabbix</a></li>
+<li class=""><a href="#htoc-b-c-7-ng-nh-p-v-o-giao-di-n-ng-i-d-ng">Bước 7: Đăng nhập vào giao diện người dùng</a></li>
+</ul>
+</div>
+</div>
+<p><!-- /wp:ht/block-toc --></p>
+<p><!-- wp:image {"width":615,"height":308} --></p>
+<figure class="wp-block-image is-resized"><img src="{{ site.baseurl }}/assets/2022/10/Cai-dat-Zabbix-tren-CentOS.jpg" alt="Cài đặt Zabbix trên CentOS" width="615" height="308" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:heading {"level":5} --></p>
+<h5 id="htoc-c-c-b-c-th-c-hi-n-c-i-t-zabbix-tr-n-centos">Các bước thực hiện cài đặt Zabbix trên CentOS</h5>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="htoc-b-c-1-t-selinux-sang-ch-cho-ph-p"><strong>Bước 1: Đặt SELinux sang chế độ cho phép</strong></h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">setenforce 0 &amp;&amp; sed -i 's/^SELINUX=.*/SELINUX=permissive/g' /etc/selinux/config</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Chế độ này giúp SElinux không chặn Zabbix server trong quá trình cài đặt.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Lưu ý: Sau khi thực hiện xong các bước cài đặt Zabbix server trong bài này, tiếp tục thực hiện tạo quy tắc riêng cho SElinux đối với Zabbix server, tham khảo tại bước 4 trong bài viết “Tối ưu hóa Zabbix server và MySQL database”.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li><a href="https://thuanvu.me/zabbix-optimize" target="_blank" rel="noopener">Tối ưu hóa Zabbix server và MySQL database</a></li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="htoc-b-c-2-c-i-t-zabbix-server"><strong>Bước 2: Cài đặt Zabbix server</strong></h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p><mark><strong>Phiên bản Zabbix 5.0 LTS (được hỗ trợ đến tháng 5, 2025)</strong>:</mark> </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">rpm -Uvh https://repo.zabbix.com/zabbix/5.0/rhel/8/x86_64/zabbix-release-5.0-1.el8.noarch.rpm 
+dnf clean all 
+dnf -y install zabbix-server-mysql zabbix-web-mysql zabbix-apache-conf zabbix-agent</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p><mark><strong>Hoặc------</strong></mark> <mark><strong>Phiên bản Zabbix 5.4 standard (được hỗ trợ đến tháng 11, 2021)</strong>:</mark> </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">rpm -Uvh https://repo.zabbix.com/zabbix/5.4/rhel/8/x86_64/zabbix-release-5.4-1.el8.noarch.rpm 
+dnf clean all 
+dnf -y install zabbix-server-mysql zabbix-web-mysql zabbix-apache-conf zabbix-sql-scripts zabbix-agent</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="htoc-b-c-3-c-i-t-v-c-u-h-nh-csdl"><strong>Bước 3: Cài đặt và cấu hình CSDL</strong></h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Trong cài đặt này, chúng tôi sẽ sử dụng mật khẩu&nbsp;rootDBpass&nbsp;làm mật khẩu root và&nbsp;zabbixDBpass&nbsp;làm mật khẩu Zabbix cho DB.&nbsp;Các bạn nên thay đổi mật khẩu mặc định vì lý do bảo mật.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>a. Cài đặt MariaDB</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">dnf -y install mariadb-server &amp;&amp; systemctl start mariadb &amp;&amp; systemctl enable mariadb</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>b. Đặt lại mật khẩu cho database</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bảo mật MySQL bằng cách thay đổi mật khẩu mặc định cho MySQL root:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">mysql_secure_installation</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">Enter current password for root (enter for none): &lt;Nhấn Enter&gt;
+Set root password? [Y/n]: Y
+New password: &lt;Nhập root DB password&gt;
+Re-enter new password: &lt;Nhập lại root DB password&gt;
+Remove anonymous users? [Y/n]: Y
+Disallow root login remotely? [Y/n]: Y
+Remove test database and access to it? [Y/n]: Y
+Reload privilege tables now? [Y/n]: Y</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>c.&nbsp;Tạo CSDL cho Zabbix</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">mysql -uroot -p'rootDBpass' -e "create database zabbix character set utf8 collate utf8_bin;"
+mysql -uroot -p'rootDBpass' -e "grant all privileges on zabbix.* to zabbix@localhost identified by 'zabbixDBpass';"</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>d.&nbsp;Nhập schema và dữ liệu</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Tạm thời vô hiệu hóa chế độ nghiêm ngặt (&nbsp;<a href="https://support.zabbix.com/browse/ZBX-16465" target="_blank" rel="noreferrer noopener">ZBX-16465</a>&nbsp;) để tránh lỗi MySQL “&nbsp;<code>ERROR 1118 (42000) at line 1284: Row size too large (&gt; 8126)</code>”:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">mysql -uroot -p'rootDBpass' zabbix -e "set global innodb_strict_mode='OFF';"</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Nhập database shema cho Zabbix server</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><mark><strong>Phiên bản Zabbix 5.0 LTS</strong></mark> </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">zcat /usr/share/doc/zabbix-server-mysql*/create.sql.gz | mysql -uzabbix -p'zabbixDBpass' zabbix </pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p><mark><strong>Hoặc</strong></mark> <strong><mark>Phiên bản Zabbix 5.4 standard</mark></strong> </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">zcat /usr/share/doc/zabbix-sql-scripts/mysql/create.sql.gz | mysql -uzabbix -p'zabbixDBpass' zabbix</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Kích hoạt chế độ nghiêm ngặt:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">mysql -uroot -p'rootDBpass' zabbix -e "set global innodb_strict_mode='ON';"</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>e. Nhập mật khẩu database cho file Zabbix configuration</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Mở&nbsp;file <code>zabbix_server.conf</code> bằng lệnh:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">nano /etc/zabbix/zabbix_server.conf</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Thêm mật khẩu database ở định dạng này vào bất kỳ đâu trong tệp:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">DBPassword = zabbixDBpass</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Lưu và thoát file (&nbsp;<strong>ctrl</strong>&nbsp;+&nbsp;<strong>x</strong>&nbsp;, tiếp theo là&nbsp;&nbsp;<strong>y</strong>&nbsp;&nbsp;và&nbsp;&nbsp;<strong>enter</strong>&nbsp;).</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="htoc-b-c-4-kh-i-ng-zabbix-server-v-c-c-quy-tr-nh"><strong>Bước 4: Khởi động Zabbix server và các quy trình</strong></h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">systemctl restart zabbix-server zabbix-agent
+systemctl enable zabbix-server zabbix-agent</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="htoc-b-c-5-c-u-h-nh-firewall"><strong>Bước 5: Cấu hình firewall</strong></h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">firewall-cmd --add-service={http,https} --permanent
+firewall-cmd --add-port={10051/tcp,10050/tcp} --permanent
+firewall-cmd --reload</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="htoc-b-c-6-c-u-h-nh-giao-di-n-zabbix"><strong>Bước 6: Cấu hình giao diện Zabbix</strong></h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>a. Cấu hình PHP cho giao diện Zabbix</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Chỉnh sửa tệp “&nbsp;<code>/etc/php-fpm.d/zabbix.conf</code>” bằng lệnh:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">nano /etc/php-fpm.d/zabbix.conf</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Đặt&nbsp;múi giờ phù hợp&nbsp;cho quốc gia của bạn, ví dụ:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">php_value date.timezone Europe/Amsterdam</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Lưu và thoát file (&nbsp;<strong>ctrl</strong>&nbsp;+&nbsp;<strong>x</strong>&nbsp;, tiếp theo là&nbsp;&nbsp;<strong>y</strong>&nbsp;&nbsp;và&nbsp;&nbsp;<strong>enter</strong>&nbsp;).</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>b.&nbsp;Khởi động lại web Apache server và đặt khởi động cùng hệ thống</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">systemctl restart httpd php-fpm
+systemctl enable httpd php-fpm</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>c. Cấu hình giao diện web</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Truy cập giao diện web của Zabbix bằng URL “&nbsp;<em>http: //&nbsp;server_ip_or_dns_name&nbsp;/zabbix</em>&nbsp;” để bắt đầu trình hướng dẫn cài đặt Zabbix. Zabbix server có IP 192.168.1.161 nên URL sẽ là “&nbsp;<em>http://192.168.1.161/zabbix</em>&nbsp;”.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/zabbix_installation_frontend_step_1.png" alt="" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:image --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/zabbix_installation_frontend_step_2.png" alt="" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:image --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/zabbix_installation_frontend_step3.png" alt="" /><br />
+<figcaption>Nhập mật khẩu Zabbix database</figcaption>
+</figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:image --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/zabbix_installation_frontend_step_4.png" alt="" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:image --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/zabbix_installation_frontend_step_5.png" alt="" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:image --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/zabbix_installation_frontend_step_6.png" alt="Cài đặt Zabbix trên CentOS" title="Cài đặt Zabbix trên CentOS" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Vậy là bạn đã cài đặt xong hệ thống giám sát Zabbix!</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4 id="htoc-b-c-7-ng-nh-p-v-o-giao-di-n-ng-i-d-ng"><strong>Bước 7: Đăng nhập vào giao diện người dùng</strong></h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Sử dụng tài khoản mặc định “&nbsp;Admin&nbsp;” (chữ A viết hoa) và mật khẩu “&nbsp;zabbix&nbsp;” để đăng nhập vào giao diện người dùng Zabbix tại URL “http: //&nbsp;server_ip_or_dns_name&nbsp;/ zabbix”</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/best_monitoring_tools_zabbix_frontend_7-1-e1565885018762.png" alt="" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Giao diện Dashboard trên Zabbix server</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/zabbix_5_dashboard.png" alt="Cài đặt Zabbix trên CentOS" title="Cài đặt Zabbix trên CentOS" /></figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Mời các bạn tham khảo thêm bài viết “<a href="https://thuanvu.me/zabbix-optimize" target="_blank" rel="noopener" title="">Tối ưu hóa Zabbix server và MySQL database</a>“.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Như vậy quá trình thực hiện các bước cài đặt Zabbix trên CentOS đã hoàn thành. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Chúc bạn thực hiện thành công!</p>
+<p><!-- /wp:paragraph --></p>

@@ -1,0 +1,291 @@
+---
+layout: post
+title: "\U0001F30A MariaDB - Overview and Install"
+date: 2022-10-09 20:59:20.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Windows
+tags:
+- database
+- mariadb
+author: thu4nvd
+permalink: "/mariadb-install/"
+---
+<p><!-- wp:kadence/tableofcontents {"uniqueID":"_0767b8-fe","containerBackground":"#abb8c3"} /--></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>MariaDB là gì? </strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>MariaDB là gì? MariaDB – hệ quản trị cơ sở quản trị dữ liệu hoàn toàn miễn phí, phát triển từ mã nguồn gốc MySQL. Hệ quản trị cơ sở dữ liệu này được xem như lựa chọn thay thế hoàn hảo cho MySQL, bởi MariaDB sở hữu khả năng tương thích và hiệu suất hoạt động tốt hơn nhiều so với MySQL.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"id":23974} --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/Tim-hieu-MariaDB-la-gi-.jpg" alt="MariaDB là gì 1" class="wp-image-23974" title="MariaDB là gì? Hướng dẫn chi tiết cách cài đặt MariaDB 17" /><br />
+<figcaption>Tìm hiểu MariaDB là gì?&nbsp;</figcaption>
+</figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>MariaDB ra đời như thế nào?</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Michael được xem như người đặt nền móng cho MariaDB. Ông chính là người dẫn dắt MySQL AB. Đến năm 2008, Michael chính thức nói lời chia tay với dự án MySQL AB để chuyển sang nghiên cứu hệ cơ sở dữ liệu mới.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"id":23978,"width":386,"height":242} --></p>
+<figure class="wp-block-image is-resized"><img src="{{ site.baseurl }}/assets/2022/10/Michael-chinh-la-nguoi-giu-vai-tro-phat-trien-he-quan-tri-co-so-du-lieu-MariaDB.jpg" alt="MariaDB là gì 2" class="wp-image-23978" width="386" height="242" title="MariaDB là gì? Hướng dẫn chi tiết cách cài đặt MariaDB 18" /><br />
+<figcaption>Michael chính là người giữ vai trò phát triển hệ quản trị cơ sở dữ liệu MariaDB</figcaption>
+</figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Khoảng đầu năm 2009, ông hợp tác với một vài đồng nghiệp để triển khai dự án hoàn thiện bộ công cụ lưu trữ MySQL. Đây chính là tiền thân của MariaDB. Đặc biệt, tên gọi MariaDB được Michael lấy theo tên của cô con gái út Maria. Sau một số lần nâng cấp, phiên bản MariaDB 10.1 hiện đã chính thức phát hành.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2 id="Vi_sao_nen_su_dung_MariaDB"><strong>Vì sao nên sử dụng MariaDB?</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bạn sẽ hiểu một cách chính xác hơn MariaDB là gì khi theo dõi phần phân tích ưu điểm của hệ quản trị cơ sở dữ liệu này.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="Khong_can_tra_phi"><strong>Không cần trả phí</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>MariaDB xây dựng dựa trên nền tảng MySQL. Do đó, nó kế thừa hầu như phần lớn chức năng cơ bản có trên MySQL. Song song với đó, MariaDB cũng sở hữu khá nhiều chức năng mới mẻ, tối ưu hóa quy trình lưu trữ.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hiện tại, MariaDB cung cấp đến người dùng cả bản trả phí và miễn phí. Nếu chỉ có nhu cầu sử dụng chức năng cơ bản, bạn hãy lựa chọn bản không trả phí. Dù không cân bỏ tiền mua bản quyền nhưng bạn vẫn có cơ hội khi tiếp cận đầy đủ chức năng chính của MariaDB.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="Khac_phuc_tot_nhung_han_che_ton_tai_cua_MySQL"><strong>Khắc phục tốt những hạn chế tồn tại của MySQL</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Nên nhớ rằng MariaDB hình thành từ mã nguồn gốc MySQL, sở hữu đầy đủ ưu điểm vượt trội của nền tảng gốc. Nếu đang sử dụng MySQL, bạn có thể dễ dàng chuyển đổi sang MariaDB mà không cần lo lắng hệ thống có thể bị ảnh hưởng.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"id":23990} --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/MariaDB-khac-phuc-tot-nhieu-han-che-con-ton-tai-o-MySQL.jpg" alt="MariaDB là gì 4" class="wp-image-23990" title="MariaDB là gì? Hướng dẫn chi tiết cách cài đặt MariaDB 20" /><br />
+<figcaption>MariaDB khắc phục tốt nhiều hạn chế còn tồn tại ở MySQL</figcaption>
+</figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>MariaDB khắc phục tốt những yếu điểm còn tồn tại trên MySQL. Khi chuyển đổi sang MariaDB, tốc độ vật lý từ hệ thống lập tức có thể cải thiện từ 3 – 5%. Bên cạnh đó, hệ quản trị MariaDB còn hỗ trợ cải thiện nâng hiệu năng sử dụng lên đáng kể.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="Tich_hop_da_dang_Engine"><strong>Tích hợp đa dạng Engine&nbsp;</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hệ cơ sở dữ liệu MariaDB đã phát triển bổ sung thêm nhiều Engine mới. Nổi bật phải kể đến như FederatedX, SphinxSE, Spider,… Chúng hỗ trợ vô cùng đắc lực cho quá trình quản lý, xử lý dữ liệu.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="Ke_thua_uu_diem_cua_SQL_va_NoSQL"><strong>Kế thừa ưu điểm của SQL và NoSQL</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Lâu nay, MariaDB vẫn được xem như sự kế thừa hoàn hảo của 2 người tiền nhiệm SQL và NoSQL. Nó sở hữu đặc tính nổi bật của cả SQL và NoSQL, hình thành một cơ sở dữ liệu mang tính đa nhiệm.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="Co_ho_tro_tieng_Viet"><strong>Có hỗ trợ tiếng Việt</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>MariaDB là một trong số ít cơ sở dữ liệu có hỗ trợ ngôn ngữ tiếng Việt. Tuy rằng bản dịch chưa mượt cho lắm nhưng nó cũng giúp người dùng thuận tiện hơn, đặc biệt là với người dùng mới.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2 id="Diem_khac_biet_giua_MariaDB_va_MySQL"><strong>Điểm khác biệt giữa MariaDB và MySQL</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>MariaDB và MySQL là hai hệ quản trị dữ liệu khá tương đồng. Thế nhưng nếu nghiên cứu kỹ càng, chúng vẫn có những điểm khác biệt nhất định.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:table --></p>
+<figure class="wp-block-table">
+<table>
+<tbody>
+<tr>
+<td><strong>Tiêu chí so sánh&nbsp;</strong></td>
+<td><strong>MariaDB</strong></td>
+<td><strong>MySQL</strong></td>
+</tr>
+<tr>
+<td>Lịch sử hình thành&nbsp;</td>
+<td>Chính thức ra mắt từ năm 2009</td>
+<td>Giới thiệu lần đầu vào năm 1995</td>
+</tr>
+<tr>
+<td>Ngôn ngữ lập trình hỗ trợ&nbsp;</td>
+<td>Tương tự như MySQL, ngoại trừ ngôn ngữ lập trình Delphi</td>
+<td>Ada, C++, Delphi, Java,..</td>
+</tr>
+<tr>
+<td>Công cụ lưu trữ</td>
+<td>Đa dạng hơn so với MySQL</td>
+<td>Kém đa dạng hơn so với MariaDB</td>
+</tr>
+<tr>
+<td>Mã nguồn&nbsp;</td>
+<td>Mã nguồn mở&nbsp;</td>
+<td>Mã nguồn đóng&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</figure>
+<p><!-- /wp:table --></p>
+<p><!-- wp:paragraph --></p>
+<p><em>Bảng so sánh điểm khác biệt giữa MariaDB và MySQL</em></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Rõ ràng MariaDB có phần ưu việt hơn so với MySQL. Hệ cơ sở dữ liệu này phát triển sau nên cũng không có gì khó hiểu khi các chức năng hoàn thiện hơn người tiền nhiệm.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2 id="Huong_dan_cai_dat_MariaDB_tren_Center_va_Windows"><strong>Hướng dẫn cài đặt MariaDB trên Centos và Windows </strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>MariaDB có thể cài đặt trên cả Center và Windows. Cách thức cài đặt cũng không đến nỗi quá phức tạp.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="Cai_dat_tren_Center"><strong>Cài đặt trên Cent</strong>os</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li><strong>Bước 1: </strong>Tiến hành bổ sung repository vào hệ thống bằng câu lệnh dưới đây.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:image {"id":23998} --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/Cau-lenh-bo-sung-repository.jpg" alt="MariaDB là gì 6" class="wp-image-23998" title="MariaDB là gì? Hướng dẫn chi tiết cách cài đặt MariaDB 22" /><br />
+<figcaption>Câu lệnh bổ sung repository</figcaption>
+</figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li><strong>Bước 2: </strong>Khi cần xóa Cache, bạn cần sử dụng đến câu lệnh “yum clean all”.</li>
+<li><strong>Bước 3: </strong>Trường hợp cần bổ sung Yum, bạn cần cập nhật qua package thông qua câu lệnh “yum update”.</li>
+<li><strong>Bước 4: </strong>Tiến hành cài đặt MariaDB thông qua câu lệnh “service mysql start”.</li>
+<li>Bước 5: Sau bước cài đặt, bạn cần khởi động hệ cơ sở quản trị dữ liệu bằng cách nhập câu lệnh “service mysql start”.</li>
+<li><strong>Bước 6: </strong>Bổ sung MYSQL vào list ứng dụng bằng cách khởi động reboot. Lúc này, bạn hãy sử dụng câu lệnh “chkconfig –levels 150 mysql on”.</li>
+<li><strong>Bước 7: </strong>Tiến hành tạo mật khẩu cho root. Cụ thể bạn cần nhập câu lệnh “mysql_secure_installation”.</li>
+<li><strong>Bước 8: </strong>Bạn hãy đăng nhập vào tài khoản MariaDB thông qua câu lệnh “mysql -u root -p”. Sau đó hãy tiến hành nhập mật khẩu đã đổi.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="Cai_dat_tren_Windows"><strong>Cài đặt trên Windows&nbsp;</strong></h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li><strong>Bước 1:</strong> Trước tiên, bạn hãy download file cài đặt theo đường dẫn <a href="https://mariadb.com/downloads/mariadb-tx" target="_blank" rel="noreferrer noopener">https://mariadb.com/downloads/mariadb-tx</a>. Lựa chọn phiên bản phù hợp và tiến hành tải về.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:image {"id":24002} --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/Lua-chon-phien-ban-phu-hop-va-tien-hanh-tai-ve.jpg" alt="MariaDB là gì 7" class="wp-image-24002" title="MariaDB là gì? Hướng dẫn chi tiết cách cài đặt MariaDB 23" /><br />
+<figcaption>Lựa chọn phiên bản phù hợp và tiến hành tải về</figcaption>
+</figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li><strong>Bước 2: </strong>Khi phần mềm đã tải về hoàn tất, bạn cần di chuyển đến file tải về, nháy đúp chuột và chọn Next để khởi động cài đặt.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:image {"id":24006} --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/Khoi-dong-qua-trinh-cai-dat.jpg" alt="MariaDB là gì 8" class="wp-image-24006" title="MariaDB là gì? Hướng dẫn chi tiết cách cài đặt MariaDB 24" /><br />
+<figcaption>Khởi động quá trình cài đặt</figcaption>
+</figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li><strong>Bước 3:</strong> Đồng ý với các điều khoản sử dụng hệ thống đưa ra bằng cách tick chọn “I accept,..” và nhấn Next để tiếp tục.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:image {"id":24010} --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/Tick-chon-dong-y-voi-dieu-khoan-su-dung.jpg" alt="MariaDB là gì 9" class="wp-image-24010" title="MariaDB là gì? Hướng dẫn chi tiết cách cài đặt MariaDB 25" /><br />
+<figcaption>Tick chọn đồng ý với điều khoản sử dụng</figcaption>
+</figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li><strong>Bước 4: </strong>Bạn có thể để mặc định thư mục cài đặt tại Brown, sau đó nhấn Next.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:image {"id":24014} --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/Thiet-lap-thu-muc-cai-dat-.jpg" alt="MariaDB là gì 10" class="wp-image-24014" title="MariaDB là gì? Hướng dẫn chi tiết cách cài đặt MariaDB 26" /><br />
+<figcaption>Thiết lập thư mục cài đặt&nbsp;</figcaption>
+</figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li><strong>Bước 5: </strong>&nbsp;Tiến hành nhập mật khẩu tại phần đăng nhập vào tài khoản root, sau đó nhấn Next.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:image {"id":24018} --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/Nhap-mat-khau-tai-phan-dang-nhap-vao-tai-khoan-root.jpg" alt="MariaDB là gì 11" class="wp-image-24018" title="MariaDB là gì? Hướng dẫn chi tiết cách cài đặt MariaDB 27" /><br />
+<figcaption>Nhập mật khẩu tại phần đăng nhập vào tài khoản root</figcaption>
+</figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li><strong>Bước 6: </strong>Ở bước này, bạn cần đặt tên cho Server. Tên tương ứng là MYSQL, TCP Port đổi thành 3307. Xác nhận bằng cách nhấn Next.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:image {"id":24022} --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/Dat-lai-ten-cho-MYSQL-va-nhap-ma-3307.jpg" alt="MariaDB là gì 12" class="wp-image-24022" title="MariaDB là gì? Hướng dẫn chi tiết cách cài đặt MariaDB 28" /><br />
+<figcaption>Đặt lại tên cho MYSQL và nhập mã 3307</figcaption>
+</figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li><strong>Bước 7: </strong>Một cửa hàng cài đặt mới bắt đầu hiện lên. Lúc này, bạn cần bấm Next.</li>
+<li><strong>Bước 8: </strong>Nếu thấy một giao diện mới hiển thị, bạn kích hoạt cài đặt tự động bằng cách nhấn Install.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:image {"id":24026} --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/Kich-hoat-che-do-cai-dat.jpg" alt="MariaDB là gì 13" class="wp-image-24026" title="MariaDB là gì? Hướng dẫn chi tiết cách cài đặt MariaDB 29" /><br />
+<figcaption>Kích hoạt chế độ cài đặt</figcaption>
+</figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li><strong>Bước 9: </strong>Sau khi chương trình cài đặt hoàn tất, bạn hãy bấm chọn Finish.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading --></p>
+<h2 id="Huong_dan_ket_noi_MariaDB_tren_Windows"><strong>Hướng dẫn kết nối MariaDB trên Windows</strong></h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Sau quy trình cài đặt MariaDB trên Windows, bạn đã chuyển sang giai đoạn kết nối cơ sở dữ liệu này.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Bước 1:</strong> Để kết nối với MariaDB, bạn cần sử dụng một trong các phần mềm HeidiSQL, SQL Workbench,.. Ở đây, mình sẽ lựa chọn phần mềm HeidiSQL.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"id":24030} --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/Mo-phan-mem-ket-noi-HeidiSQL.jpg" alt="MariaDB là gì 14" class="wp-image-24030" title="MariaDB là gì? Hướng dẫn chi tiết cách cài đặt MariaDB 30" /><br />
+<figcaption>Mở phần mềm kết nối HeidiSQL</figcaption>
+</figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Bước 2:</strong> Tại mục Setting, bạn hãy thiết lập các thông số cơ bản dưới đây.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>Network Type: Thiết lập MySQL (TCP/IP)</li>
+<li>Hostname/IP: Kiểm tra IP đã chứa MariaDB hay chưa</li>
+<li>User: Tiến hành chọn Root</li>
+<li>Port: Cấu hình cố định là MariaDB (3307)</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:paragraph --></p>
+<p>Khi thiết lập đầy các thông số cơ bản, bạn bấm Open để xác nhận hoàn thành.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"id":24034} --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/Bam-Open-de-xac-nhan-hoan-thanh.jpg" alt="MariaDB là gì 15" class="wp-image-24034" title="MariaDB là gì? Hướng dẫn chi tiết cách cài đặt MariaDB 31" /><br />
+<figcaption>Bấm Open để xác nhận hoàn thành</figcaption>
+</figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>Bước 3: </strong>Sau khi hoàn thành khâu kết nối, giao diện làm việc chính sẽ hiển thị như hình minh họa.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"id":24038} --></p>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2022/10/Giao-dien-lam-viec-chinh.jpg" alt="MariaDB là gì 16" class="wp-image-24038" title="MariaDB là gì? Hướng dẫn chi tiết cách cài đặt MariaDB 32" /><br />
+<figcaption>Giao diện làm việc chính&nbsp;</figcaption>
+</figure>
+<p><!-- /wp:image --></p>
+<p><!-- wp:heading --></p>
+<h2>Tải về cơ sở dữ liệu sample để thực hành</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Bạn truy cập vào <a href="https://www.mariadbtutorial.com/getting-started/mariadb-sample-database/" target="_blank" rel="noopener" title="">https://www.mariadbtutorial.com/getting-started/mariadb-sample-database/</a> để tải về bộ cơ sở dữ liệu mẫu để có thể bắt đầu thực hành.<br />Mình khuyến nghị việc thực hành ít nhất 30 phút mỗi ngày, và đều đặn cho đến khi bạn nắm được các lệnh cơ bản, sau đó sẽ là các bước nâng cao (tunning, optimize, design database, etc...).<br />Có rất nhiều học liệu và Youtube video list có thể giúp bạn điều này.</p>
+<p><!-- /wp:paragraph --></p>
