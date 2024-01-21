@@ -9,7 +9,7 @@ password: ''
 status: publish
 categories:
 - Poem
-tags: []
+tags: [poem]
 author: thu4nvd
 permalink: "/tram-bong-hong-trang/"
 ---

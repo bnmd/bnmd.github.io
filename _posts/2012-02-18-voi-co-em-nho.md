@@ -10,7 +10,7 @@ status: publish
 categories:
 - Perso
 - Think
-tags: []
+tags: [poem]
 author: thu4nvd
 permalink: "/voi-co-em-nho/"
 ---

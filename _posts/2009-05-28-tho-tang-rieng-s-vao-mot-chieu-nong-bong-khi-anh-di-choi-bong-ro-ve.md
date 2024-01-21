@@ -9,7 +9,7 @@ password: ''
 status: publish
 categories:
 - Poem
-tags: []
+tags: [poem]
 author: thu4nvd
 ---
 Tháng Tư xanh quá chẳng nỡ buồn\Yêu đương cứ đến gặp anh luôn\Anh gặp em trong ngày lễ hội\Anh đào hồng thắm nở rộ vườn
