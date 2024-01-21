@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Trăm bông hồng trắng
+title: "🌺 Trăm bông hồng trắng"
 date: 2009-05-21 08:27:05.000000000 -07:00
 type: post
 parent_id: '0'

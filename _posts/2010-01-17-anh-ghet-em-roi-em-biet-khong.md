@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Anh ghét em rồi, em biết không?
+title: "🌺 Anh ghét em rồi, em biết không?"
 date: 2010-01-17 08:18:07.000000000 -08:00
 type: post
 parent_id: '0'

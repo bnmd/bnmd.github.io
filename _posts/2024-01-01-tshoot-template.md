@@ -18,16 +18,12 @@ author: thu4nvd
 permalink: "/tshoot-template/"
 ---
 
-# Title (Maximum 120 characters, target the primary keyword)
+# Title (Maximum 120 characters, primary keyword)
 *Use 2-3 secondary keywords in the description.*
 
 *Select one of the following disclaimers depending on your scenario. If your article is deployment model agnostic, ignore this.*
 
 [!INCLUDE [learn-about-deployment-models](https://google.com)] classic deployment model.
-
-[!INCLUDE [learn-about-deployment-models](https://google.com)]
-
-[!INCLUDE [learn-about-deployment-models](https://google.com)]
 
 ## Summary (Optional, especially when the article is short)
 * *Briefly describe the problem.*
@@ -58,9 +54,6 @@ permalink: "/tshoot-template/"
 * *Add screenshots if possible.*
 * *If multiple solutions exist, put them in the order of complexity and provide instructions on choosing from among them.*
 
-| <em>Version 1: Your article is deployment model agnostic</em> | <em>Version 2: Steps for Resource Manager and Classic are largely the same</em> | <em>Version 3: Steps for Resource Manager and Classic are mostly different. <br />In this case, use the <a href="https://google.com">Simple Selectors technique in GitHub</a>. <br />Note: VM articles for ARM exceptions and should not use the ARM/Classic selector.</em> |
-|:--- |:--- |:--- |
-| <p><h3>Solution 1</h3><em>(the simplest and most effective)</em></p><ol><li>[Step 1]</li><li>[Step 2]</li></ol><p><h3>Solution 2</h3><em>(the less simple or effective)</em></p><ol><li>[Step 1]</li><li>[Step 2]</li></ol><br /><br /><br /><br /><br /><br /><br /><br /> |<p><h3>Solution 1</h3><em>(the simplest and most effective)</em></p><ol><li>[Step 1]</li><li>If you use the classic deployment model, [do this].<br />If you use the Resource Manager deployment model, [do this].</li><li>[Step 3]</li></ol><p><h3>Solution 2</h3><em>(the less simple or effective)</em></p><ol><li>[Step 1]</li><li>If you use the classic deployment model, [do this].<br />If you use the Resource Manager deployment model, [do this].</li><li>[Step 3]</li></ol> |<img src="/assets/img/thumb.png" alt="ARM-Classic"><p><h3>Solution 1</h3><em>(the simplest and most effective)</em></p><ol><li>[Step 1]</li><li>[Step 2]</li></ol><p><h3>Solution 2</h3><em>(the less simple or effective)</em></p><ol><li>[Step 1]</li><li>[Step 2]</li></ol><br /><br /><br /><br /> |
 
 ## Next steps
 *Include this section if there are 1 -3 concrete, highly relevant next steps the user should take. Delete if there are no next steps. This is not a place for a list of links. If you include links to the next steps, include text to explain why the next steps are relevant/ important.*

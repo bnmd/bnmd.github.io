@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "\U0001F30DLên kế hoạch Xuyên Việt"
+title: "🌐 Kế hoạch Xuyên Việt"
 date: 2012-02-16 04:47:00.000000000 -08:00
 type: post
 parent_id: '0'
