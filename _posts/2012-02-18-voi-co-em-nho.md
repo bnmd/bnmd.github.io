@@ -14,7 +14,7 @@ tags: []
 author: thu4nvd
 permalink: "/voi-co-em-nho/"
 ---
-![](/assets/2012/02/thumb_flex-1243052188327596_file.jpg")   
+![Girl in Rain](/assets/2012/02/thumb_flex-1243052188327596_file.jpg)   
 Hôm nay là một ngày mưa, mặc dù mưa nhẹ, nhưng cuối cùng cũng đã mưa rồi. Sài Gòn chuyển sang mùa mưa rồi, cũng là những thời khắc cuối cùng tôi tạm xa thành phố này. Tôi đã thấy nhớ, nhớ thật nhiều và đã da diết rồi. Tôi sẽ tạm xa thành phố này, sắp rồi, nhớ rồi,...   
 Chiều nay em gọi mời qua ăn, món do em tự nấu. Là thực hiện lời đề nghị của tôi bữa trước, nấu cho tôi ăn khi sắp xa. Tôi rất mừng, cảm giác như con trẻ. Mừng và vội, chẳng quản đường xa, tôi tới và lòng rộn ràng..   
 Món cháo nghêu...................   
