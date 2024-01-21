@@ -9,7 +9,6 @@ password: ''
 status: publish
 categories:
 - Perso
-- Think
 tags: [poem]
 author: thu4nvd
 permalink: "/voi-co-em-nho/"

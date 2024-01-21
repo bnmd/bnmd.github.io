@@ -15,9 +15,11 @@ author: thu4nvd
 permalink: "/ca-phe-bang-lang-tim/"
 ---
 
-![Coffeshop](/assets/2012/02/IMG_20120216_142428.png)
+![Coffeshop](/assets/2012/02/IMG_20120216_142428.png)  
+
 Chiều hôm nay cà phê với một người anh đặc biệt. Anh đặc biệt vì chẳng biết nói về anh như thế nào. Một điều gì đó rất mơ hồ về con người anh, về những suy tư, về tình cảm của anh. Nhưng mà anh ấy như thế nào với mọi người, với anh chị em và với mình, mình biết vì đó là thực tế.   
 Nhưng thôi, cái gì tới nó sẽ tự tới. Mỗi con người là một bí ẩn không gì lý giải được. Có duyên thì con người ta gặp nhau, rồi thì kết bạn, tâm sự, chia sẻ. Là duyên phận.   
+
 Lần thứ hai tới quán này, đã lại có chút bồi hồi rồi. Vì chẳng còn bao lâu mình sẽ tạm xa Sài Gòn, thành phố ta đã làm quen gần hai năm mà vẫn như xa lạ. Có những góc Sài Gòn còn bí ẩn và vẫn gợi cho ta khát khao tìm kiếm và khám phá như buổi ban đầu.   
 Ta đã có Sài Gòn trong đêm mưa lạnh...   
 Ta đã có Sài Gòn trong nắng rực rỡ và rộn ràng sức sống...   
