@@ -23,7 +23,10 @@ permalink: "/tshoot-template/"
 
 *Select one of the following disclaimers depending on your scenario. If your article is deployment model agnostic, ignore this.*
 
-[!INCLUDE [learn-about-deployment-models](https://google.com)] classic deployment model.
+<details open>
+  <summary>Hello This is collapsible text</summary>
+  World! wow Supprisingly
+</details>
 
 ## Summary (Optional, especially when the article is short)
 * *Briefly describe the problem.*
