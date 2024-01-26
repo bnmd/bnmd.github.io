@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "🛠 Veeam issue: Job failed to import backup path"
+title: "🛠 Veeam issue: Job failed due to import backup path"
 date: 2023-01-26 04:47:00.000000000 -08:00
 type: post
 parent_id: '0'
@@ -15,8 +15,6 @@ tags:
 author: thu4nvd
 permalink: "/veeam-failed-import/"
 ---
-
-# Veeam issue: Job failde to import backup path
 
 ## Symptom
 * Backup Job failed error:  when rescan the Repository

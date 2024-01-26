@@ -16,8 +16,6 @@ author: thu4nvd
 permalink: "/veeam-failed-prod-checkpoint/"
 ---
 
-# Veeam issue: Failed to connect to server - port 11731
-
 ## Symptom
 * Backup Job failed error:  
   

@@ -16,8 +16,6 @@ author: thu4nvd
 permalink: "/veeam-failed-prod-checkpoint/"
 ---
 
-# Veeam issue: Failed to create production checkpoint
-
 ## Symptom
 * Backup Job failed error:  
   

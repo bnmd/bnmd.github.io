@@ -18,16 +18,6 @@ author: thu4nvd
 permalink: "/tshoot-template/"
 ---
 
-# Title (Maximum 120 characters, primary keyword)
-*Use 2-3 secondary keywords in the description.*
-
-*Select one of the following disclaimers depending on your scenario. If your article is deployment model agnostic, ignore this.*
-
-<details open>
-  <summary>Hello This is collapsible text</summary>
-  World! wow Supprisingly
-</details>
-
 ## Summary (Optional, especially when the article is short)
 * *Briefly describe the problem.*
 * *The Summary section is an excellent place to use different keywords from those in the title, but make sure not to make it very wordy. The sentences should flow well and be easy to understand.*

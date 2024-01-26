@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "🛠 Veeam issue: Failed to create VM recovery checkpoint"
+title: "🛠 Veeam issue: Job failed due to VM recovery checkpoint"
 date: 2023-01-26 04:47:00.000000000 -08:00
 type: post
 parent_id: '0'
@@ -15,8 +15,6 @@ tags:
 author: thu4nvd
 permalink: "/veeam-failed-vm-checkpoint/"
 ---
-
-# Veeam issue: Failed to create VM recovery checkpoint
 
 ## Symptom
 * Backup Job failed error:  
