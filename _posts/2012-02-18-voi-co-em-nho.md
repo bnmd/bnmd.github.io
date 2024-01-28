@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Với cô em nhỏ
+title: "🌺 Với cô em nhỏ"
 date: 2012-02-18 02:39:00.000000000 -08:00
 type: post
 parent_id: '0'

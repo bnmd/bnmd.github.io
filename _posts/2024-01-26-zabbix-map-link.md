@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "🛠 Zabbix issue: Map does not show bandwidth of links"
+title: "👀 Zabbix issue: Map does not show bandwidth of links"
 date: 2024-01-25 04:47:00.000000000 -08:00
 type: post
 parent_id: '0'
@@ -17,6 +17,7 @@ permalink: "/zabbix-map-link/"
 ---
 
 ## Symptom
+
 * Trên Zabbix web console, map bị mất thông tin network in out trên đường link. 
   
   ![Alt text](../assets/2024/zlink-1.png)
@@ -79,7 +80,6 @@ Lưu ý: các hosts ở zone này được monitor thông qua Zabbix-proxy. (mod
 * Vì hiện tại không cần mã hóa cho luồng thông tin tới proxy nên tắt encryption (qua GUI).  
 * Kiểm tra dữ liệu map đã nhận, map hiện đúng thông tin.   
 
-
 ## Further check  
 
 * (Note: Chú ý các file conf trong thư mục (/etc/httpd/conf.d) cho từng ứng dụng)  
@@ -99,6 +99,8 @@ Lưu ý: các hosts ở zone này được monitor thông qua Zabbix-proxy. (mod
   Ncat: Connected to 46.105.44.129:10051.
   Ncat: 0 bytes sent, 0 bytes received in 0.20 seconds.
   ```
+
+
 ## Reference  
 
 * Check log to verify connection Zabbix server to Proxy at [Forum](https://www.zabbix.com/forum/zabbix-help/53199-zabbix-server-cant-receive-data-from-my-zabbix-proxy). 
