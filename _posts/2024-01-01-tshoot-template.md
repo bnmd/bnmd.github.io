@@ -18,7 +18,8 @@ author: thu4nvd
 permalink: "/tshoot-template/"
 ---
 
-## Summary (Optional, especially when the article is short)
+## Summary
+
 * *Briefly describe the problem.*
 * *The Summary section is an excellent place to use different keywords from those in the title, but make sure not to make it very wordy. The sentences should flow well and be easy to understand.*
 * *Exceptions (optional) - List the relevant scenarios not covered in this article. For example, ” Linux/OSS scenarios aren't covered in this article”.*
@@ -55,5 +56,3 @@ permalink: "/tshoot-template/"
 
 > [!NOTE]
 > If you still have further questions, please [contact support](https://bnmd.github.io) to get your issue resolved quickly.
-> 
-> 
