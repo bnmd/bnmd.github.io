@@ -57,11 +57,14 @@ permalink: "/sap-license-trial/"
   B. You want to install a version of AS ABAP 7.5x, which is not the latest, and for which the ASE license in the .rar files is now obsolete. (For capacity reasons, we cannot update the .rar files of all versions.)
   - Use case A: 
    1.	Replace /sybase/NPL/SYSAM-2_0/licenses/SYBASE_ASE_TestDrive.lic with updated license in shared SAP Documents folder. 
-   2.	Assign Linux owners/rights :
+   2.	Assign Linux owners/rights :  
+
    ![Alt text](../assets/2024/saplic1.png)
+
   - Use case B:
    1.	Follow the installation instructions in this blog: [Linux for Newbies: Installing ABAP AS 7.50](https://blogs.sap.com/2016/11/03/linux-for-newbies-installing-opensuse-on-oracle-virtualbox/?preview_id=391946). See in particular,  section C, step 13:  
-   2. Finally, just before we install, we will ensure that we have the correct ASE license version. To do so, put the new .lic file, which you downloaded in section A above, in the same folder as the script file, using the name SYBASE_ASE_TD.lic . Do this after you have successfully extracted the ABAP .rar files. You do not need to edit the .tar files:
+   2. Finally, just before we install, we will ensure that we have the correct ASE license version. To do so, put the new .lic file, which you downloaded in section A above, in the same folder as the script file, using the name SYBASE_ASE_TD.lic . Do this after you have successfully extracted the ABAP .rar files. You do not need to edit the .tar files:   
+   
    ![Alt text](../assets/2024/saplic2.png)
 
 ## Reference and Notes
@@ -118,26 +121,26 @@ permalink: "/sap-license-trial/"
   
   Danh sách toàn bộ các log files:
   
-  >  a /tmp/sapinst_exe.24544.1706463135/dev_selfex.out
-  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/cleanipc.1.log
-  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/cleanipc.log
-  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/control.xml
-  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/controllerKdbClient.dmp
-  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/date.log
-  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/df.log
-  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/hostname.log
-  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/instana.xsl
-  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/keydb.xml
-  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/rpm.log
-  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/rsecssfx.log
-  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/sapcontrol.1.log
-  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/sapcontrol.2.log
-  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/sapcontrol.3.log
-  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/sapcontrol.log
-  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/sapinst.log
-  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/sapinst_dev.log
-  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/sapinst_loginquirer.log
-  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/start_dir.cd
-  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/stepKeydbClient.dmp
-  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/summary.html
-  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/syslib_priv.log
+  >  a /tmp/sapinst_exe.24544.1706463135/dev_selfex.out                  
+  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/cleanipc.1.log             
+  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/cleanipc.log               
+  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/control.xml                
+  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/controllerKdbClient.dmp    
+  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/date.log                   
+  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/df.log                     
+  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/hostname.log               
+  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/instana.xsl                
+  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/keydb.xml                  
+  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/rpm.log                    
+  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/rsecssfx.log               
+  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/sapcontrol.1.log           
+  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/sapcontrol.2.log           
+  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/sapcontrol.3.log           
+  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/sapcontrol.log             
+  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/sapinst.log                
+  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/sapinst_dev.log            
+  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/sapinst_loginquirer.log    
+  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/start_dir.cd               
+  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/stepKeydbClient.dmp        
+  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/summary.html               
+  >  a /tmp/sapinst_instdir/NW73/SBC/STANDARD/syslib_priv.log            

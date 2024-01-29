@@ -30,7 +30,7 @@ Tuy nhiên SAP cho phép bạn download SAP Server phiên bản dùng thử.
 
 Phiên bản mới nhất của SAP lúc này là 7.5, để download nó bạn truy cập vào địa chỉ dưới đây:
 
-https://www.sap.com/developer/trials-downloads.html
+[https://www.sap.com/developer/trials-downloads.html](https://www.sap.com/developer/trials-downloads.html)
 
 Tiếp theo, tìm tới vị trí:
 
@@ -56,7 +56,7 @@ Bạn xem thêm hướng dẫn cài đặt theo link dưới đây để bắt �
 
 Link dưới đây cho phép generate license cho mục đích preview, evaluation và developer 
 
-https://go.support.sap.com/minisap/#/minisap
+[https://go.support.sap.com/minisap/#/minisap](https://go.support.sap.com/minisap/#/minisap)
 
 
 ## Tham khảo
