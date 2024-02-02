@@ -9,11 +9,7 @@ status: publish
 categories:
 - IT
 - Veeam
-tags:
-- tshoot
-- veeam
-- vsphere
-- aws
+tags: [tshoot, veeam]
 author: thu4nvd
 permalink: "/tshoot-template/"
 ---

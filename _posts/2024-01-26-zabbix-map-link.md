@@ -9,9 +9,7 @@ status: publish
 categories:
 - IT
 - Zabbix
-tags:
-- tshoot
-- zabbix
+tags: [tshoot, zabbix]
 author: thu4nvd
 permalink: "/zabbix-map-link/"
 ---

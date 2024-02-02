@@ -9,8 +9,7 @@ status: publish
 categories:
 - IT
 - SCCM
-tags:
-- sccm
+tags: [sccm, ticket]
 author: thu4nvd
 permalink: "/sccm-202401/"
 ---

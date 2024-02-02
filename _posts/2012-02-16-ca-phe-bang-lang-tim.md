@@ -10,7 +10,7 @@ status: publish
 categories:
 - Perso
 - Skycat
-tags: []
+tags: [diary]
 author: thu4nvd
 permalink: "/ca-phe-bang-lang-tim/"
 ---

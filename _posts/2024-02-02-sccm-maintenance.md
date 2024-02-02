@@ -9,8 +9,7 @@ status: publish
 categories:
 - IT
 - SCCM
-tags:
-- sccm
+tags: [sccm]
 author: thu4nvd
 permalink: "/sccm-maintenance/"
 ---

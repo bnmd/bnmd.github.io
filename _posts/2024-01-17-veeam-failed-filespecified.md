@@ -9,9 +9,7 @@ status: publish
 categories:
 - IT
 - Veeam
-tags:
-- tshoot
-- veeam
+tags: [tshoot, veeam]
 author: thu4nvd
 permalink: "/veeam-failed-session/"
 ---

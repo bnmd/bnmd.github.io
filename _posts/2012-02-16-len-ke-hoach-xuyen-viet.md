@@ -10,11 +10,9 @@ status: publish
 categories:
 - Perso
 - Skycat
-tags:
-- travel
-- xuyenviet
+tags: [travel, xuyenviet]
 author: thu4nvd
-permalink: "/len-ke-hoach-xuyen-viet/"
+permalink: "/ke-hoach-xuyen-viet/"
 ---
 
 Hôm nay ngồi ôm lấy cái máy tính và Google Maps để lên một lịch trình chuẩn nhất cho chuyến xuyên Việt đầu tháng 3 này. Khung thời gian đã định, kinh phí thì eo hẹp, phải làm sao cho thật cân đối là một điều thật khó làm sao. Tự nhắc mình không được tham lam ôm đồm không thì bể chuyến, nhưng thấy còn nhiều nơi chưa đi quá, thôi đành bấm bụng để dành vài chỗ sau vậy.   

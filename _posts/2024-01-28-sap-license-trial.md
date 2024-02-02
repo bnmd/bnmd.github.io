@@ -9,9 +9,7 @@ status: publish
 categories:
 - IT
 - SAP
-tags:
-- tshoot
-- sap
+tags: [tshoot, sap]
 author: thu4nvd
 permalink: "/sap-license-trial/"
 ---

@@ -9,8 +9,7 @@ status: publish
 categories:
 - IT
 - Powershell
-tags:
-- pshell
+tags: [pshell]
 author: thu4nvd
 permalink: "/pshell-remove/"
 ---

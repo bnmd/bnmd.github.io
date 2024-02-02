@@ -9,9 +9,7 @@ status: publish
 categories:
 - IT
 - SCOM
-tags:
-- tshoot
-- scom
+tags: [tshoot, scom]
 author: thu4nvd
 permalink: "/scom-agent-cache/"
 ---

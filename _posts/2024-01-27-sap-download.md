@@ -9,9 +9,7 @@ status: publish
 categories:
 - IT
 - SAP
-tags:
-- guide
-- sap
+tags: [guide, sap]
 author: thu4nvd
 permalink: "/sap-downoad/"
 ---
