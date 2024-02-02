@@ -19,7 +19,7 @@ permalink: "/veeam-failed-vm-checkpoint/"
 ## Symptom
 * Backup Job failed error:  
   
-  ![Alt text](../assets/2024/v-chkpoint1.png)
+  ![Alt text](../assets/2024/01/v-chkpoint1.png)
 
 
 * Error message: 
@@ -33,7 +33,7 @@ permalink: "/veeam-failed-vm-checkpoint/"
 ## Solution
 * Live migrate the VM to another Host
   
-  ![Alt text](../assets/2024/v-chkpoint2.png)
-  ![Alt text](../assets/2024/v-chkpoint3.png)
+  ![Alt text](../assets/2024/01/v-chkpoint2.png)
+  ![Alt text](../assets/2024/01/v-chkpoint3.png)
 
 * If live migrate the VM not fix the issue -> Reboot the VM 

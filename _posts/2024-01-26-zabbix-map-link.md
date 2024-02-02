@@ -20,7 +20,7 @@ permalink: "/zabbix-map-link/"
 
 * Trên Zabbix web console, map bị mất thông tin network in out trên đường link. 
   
-  ![Alt text](../assets/2024/zlink-1.png)
+  ![Alt text](../assets/2024/01/zlink-1.png)
 
 
 * Thay vì hiện giá trị, thì hiện "Unknow"

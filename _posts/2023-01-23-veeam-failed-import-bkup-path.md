@@ -19,7 +19,7 @@ permalink: "/veeam-failed-import/"
 ## Symptom
 * Backup Job failed error:  when rescan the Repository
   
-  ![Alt text](../assets/2024/v-imp1.png)
+  ![Alt text](../assets/2024/01/v-imp1.png)
 
 
 * Error message: 
@@ -28,8 +28,8 @@ permalink: "/veeam-failed-import/"
 
 * Still able to access disk V from within Veeam Console:  
 
-  ![Alt text](../assets/2024/v-imp2.png)
-  ![Alt text](../assets/2024/v-imp3.png)
+  ![Alt text](../assets/2024/01/v-imp2.png)
+  ![Alt text](../assets/2024/01/v-imp3.png)
 
 ## Cause
 
@@ -38,7 +38,7 @@ permalink: "/veeam-failed-import/"
 ## Solution
 * After killing the stucked session and restarting the Veeam service.   
   
-  ![Alt text](../assets/2024/v-imp4.png)
+  ![Alt text](../assets/2024/01/v-imp4.png)
 
 * End process “Veeam.backup.manager” trong Task Manager
 

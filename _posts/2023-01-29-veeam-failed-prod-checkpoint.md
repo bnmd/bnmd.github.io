@@ -19,7 +19,7 @@ permalink: "/veeam-failed-prod-checkpoint/"
 ## Symptom
 * Backup Job failed error:  
   
-  ![Alt text](../assets/2024/prod-ckp1.png)
+  ![Alt text](../assets/2024/01/prod-ckp1.png)
 
 
 * Error message: 
@@ -31,14 +31,14 @@ permalink: "/veeam-failed-prod-checkpoint/"
 * On SCVMM -> Server is still running
 * But ping failed to that server.
   
-  ![Alt text](../assets/2024/prod-ckp2.png)
+  ![Alt text](../assets/2024/01/prod-ckp2.png)
 
 ## Solution
 * Live migrate the VM to another Host
   
   
-  ![Alt text](../assets/2024/prod-ckp3.png)
+  ![Alt text](../assets/2024/01/prod-ckp3.png)
   
 * Relaunch the job -> Successful.
 
-  ![Alt text](../assets/2024/prod-ckp4.png)
+  ![Alt text](../assets/2024/01/prod-ckp4.png)

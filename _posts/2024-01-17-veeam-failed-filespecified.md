@@ -19,7 +19,7 @@ permalink: "/veeam-failed-session/"
 ## Symptom
 * Backup Job failed error:  
   
-  ![Alt text](../assets/2024/vsession1.png)
+  ![Alt text](../assets/2024/01/vsession1.png)
 
 
 * Error message: 
@@ -35,6 +35,6 @@ permalink: "/veeam-failed-session/"
 - Restart Veeam service -> then retry the job
 
   > Veeam Agent for Microsoft ...
-  ![Alt text](../assets/2024/vsession2.png)
+  ![Alt text](../assets/2024/01/vsession2.png)
 
 -	If the issue still persists -> Reboot the server

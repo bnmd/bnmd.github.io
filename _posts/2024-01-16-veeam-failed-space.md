@@ -19,7 +19,7 @@ permalink: "/veeam-failed-space/"
 ## Symptom
 * Backup Job failed error:  
   
-  ![Alt text](../assets/2024/vspace1.png)
+  ![Alt text](../assets/2024/01/vspace1.png)
 
 * Error message: 
   
@@ -33,7 +33,7 @@ permalink: "/veeam-failed-space/"
 * Go to VBR console  
   Right click the Job -> properties
 
-  ![Alt text](../assets/2024/vspace2.png)  
+  ![Alt text](../assets/2024/01/vspace2.png)  
 
   RDP to Repository BYCSSVM009 to check disk usage on disk V
 
@@ -43,6 +43,6 @@ permalink: "/veeam-failed-space/"
 - Delete old backup file out of retention policy
 - There are 24 files backup that out of Retention Policy (21). So, delete the oldest full backup file  
 
-  ![Alt text](../assets/2024/vspace3.png)
+  ![Alt text](../assets/2024/01/vspace3.png)
 
 - Relaunch the backup job.

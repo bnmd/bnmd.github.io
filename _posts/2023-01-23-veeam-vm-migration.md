@@ -19,9 +19,9 @@ permalink: "/veeam-vm-migration/"
 ## Symptom
 * Backup Job failed error:  
   
-   ![Alt text](../assets/2024/vm-mig1.png)
+   ![Alt text](../assets/2024/01/vm-mig1.png)
 
-   ![Alt text](../assets/2024/vm-mig2.png)
+   ![Alt text](../assets/2024/01/vm-mig2.png)
 
 * Error message: Failed to collect VM information. Failed to collect VM disk...
 
@@ -30,13 +30,13 @@ permalink: "/veeam-vm-migration/"
 
 * Backup job failed due to the VM is now in the status " Migration failed " in SCVMM  
 
-   ![Alt text](../assets/2024/vm-mig3.png)
+   ![Alt text](../assets/2024/01/vm-mig3.png)
 
 ## Solution
 * Repair the VM : The button Refresh is grayed out, so cannot refresh the VM -> We need to repair the VM  
 
-  ![Alt text](../assets/2024/vm-mig4.png)
+  ![Alt text](../assets/2024/01/vm-mig4.png)
 
-  ![Alt text](../assets/2024/vm-mig5.png)
+  ![Alt text](../assets/2024/01/vm-mig5.png)
 
 * Relaunch the backup job  

@@ -59,13 +59,13 @@ permalink: "/sap-license-trial/"
    1.	Replace /sybase/NPL/SYSAM-2_0/licenses/SYBASE_ASE_TestDrive.lic with updated license in shared SAP Documents folder. 
    2.	Assign Linux owners/rights :  
 
-   ![Alt text](../assets/2024/saplic1.png)
+   ![Alt text](../assets/2024/01/saplic1.png)
 
   - Use case B:
    1.	Follow the installation instructions in this blog: [Linux for Newbies: Installing ABAP AS 7.50](https://blogs.sap.com/2016/11/03/linux-for-newbies-installing-opensuse-on-oracle-virtualbox/?preview_id=391946). See in particular,  section C, step 13:  
    2. Finally, just before we install, we will ensure that we have the correct ASE license version. To do so, put the new .lic file, which you downloaded in section A above, in the same folder as the script file, using the name SYBASE_ASE_TD.lic . Do this after you have successfully extracted the ABAP .rar files. You do not need to edit the .tar files:   
    
-   ![Alt text](../assets/2024/saplic2.png)
+   ![Alt text](../assets/2024/01/saplic2.png)
 
 ## Reference and Notes
 

@@ -19,7 +19,7 @@ permalink: "/veeam-failed-prod-checkpoint/"
 ## Symptom
 * Backup Job failed error:  
   
-  ![Alt text](../assets/2024/conn1.png)
+  ![Alt text](../assets/2024/01/conn1.png)
 
 
 * Error message: 
