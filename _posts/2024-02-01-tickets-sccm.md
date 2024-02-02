@@ -69,83 +69,49 @@ Category: SCCM / MECM
 
 ## Some other solutions  
 
-  ```
-  base sql plant&eacute;e
-la base sql était plantée (cause veeam)
-Les serveurs ont été migrés sur vmware
-"si tu veux y accéder, soit t'ouvres une console MCM avec ton compte s1 et tu vas dans rapports 
-soit par l'interface web, il faut lancer chrome par cyberark toujours avec ton compte s1 et...
-si tu veux y accéder, soit t'ouvres une console MCM avec ton compte s1 et tu vas dans rapports
-soit par l'interface web, il faut lancer chrome par cyberark toujours avec ton compte s1 et tu vas sur https://sccmreport.bouygues-construction.com/reports et tu y as aussi acc&egrave;s (en remettant login/mdp de ton S1 car pas de SSO avec ces comptes)"
-pb sql (saturation cpu). sauvegarde veeam modifiée et bascule always on pour rendre le service
-Réinstallation du client badgeprint test ok.
-problème auto résolu, act mco d'aujourd'hui en PJ
-"Problème résolu en faisant les manipulations suivantes : 
- Vider le dossier Cache des téléchargements SCCM 
- exécuter les cycles d'évaluation 
- Cordialement,...
-Problème résolu en faisant les manipulations suivantes :
-Vider le dossier Cache des téléchargements SCCM
-exécuter les cycles d'évaluation
-Cordialement,
-Equipe Hotline."
-The incident of MECM is resolved
-Vérification de sauvegarde -&gt; OK
-accès console SCCM OK"
-"Nouvelle version présente version 7.7 synchroniser vos policies dans le centre de logiciel ==&gt; options dans maintenance de l'ordinateur ==&gt; synchroniser la stratégie (mis...
-La chaine était relancé manuellement le lendemain après que le problème était corrigé par Jean-Baptiste 
-"After restarting the server, values are back to normal: 
-La connexion doit se faire par cyberark en utilisant le compte Tier 2 (wXXX)
-"RAS coté SCCM , merci de voir avec l'équipe de poste de travail  
-  si vous ne trouvez pas le client SCCM installé sur les postes , voici la procédure &agrave; suivre : 
-...
-RAS coté SCCM , merci de voir avec l'équipe de poste de travail 
-si vous ne trouvez pas le client SCCM installé sur les postes , voici la procédure &agrave; suivre :
-la réinstallation du client SCCM devrait se passer comme suit :
+- Base sql plantée
+- La base sql était plantée (cause veeam)
+- Les serveurs ont été migrés sur vmware
+- Si tu veux y accéder, soit t'ouvres une console MCM avec ton compte s1 et tu vas dans rapports  
+  Soit par l'interface web, il faut lancer chrome par cyberark toujours avec ton compte s1 et tu vas sur https://sccmreport.bcc/reports et tu y as aussi (en remettant login/mdp de ton S1 car pas de SSO avec ces comptes)
+- Problem sql (saturation cpu). sauvegarde veeam modifiée et bascule always on pour rendre le service
+- Réinstallation du client badgeprint test ok.
+- Problème auto résolu, act mco d'aujourd'hui en PJ
+- Problème résolu en faisant les manipulations suivantes : 
+  Vider le dossier Cache des téléchargements SCCM   
+  Exécuter les cycles d'évaluation   
+- Nouvelle version présente version 7.7 synchroniser vos policies dans le centre de logiciel "options dans maintenance de l'ordinateur" synchroniser la stratégie (mis...
+- After restarting the server, values are back to normal:   
+  La connexion doit se faire par cyberark en utilisant le compte Tier 2 (wXXX)
+- Si vous ne trouvez pas le client SCCM installé sur les postes , voici la procédure à suivre :  
+  la réinstallation du client SCCM devrait se passer comme suit :  
+  1. Télécharger le client depuis : http://xxxSSRV151.bcc.com/CCM_Client/ccmsetup.exe
+  2. Copie le setup dans c:\temp
+  3. Ouvrir CMD en Admin
+  4. Exécuter la commande : c:\temp\ccmsetup.exe SMSSITECODE=PAP /forceinstall   
+  Par la suite il faut vérifier que le dossier sous : c:\windows\ccm sont tous avec une date de création/modification qui date du jour de l'installation.
  
-1- Télécharger le client depuis : http://BCNSSRV151.bcc.com/CCM_Client/ccmsetup.exe
-2- Copie le setup dans c:\temp
-3- Ouvrir CMD en Admin
-4- Exécuter la commande : c:\temp\ccmsetup.exe SMSSITECODE=PAP /forceinstall
+- Un redémarrage du poste est nécessaire par la suite, une fois fait il faut temporiser un peu le temps qu'il récupère les Policy cela peut prendre jusqu'à l'heure. 
+- Etat des lieux
+  - Logs transactionnels de la base de données CM_PAP à 2 T0
+  - Groupe AOAG xxxAOAG072 non synchronisé depuis le 06/06/2022 à 06H40
+  Jobs suivants non activés sur le serveur primaire du groupe AOAG xxxAOAG072 (source d'erreur : patch orchestrator SCO Windows Update 4/5/2022 : Action corrective à demander à Monsieur.M en cours)
+  MaintenancePlan2016.DatabaseBackup - USER_DATABASES - LOGMaintenancePlan2016.DatabaseIntegrityCheck - ALL_DATABASESMaintenancePlan2016.IndexStatisticsOptimize - ALL_DATABASESMaintenancePlan2016.IndexStatisticsOptimize - CM_PAPMaintenancePlan2016.purge_history
+  --&gt; Logs transactionnels ont grossi démesurément  
+  --&gt; réactivation des logs sur le primaire xxxSDBA110 du groupe AOAG xxxAOAG072  
+  MaintenancePlan2016.DatabaseBackup - USER_DATABASES - LOG n'a pas fonctionné depuis  
+  Modification du job MaintenancePlan2016.DatabaseBackup - USER_DATABASES - LOG sur le serveur xxxSDBA111 pour que le job passe (Modification temporaire du paramètre @Directory)  
+  Vérification du job et du groupe AOAG xxxAOAG072 et remise du job modifié à l'état initial.
  
-Par la suite il faut vérifier que le dossier sous : c:\windows\ccm sont tous avec une date de création/modification qui date du jour de l'installation.
+- Pour information :  
+  pas de backup des bases de données depuis le 1er juin sur les serveurs xxxSDBA111 et xxxSDBA110.  
+  Pour rappel les backup sont générés par une chaine $u (SCCM)
  
-Un redémarrage du poste est nécessaire par la suite, une fois fait il faut temporiser un peu le temps qu'il récupère les Policy cela peut prendre jusqu'&agrave; 1 heure."
-"Etat des lieux 
- - Logs transactionnels de la base de données CM_PAP &agrave; 2 T0 
- - Groupe AOAG BCNAOAG072 non synchronisé depuis le 06/06/2022 &agrave; 06H40 
- Jobs...
-
-Etat des lieux
-- Logs transactionnels de la base de données CM_PAP &agrave; 2 T0
-- Groupe AOAG BCNAOAG072 non synchronisé depuis le 06/06/2022 &agrave; 06H40
-Jobs suivants non activés sur le serveur primaire du groupe AOAG BCNAOAG072 (source d'erreur : patch orchestrator SCO Windows Update 4/5/2022 : Action corrective &agrave; demander &agrave; Marceau en cours)
-MaintenancePlan2016.DatabaseBackup - USER_DATABASES - LOGMaintenancePlan2016.DatabaseIntegrityCheck - ALL_DATABASESMaintenancePlan2016.IndexStatisticsOptimize - ALL_DATABASESMaintenancePlan2016.IndexStatisticsOptimize - CM_PAPMaintenancePlan2016.purge_history
- 
---&gt; Logs transactionnels ont grossi démesurément
- 
---&gt; réactivation des logs sur le primaire BCNSDBA110 du groupe AOAG BCNAOAG072
- 
-MaintenancePlan2016.DatabaseBackup - USER_DATABASES - LOG n'a pas fonctionné depuis
- 
-Modification du job MaintenancePlan2016.DatabaseBackup - USER_DATABASES - LOG sur le serveur BCNSDBA111 pour que le job passe (Modification temporaire du paramètre @Directory)
-Vérification du job et du groupe AOAG BCNAOAG072 et remise du job modifié &agrave; l'état initial.
- 
-Pour information :
-pas de backup des bases de données depuis le 1er juin sur les serveurs BCNSDBA111 et BCNSDBA110.
-Pour rappel les backup sont générés par une chaine $u (SCCM)
- 
-Autre source d'erreur :
-Les jobs sql en erreur auraient d&ucirc; &ecirc;tre en erreur (En fait les instances SQL pour lesquelles les alertes SCOM
-se déclenchent sont incluses dans un groupe SCOM qui est alimenté via une expression régulière (PRD), ce qui n'est pas le cas des instances BCNSDBA110 et BCNSDBA111, d'o&ugrave; le souci)
- 
---&gt; Actions correctives &agrave; mener par Marceau (Rappel sera fait via Mail)
---&gt; Les backups générés par $u doivent &ecirc;tre impérativement suivis."
-la relance de chaine a été relance pour la date 02/06 et elle est terminé avec succès
-Une opération de mise a jour de SCMM (MCEM) est encours. C'est cette dernière qui est &agrave; la base de l'indisponibilité des applications
-Ci dessous la référence de l'opération: R220413_0018"
-Une opération de mise a jour de SCMM (MCEM) est encours. C'est cette dernière qui est &agrave; la base de l'indisponibilité des applications
-Correction apportée sur la TS new computer. Test validé par Marco
-
-  ```
+- Autre source d'erreur :   
+  Les jobs sql en erreur auraient doit être en erreur (En fait les instances SQL pour lesquelles les alertes SCOM se déclenchent sont incluses dans un groupe SCOM qui est alimenté via une expression régulière (PRD), ce qui n'est pas le cas des instances xxxSDBA110 et xxxSDBA111, d'où; le souci) 
+  Les backups générés par $u doivent être impérativement suivis.  
+- La relance de chaine a été relance pour la date 02/06 et elle est terminé avec succès
+- Une opération de mise a jour de SCMM (MCEM) est encours. C'est cette dernière qui est à la base de l'indisponibilité des applications
+- Ci dessous la référence de l'opération: R220413_0018  
+- Correction apportée sur la TS new computer. Test validé par M
   
