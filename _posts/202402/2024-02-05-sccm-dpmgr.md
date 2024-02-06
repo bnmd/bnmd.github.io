@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "🛠️ SCCM: "
+title: "🛠️ SCCM: Distribution manager failed to access network"
 categories: IT SCCM
 tags: [tshoot, sccm]
 author: thu4nvd
@@ -19,7 +19,7 @@ author: thu4nvd
   Object : ConfigMgr Distribution Manager
   ```
 
-## Check steps
+## Steps check
 - Access server then check the Event Viewer:
   ![alt text](</assets/2024/02/Screenshot 2024-02-06 175258.png>)
 - Please note the message come from the same `Task Category` and `Source`
@@ -28,7 +28,11 @@ author: thu4nvd
   On 06/02/2024 11:05:25, component SMS_DISTRIBUTION_MANAGER on computer BCNSSRV148.x-x.COM reported: Distribution Manager successfully distributed package "PAP00110" to distribution point "["Display=\\bcnvsrv844.x-x.com\"]MSWNET:["SMS_SITE=PAP"]\\bcnvsrv844.x-x.com\".
   ```
   
-## Solution:   
+## Solution
 - That means the connection has been auto established.
 - If not, please check the firewall and connection from Distribution Point to the Site Server.
+- From Forum prajwaldesai:   
+  _Your idea of formatting the drive got me thinking, when looking at the drive, there was a number of empty folders, an example one would be SMS_DP$. I remove the DP, then these empty folders, recreate the DP and now it has a green status!_
 
+## Reference
+- Forum `prajwaldesai` [Link](https://forums.prajwaldesai.com/threads/distribution-manager-failed-to-connect-to-the-distribution-point.1674/)
