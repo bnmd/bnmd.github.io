@@ -79,7 +79,7 @@ author: thu4nvd
   ```
  
 ## Configure SSH access to github
-   <updating...>
+- For the first time git-push to remote repo (run command in the VSCode), it will request you to create credentials and log in to Github via browser, the procedure is quite strait-forward.
 
 ## Reference: 
 - Stackoverflow [post](https://stackoverflow.com/questions/9546324/adding-a-directory-to-the-path-environment-variable-in-windows)
