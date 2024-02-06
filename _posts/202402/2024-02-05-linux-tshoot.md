@@ -277,4 +277,4 @@ $env
 
 ## Reference    
 - Github [Repo](https://github.com/mismailzz/Linux-Troubleshooting-Scenarios-with-solutions) of Mismailzz   
-- [Cheatsheet](http://cheat.sh) page    
+- `Cheatsheet` webtool page    
