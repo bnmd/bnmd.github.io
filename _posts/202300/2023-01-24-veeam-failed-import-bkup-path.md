@@ -1,14 +1,7 @@
 ---
 layout: post
 title: "🛠 Veeam issue: Job failed due to import backup path"
-date: 2023-01-26 04:47:00.000000000 -08:00
-type: post
-parent_id: '0'
-published: true
-status: publish
-categories:
-- IT
-- Veeam
+categories: IT Veeam
 tags: [tshoot, veeam]
 author: thu4nvd
 ---
