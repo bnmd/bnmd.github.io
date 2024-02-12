@@ -7,7 +7,7 @@ author: thu4nvd
 ---
 
 ## TLDR 
-![alt text](../../assets/2024/02/howto-storagetype.png)
+![alt text](/assets/2024/02/howto-storagetype.png)
 
 - Block storage offers high performance and low latency.  
   Suitable for databases and virtual machines.
