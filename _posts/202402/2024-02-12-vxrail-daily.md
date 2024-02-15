@@ -16,35 +16,35 @@ Check the overall health of VXRAIL cluster.
 
 ## Procedure & Validation
 
-1. Connect to vSphere using the S1 account
-2. Check the state of the hosts
+- Connect to vSphere using the S1 account
+## > Check the state of the hosts
 
 - Choose the **Datacenter > Hosts & Cluster > Hosts**:   
   Check the value of status is Normal
 - Validation: All the hosts must be in « Normal » state  
   (In the case of a « Warning » state, there should be no incident reported, except if it occurs on multiple nodes or across all nodes within the same cluster) 
 
-3. Check the state of the VMs
+## > Check the state of the VMs
 
 - Choose the **Datacenter > VMs > Virtual Machines** :   
   Check the value of status is Normal 
 - Validation: All the VMs must be in « Normal » state  
   (In the case of a « Warning » state, there should be no incident reported, except if it occurs on multiple nodes or across all nodes within the same cluster) 
 
-4. Check the state of the Datastores
+## > Check the state of the Datastores
 
 - Choose the **Datacenter > Datastores > Datastores**:  
   Check the value of status is Normal
 - Validation: All the Datastores must be in « Normal » state   
   (In the case of a « Warning » state, there should be no incident reported, except if it occurs on multiple Datastores or across all Datastores within the same cluster) 
 
-5. Checking the performance of the hosts
+## > Checking the performance of the hosts
 
 - Choose the **Datacenter > Select the wanted cluster >  Monitor > vSphere DRS > CPU Utilization & Memory Utilization** : Verify the value for each node in each cluster does not exceed 80%) 
 
 - Validation: Memory and CPU usage should not exceed 80%. 
 
-6. Run the the Skyline Health test
+## > Run the the Skyline Health test
 
 - Choose the **Datacenter > Select the wanted cluster > Monitor > vSAN > Skyline Health** : Verify that no critical error exists) (No health score for satellite) 
 
