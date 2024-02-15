@@ -29,7 +29,7 @@ In additional, Oasis allows to know the progression status of requests and to vi
 - Phone number: +84 999 999 999
 - Message via MS Teams: Alivu
 - PIC: alivu@contoso.com
-  ![alt text](</assets/2023/06/Screenshot 2024-02-07 165811.png>)
+  ![alt text](</assets/2023/06/Screenshot_2024-02-07_165811.png>)
 
 ## User Support
 
@@ -39,7 +39,7 @@ In additional, Oasis allows to know the progression status of requests and to vi
 - Oasis: Reminder Oasis is the Contoso IT tools to log incident or ordering global services such as 
   - Applications e.g: MS Project, Autocad etc..
 
-  ![alt text](</assets/2023/06/Screenshot 2024-02-07 165818.png>)
+  ![alt text](</assets/2023/06/Screenshot_2024-02-07_165818.png>)
 
 ## Account Management
 
@@ -49,7 +49,7 @@ In account management, Contoso IT provides a  respective services:
 - Add/Modify group and validate the account to be ensured standard security group membership apply
 - Moving account between OUs in order to facilitate the local IT to have under their managed scope OU.
   
-  ![alt text](</assets/2023/06/Screenshot 2024-02-07 165836.png>)
+  ![alt text](</assets/2023/06/Screenshot_2024-02-07_165836.png>)
 
 ## Printing System
 
@@ -59,14 +59,14 @@ Contoso IT will cover the printing system service, including:
 - Add/Remove printer
 - Manage print queue
 
-  ![alt text](</assets/2023/06/Screenshot 2024-02-07 165846.png>)
+  ![alt text](</assets/2023/06/Screenshot_2024-02-07_165846.png>)
 
 ## Workstation installation and Tools
 
 - Contoso IT Vietnam will be provided a standard Contoso IT workstation specification catalogue and recommendation for the model to be selected based on the functional of usage and to be assisted for workstation installation.
 - Contoso IT Vietnam will give the consultation on the installation of software validated by Contoso IT subjects to the installation source by the client and proof of license.
 
-  ![alt text](</assets/2023/06/Screenshot 2024-02-07 165855.png>)
+  ![alt text](</assets/2023/06/Screenshot_2024-02-07_165855.png>)
 
 ## Windows Server deployment and configuration
 
@@ -76,7 +76,7 @@ Contoso IT VN will be supported on the :
 - Assist on server remediation 
 - Assist on installation of Features and Functional configuration
 
-  ![alt text](</assets/2023/06/Screenshot 2024-02-07 165902.png>)
+  ![alt text](</assets/2023/06/Screenshot_2024-02-07_165902.png>)
 
 ## Networking and Monitoring
 
@@ -88,7 +88,7 @@ Provided the services for the availability and the access to Contoso network thr
 - Liens ISP
 - Centreon IT monitoring platform. 24 hours monitoring and real time alert notification
 
-  ![alt text](</assets/2023/06/Screenshot 2024-02-07 165908.png>)
+  ![alt text](</assets/2023/06/Screenshot_2024-02-07_165908.png>)
 
 ## MS365 Exchange
 
@@ -98,7 +98,7 @@ Contoso IT Vietnam will be providing the services which related to Microsoft 365
 - Shared mailbox
 - SharePoint migration
 
-  ![alt text](</assets/2023/06/Screenshot 2024-02-07 165916.png>) 
+  ![alt text](</assets/2023/06/Screenshot_2024-02-07_165916.png>) 
 
 ## Deploy and Implement new Site
 
@@ -109,6 +109,6 @@ Contoso IT Vietnam will be providing the services which related to Microsoft 365
   - IT En local mais besoin d’aide pour l’étude et le déploiment 
   - Pas d’IT en local Service Desk prend l’étude et le deployment 
 
-  ![alt text](</assets/2023/06/Screenshot 2024-02-07 165924.png>)
+  ![alt text](</assets/2023/06/Screenshot_2024-02-07_165924.png>)
 
 # Evaluation
