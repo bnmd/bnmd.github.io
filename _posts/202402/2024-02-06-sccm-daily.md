@@ -34,12 +34,12 @@ author: thu4nvd
 
 - Access to https://reportingdollaru.bcc.com/rapportchaine.php?chaine=SCCJSVAPNA&noeud=BYCNP06 to check all the status are ok 
 
-  ![alt text](</assets/2024/02/Screenshot 2024-02-07 140859.png>)
+  ![alt text](</assets/2024/02/Screenshot_2024-02-07_140859.png>)
 
 - On ProxyAdmin, connect to xxxSSRV148 with S1 
 - In the file explorer, go to **\\BYDATA02\SCCM_sauvegarde** and verify inside the folders « xxxSSRV148 », « xxxSDBA110 » and « xxxSDBA111 » that a current or previous day’s date folder has been created and that it contains data.  
 
-  ![alt text](</assets/2024/02/Screenshot 2024-02-07 142744.png>)
+  ![alt text](</assets/2024/02/Screenshot_2024-02-07_142744.png>)
 
 - If there is any problem, open an Oasis ticket with the category **Incidents/infrastructure/MECM**  
 - Stay connected to xxxSSRV148 
@@ -89,7 +89,7 @@ author: thu4nvd
   ```
 - Copy the results of the command and paste them in an Excel File. Use the formula « CONCAT » to assemble PAP**** and ****.***.bcc.COM 
 
-  ![alt text](</assets/2024/02/Screenshot 2024-02-07 143252.png>)
+  ![alt text](</assets/2024/02/Screenshot_2024-02-07_143252.png>)
 
 - Copy the results and paste them in the file
   ```
@@ -109,11 +109,11 @@ author: thu4nvd
 - Open the MCM on S1 with ProxyAdmin 
 - Go to « **Assets and Compliance / Overview / Device Collections / Servers / Server Localisation** ».  
 
-  ![alt text](</assets/2024/02/Screenshot 2024-02-07 143552.png>)
+  ![alt text](</assets/2024/02/Screenshot_2024-02-07_143552.png>)
 
 - Double-click on SRV Tier 0 and sort by « Client ». 
   
-  ![alt text](</assets/2024/02/Screenshot 2024-02-07 143658.png>)
+  ![alt text](</assets/2024/02/Screenshot_2024-02-07_143658.png>)
 
 - If an item has the value Yes for « Client » and Active for « Client Activity », note it in the report message  
 - Stay connected to MECM 
@@ -122,7 +122,7 @@ author: thu4nvd
 
 - Go to « **Monitoring / Overview / Software Update Point Synchronization** » and verify that all servers have the same Catalog Version, a Synchronization status Completed  
   - If the status is not Completed, the Last Synchronization Attempt should not be older than 24 hours. 
-  ![alt text](</assets/2024/02/Screenshot 2024-02-07 143813.png>)
+  ![alt text](</assets/2024/02/Screenshot_2024-02-07_143813.png>)
 
 - If there is any problem, create an Oasis ticket with the category « **Incidents/infrastructure/MECM** »  
 - Stay connected to MECM 
@@ -131,7 +131,7 @@ author: thu4nvd
 
 - Go to « **Monitoring / Overview / System Status / Site Status** » and check if there is any critical status on xxxVSRV148 or xxxVSRV150. 
 
-  ![alt text](</assets/2024/02/Screenshot 2024-02-07 144012.png>)
+  ![alt text](</assets/2024/02/Screenshot_2024-02-07_144012.png>)
  
 - Go to « **Monitoring / Overview / System Status / Component Status** » and check if there is any critical status.  
 - If so, display messages to assess the criticality of the impact. 
@@ -144,7 +144,7 @@ author: thu4nvd
 https://opsmgr.bcc.com/OperationsManager/#/monitoring/view  
 
 - Go to « **Monitoring / System Center 2012 Configuration Manager** » 
-- If there are critical alerts, make a screenshot to be inserted in the report email. 
+- If there are critical alerts, make a Screenshot_to be inserted in the report email. 
 - Close the SCOM console  
 
 ## Software Updates Evaluation 
@@ -202,10 +202,10 @@ https://opsmgr.bcc.com/OperationsManager/#/monitoring/view
 
 - Check the results of both queries 
   - Query 1: xxxSSRV150 – xxxSSRV151 – xxxVSRV2066 – xxxVSRV511 
-    ![alt text](</assets/2024/02/Screenshot 2024-02-07 144800.png>)
+    ![alt text](</assets/2024/02/Screenshot_2024-02-07_144800.png>)
 
   - Query 2: Global 
-    ![alt text](</assets/2024/02/Screenshot 2024-02-07 144808.png>)
+    ![alt text](</assets/2024/02/Screenshot_2024-02-07_144808.png>)
 
 - If there are more than 30% failed for xxxVSRV511 or more than 10% on another server, create an Oasis ticket with the category « **Incidents/infrastructure/MECM** »  
 - Log out from xxxSDBA110 
@@ -214,7 +214,7 @@ https://opsmgr.bcc.com/OperationsManager/#/monitoring/view
 - Access to this link https://reportingservices2016.bcc.com/Reports_infra/report/EXPLOITATION/TDB%20SQL%20Server/ETAT_ALWAYSON_AVAILABILITY_GROUPS  
 
 - Go to Cluster Name **« xxxCDBA053** » and verify that all criterias are « Healthy », « Online », « OK », « OK » and « Conforme » 
-  ![alt text](</assets/2024/02/Screenshot 2024-02-07 145002.png>)
+  ![alt text](</assets/2024/02/Screenshot_2024-02-07_145002.png>)
 
 - If one of them does not have the expected result, create an Oasis incident with the category « **Incidents/Infrastructure/MSSQL Server/Always On** »  
 

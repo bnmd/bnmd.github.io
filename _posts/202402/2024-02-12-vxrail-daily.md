@@ -109,4 +109,5 @@ If the vCenter is unreachable
 ```
 Incidents/Infrastructure/Virtualisation/VMware/VCenter injoignable 
 ```
-![alt text](</assets/2024/02/Screenshot 2024-02-15 105850.png>)
+
+![alt text](</assets/2024/02/Screenshot_2024-02-15_105850.png>)

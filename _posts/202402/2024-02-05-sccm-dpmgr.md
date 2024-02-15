@@ -21,7 +21,7 @@ author: thu4nvd
 
 ## Steps check
 - Access server then check the Event Viewer:
-  ![alt text](</assets/2024/02/Screenshot 2024-02-06 175258.png>)
+  ![alt text](</assets/2024/02/Screenshot_2024-02-06_175258.png>)
 - Please note the message come from the same `Task Category` and `Source`
 - The message shows:
   ```

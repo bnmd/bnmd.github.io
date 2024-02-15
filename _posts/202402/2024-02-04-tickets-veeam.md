@@ -35,7 +35,7 @@ Category: Veeam Backup Replication
   Please note that we have an issue for the VEEAM backup, no one amongst BBIKSA local group's SMEA account is able to access the portal to restore files/folders.  
   Execution Timeout Error. This has been going on for the past few weeks, please see below screenshot error.  
 
-  ![alt text](</assets/2024/02/2024-02-05 14_35_10-Window.png>)
+  ![alt text](/assets/2024/02/2024-02-05_14_35_10-Window.png)
 
 * Solution:  
   Pb is resolved after helps Backup veeam support. 

@@ -47,7 +47,7 @@ Adding Backup Repo (normal process :-))
 https://helpcenter.veeam.com/docs/backu ... ml?ver=100
 
 
-![alt text](<../../assets/2023/02/Screenshot 2024-02-07 212350.png>)
+![alt text](/assets/2023/02/Screenshot_2024-02-07_212350.png)
 
 ## Question 2: Best practice
 
