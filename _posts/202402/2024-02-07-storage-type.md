@@ -16,6 +16,8 @@ author: thu4nvd
 - Object storage is offering scalability and cost-effectiveness.  
   Best for large amounts of unstructured data.
 
+![alt text](</assets/2024/02/Screenshot 2024-02-11 084214.png>)
+
 ## First words
 
 Ba loại lưu trữ dữ liệu phổ biến nhất hiện nay là :  
