@@ -17,6 +17,7 @@ Check the overall health of VXRAIL cluster.
 ## Procedure & Validation
 
 - Connect to vSphere using the S1 account
+
 ## > Check the state of the hosts
 
 - Choose the **Datacenter > Hosts & Cluster > Hosts**:   
