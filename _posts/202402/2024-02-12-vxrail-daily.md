@@ -41,13 +41,13 @@ Check the overall health of VXRAIL cluster.
 
 ## > Checking the performance of the hosts
 
-- Choose the **Datacenter > Select the wanted cluster >  Monitor > vSphere DRS > CPU Utilization & Memory Utilization** : Verify the value for each node in each cluster does not exceed 80%) 
+- Choose the **Datacenter > Select the wanted cluster >  Monitor > vSphere DRS > CPU Utilization & Memory Utilization** : Verify the value for each node in each cluster does not exceed 80%
 
 - Validation: Memory and CPU usage should not exceed 80%. 
 
 ## > Run the the Skyline Health test
 
-- Choose the **Datacenter > Select the wanted cluster > Monitor > vSAN > Skyline Health** : Verify that no critical error exists) (No health score for satellite) 
+- Choose the **Datacenter > Select the wanted cluster > Monitor > vSAN > Skyline Health** : Verify that no critical error exists (No health score for satellite) 
 
 - Value range:
   - Value range 81-100 = On Target/Healthy. 
@@ -58,16 +58,16 @@ Check the overall health of VXRAIL cluster.
 
 ## Send email and Create tickets:
 
-Send a summary email regarding the state of the VXRAIL infrastructure using template in this folder MCO ACT - VxRail Infrastructure Health on ddmmyyyy) 
+Send a summary email regarding the state of the VXRAIL infrastructure using template in this folder MCO ACT - VxRail Infrastructure Health on ddmmyyyy
 
-A ticket must be created and assigned to Support. The subject of the ticket depends on the failed metric and the type of error) 
+A ticket must be created and assigned to Support. The subject of the ticket depends on the failed metric and the type of error
 
 Status of the Node
 - If there is a service failure or a connection issue with the vCenter
 ```
 Incidents/Infrastructure/Virtualisation/VMware/ESxi _Services et Agents 
 ```
-- If the failure occurs at the physical layer of the node) : 
+- If the failure occurs at the physical layer of the node
 ```
 Incidents/Infrastructure/Virtualisation/VxRail/Hardware 
 ```
