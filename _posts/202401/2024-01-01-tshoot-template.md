@@ -1,15 +1,9 @@
 ---
 layout: post
 title: "🛠 Template Tshoot"
-date: 2024-01-01 04:47:00.000000000 -08:00
-type: post
-parent_id: '0'
-published: true
-status: publish
-categories:
-- IT
-- Veeam
-tags: [tshoot, veeam]
+published: false
+categories: IT 
+tags: [tshoot]
 author: thu4nvd
 ---
 
