@@ -29,7 +29,7 @@ author: thu4nvd
 
 ![alt text](/assets/2024/02/forti_high_session3.jpg)
 
-![alt text](../../assets/2024/02/forti_high_session4.jpg)
+![alt text](/assets/2024/02/forti_high_session4.jpg)
 
 ## Next steps
 * Rà soát lại một loạt điện thoại tàu trong LAN.
